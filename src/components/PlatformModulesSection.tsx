@@ -82,12 +82,13 @@ export default function PlatformModulesSection() {
 
       <div className="relative mx-auto max-w-[1360px]">
         <Reveal>
-          <div className="mx-auto max-w-[900px] text-center">
+          <div className="mx-auto max-w-[760px] text-center">
             <p className="text-[12px] font-black uppercase tracking-[0.18em] text-[#04A9C7]">Platform Modules</p>
-            <h2 className="mt-4 text-[clamp(1.75rem,5vw,2.75rem)] font-black leading-[1.1] tracking-[-0.025em] text-slate-950">
-              One Console for Scans, Agents, Reports, and Administration
+            <h2 className="mx-auto mt-4 max-w-[760px] text-[clamp(1.55rem,5vw,2.75rem)] font-bold leading-[1.1] tracking-[-0.025em] text-slate-950">
+              <span className="block">One Console for Scans, Agents,</span>
+              <span className="block">Reports, and Administration</span>
             </h2>
-            <p className="mx-auto mt-5 max-w-[760px] text-[15px] leading-[1.75] text-slate-600 sm:text-[17px]">
+            <p className="mx-auto mt-5 max-w-[700px] text-[15px] leading-[1.75] text-slate-600 sm:text-[16px]">
               EVADA unifies target configuration, scan sources, governed AI validation, and operational workflows in one platform console.
             </p>
           </div>

@@ -455,10 +455,11 @@ function SolutionsGridSection() {
         <Reveal>
           <div className="mx-auto max-w-[760px] text-center">
             <Eyebrow>OUR SOLUTIONS</Eyebrow>
-            <h2 className="mt-3 text-[28px] font-bold leading-tight tracking-[-0.02em] text-[#071633] sm:text-[38px]">
-              Complete Coverage. Continuous Confidence.
+            <h2 className="mx-auto mt-3 max-w-[760px] text-[clamp(1.55rem,5vw,2.75rem)] font-bold leading-[1.1] tracking-[-0.025em] text-[#071633]">
+              <span className="block">Complete Coverage.</span>
+              <span className="block">Continuous Confidence.</span>
             </h2>
-            <p className="mt-4 text-[15px] font-normal leading-relaxed text-slate-600 sm:text-[16px]">
+            <p className="mx-auto mt-4 max-w-[700px] text-[15px] font-normal leading-relaxed text-slate-600 sm:text-[16px]">
               From discovery to remediation, EVADA helps you validate what matters most.
             </p>
           </div>
@@ -479,12 +480,12 @@ function ValidationWorkflowSection() {
     <section className="bg-white px-5 pb-12 pt-2 sm:px-8 lg:px-10 lg:pb-16" id="workflow">
       <div className="mx-auto max-w-[1360px]">
         <Reveal>
-          <div className="mx-auto max-w-[780px] text-center">
+          <div className="mx-auto max-w-[760px] text-center">
             <Eyebrow>HOW IT WORKS</Eyebrow>
-            <h2 className="mt-3 text-[28px] font-bold leading-tight tracking-[-0.02em] text-[#071633] sm:text-[36px]">
+            <h2 className="mx-auto mt-3 max-w-[760px] text-[clamp(1.55rem,5vw,2.75rem)] font-bold leading-[1.1] tracking-[-0.025em] text-[#071633]">
               The EVADA Validation Workflow
             </h2>
-            <p className="mt-4 text-[15px] font-normal leading-relaxed text-slate-600">
+            <p className="mx-auto mt-4 max-w-[700px] text-[15px] font-normal leading-relaxed text-slate-600 sm:text-[16px]">
               A continuous cycle that turns findings into actionable, evidence-backed risk insights.
             </p>
           </div>
@@ -524,10 +525,11 @@ function ImpactSection() {
         <Reveal>
           <div>
             <Eyebrow>REAL IMPACT</Eyebrow>
-            <h2 className="mt-3 text-[28px] font-bold leading-tight tracking-[-0.02em] text-[#071633] sm:text-[36px]">
-              Validate What Matters. Reduce What Does Not.
+            <h2 className="mt-3 max-w-[460px] text-[clamp(1.55rem,4.2vw,2.75rem)] font-bold leading-[1.1] tracking-[-0.025em] text-[#071633]">
+              <span className="block">Validate What Matters.</span>
+              <span className="block">Reduce What Does Not.</span>
             </h2>
-            <p className="mt-5 max-w-[420px] text-[15px] font-normal leading-relaxed text-slate-600">
+            <p className="mt-5 max-w-[420px] text-[15px] font-normal leading-relaxed text-slate-600 sm:text-[16px]">
               EVADA helps security teams focus on what attackers can exploit, reduce noise, and move remediation forward with confidence.
             </p>
             <Link href="/resources" className="mt-5 inline-flex items-center gap-2 text-[14px] font-semibold text-[#2563EB] transition hover:translate-x-1">

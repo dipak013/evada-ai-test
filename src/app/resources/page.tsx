@@ -151,12 +151,12 @@ function Eyebrow({ children }: { children: string }) {
 function SectionIntro({ eyebrow, title, text }: { eyebrow: string; title: string; text: string }) {
   return (
     <Reveal>
-      <div className="mx-auto max-w-3xl text-center">
+      <div className="mx-auto max-w-[760px] text-center">
         <Eyebrow>{eyebrow}</Eyebrow>
-        <h2 className="mt-3 text-[clamp(1.8rem,3.4vw,2.55rem)] font-black leading-tight tracking-[-0.025em] text-slate-950">
+        <h2 className="mx-auto mt-3 max-w-[760px] text-[clamp(1.55rem,5vw,2.75rem)] font-bold leading-[1.1] tracking-[-0.025em] text-slate-950">
           {title}
         </h2>
-        <p className="mt-3 text-[15px] font-medium leading-relaxed text-slate-600 sm:text-[17px]">
+        <p className="mx-auto mt-4 max-w-[700px] text-[15px] font-normal leading-relaxed text-slate-600 sm:text-[16px]">
           {text}
         </p>
       </div>
@@ -523,7 +523,7 @@ function NewsletterSection() {
               <Mail aria-hidden="true" className="h-11 w-11" strokeWidth={1.9} />
             </span>
             <div className="min-w-0">
-              <h2 className="text-[clamp(1.65rem,4.4vw,2.35rem)] font-black leading-tight tracking-[-0.025em] text-slate-950">
+              <h2 className="text-[clamp(1.55rem,4.2vw,2.35rem)] font-bold leading-[1.1] tracking-[-0.025em] text-slate-950">
                 Stay updated with the latest resources
               </h2>
               <p className="mt-2 max-w-[560px] text-[15px] leading-relaxed text-slate-600 sm:text-[17px]">

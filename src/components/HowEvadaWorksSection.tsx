@@ -122,11 +122,10 @@ export default function HowEvadaWorksSection() {
 
       <div className="relative mx-auto max-w-[1180px]">
         <Reveal>
-          <div className="mx-auto max-w-[880px] text-center">
+          <div className="mx-auto max-w-[760px] text-center">
             <p className="text-[12px] font-black uppercase tracking-[0.18em] text-[#04A9C7]">How EVADA Works</p>
-            <h2 className="mt-4 max-w-full break-words text-[clamp(1.5rem,5.2vw,2.75rem)] font-black leading-[1.1] tracking-[-0.02em] text-slate-950 sm:tracking-[-0.025em]">
+            <h2 className="mx-auto mt-4 max-w-[760px] break-words text-[clamp(1.55rem,5vw,2.75rem)] font-bold leading-[1.1] tracking-[-0.02em] text-slate-950 sm:tracking-[-0.025em]">
               <span className="block">A Controlled Validation Workflow</span>
-              <span className="block">Designed</span>
               <span className="block">for Enterprise Security Teams</span>
             </h2>
             <span className="mx-auto mt-5 block h-1.5 w-16 rounded-full bg-[#04A9C7]" />

@@ -444,10 +444,11 @@ function PlatformModulesSection() {
         <Reveal>
           <div className="mx-auto max-w-[760px] text-center">
             <Eyebrow>PLATFORM MODULES</Eyebrow>
-            <h2 className="mt-3 text-[28px] font-black leading-tight tracking-[-0.02em] text-[#071633] sm:text-[38px]">
-              Everything You Need in One Unified Console
+            <h2 className="mx-auto mt-3 max-w-[760px] text-[clamp(1.55rem,5vw,2.75rem)] font-bold leading-[1.1] tracking-[-0.025em] text-[#071633]">
+              <span className="block">Everything You Need in</span>
+              <span className="block">One Unified Console</span>
             </h2>
-            <p className="mt-4 text-[15px] font-medium leading-relaxed text-slate-600 sm:text-[16px]">
+            <p className="mx-auto mt-4 max-w-[700px] text-[15px] font-normal leading-relaxed text-slate-600 sm:text-[16px]">
               From asset configuration to AI-supported validation and reporting, built for every security team.
             </p>
           </div>
@@ -470,10 +471,11 @@ function AIPipelineSection() {
         <Reveal>
           <div className="mx-auto max-w-[760px] text-center">
             <Eyebrow>AI-SUPPORTED PENTEST PIPELINE</Eyebrow>
-            <h2 className="mt-3 text-[28px] font-black leading-tight tracking-[-0.02em] text-[#071633] sm:text-[38px]">
-              AI-Supported Pentest Pipeline
+            <h2 className="mx-auto mt-3 max-w-[760px] text-[clamp(1.55rem,5vw,2.75rem)] font-bold leading-[1.1] tracking-[-0.025em] text-[#071633]">
+              <span className="block">AI-Supported Pentest</span>
+              <span className="block">Pipeline</span>
             </h2>
-            <p className="mt-4 text-[15px] font-medium leading-relaxed text-slate-600 sm:text-[16px]">
+            <p className="mx-auto mt-4 max-w-[700px] text-[15px] font-normal leading-relaxed text-slate-600 sm:text-[16px]">
               Observe every stage of the AI validation workflow in real time.
             </p>
           </div>
@@ -572,10 +574,11 @@ function ArchitectureSection() {
         <Reveal>
           <div>
             <Eyebrow>ARCHITECTURE</Eyebrow>
-            <h2 className="mt-3 text-[30px] font-black leading-tight tracking-[-0.02em] text-[#071633] sm:text-[40px]">
-              Built for Security, Control & Scale
+            <h2 className="mt-3 max-w-[460px] text-[clamp(1.55rem,4.2vw,2.75rem)] font-bold leading-[1.1] tracking-[-0.025em] text-[#071633]">
+              <span className="block">Built for Security,</span>
+              <span className="block">Control & Scale</span>
             </h2>
-            <p className="mt-5 max-w-[420px] text-[15px] font-medium leading-relaxed text-slate-600">
+            <p className="mt-5 max-w-[420px] text-[15px] font-normal leading-relaxed text-slate-600 sm:text-[16px]">
               EVADA is designed with security and governance at every layer.
             </p>
             <ul className="mt-6 grid gap-3">

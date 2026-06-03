@@ -206,12 +206,12 @@ function Eyebrow({ children }: { children: string }) {
 function SectionIntro({ eyebrow, title, text }: { eyebrow?: string; title: string; text?: string }) {
   return (
     <Reveal>
-      <div className="mx-auto max-w-3xl text-center">
+      <div className="mx-auto max-w-[760px] text-center">
         {eyebrow && <Eyebrow>{eyebrow}</Eyebrow>}
-        <h2 className="mt-3 text-[clamp(1.8rem,3.4vw,2.55rem)] font-black leading-tight tracking-[-0.025em] text-slate-950">
+        <h2 className="mx-auto mt-3 max-w-[760px] text-[clamp(1.55rem,5vw,2.75rem)] font-bold leading-[1.1] tracking-[-0.025em] text-slate-950">
           {title}
         </h2>
-        {text && <p className="mt-3 text-[15px] font-medium leading-relaxed text-slate-600 sm:text-[17px]">{text}</p>}
+        {text && <p className="mx-auto mt-4 max-w-[700px] text-[15px] font-normal leading-relaxed text-slate-600 sm:text-[16px]">{text}</p>}
       </div>
     </Reveal>
   );
@@ -390,7 +390,7 @@ function MissionSection() {
                   <Icon className="h-10 w-10" strokeWidth={1.9} />
                 </span>
                 <div>
-                  <h2 className="text-[22px] font-black tracking-[-0.015em] text-slate-950">{column.title}</h2>
+                  <h2 className="text-[22px] font-bold tracking-[-0.015em] text-slate-950">{column.title}</h2>
                   {values.length > 0 ? (
                     <ul className="mt-4 grid gap-2">
                       {values.map((value) => (
@@ -559,10 +559,10 @@ function WorkWithUsSection() {
 
           <div className="relative p-7 text-white sm:p-10 lg:p-12">
             <Eyebrow>CAREERS</Eyebrow>
-            <h2 className="mt-3 text-[clamp(2rem,4vw,3.35rem)] font-black leading-tight tracking-[-0.03em]">
+            <h2 className="mt-3 text-[clamp(1.75rem,4vw,3rem)] font-bold leading-[1.1] tracking-[-0.025em]">
               Work With Us
             </h2>
-            <p className="mt-4 max-w-[670px] text-[16px] font-medium leading-relaxed text-white/86 sm:text-[18px]">
+            <p className="mt-4 max-w-[670px] text-[15px] font-normal leading-relaxed text-white/86 sm:text-[16px]">
               Join our mission to build a safer digital future. Explore careers and be part of a passionate team solving real-world security challenges.
             </p>
             <div className="mt-8 grid gap-3 sm:flex">

@@ -38,6 +38,15 @@ type ComplianceCard = {
   Icon: LucideIcon;
 };
 
+type SecurityHeroBadge = {
+  label: string;
+  Icon: LucideIcon;
+  className: string;
+  delayMs?: number;
+  showDot?: boolean;
+  variant?: "default" | "status";
+};
+
 const heroChips: IconCard[] = [
   { title: "Secure by Design", text: "", Icon: ShieldCheck },
   { title: "Data Protection", text: "", Icon: LockKeyhole },
@@ -188,6 +197,67 @@ const governanceCards: IconCard[] = [
   },
 ];
 
+const securityHeroBadges: SecurityHeroBadge[] = [
+  {
+    label: "Security Operations",
+    Icon: Radar,
+    className: "left-[356px] top-[58px]",
+    delayMs: 20,
+    showDot: true,
+    variant: "status",
+  },
+  {
+    label: "Secure Validation",
+    Icon: ShieldCheck,
+    className: "left-[56px] top-[118px]",
+    delayMs: 60,
+    showDot: true,
+  },
+  {
+    label: "Data Protection",
+    Icon: LockKeyhole,
+    className: "right-[72px] top-[118px]",
+    delayMs: 160,
+    showDot: true,
+  },
+  {
+    label: "RBAC Access",
+    Icon: Users,
+    className: "left-[8px] top-[302px]",
+    delayMs: 260,
+    showDot: true,
+  },
+  {
+    label: "Audit Trails",
+    Icon: FileText,
+    className: "right-[14px] top-[302px]",
+    delayMs: 340,
+    showDot: true,
+  },
+  {
+    label: "Session & CSRF",
+    Icon: ShieldCheck,
+    className: "left-[54px] bottom-[112px]",
+    delayMs: 430,
+    showDot: true,
+  },
+  {
+    label: "Human Approval",
+    Icon: UserCheck,
+    className: "right-[52px] bottom-[112px]",
+    delayMs: 520,
+    showDot: true,
+  },
+  {
+    label: "All Systems Secure",
+    Icon: ShieldCheck,
+    className: "left-[356px] bottom-[26px]",
+    delayMs: 610,
+    showDot: true,
+    variant: "status",
+  },
+];
+
 function Eyebrow({ children }: { children: string }) {
   return (
     <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-[#2563EB]">
@@ -196,14 +266,30 @@ function Eyebrow({ children }: { children: string }) {
   );
 }
 
+function SecurityOpsBadge({ badge }: { badge: SecurityHeroBadge }) {
+  const Icon = badge.Icon;
+  const isStatus = badge.variant === "status";
+
+  return (
+    <div
+      className={`security-ops-card absolute z-30 inline-flex min-h-12 items-center gap-3 whitespace-nowrap rounded-full border border-white/70 bg-white/90 px-5 py-2.5 text-[14px] font-bold text-[#0A1A3A] shadow-[0_18px_44px_rgba(37,99,235,0.16)] ring-1 ring-blue-100/60 backdrop-blur-xl ${isStatus ? "min-w-[224px] justify-center text-[15px] text-[#2563EB]" : ""} ${badge.className}`}
+      style={{ animationDelay: `${badge.delayMs ?? 0}ms` }}
+    >
+      <Icon aria-hidden="true" className="h-5 w-5 shrink-0 text-[#2563EB]" strokeWidth={2.2} />
+      {badge.showDot && <span className="h-2.5 w-2.5 shrink-0 rounded-full bg-emerald-400 shadow-[0_0_14px_rgba(52,211,153,0.9)]" />}
+      <span>{badge.label}</span>
+    </div>
+  );
+}
+
 function SecurityHeroVisual() {
   return (
-    <div className="security-hero-visual relative mx-auto h-[520px] w-full max-w-full sm:h-[580px] sm:max-w-[760px] lg:mt-0 xl:-mt-2" aria-hidden="true">
+    <div className="security-hero-visual relative mx-auto h-[540px] w-full max-w-full sm:h-[610px] sm:max-w-[800px] lg:-mt-1 xl:-mt-3" aria-hidden="true">
       <div className="security-ops-aurora absolute inset-0" />
-      <div className="absolute left-1/2 top-[45%] h-[560px] w-[760px] -translate-x-1/2 -translate-y-1/2 scale-[0.54] sm:scale-[0.76] md:scale-[0.82] lg:scale-[0.84] xl:scale-[0.9] 2xl:scale-[0.94]">
-        <svg className="security-ops-orbits absolute inset-0 z-0 h-full w-full" viewBox="0 0 760 560" fill="none">
+      <div className="absolute left-1/2 top-1/2 h-[620px] w-[900px] -translate-x-1/2 -translate-y-1/2 scale-[0.48] sm:scale-[0.66] md:scale-[0.72] lg:scale-[0.76] xl:scale-[0.84] 2xl:scale-[0.9]">
+        <svg className="security-ops-orbits absolute inset-0 z-0 h-full w-full" viewBox="0 0 900 620" fill="none">
           <defs>
-            <linearGradient id="security-ops-orbit-gradient" x1="96" y1="70" x2="674" y2="508" gradientUnits="userSpaceOnUse">
+            <linearGradient id="security-ops-orbit-gradient" x1="118" y1="86" x2="742" y2="536" gradientUnits="userSpaceOnUse">
               <stop stopColor="#06B6D4" />
               <stop offset="0.46" stopColor="#2563EB" />
               <stop offset="1" stopColor="#7C3AED" />
@@ -214,43 +300,56 @@ function SecurityHeroVisual() {
               <stop offset="0.74" stopColor="#7C3AED" stopOpacity="0.58" />
               <stop offset="1" stopColor="#06B6D4" stopOpacity="0.22" />
             </radialGradient>
+            <radialGradient id="security-ops-glow-gradient" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(470 306) rotate(90) scale(255)">
+              <stop stopColor="#FFFFFF" stopOpacity="0.82" />
+              <stop offset="0.24" stopColor="#38BDF8" stopOpacity="0.72" />
+              <stop offset="0.57" stopColor="#2563EB" stopOpacity="0.5" />
+              <stop offset="0.84" stopColor="#7C3AED" stopOpacity="0.38" />
+              <stop offset="1" stopColor="#FFFFFF" stopOpacity="0" />
+            </radialGradient>
           </defs>
-          <circle cx="380" cy="282" r="286" stroke="rgba(255,255,255,0.6)" strokeWidth="1" />
-          <circle className="security-ops-dash-ring" cx="380" cy="282" r="248" stroke="url(#security-ops-orbit-gradient)" strokeDasharray="6 14" strokeWidth="1.5" opacity="0.58" />
-          <circle cx="380" cy="282" r="214" fill="url(#security-ops-core-gradient)" opacity="0.85" />
-          <circle cx="380" cy="282" r="188" stroke="rgba(255,255,255,0.72)" strokeWidth="1.4" />
-          <circle className="security-ops-dash-ring security-ops-dash-ring-slow" cx="380" cy="282" r="152" stroke="rgba(255,255,255,0.72)" strokeDasharray="2 9" strokeWidth="1.1" />
-          <circle cx="380" cy="282" r="112" stroke="rgba(255,255,255,0.58)" strokeWidth="1.2" />
-          <path className="security-ops-signal" d="M156 282H604" stroke="url(#security-ops-orbit-gradient)" strokeDasharray="5 12" strokeWidth="1.4" />
-          <path className="security-ops-signal security-ops-signal-b" d="M380 36V530" stroke="rgba(255,255,255,0.62)" strokeDasharray="6 14" strokeWidth="1.1" />
-          <path className="security-ops-signal security-ops-signal-c" d="M128 408C246 334 494 332 636 404" stroke="url(#security-ops-orbit-gradient)" strokeDasharray="5 13" strokeWidth="1.3" />
-          {[134, 222, 380, 538, 670].map((x, index) => (
-            <circle key={x} className="security-ops-node" cx={x} cy={index % 2 ? 132 : 282} r={index === 2 ? 10 : 6} fill={index === 2 ? "#A78BFA" : "#FFFFFF"} />
-          ))}
-          {[164, 278, 498, 618].map((x, index) => (
-            <circle key={`bottom-${x}`} className="security-ops-node" cx={x} cy={index % 2 ? 476 : 424} r="5.5" fill={index % 2 ? "#22D3EE" : "#FFFFFF"} />
-          ))}
-          <path id="security-ops-text-path" d="M226 172A200 200 0 0 1 534 172" />
-          <text className="security-ops-ring-text" fill="rgba(255,255,255,0.88)" fontSize="14" fontWeight="700" letterSpacing="3.4">
-            <textPath href="#security-ops-text-path" startOffset="50%" textAnchor="middle">EVADA SECURITY OPERATIONS</textPath>
+
+          <circle cx="470" cy="306" r="264" fill="url(#security-ops-glow-gradient)" opacity="0.9" />
+          <circle cx="470" cy="306" r="314" stroke="rgba(255,255,255,0.58)" strokeWidth="1.1" />
+          <circle cx="470" cy="306" r="282" stroke="rgba(255,255,255,0.42)" strokeDasharray="4 9" strokeWidth="1.1" />
+          <circle className="security-ops-dash-ring" cx="470" cy="306" r="238" stroke="url(#security-ops-orbit-gradient)" strokeDasharray="7 12" strokeWidth="1.8" opacity="0.85" />
+          <circle cx="470" cy="306" r="204" stroke="rgba(255,255,255,0.68)" strokeWidth="1.25" />
+          <circle className="security-ops-dash-ring security-ops-dash-ring-slow" cx="470" cy="306" r="166" stroke="rgba(255,255,255,0.7)" strokeDasharray="2 9" strokeWidth="1.1" />
+          <circle cx="470" cy="306" r="126" stroke="rgba(255,255,255,0.52)" strokeWidth="1.1" />
+          <circle cx="470" cy="306" r="82" stroke="rgba(255,255,255,0.42)" strokeWidth="1" />
+
+          <path className="security-ops-signal security-ops-signal-c" d="M230 430C342 366 612 366 740 430" stroke="url(#security-ops-orbit-gradient)" strokeDasharray="5 13" strokeWidth="1.3" />
+
+          <path className="security-ops-badge-wire" d="M470 108V176" />
+          <path className="security-ops-badge-wire" d="M158 148V222C158 238 172 252 188 252H360" />
+          <path className="security-ops-badge-wire" d="M724 148V222C724 238 710 252 694 252H582" />
+          <path className="security-ops-badge-wire" d="M118 330H362" />
+          <path className="security-ops-badge-wire" d="M636 330H828" />
+          <path className="security-ops-badge-wire" d="M158 478V408C158 392 172 378 188 378H384" />
+          <path className="security-ops-badge-wire" d="M724 478V408C724 392 710 378 694 378H582" />
+          <path className="security-ops-badge-wire" d="M470 448V542" />
+
+          <path id="security-ops-text-top" d="M324 198A180 180 0 0 1 616 198" />
+          <text className="security-ops-ring-text" fill="#4F46E5" fontSize="14" fontWeight="800" letterSpacing="4.2">
+            <textPath href="#security-ops-text-top" startOffset="50%" textAnchor="middle">EVADA SECURITY OPERATIONS</textPath>
           </text>
-          <text className="security-ops-ring-text" x="380" y="426" fill="rgba(255,255,255,0.9)" fontSize="15" fontWeight="700" letterSpacing="4" textAnchor="middle">
-            TRUST - PROTECT - VALIDATE
+          <path id="security-ops-text-bottom" d="M320 472A188 188 0 0 0 620 472" />
+          <text className="security-ops-ring-text" fill="#2563EB" fontSize="15" fontWeight="800" letterSpacing="4.4">
+            <textPath href="#security-ops-text-bottom" startOffset="50%" textAnchor="middle">TRUST - PROTECT - VALIDATE</textPath>
           </text>
         </svg>
 
-        <div className="security-ops-core absolute left-1/2 top-[282px] z-20 -translate-x-1/2 -translate-y-1/2">
+        <div className="security-ops-core absolute left-[470px] top-[306px] z-20 -translate-x-1/2 -translate-y-1/2">
           <div className="security-ops-core-pulse" />
           <div className="security-ops-lock-shield">
             <LockKeyhole className="h-24 w-24" strokeWidth={1.7} />
           </div>
         </div>
 
-      </div>
+        {securityHeroBadges.map((badge) => (
+          <SecurityOpsBadge key={badge.label} badge={badge} />
+        ))}
 
-      <div className="security-ops-status absolute bottom-[50px] left-1/2 z-40 inline-flex min-w-[206px] -translate-x-1/2 items-center justify-center gap-3 rounded-[18px] border border-white/70 bg-[#2563EB]/76 px-7 py-3 text-[15px] font-semibold text-white shadow-[0_18px_42px_rgba(37,99,235,0.2)] backdrop-blur-xl">
-        <span className="h-3 w-3 shrink-0 rounded-full bg-emerald-400 shadow-[0_0_18px_rgba(52,211,153,0.9)]" />
-        <span className="whitespace-nowrap">All Systems Secure</span>
       </div>
     </div>
   );
@@ -270,8 +369,7 @@ function HeroSection() {
               Security & Trust
             </p>
             <h1 className="mt-5 max-w-full break-words text-[34px] font-bold leading-[1.07] tracking-[-0.035em] text-slate-950 sm:text-[46px] lg:text-[clamp(3rem,4.55vw,3.75rem)]">
-              <span className="block">Enterprise</span>
-              <span className="block">Security and</span>
+              <span className="block">Enterprise Security</span>
               <span className="block">Governance</span>
               <span className="block bg-[linear-gradient(90deg,#6D49F4,#2563EB,#04A9C7)] bg-clip-text text-transparent">Built for Trust</span>
             </h1>
@@ -327,12 +425,12 @@ function SecurityPillarsSection() {
     <section className="bg-white px-5 py-12 sm:px-8 lg:px-10 lg:py-16" id="trust-center">
       <div className="mx-auto max-w-[1360px]">
         <Reveal>
-          <div className="mx-auto max-w-[780px] text-center">
+          <div className="mx-auto max-w-[760px] text-center">
             <Eyebrow>OUR SECURITY COMMITMENTS</Eyebrow>
-            <h2 className="mt-3 text-[28px] font-black leading-tight tracking-[-0.02em] text-[#071633] sm:text-[38px]">
+            <h2 className="mx-auto mt-3 max-w-[760px] text-[clamp(1.55rem,5vw,2.75rem)] font-bold leading-[1.1] tracking-[-0.025em] text-[#071633]">
               Five Pillars of Security
             </h2>
-            <p className="mt-4 text-[15px] font-medium leading-relaxed text-slate-600 sm:text-[16px]">
+            <p className="mx-auto mt-4 max-w-[700px] text-[15px] font-normal leading-relaxed text-slate-600 sm:text-[16px]">
               Our platform is built on strong security principles that protect your data and your business.
             </p>
           </div>
@@ -371,10 +469,11 @@ function ComplianceSection() {
         <Reveal>
           <div>
             <Eyebrow>COMPLIANCE & CERTIFICATIONS</Eyebrow>
-            <h2 className="mt-3 text-[30px] font-black leading-tight tracking-[-0.02em] text-[#071633] sm:text-[40px]">
-              Built for Enterprise Compliance
+            <h2 className="mt-3 max-w-[460px] text-[clamp(1.55rem,4.2vw,2.75rem)] font-bold leading-[1.1] tracking-[-0.025em] text-[#071633]">
+              <span className="block">Built for Enterprise</span>
+              <span className="block">Compliance</span>
             </h2>
-            <p className="mt-5 max-w-[430px] text-[15px] font-medium leading-relaxed text-slate-600">
+            <p className="mt-5 max-w-[430px] text-[15px] font-normal leading-relaxed text-slate-600 sm:text-[16px]">
               EVADA aligns with global security standards so you can meet regulatory and compliance requirements with confidence.
             </p>
             <ul className="mt-6 grid gap-3">
@@ -421,12 +520,13 @@ function PlatformSecuritySection() {
     <section className="bg-white px-5 py-12 sm:px-8 lg:px-10 lg:py-14" id="platform-security">
       <div className="mx-auto max-w-[1360px]">
         <Reveal>
-          <div className="mx-auto max-w-[780px] text-center">
+          <div className="mx-auto max-w-[760px] text-center">
             <Eyebrow>SECURITY ACROSS THE PLATFORM</Eyebrow>
-            <h2 className="mt-3 text-[28px] font-black leading-tight tracking-[-0.02em] text-[#071633] sm:text-[38px]">
-              Security Built Into Every Layer
+            <h2 className="mx-auto mt-3 max-w-[760px] text-[clamp(1.55rem,5vw,2.75rem)] font-bold leading-[1.1] tracking-[-0.025em] text-[#071633]">
+              <span className="block">Security Built Into</span>
+              <span className="block">Every Layer</span>
             </h2>
-            <p className="mt-4 text-[15px] font-medium leading-relaxed text-slate-600 sm:text-[16px]">
+            <p className="mx-auto mt-4 max-w-[700px] text-[15px] font-normal leading-relaxed text-slate-600 sm:text-[16px]">
               From code to cloud, we follow industry best practices to keep your data and applications secure.
             </p>
           </div>
@@ -459,29 +559,29 @@ function TransparencySection() {
     <section className="bg-white px-5 py-4 sm:px-8 lg:px-10" id="transparency">
       <Reveal>
         <div className="relative mx-auto max-w-[1360px] overflow-hidden rounded-[24px] bg-[#020B1F] px-6 py-8 text-white shadow-[0_24px_70px_rgba(2,11,31,0.22)] sm:px-8 lg:px-10">
-          <div aria-hidden="true" className="absolute inset-0 bg-[radial-gradient(circle_at_14%_18%,rgba(124,58,237,0.30),transparent_32%),radial-gradient(circle_at_70%_32%,rgba(37,99,235,0.20),transparent_34%),linear-gradient(180deg,#06142E,#020B1F)]" />
-          <div className="relative grid gap-8 lg:grid-cols-[0.9fr_1.8fr] lg:items-center">
+          <div aria-hidden="true" className="absolute inset-0 bg-[radial-gradient(circle_at_14%_18%,rgba(124,58,237,0.26),transparent_32%),radial-gradient(circle_at_70%_32%,rgba(37,99,235,0.22),transparent_34%),linear-gradient(180deg,#07142E,#020B1F)]" />
+          <div className="relative grid gap-8 lg:grid-cols-[0.82fr_1.78fr] lg:items-center">
             <div>
-              <p className="text-[12px] font-black uppercase tracking-[0.2em] text-[#A78BFA]">TRANSPARENCY YOU CAN TRUST</p>
-              <h2 className="mt-4 text-[28px] font-black leading-tight tracking-[-0.02em] sm:text-[38px]">
+              <p className="text-[12px] font-black uppercase tracking-[0.2em] text-[#C4B5FD]">TRANSPARENCY YOU CAN TRUST</p>
+              <h2 className="mt-4 max-w-[460px] text-[clamp(1.55rem,4.2vw,2.75rem)] font-bold leading-[1.1] tracking-[-0.025em]">
                 Transparency and Accountability
               </h2>
-              <p className="mt-4 max-w-[420px] text-[15px] font-medium leading-relaxed text-slate-300">
+              <p className="mt-4 max-w-[420px] text-[15px] font-normal leading-relaxed text-slate-200 sm:text-[16px]">
                 We believe in being open about how we protect your data and operate our platform.
               </p>
             </div>
 
-            <div className="grid gap-0 sm:grid-cols-2 xl:grid-cols-4">
+            <div className="grid gap-4 rounded-[22px] border border-white/10 bg-[#071633]/92 p-4 shadow-[inset_0_1px_0_rgba(255,255,255,0.08),0_22px_58px_rgba(2,11,31,0.24)] sm:grid-cols-2 xl:grid-cols-4">
               {transparencyFeatures.map((feature) => {
                 const Icon = feature.Icon;
 
                 return (
-                  <article key={feature.title} className="group border-white/10 py-5 sm:border-l sm:px-6 first:sm:border-l-0">
-                    <span className="grid h-16 w-16 place-items-center rounded-[18px] bg-violet-500/15 text-[#A78BFA] shadow-[0_0_32px_rgba(124,58,237,0.20)] ring-1 ring-violet-300/20 transition group-hover:bg-violet-500/22">
+                  <article key={feature.title} className="group h-full rounded-[18px] border !border-blue-100 !bg-white/92 p-5 shadow-[0_16px_40px_rgba(2,11,31,0.18)] transition hover:-translate-y-1 hover:!border-blue-200 hover:!bg-white">
+                    <span className="grid h-14 w-14 place-items-center rounded-[18px] bg-[#EEF5FF] text-[#2563EB] shadow-[0_12px_26px_rgba(37,99,235,0.14)] ring-1 ring-blue-100 transition group-hover:bg-blue-50 group-hover:text-[#7C3AED]">
                       <Icon className="h-8 w-8" strokeWidth={2.05} />
                     </span>
-                    <h3 className="mt-5 text-[16px] font-black leading-tight text-white">{feature.title}</h3>
-                    <p className="mt-2 text-[13px] font-medium leading-relaxed text-slate-300">{feature.text}</p>
+                    <h3 className="mt-5 text-[16px] font-bold leading-tight text-slate-950">{feature.title}</h3>
+                    <p className="mt-2 text-[13px] font-normal leading-relaxed text-slate-600">{feature.text}</p>
                   </article>
                 );
               })}
@@ -498,12 +598,14 @@ function GovernanceSection() {
     <section className="bg-[#FBFDFF] px-5 py-12 sm:px-8 lg:px-10 lg:py-14" id="governance">
       <div className="mx-auto max-w-[1360px]">
         <Reveal>
-          <div className="mx-auto max-w-[850px] text-center">
+          <div className="mx-auto max-w-[760px] text-center">
             <Eyebrow>GOVERNED SECURITY OPERATIONS</Eyebrow>
-            <h2 className="mt-3 text-[28px] font-black leading-tight tracking-[-0.02em] text-[#071633] sm:text-[38px]">
-              Controlled Access, Auditable Actions, Safer Validation
+            <h2 className="mx-auto mt-3 max-w-[760px] text-[clamp(1.55rem,5vw,2.75rem)] font-bold leading-[1.1] tracking-[-0.025em] text-[#071633]">
+              <span className="block">Controlled Access,</span>
+              <span className="block">Auditable Actions,</span>
+              <span className="block">Safer Validation</span>
             </h2>
-            <p className="mt-4 text-[15px] font-medium leading-relaxed text-slate-600 sm:text-[16px]">
+            <p className="mx-auto mt-4 max-w-[700px] text-[15px] font-normal leading-relaxed text-slate-600 sm:text-[16px]">
               EVADA combines permission-gated access, audit visibility, and human-approved validation workflows to keep security operations controlled and accountable.
             </p>
           </div>
@@ -542,7 +644,7 @@ function SecurityCTASection() {
               <ShieldCheck aria-hidden="true" className="h-11 w-11" strokeWidth={1.9} />
             </span>
             <div className="min-w-0">
-              <h2 className="text-[clamp(1.65rem,4.4vw,2.35rem)] font-black leading-tight tracking-[-0.025em] text-slate-950">
+              <h2 className="text-[clamp(1.55rem,4.2vw,2.35rem)] font-bold leading-[1.1] tracking-[-0.025em] text-slate-950">
                 Security is our foundation. Your trust is our priority.
               </h2>
               <p className="mt-2 text-[15px] leading-relaxed text-slate-600 sm:text-[17px]">

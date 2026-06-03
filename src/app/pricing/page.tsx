@@ -20,7 +20,7 @@ function PricingHeroVisual() {
             <p className="mt-7 text-[15px] font-black uppercase tracking-[0.18em] text-[#2563EB]">
               Pricing
             </p>
-            <h2 className="mt-3 text-[42px] font-black leading-none tracking-[-0.035em] text-slate-950">
+            <h2 className="mt-3 text-[42px] font-bold leading-none tracking-[-0.035em] text-slate-950">
               Launching Soon
             </h2>
           </div>

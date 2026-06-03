@@ -38,12 +38,13 @@ export default function EnterpriseControlSection() {
 
       <div className="relative mx-auto max-w-[1360px]">
         <Reveal>
-          <div className="mx-auto max-w-[920px] text-center">
+          <div className="mx-auto max-w-[760px] text-center">
             <p className="text-[12px] font-black uppercase tracking-[0.18em] text-[#04A9C7]">Enterprise Control</p>
-            <h2 className="mt-4 text-[clamp(1.75rem,5vw,2.75rem)] font-black leading-[1.1] tracking-[-0.025em] text-slate-950">
-              Built for Secure, Role-Based Platform Operations
+            <h2 className="mx-auto mt-4 max-w-[760px] text-[clamp(1.55rem,5vw,2.75rem)] font-bold leading-[1.1] tracking-[-0.025em] text-slate-950">
+              <span className="block">Secure Role-Based Operations</span>
+              <span className="block">for Enterprise Teams</span>
             </h2>
-            <p className="mx-auto mt-5 max-w-[780px] text-[15px] leading-[1.75] text-slate-600 sm:text-[17px]">
+            <p className="mx-auto mt-5 max-w-[700px] text-[15px] leading-[1.75] text-slate-600 sm:text-[16px]">
               EVADA is built for security teams that need safe validation workflows, strong access control, and auditable operations across clients and environments.
             </p>
           </div>

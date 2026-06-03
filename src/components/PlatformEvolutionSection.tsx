@@ -84,10 +84,11 @@ export default function PlatformEvolutionSection() {
     <section id="platform-evolution" className="relative bg-white px-5 py-10 sm:px-8 sm:py-12 lg:px-10 lg:py-16">
       <div className="mx-auto max-w-[1360px]">
         <Reveal>
-          <div className="mx-auto max-w-[900px] text-center">
+          <div className="mx-auto max-w-[760px] text-center">
             <p className="text-[12px] font-black uppercase tracking-[0.18em] text-[#04A9C7]">The Future of Continuous Security Validation</p>
-            <h2 className="mt-4 text-[clamp(1.75rem,5vw,2.75rem)] font-black leading-[1.1] tracking-[-0.025em] text-slate-950">
-              From Periodic Testing to Continuous Validation
+            <h2 className="mx-auto mt-4 max-w-[760px] text-[clamp(1.55rem,5vw,2.75rem)] font-bold leading-[1.1] tracking-[-0.025em] text-slate-950">
+              <span className="block">From Periodic Testing to</span>
+              <span className="block">Continuous Validation</span>
             </h2>
             <span className="mx-auto mt-5 block h-1.5 w-16 rounded-full bg-[#04A9C7]" />
           </div>

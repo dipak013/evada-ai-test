@@ -29,34 +29,6 @@ const heroFeatures: FeatureItem[] = [
   { label: "Enterprise Governance", Icon: FileCheck2 },
 ];
 
-type IntegrationItem = {
-  name: string;
-  mark: string;
-  accent: string;
-};
-
-const integrations: IntegrationItem[] = [
-  { name: "ServiceNow", mark: "SN", accent: "#16A34A" },
-  { name: "AWS", mark: "aws", accent: "#F59E0B" },
-  { name: "Microsoft", mark: "MS", accent: "#2563EB" },
-  { name: "Google Cloud", mark: "G", accent: "#0EA5E9" },
-  { name: "Okta", mark: "O", accent: "#1D4ED8" },
-  { name: "Atlassian", mark: "A", accent: "#2563EB" },
-  { name: "Splunk", mark: "S", accent: "#0F172A" },
-  { name: "Veeva", mark: "V", accent: "#F97316" },
-  { name: "Palo Alto", mark: "PA", accent: "#EF4444" },
-];
-
-function IntegrationIcon({ item }: { item: IntegrationItem }) {
-  return (
-    <div className="grid h-7 w-7 place-items-center rounded-[11px] bg-white ring-1 ring-slate-200/80 shadow-sm">
-      <span className="text-[10px] font-bold leading-none" style={{ color: item.accent }}>
-        {item.mark}
-      </span>
-    </div>
-  );
-}
-
 function HeroFeatureCard({ item }: { item: FeatureItem }) {
   const { Icon } = item;
 
@@ -69,49 +41,6 @@ function HeroFeatureCard({ item }: { item: FeatureItem }) {
         {item.label}
       </span>
     </div>
-  );
-}
-
-function IntegrationStrip() {
-  const marqueeItems = [...integrations, ...integrations];
-
-  return (
-    <section className="relative z-10 bg-white px-5 pb-10 sm:px-8 lg:px-10">
-      <Reveal>
-        <div className="mx-auto max-w-[1120px] rounded-[18px] border border-blue-100/80 bg-white/90 px-5 py-4 shadow-[0_16px_50px_rgba(37,99,235,0.08)] backdrop-blur sm:px-6">
-          <div className="flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">
-            <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-[#04A9C7]">
-              Integrations supported for validation workflows
-            </p>
-            <Link
-              href="/platform#integrations"
-              className="inline-flex items-center gap-1.5 text-[13px] font-semibold text-slate-600 transition hover:text-[#5F3FEA]"
-            >
-              View all integrations
-              <ArrowRight aria-hidden="true" className="h-4 w-4" strokeWidth={2.1} />
-            </Link>
-          </div>
-
-          <div className="integration-marquee mt-4">
-            <div className="integration-marquee-track gap-3">
-              {marqueeItems.map((item, index) => (
-                <div
-                  key={`${item.name}-${index}`}
-                  className="group flex min-w-[138px] items-center justify-center gap-2 rounded-full border border-slate-200/80 bg-white/90 px-3 py-2 shadow-[0_10px_24px_rgba(15,23,42,0.035)] transition duration-300 hover:-translate-y-0.5 hover:border-blue-200 hover:shadow-[0_16px_34px_rgba(37,99,235,0.08)] motion-reduce:transform-none sm:min-w-[150px]"
-                  title={item.name}
-                  style={{ transitionDelay: `${index * 20}ms` }}
-                >
-                  <span className="shrink-0" aria-hidden="true">
-                    <IntegrationIcon item={item} />
-                  </span>
-                  <span className="truncate text-[12px] font-semibold text-slate-700 transition-colors group-hover:text-slate-950">{item.name}</span>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </Reveal>
-    </section>
   );
 }
 
@@ -227,7 +156,6 @@ export default function HomePage() {
       <div className="evada-homepage-content relative z-10">
         <MarketingNav />
         <HeroSection />
-        <IntegrationStrip />
         <BetweenPentestsSection />
         <ProblemSection />
         <HowEvadaWorksSection />

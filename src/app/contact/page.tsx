@@ -148,8 +148,8 @@ export default function ContactPage() {
               <div className="flex flex-col gap-4 border-b border-blue-100 pb-5 sm:flex-row sm:items-start sm:justify-between">
                 <div>
                   <p className="text-[12px] font-black uppercase tracking-[0.18em] text-[#2563EB]">Send an Inquiry</p>
-                  <h2 className="mt-2 text-[26px] font-black tracking-[-0.02em] text-[#071633] sm:text-[32px]">Tell us how we can help</h2>
-                  <p className="mt-2 max-w-[580px] text-[14px] font-medium leading-relaxed text-slate-600">
+                  <h2 className="mt-2 text-[clamp(1.55rem,4vw,2rem)] font-bold leading-[1.1] tracking-[-0.025em] text-[#071633]">Tell us how we can help</h2>
+                  <p className="mt-2 max-w-[580px] text-[14px] font-normal leading-relaxed text-slate-600">
                     Provide your details and inquiry context. We will prepare a focused response from the right EVADA specialist.
                   </p>
                 </div>
@@ -171,7 +171,7 @@ export default function ContactPage() {
           <div className="mx-auto grid max-w-[1360px] gap-6 rounded-[26px] border border-blue-100 bg-[linear-gradient(135deg,#EFF6FF_0%,#FFFFFF_48%,#F5F3FF_100%)] p-6 shadow-[0_22px_60px_rgba(37,99,235,0.10)] md:grid-cols-[0.36fr_0.64fr] md:p-8">
             <div>
               <p className="text-[12px] font-black uppercase tracking-[0.18em] text-[#2563EB]">What to expect</p>
-              <h2 className="mt-3 text-[26px] font-black tracking-[-0.02em] text-[#071633] sm:text-[34px]">A focused security validation session</h2>
+              <h2 className="mt-3 max-w-[420px] text-[clamp(1.55rem,4vw,2.35rem)] font-bold leading-[1.1] tracking-[-0.025em] text-[#071633]">A focused security validation session</h2>
             </div>
             <div className="grid gap-3">
               {expectationItems.map((item) => (
@@ -188,7 +188,7 @@ export default function ContactPage() {
           <div className="mx-auto flex max-w-[1360px] flex-col gap-4 rounded-[24px] border border-blue-100 bg-white p-6 shadow-[0_20px_56px_rgba(37,99,235,0.09)] sm:flex-row sm:items-center sm:justify-between sm:p-8">
             <div>
               <p className="text-[12px] font-black uppercase tracking-[0.18em] text-[#2563EB]">Prefer a direct inquiry?</p>
-              <h2 className="mt-2 text-[24px] font-black text-[#071633] sm:text-[30px]">Use the dedicated inquiry workspace.</h2>
+              <h2 className="mt-2 text-[clamp(1.5rem,4vw,2rem)] font-bold leading-[1.1] tracking-[-0.025em] text-[#071633]">Use the dedicated inquiry workspace.</h2>
             </div>
             <Link
               href="/contact/enquiry"

@@ -2639,6 +2639,16 @@ html {
   animation: securityOpsSignalFlow 7.2s linear infinite;
 }
 
+.security-ops-badge-wire {
+  fill: none;
+  stroke: rgba(37, 99, 235, 0.72);
+  stroke-width: 1.6;
+  stroke-linecap: round;
+  stroke-dasharray: 6 8;
+  filter: drop-shadow(0 0 8px rgba(37, 99, 235, 0.22));
+  animation: securityOpsSignalFlow 6.8s linear infinite;
+}
+
 .security-ops-signal-b {
   animation-delay: -2s;
 }
@@ -2676,27 +2686,29 @@ html {
 .security-ops-lock-shield {
   position: relative;
   display: grid;
-  width: 178px;
-  height: 210px;
+  width: 188px;
+  height: 222px;
   place-items: center;
   clip-path: polygon(50% 0%, 91% 15%, 86% 67%, 50% 100%, 14% 67%, 9% 15%);
   color: rgba(255, 255, 255, 0.96);
   background:
-    radial-gradient(circle at 48% 26%, rgba(255, 255, 255, 0.44), transparent 34%),
-    linear-gradient(135deg, #2563eb 0%, #06b6d4 44%, #7c3aed 100%);
+    radial-gradient(circle at 48% 28%, rgba(255, 255, 255, 0.74), transparent 30%),
+    linear-gradient(145deg, rgba(34, 211, 238, 0.9) 0%, rgba(37, 99, 235, 0.92) 52%, rgba(124, 58, 237, 0.92) 100%);
   box-shadow:
-    0 30px 74px rgba(37, 99, 235, 0.36),
+    0 0 0 8px rgba(255, 255, 255, 0.26),
+    0 30px 80px rgba(37, 99, 235, 0.42),
     inset -20px 0 36px rgba(7, 22, 51, 0.16),
-    inset 20px 0 36px rgba(255, 255, 255, 0.24);
+    inset 20px 0 40px rgba(255, 255, 255, 0.34);
   animation: securityOpsShieldFloat 5.6s ease-in-out infinite;
 }
 
 .security-ops-lock-shield::before {
   content: "";
   position: absolute;
-  inset: 12px;
+  inset: 13px;
   clip-path: inherit;
-  border: 3px solid rgba(255, 255, 255, 0.7);
+  border: 4px solid rgba(255, 255, 255, 0.78);
+  filter: drop-shadow(0 0 16px rgba(255, 255, 255, 0.5));
 }
 
 .security-ops-lock-shield svg {
