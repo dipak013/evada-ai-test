@@ -1,4 +1,5 @@
 import Link from "next/link";
+import type { CSSProperties } from "react";
 import type { LucideIcon } from "lucide-react";
 import {
   ArrowRight,
@@ -46,15 +47,20 @@ type ArchitectureColumn = {
 type PlatformHeroStep = {
   number: string;
   label: string;
+  description: string;
   Icon: LucideIcon;
-  className: string;
+  x: number;
+  y: number;
   iconClassName: string;
+  progressClassName: string;
 };
 
 type PlatformHeroNode = {
   label: string;
   Icon: LucideIcon;
-  className: string;
+  x: number;
+  y: number;
+  iconClassName: string;
 };
 
 const heroChips: Array<{ label: string; Icon: LucideIcon }> = [
@@ -68,54 +74,70 @@ const platformHeroSteps: PlatformHeroStep[] = [
   {
     number: "1",
     label: "Ingest",
+    description: "Collect data from scans, logs, apps and tools.",
     Icon: Database,
-    className: "left-[374px] top-[22px]",
+    x: 50,
+    y: 11,
     iconClassName: "text-[#2563EB]",
+    progressClassName: "from-[#06B6D4] to-[#2563EB]",
   },
   {
     number: "2",
     label: "Analyze",
+    description: "AI correlates, enriches and identifies real risks.",
     Icon: BrainCircuit,
-    className: "right-[12px] top-[156px]",
+    x: 82,
+    y: 30,
     iconClassName: "text-[#7C3AED]",
+    progressClassName: "from-[#7C3AED] to-[#A855F7]",
   },
   {
     number: "3",
     label: "Validate",
+    description: "Human experts validate and confirm exploitability.",
     Icon: ShieldCheck,
-    className: "right-[30px] bottom-[118px]",
+    x: 83,
+    y: 65,
     iconClassName: "text-[#06B6D4]",
+    progressClassName: "from-[#06B6D4] to-[#2563EB]",
   },
   {
     number: "4",
     label: "Evidence",
+    description: "Capture proof, PoC and business impact.",
     Icon: FileCheck2,
-    className: "left-[394px] bottom-[18px]",
+    x: 50,
+    y: 89,
     iconClassName: "text-[#2563EB]",
+    progressClassName: "from-[#2563EB] to-[#7C3AED]",
   },
   {
     number: "5",
     label: "Approval",
+    description: "Security leads review and approve the risk.",
     Icon: UserCheck,
-    className: "left-[56px] bottom-[122px]",
+    x: 18,
+    y: 65,
     iconClassName: "text-[#7C3AED]",
+    progressClassName: "from-[#7C3AED] to-[#A855F7]",
   },
   {
     number: "6",
     label: "Sync",
+    description: "Sync to tools, tickets and stakeholders.",
     Icon: RefreshCw,
-    className: "left-[68px] top-[174px]",
+    x: 17,
+    y: 30,
     iconClassName: "text-[#06B6D4]",
+    progressClassName: "from-[#06B6D4] to-[#2563EB]",
   },
 ];
 
 const platformHeroNodes: PlatformHeroNode[] = [
-  { label: "Access lock", Icon: LockKeyhole, className: "left-[202px] top-[96px]" },
-  { label: "Code ready", Icon: Code2, className: "right-[102px] top-[92px]" },
-  { label: "Search insight", Icon: Search, className: "right-[8px] top-[292px]" },
-  { label: "Analytics", Icon: BarChart3, className: "right-[116px] bottom-[86px]" },
-  { label: "Approval team", Icon: Users, className: "left-[212px] bottom-[54px]" },
-  { label: "Verified", Icon: CheckCircle2, className: "left-[18px] top-[310px]" },
+  { label: "Secure & Compliant", Icon: LockKeyhole, x: 8, y: 9, iconClassName: "text-[#2563EB]" },
+  { label: "AI-Powered", Icon: ShieldCheck, x: 92, y: 9, iconClassName: "text-[#7C3AED]" },
+  { label: "Actionable Insights", Icon: BarChart3, x: 8, y: 90, iconClassName: "text-[#2563EB]" },
+  { label: "Trusted by Experts", Icon: Users, x: 92, y: 90, iconClassName: "text-[#7C3AED]" },
 ];
 
 const moduleCards: IconTextItem[] = [
@@ -269,44 +291,89 @@ function Eyebrow({ children }: { children: string }) {
 
 function PlatformHeroVisual() {
   return (
-    <div className="platform-hero-visual relative mx-auto h-[500px] w-full max-w-full sm:h-[560px] sm:max-w-[760px] lg:-mt-4 xl:-mt-6" aria-hidden="true">
-      <div className="absolute inset-0 rounded-full bg-[radial-gradient(circle_at_50%_48%,rgba(255,255,255,0.9),transparent_28%),radial-gradient(circle_at_54%_50%,rgba(37,99,235,0.18),transparent_42%),radial-gradient(circle_at_46%_56%,rgba(124,58,237,0.18),transparent_44%)] blur-sm" />
+    <div className="platform-hero-visual platform-workflow-visual relative mx-auto aspect-[1.35/1] w-full max-w-[820px] overflow-visible lg:-mt-2 xl:-mt-4" aria-hidden="true">
+      <div className="platform-workflow-ambient absolute inset-[-8%] rounded-full" />
 
-      <div className="absolute left-1/2 top-1/2 h-[560px] w-[760px] -translate-x-1/2 -translate-y-1/2 scale-[0.6] sm:scale-[0.78] lg:scale-[0.86] xl:scale-[0.92] 2xl:scale-95">
-        <svg className="absolute left-[62px] top-[6px] z-0 h-[548px] w-[640px]" viewBox="0 0 640 548" fill="none">
+      <div className="absolute left-1/2 top-1/2 h-[680px] w-[900px] -translate-x-1/2 -translate-y-1/2 scale-[0.42] sm:scale-[0.58] md:scale-[0.68] lg:scale-[0.74] xl:scale-[0.78] 2xl:scale-[0.84]">
+        <svg className="absolute inset-0 z-0 h-full w-full overflow-visible" viewBox="0 0 900 680" fill="none">
           <defs>
-            <linearGradient id="platform-hero-flow-gradient" x1="70" y1="60" x2="560" y2="486" gradientUnits="userSpaceOnUse">
+            <linearGradient id="platform-hero-flow-gradient" x1="120" y1="120" x2="780" y2="560" gradientUnits="userSpaceOnUse">
               <stop stopColor="#2563EB" />
-              <stop offset="0.5" stopColor="#7C3AED" />
-              <stop offset="1" stopColor="#06B6D4" />
+              <stop offset="0.45" stopColor="#22D3EE" />
+              <stop offset="1" stopColor="#7C3AED" />
             </linearGradient>
-            <marker id="platform-hero-arrow" markerHeight="10" markerWidth="10" orient="auto" refX="8" refY="5">
-              <path d="M0 0L10 5L0 10L2.8 5Z" fill="#2563EB" opacity="0.72" />
+            <linearGradient id="platform-hero-soft-gradient" x1="760" y1="240" x2="240" y2="560" gradientUnits="userSpaceOnUse">
+              <stop stopColor="#06B6D4" />
+              <stop offset="0.5" stopColor="#2563EB" />
+              <stop offset="1" stopColor="#7C3AED" />
+            </linearGradient>
+            <filter id="platform-soft-glow" x="-40%" y="-40%" width="180%" height="180%">
+              <feGaussianBlur stdDeviation="5" result="blur" />
+              <feMerge>
+                <feMergeNode in="blur" />
+                <feMergeNode in="SourceGraphic" />
+              </feMerge>
+            </filter>
+            <marker id="platform-hero-arrow" markerHeight="12" markerWidth="12" orient="auto" refX="9" refY="6">
+              <path d="M0 0L12 6L0 12L3.4 6Z" fill="#5F3FEA" opacity="0.9" />
+            </marker>
+            <marker id="platform-hero-arrow-cyan" markerHeight="12" markerWidth="12" orient="auto" refX="9" refY="6">
+              <path d="M0 0L12 6L0 12L3.4 6Z" fill="#06B6D4" opacity="0.9" />
             </marker>
           </defs>
-          <circle cx="320" cy="274" r="246" stroke="rgba(37,99,235,0.13)" strokeDasharray="5 12" strokeWidth="1.4" />
-          <circle className="platform-flow-dash" cx="320" cy="274" r="190" stroke="url(#platform-hero-flow-gradient)" strokeDasharray="4 12" strokeWidth="2" />
-          <circle cx="320" cy="274" r="128" stroke="rgba(255,255,255,0.78)" strokeWidth="1.2" />
-          <path className="platform-flow-arc" d="M132 170A224 224 0 0 1 485 108" markerEnd="url(#platform-hero-arrow)" stroke="url(#platform-hero-flow-gradient)" strokeWidth="2.2" />
-          <path className="platform-flow-arc platform-flow-arc-delay-a" d="M542 170A224 224 0 0 1 538 356" markerEnd="url(#platform-hero-arrow)" stroke="url(#platform-hero-flow-gradient)" strokeWidth="2.2" />
-          <path className="platform-flow-arc platform-flow-arc-delay-b" d="M488 448A224 224 0 0 1 166 410" markerEnd="url(#platform-hero-arrow)" stroke="url(#platform-hero-flow-gradient)" strokeWidth="2.2" />
-          <path className="platform-flow-arc platform-flow-arc-delay-c" d="M118 348A224 224 0 0 1 122 210" markerEnd="url(#platform-hero-arrow)" stroke="url(#platform-hero-flow-gradient)" strokeWidth="2.2" />
+          <ellipse cx="450" cy="340" rx="330" ry="245" fill="rgba(255,255,255,0.16)" />
+          <ellipse cx="450" cy="340" rx="310" ry="230" stroke="url(#platform-hero-flow-gradient)" strokeWidth="3" strokeLinecap="round" strokeDasharray="9 12" className="evada-orbit-dash opacity-70" />
+          <ellipse cx="450" cy="340" rx="255" ry="190" stroke="#60A5FA" strokeWidth="1.5" strokeDasharray="4 10" className="opacity-40" />
+          <ellipse cx="450" cy="340" rx="168" ry="126" stroke="rgba(255,255,255,0.58)" strokeWidth="1.2" />
+
+          <path className="platform-flow-orbit-arc" d="M450 85C590 95 700 140 755 240" markerEnd="url(#platform-hero-arrow)" stroke="url(#platform-hero-flow-gradient)" strokeWidth="4" />
+          <path className="platform-flow-orbit-arc platform-flow-arc-delay-a" d="M775 260C805 326 802 392 760 430" markerEnd="url(#platform-hero-arrow)" stroke="url(#platform-hero-flow-gradient)" strokeWidth="4" />
+          <path className="platform-flow-orbit-arc platform-flow-arc-delay-b" d="M720 500C640 570 540 602 470 604" markerEnd="url(#platform-hero-arrow-cyan)" stroke="url(#platform-hero-soft-gradient)" strokeWidth="4" />
+          <path className="platform-flow-orbit-arc platform-flow-arc-delay-c" d="M420 604C320 596 225 554 160 480" markerEnd="url(#platform-hero-arrow)" stroke="url(#platform-hero-flow-gradient)" strokeWidth="4" />
+          <path className="platform-flow-orbit-arc platform-flow-arc-delay-d" d="M135 410C120 330 126 270 148 225" markerEnd="url(#platform-hero-arrow-cyan)" stroke="url(#platform-hero-soft-gradient)" strokeWidth="4" />
+          <path className="platform-flow-orbit-arc platform-flow-arc-delay-e" d="M188 170C250 105 330 80 420 76" markerEnd="url(#platform-hero-arrow)" stroke="url(#platform-hero-flow-gradient)" strokeWidth="4" />
+
+          <path className="platform-side-connector" d="M84 116H190C222 116 232 160 256 186" />
+          <path className="platform-side-connector platform-flow-arc-delay-a" d="M816 116H710C678 116 668 160 644 186" />
+          <path className="platform-side-connector platform-flow-arc-delay-b" d="M84 566H190C226 566 236 516 262 488" />
+          <path className="platform-side-connector platform-flow-arc-delay-c" d="M816 566H710C674 566 664 516 638 488" />
+
+          {[
+            [450, 95],
+            [730, 230],
+            [730, 445],
+            [450, 585],
+            [170, 445],
+            [170, 230],
+          ].map(([cx, cy], index) => (
+            <g key={`${cx}-${cy}`} className="evada-node-pulse" style={{ animationDelay: `${index * 0.18}s` }}>
+              <circle cx={cx} cy={cy} r="12" fill="#22D3EE" opacity="0.15" />
+              <circle cx={cx} cy={cy} r="7" fill={index % 2 ? "#7C3AED" : "#22D3EE"} filter="url(#platform-soft-glow)" />
+            </g>
+          ))}
         </svg>
 
-        <div className="platform-core-system absolute left-1/2 top-[250px] z-20 h-[300px] w-[380px] -translate-x-1/2 -translate-y-1/2">
-          <div className="platform-core-glow" />
-          <div className="platform-core-base platform-core-base-bottom" />
-          <div className="platform-core-base platform-core-base-mid" />
-          <div className="platform-core-base platform-core-base-top" />
-          <div className="platform-core-cube">
-            <div className="platform-core-cube-face" />
-            <div className="platform-core-cube-shield">
-              <ShieldCheck className="h-16 w-16" strokeWidth={2.15} />
+        <span className="platform-workflow-particle platform-workflow-particle-a" />
+        <span className="platform-workflow-particle platform-workflow-particle-b" />
+        <span className="platform-workflow-particle platform-workflow-particle-c" />
+
+        <div className="absolute left-1/2 top-1/2 z-20 -translate-x-1/2 -translate-y-1/2">
+          <div className="evada-float-soft platform-workflow-core relative h-[302px] w-[350px]">
+            <div className="platform-workflow-core-glow" />
+            <div className="platform-workflow-base platform-workflow-base-back" />
+            <div className="platform-workflow-base platform-workflow-base-mid" />
+            <div className="platform-workflow-base platform-workflow-base-front" />
+            <div className="platform-workflow-shield">
+              <div className="platform-workflow-shield-face" />
+              <div className="platform-workflow-shield-icon">
+                <ShieldCheck className="h-16 w-16" strokeWidth={2.15} />
+              </div>
             </div>
-          </div>
-          <div className="absolute bottom-[28px] left-1/2 z-30 -translate-x-1/2 text-center">
-            <p className="text-[18px] font-black leading-none text-[#2563EB]">Platform Core</p>
-            <p className="mt-1 text-[13px] font-bold text-slate-600">Validation Engine</p>
+            <div className="absolute bottom-[2px] left-1/2 z-30 -translate-x-1/2 text-center">
+              <p className="text-[20px] font-bold leading-none text-[#071633]">Platform Core</p>
+              <p className="mt-1 text-[14px] font-semibold text-slate-600">Validation Engine</p>
+              <span className="mx-auto mt-3 block h-1 w-24 rounded-full bg-[linear-gradient(90deg,#06B6D4,#2563EB,#7C3AED)]" />
+            </div>
           </div>
         </div>
 
@@ -316,18 +383,36 @@ function PlatformHeroVisual() {
           return (
             <div
               key={step.label}
-              className={`platform-flow-step-card absolute z-40 flex w-[164px] items-center gap-3 rounded-[22px] border border-white/80 bg-white/88 p-3 shadow-[0_20px_44px_rgba(37,99,235,0.13)] backdrop-blur-xl ring-1 ring-blue-100/70 ${step.className}`}
-              style={{ animationDelay: `${index * 180}ms` }}
+              className="absolute z-40"
+              style={{
+                left: `${step.x}%`,
+                top: `${step.y}%`,
+                transform: "translate(-50%, -50%)",
+              }}
             >
-              <span className="grid h-14 w-14 shrink-0 place-items-center rounded-full bg-white shadow-[0_12px_28px_rgba(37,99,235,0.12)] ring-1 ring-blue-100">
-                <span className="grid h-10 w-10 place-items-center rounded-full bg-[linear-gradient(135deg,#F8FBFF,#F5F3FF)]">
-                  <Icon className={`h-6 w-6 ${step.iconClassName}`} strokeWidth={2.1} />
+              <div
+                className="evada-float-card flex w-[230px] items-center gap-3 rounded-[28px] border border-blue-100/80 bg-white/90 p-5 shadow-[0_24px_70px_rgba(37,99,235,0.14)] backdrop-blur-xl"
+                style={
+                  {
+                    "--delay": `${index * 0.18}s`,
+                    "--duration": `${6.5 + index * 0.35}s`,
+                  } as CSSProperties
+                }
+              >
+                <span className="grid h-14 w-14 shrink-0 place-items-center rounded-full bg-white shadow-[0_16px_34px_rgba(37,99,235,0.14)] ring-1 ring-blue-100">
+                  <span className="grid h-10 w-10 place-items-center rounded-full bg-[linear-gradient(135deg,#F8FBFF,#F5F3FF)]">
+                    <Icon className={`h-6 w-6 ${step.iconClassName}`} strokeWidth={2.05} />
+                  </span>
                 </span>
-              </span>
-              <span className="min-w-0">
-                <span className="block text-[22px] font-black leading-none text-[#2563EB]">{step.number}</span>
-                <span className="mt-1 block text-[15px] font-black leading-tight text-[#071633]">{step.label}</span>
-              </span>
+                <span className="min-w-0">
+                  <span className="flex items-center gap-4">
+                    <span className="block text-[24px] font-bold leading-none text-[#1E3A8A]">{step.number}</span>
+                    <span className={`block h-1 w-12 rounded-full bg-gradient-to-r ${step.progressClassName}`} />
+                  </span>
+                  <span className="mt-1 block text-[18px] font-bold leading-tight text-[#071633]">{step.label}</span>
+                  <span className="mt-1.5 block text-[13px] font-semibold leading-5 text-slate-600">{step.description}</span>
+                </span>
+              </div>
             </div>
           );
         })}
@@ -338,10 +423,19 @@ function PlatformHeroVisual() {
           return (
             <span
               key={node.label}
-              className={`platform-mini-node absolute z-30 grid h-12 w-12 place-items-center rounded-full border border-white/75 bg-white/48 text-[#2563EB] shadow-[0_14px_30px_rgba(37,99,235,0.1)] backdrop-blur-xl ring-1 ring-blue-100/60 ${node.className}`}
-              style={{ animationDelay: `${index * 220}ms` }}
+              className="absolute z-30 hidden w-[122px] lg:block"
+              style={{
+                left: `${node.x}%`,
+                top: `${node.y}%`,
+                transform: "translate(-50%, -50%)",
+              }}
             >
-              <Icon className="h-5 w-5" strokeWidth={2.05} />
+              <span className="platform-mini-node flex flex-col items-center gap-2.5 text-center" style={{ animationDelay: `${index * 220}ms` }}>
+                <span className="platform-hex-node grid h-[66px] w-[66px] place-items-center">
+                  <Icon className={`h-7 w-7 ${node.iconClassName}`} strokeWidth={2.05} />
+                </span>
+                <span className="text-[11.5px] font-semibold leading-tight text-[#1E3A8A]">{node.label}</span>
+              </span>
             </span>
           );
         })}
@@ -352,7 +446,7 @@ function PlatformHeroVisual() {
 
 function HeroSection() {
   return (
-    <section className="evada-home-hero relative overflow-hidden bg-white px-5 pb-10 pt-7 sm:px-8 sm:pb-12 sm:pt-9 lg:px-10 lg:pb-16 lg:pt-10">
+    <section className="evada-home-hero relative overflow-x-hidden bg-white px-5 pb-10 pt-7 sm:px-8 sm:pb-12 sm:pt-9 lg:px-10 lg:pb-16 lg:pt-10">
       <div aria-hidden="true" className="absolute inset-0 bg-[radial-gradient(circle_at_10%_18%,rgba(255,255,255,0.86),transparent_34%),radial-gradient(circle_at_78%_8%,rgba(124,58,237,0.09),transparent_34%),radial-gradient(circle_at_86%_72%,rgba(34,211,238,0.1),transparent_32%),linear-gradient(180deg,rgba(255,255,255,0.86)_0%,rgba(248,251,255,0.62)_58%,rgba(255,255,255,0.72)_100%)]" />
       <div aria-hidden="true" className="platform-grid-bg absolute inset-0 opacity-20" />
 

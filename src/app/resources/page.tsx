@@ -179,76 +179,128 @@ function MiniArrowButton({ label, direction }: { label: string; direction: "left
 }
 
 function ResourcesHeroVisual() {
-  return (
-    <div className="resources-hero-visual relative mx-auto h-[460px] w-full max-w-full sm:h-[520px] sm:max-w-[700px] lg:-mt-2 xl:-mt-4" aria-hidden="true">
-      <div className="resources-hero-aurora absolute inset-0" />
+  const cardPositions = [
+    "left-[22px] top-[46px]",
+    "right-[22px] top-[58px]",
+    "left-[0px] top-[478px]",
+    "right-[0px] top-[478px]",
+  ];
 
-      <div className="absolute left-1/2 top-1/2 h-[600px] w-[800px] -translate-x-1/2 -translate-y-1/2 scale-[0.54] sm:scale-[0.7] md:scale-[0.76] lg:scale-[0.8] xl:scale-[0.84] 2xl:scale-[0.88]">
+  return (
+    <div className="resources-hero-visual relative mx-auto aspect-[1.28/1] min-h-[500px] w-full max-w-[820px] overflow-visible pb-10 sm:min-h-[540px] lg:min-h-[590px] lg:-mt-2 xl:-mt-4" aria-hidden="true">
+      <div className="resources-hero-aurora absolute inset-[-8%]" />
+
+      <div className="resources-hero-stage absolute left-1/2 top-[52.5%] h-[640px] w-[820px] -translate-x-1/2 -translate-y-1/2 scale-[0.34] sm:scale-[0.58] md:scale-[0.72] lg:top-[55%] lg:scale-[0.78] xl:scale-[0.84] 2xl:scale-[0.9]">
         <div className="resources-orbit resources-orbit-a" />
         <div className="resources-orbit resources-orbit-b" />
         <div className="resources-orbit resources-orbit-c" />
 
-        <svg className="resources-connector-svg absolute inset-0 z-[4] h-full w-full" viewBox="0 0 800 600" fill="none">
+        <svg className="resources-connector-svg absolute inset-0 z-[4] h-full w-full overflow-visible" viewBox="0 0 820 640" fill="none">
           <defs>
-            <linearGradient id="resources-connector-gradient" x1="102" y1="116" x2="704" y2="488" gradientUnits="userSpaceOnUse">
+            <linearGradient id="resources-connector-gradient" x1="78" y1="96" x2="724" y2="514" gradientUnits="userSpaceOnUse">
               <stop stopColor="#2563EB" />
               <stop offset="0.45" stopColor="#06B6D4" />
               <stop offset="1" stopColor="#7C3AED" />
             </linearGradient>
+            <linearGradient id="resources-white-orbit" x1="102" y1="126" x2="760" y2="548" gradientUnits="userSpaceOnUse">
+              <stop stopColor="#FFFFFF" stopOpacity="0.2" />
+              <stop offset="0.5" stopColor="#FFFFFF" stopOpacity="0.86" />
+              <stop offset="1" stopColor="#FFFFFF" stopOpacity="0.16" />
+            </linearGradient>
+            <filter id="resources-node-glow" x="-80%" y="-80%" width="260%" height="260%">
+              <feGaussianBlur stdDeviation="4" result="blur" />
+              <feMerge>
+                <feMergeNode in="blur" />
+                <feMergeNode in="SourceGraphic" />
+              </feMerge>
+            </filter>
           </defs>
-          <path className="resources-signal-path" d="M184 152C248 178 282 196 338 190" stroke="url(#resources-connector-gradient)" />
-          <path className="resources-signal-path resources-signal-delay-a" d="M618 166C554 184 510 196 460 194" stroke="url(#resources-connector-gradient)" />
-          <path className="resources-signal-path resources-signal-delay-b" d="M164 424C238 394 276 386 346 410" stroke="url(#resources-connector-gradient)" />
-          <path className="resources-signal-path resources-signal-delay-c" d="M642 424C568 396 526 392 466 414" stroke="url(#resources-connector-gradient)" />
-          <path className="resources-signal-path resources-signal-delay-d" d="M218 170V238C218 260 236 278 258 278H318" stroke="url(#resources-connector-gradient)" />
-          <path className="resources-signal-path resources-signal-delay-e" d="M680 188V260C680 282 662 300 640 300H558" stroke="url(#resources-connector-gradient)" />
-          {[218, 318, 482, 680, 198, 344, 514, 640].map((x, index) => (
-            <circle
-              key={`${x}-${index}`}
-              className="resources-signal-node"
-              cx={x}
-              cy={[238, 278, 194, 260, 424, 410, 414, 424][index]}
-              r={index % 3 === 0 ? 7 : 5}
-              fill={index % 2 ? "#22D3EE" : "#FFFFFF"}
-            />
+
+          <ellipse cx="410" cy="340" rx="322" ry="208" stroke="url(#resources-white-orbit)" strokeWidth="1.2" />
+          <ellipse className="resources-signal-path resources-signal-delay-a opacity-40" cx="410" cy="342" rx="264" ry="164" stroke="url(#resources-connector-gradient)" strokeDasharray="8 14" />
+          <ellipse className="resources-signal-path resources-signal-delay-b opacity-50" cx="410" cy="342" rx="204" ry="126" stroke="url(#resources-white-orbit)" strokeDasharray="10 18" />
+
+          <path className="resources-signal-path resources-signal-drop" d="M164 142C172 166 206 184 250 188" stroke="url(#resources-connector-gradient)" />
+          <path className="resources-signal-path resources-signal-drop resources-signal-delay-a" d="M656 154C640 176 606 192 570 196" stroke="url(#resources-connector-gradient)" />
+          <path className="resources-signal-path" d="M250 188C300 194 334 222 360 258" stroke="url(#resources-connector-gradient)" />
+          <path className="resources-signal-path resources-signal-delay-a" d="M570 196C524 202 490 226 460 258" stroke="url(#resources-connector-gradient)" />
+          <path className="resources-signal-path resources-signal-delay-b" d="M248 490C300 438 330 400 360 372" stroke="url(#resources-connector-gradient)" />
+          <path className="resources-signal-path resources-signal-delay-c" d="M574 490C526 438 492 400 460 372" stroke="url(#resources-connector-gradient)" />
+          <path className="resources-signal-path resources-signal-delay-d" d="M188 196C188 250 216 286 270 290H326" stroke="url(#resources-connector-gradient)" />
+          <path className="resources-signal-path resources-signal-delay-e" d="M638 206C638 262 610 298 556 300H496" stroke="url(#resources-connector-gradient)" />
+          <path className="resources-signal-path resources-signal-delay-c opacity-70" d="M128 512C226 548 318 534 410 496C516 452 612 476 736 522" stroke="url(#resources-white-orbit)" />
+
+          {([
+            [250, 188, "#22D3EE", 8],
+            [570, 196, "#06B6D4", 8],
+            [248, 490, "#22D3EE", 7],
+            [574, 490, "#7C3AED", 7],
+            [188, 196, "#FFFFFF", 5],
+            [638, 206, "#FFFFFF", 5],
+            [360, 368, "#FFFFFF", 5],
+            [460, 368, "#FFFFFF", 5],
+            [410, 214, "#22D3EE", 6],
+            [410, 496, "#FFFFFF", 6],
+          ] as Array<[number, number, string, number]>).map(([cx, cy, fill, r], index) => (
+            <g key={`${cx}-${cy}`} className="resources-signal-node" style={{ animationDelay: `${index * 180}ms` }}>
+              <circle cx={cx} cy={cy} r={r + 7} fill={fill} opacity="0.16" />
+              <circle cx={cx} cy={cy} r={r} fill={fill} filter="url(#resources-node-glow)" />
+            </g>
           ))}
         </svg>
 
+        {([
+          [14, 26, 7, 0],
+          [24, 56, 10, 520],
+          [41, 17, 6, 900],
+          [72, 28, 8, 340],
+          [84, 58, 11, 720],
+          [62, 76, 7, 1120],
+          [48, 54, 5, 1500],
+        ] as Array<[number, number, number, number]>).map(([left, top, size, delay]) => (
+          <span
+            key={`${left}-${top}`}
+            className="resources-particle absolute z-[3]"
+            style={{
+              left: `${left}%`,
+              top: `${top}%`,
+              width: size,
+              height: size,
+              animationDelay: `${delay}ms`,
+            }}
+          />
+        ))}
+
         <span className="resources-cube absolute left-[16%] top-[32%]" />
         <span className="resources-cube absolute left-[30%] top-[19%]" style={{ animationDelay: "850ms" }} />
-        <span className="resources-cube absolute right-[18%] top-[31%]" style={{ animationDelay: "1.3s" }} />
-        <span className="resources-cube absolute bottom-[23%] right-[31%]" style={{ animationDelay: "1.9s" }} />
-        <span className="resources-cube absolute bottom-[34%] left-[26%]" style={{ animationDelay: "2.2s" }} />
+        <span className="resources-cube absolute right-[17%] top-[31%]" style={{ animationDelay: "1.3s" }} />
+        <span className="resources-cube absolute bottom-[20%] right-[28%]" style={{ animationDelay: "1.9s" }} />
+        <span className="resources-cube absolute bottom-[34%] left-[24%]" style={{ animationDelay: "2.2s" }} />
 
         {floatingCards.map((card, index) => {
           const Icon = card.Icon;
-          const positions = [
-            "left-[62px] top-[64px]",
-            "right-[36px] top-[72px]",
-            "left-[24px] bottom-[58px]",
-            "right-[28px] bottom-[56px]",
-          ];
 
           return (
             <div
               key={card.title}
-              className={`resources-floating-card absolute z-30 rounded-[20px] border border-blue-100/90 bg-white/86 p-5 shadow-[0_20px_50px_rgba(37,99,235,0.14)] backdrop-blur-xl ring-1 ring-white/70 ${positions[index]}`}
+              className={`resources-floating-card group absolute z-40 rounded-[22px] border border-blue-100/90 bg-white/88 p-4 shadow-[0_20px_54px_rgba(37,99,235,0.12)] backdrop-blur-xl ring-1 ring-white/80 transition duration-300 hover:-translate-y-1 hover:shadow-[0_26px_72px_rgba(37,99,235,0.16)] ${cardPositions[index]}`}
               style={{ animationDelay: `${index * 420}ms` }}
             >
-              <div className="flex items-center gap-4">
-                <span className="grid h-16 w-16 shrink-0 place-items-center rounded-full bg-[linear-gradient(135deg,#EEF5FF,#F5F3FF)] text-[#2563EB] shadow-[0_12px_30px_rgba(37,99,235,0.11)] ring-1 ring-blue-100">
-                  <Icon className="h-8 w-8" strokeWidth={2.1} />
+              <div className="flex items-center gap-3.5">
+                <span className="grid h-12 w-12 shrink-0 place-items-center rounded-full bg-[linear-gradient(135deg,#F8FBFF,#EEF5FF_48%,#F5F3FF)] text-[#2563EB] shadow-[inset_0_0_18px_rgba(37,99,235,0.08),0_10px_24px_rgba(37,99,235,0.1)] ring-1 ring-blue-100 transition group-hover:shadow-[inset_0_0_22px_rgba(34,211,238,0.14),0_13px_30px_rgba(37,99,235,0.14)]">
+                  <Icon className="h-6 w-6" strokeWidth={2.05} />
                 </span>
-                <span>
-                  <span className="block text-[16px] font-semibold leading-tight text-slate-950">{card.title}</span>
-                  <span className="mt-2 block text-[13px] font-normal leading-relaxed text-slate-600">{card.text}</span>
+                <span className="min-w-0">
+                  <span className="block whitespace-nowrap text-[18px] font-bold leading-tight tracking-[-0.02em] text-slate-950">{card.title}</span>
+                  <span className="mt-2 block text-[12.5px] font-normal leading-[1.45] text-slate-600">{card.text}</span>
                 </span>
               </div>
             </div>
           );
         })}
 
-        <div className="absolute left-1/2 top-[51%] z-10 h-[390px] w-[520px] -translate-x-1/2 -translate-y-1/2">
+        <div className="resources-knowledge-core absolute left-1/2 top-[55%] z-10 h-[430px] w-[560px] -translate-x-1/2 -translate-y-1/2">
+          <div className="resources-knowledge-halo" />
           <div className="resources-base resources-base-back" />
           <div className="resources-base resources-base-mid" />
           <div className="resources-base resources-base-front" />
@@ -257,6 +309,10 @@ function ResourcesHeroVisual() {
 
           <div className="resources-book">
             <div className="resources-page resources-page-left">
+              <div className="resources-page-copy resources-page-copy-left">
+                <em>About EVADA</em>
+                <small>Platform docs</small>
+              </div>
               <span />
               <span />
               <span />
@@ -264,6 +320,10 @@ function ResourcesHeroVisual() {
               <i />
             </div>
             <div className="resources-page resources-page-right">
+              <div className="resources-page-copy resources-page-copy-right">
+                <strong>Security Guides</strong>
+                <small>Best practices</small>
+              </div>
               <span />
               <span />
               <span />
@@ -274,10 +334,7 @@ function ResourcesHeroVisual() {
           </div>
 
           <div className="resources-shield">
-            <BookOpen className="h-16 w-16" strokeWidth={1.95} />
-          </div>
-          <div className="resources-magnifier">
-            <Search className="h-12 w-12" strokeWidth={2.1} />
+            <BookOpen className="h-16 w-16" strokeWidth={1.9} />
           </div>
         </div>
       </div>
@@ -287,7 +344,7 @@ function ResourcesHeroVisual() {
 
 function HeroSection() {
   return (
-    <section className="evada-home-hero relative overflow-hidden bg-white px-5 pb-10 pt-7 sm:px-8 sm:pb-12 sm:pt-9 lg:px-10 lg:pb-16 lg:pt-10">
+    <section className="evada-home-hero evada-resources-hero relative overflow-hidden bg-white px-5 pb-10 pt-7 sm:px-8 sm:pb-12 sm:pt-9 lg:px-10 lg:pb-16 lg:pt-10">
       <div aria-hidden="true" className="absolute inset-0 bg-[radial-gradient(circle_at_14%_16%,rgba(37,99,235,0.12),transparent_36%),radial-gradient(circle_at_84%_18%,rgba(124,58,237,0.14),transparent_34%),radial-gradient(circle_at_82%_72%,rgba(34,211,238,0.15),transparent_34%),linear-gradient(180deg,#FFFFFF_0%,#F8FBFF_58%,#FFFFFF_100%)]" />
       <div aria-hidden="true" className="resources-grid-bg absolute inset-0 opacity-70" />
 
@@ -298,10 +355,11 @@ function HeroSection() {
               <span className="h-2 w-2 rounded-full bg-[#04A9C7]" />
               Resources
             </p>
-            <h1 className="mt-5 max-w-full break-words text-[34px] font-bold leading-[1.07] tracking-[-0.035em] text-slate-950 sm:text-[46px] lg:text-[clamp(3rem,4.55vw,3.75rem)]">
+            <h1 className="mt-5 max-w-full break-words text-[34px] font-bold leading-[1.02] tracking-[-0.035em] text-slate-950 sm:text-[46px] lg:text-[clamp(3rem,4.55vw,3.75rem)]">
               <span className="block">Security resources</span>
               <span className="block">for teams that</span>
-              <span className="block bg-[linear-gradient(90deg,#6D49F4,#2563EB,#04A9C7)] bg-clip-text text-transparent">validate risk</span>
+              <span className="block bg-[linear-gradient(90deg,#6D49F4,#2563EB,#04A9C7)] bg-clip-text text-transparent">validate</span>
+              <span className="block bg-[linear-gradient(90deg,#6D49F4,#2563EB,#04A9C7)] bg-clip-text pl-[1.15em] text-transparent sm:pl-[1.25em]">risk</span>
             </h1>
             <p className="mt-5 w-full max-w-full text-[15px] font-normal leading-[1.7] text-slate-600 sm:max-w-[540px] sm:text-[16px]">
               Explore EVADA documentation, guides, webinars, and practical security content for AI-assisted validation workflows.

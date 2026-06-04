@@ -1,4 +1,5 @@
 import Link from "next/link";
+import type { CSSProperties } from "react";
 import type { LucideIcon } from "lucide-react";
 import {
   ArrowRight,
@@ -53,6 +54,25 @@ type WorkflowStep = {
   Icon: LucideIcon;
 };
 
+type HeroVisualCard = {
+  title: string;
+  text: string;
+  Icon: LucideIcon;
+  x: number;
+  y: number;
+  accent: string;
+  iconClassName: string;
+};
+
+type HeroSupportCard = {
+  title: string;
+  text: string;
+  Icon: LucideIcon;
+  x: number;
+  y: number;
+  accent: string;
+};
+
 type Metric = {
   value: string;
   title: string;
@@ -73,18 +93,103 @@ const heroFeatures: Feature[] = [
   { label: "Enterprise-Grade Security", Icon: LockKeyhole },
 ];
 
-const heroCards: Array<{ title: string; text: string; Icon: LucideIcon }> = [
-  { title: "Discover", text: "Surface all exposures across your attack surface.", Icon: Compass },
-  { title: "Prioritize", text: "Focus on what matters most with context and risk.", Icon: Target },
-  { title: "Validate", text: "Confirm exploitability with controlled, AI-assisted tests.", Icon: CheckCircle2 },
-  { title: "Remediate", text: "Fix with confidence and verify risk reduction.", Icon: Wrench },
+const heroCards: HeroVisualCard[] = [
+  {
+    title: "Discover",
+    text: "Surface all exposures across your attack surface.",
+    Icon: Compass,
+    x: 17,
+    y: 28,
+    accent: "from-[#2563EB] via-[#22D3EE] to-[#60A5FA]",
+    iconClassName: "text-[#2563EB]",
+  },
+  {
+    title: "Prioritize",
+    text: "Focus on what matters most with context and risk.",
+    Icon: Target,
+    x: 83,
+    y: 28,
+    accent: "from-[#7C3AED] via-[#8B5CF6] to-[#A78BFA]",
+    iconClassName: "text-[#7C3AED]",
+  },
+  {
+    title: "Validate",
+    text: "Confirm exploitability with controlled, AI-assisted tests.",
+    Icon: CheckCircle2,
+    x: 17,
+    y: 61,
+    accent: "from-[#06B6D4] via-[#22D3EE] to-[#2563EB]",
+    iconClassName: "text-[#06B6D4]",
+  },
+  {
+    title: "Remediate",
+    text: "Fix with confidence and verify risk reduction.",
+    Icon: Wrench,
+    x: 83,
+    y: 61,
+    accent: "from-[#7C3AED] via-[#8B5CF6] to-[#2563EB]",
+    iconClassName: "text-[#7C3AED]",
+  },
 ];
 
-const heroContextTags: Array<{ title: string; Icon: LucideIcon; className: string }> = [
-  { title: "Security Signals", Icon: Bug, className: "left-[420px] top-[42px]" },
-  { title: "Asset Inventory", Icon: UploadCloud, className: "right-[26px] top-[292px]" },
-  { title: "Business Context", Icon: BarChart3, className: "left-[248px] bottom-[44px]" },
-  { title: "Security Team", Icon: Users, className: "right-[134px] bottom-[18px]" },
+const heroSupportCards: HeroSupportCard[] = [
+  {
+    title: "Security Signals",
+    text: "Continuous monitoring for emerging threats",
+    Icon: Bug,
+    x: 50,
+    y: 7,
+    accent: "text-[#2563EB]",
+  },
+  {
+    title: "Business Context",
+    text: "Align risk with what matters to your business",
+    Icon: BarChart3,
+    x: 33,
+    y: 80,
+    accent: "text-[#2563EB]",
+  },
+  {
+    title: "Security Team",
+    text: "Collaborate and act across your teams",
+    Icon: Users,
+    x: 67,
+    y: 80,
+    accent: "text-[#7C3AED]",
+  },
+];
+
+const heroCapabilities: Array<{ title: string; text: string; Icon: LucideIcon; iconClassName: string }> = [
+  {
+    title: "AI-Powered",
+    text: "Intelligent analysis and automated validation",
+    Icon: ShieldCheck,
+    iconClassName: "text-[#2563EB]",
+  },
+  {
+    title: "Real-Time",
+    text: "Continuous discovery and monitoring",
+    Icon: Zap,
+    iconClassName: "text-[#7C3AED]",
+  },
+  {
+    title: "Risk-Based",
+    text: "Contextual prioritization that matters",
+    Icon: LockKeyhole,
+    iconClassName: "text-[#2563EB]",
+  },
+  {
+    title: "Actionable",
+    text: "Clear guidance and remediation steps",
+    Icon: BarChart3,
+    iconClassName: "text-[#7C3AED]",
+  },
+  {
+    title: "Integrated",
+    text: "Seamless workflow across your security stack",
+    Icon: BadgeCheck,
+    iconClassName: "text-[#7C3AED]",
+  },
 ];
 
 const solutions: SolutionCard[] = [
@@ -254,84 +359,132 @@ function Eyebrow({ children }: { children: string }) {
 
 function SolutionsHeroVisual() {
   return (
-    <div className="solutions-hero-visual relative mx-auto h-[500px] w-full max-w-full sm:h-[560px] sm:max-w-[760px] lg:-mt-4 xl:-mt-6" aria-hidden="true">
-      <div className="solutions-hero-stage absolute left-1/2 top-1/2 h-[610px] w-[820px] -translate-x-1/2 -translate-y-1/2 scale-[0.56] sm:scale-[0.72] md:scale-[0.78] lg:scale-[0.82] xl:scale-[0.88] 2xl:scale-[0.92]">
+    <div className="solutions-hero-visual relative mx-auto aspect-[1.35/1] min-h-[560px] w-full max-w-[820px] overflow-visible pb-24 sm:min-h-[590px] lg:min-h-[610px] lg:-mt-3 xl:-mt-5" aria-hidden="true">
+      <div className="solutions-hero-stage absolute left-1/2 top-1/2 h-[620px] w-[820px] -translate-x-1/2 -translate-y-1/2 scale-[0.38] sm:scale-[0.62] md:scale-[0.72] lg:scale-[0.78] xl:scale-[0.84] 2xl:scale-[0.88]">
         <div className="solutions-hex-backdrop absolute inset-0" />
         <div className="solutions-hex-dot-field absolute right-[-3%] top-[-10%] h-[260px] w-[320px]" />
         <div className="solutions-hex-dot-field absolute bottom-[-8%] right-[8%] h-[260px] w-[320px] rotate-180 opacity-70" />
 
-      <svg className="absolute inset-0 z-0 h-full w-full" viewBox="0 0 820 610" fill="none" preserveAspectRatio="xMidYMid meet">
-        <defs>
-          <linearGradient id="solutions-hero-line" x1="154" y1="178" x2="704" y2="456" gradientUnits="userSpaceOnUse">
-            <stop stopColor="#06B6D4" />
-            <stop offset="0.48" stopColor="#2563EB" />
-            <stop offset="1" stopColor="#8B5CF6" />
-          </linearGradient>
-        </defs>
-        <path className="solutions-hero-network-line" d="M410 300C320 246 260 188 172 166" stroke="url(#solutions-hero-line)" />
-        <path className="solutions-hero-network-line solutions-hero-network-delay-a" d="M410 300C524 226 584 178 694 174" stroke="url(#solutions-hero-line)" />
-        <path className="solutions-hero-network-line solutions-hero-network-delay-b" d="M410 300C314 346 238 378 144 392" stroke="url(#solutions-hero-line)" />
-        <path className="solutions-hero-network-line solutions-hero-network-delay-c" d="M410 300C528 368 612 420 712 438" stroke="url(#solutions-hero-line)" />
-        <path className="solutions-hero-network-line solutions-hero-network-delay-d" d="M410 300C426 174 456 86 548 68" stroke="url(#solutions-hero-line)" opacity="0.34" />
-        <path className="solutions-hero-network-line solutions-hero-network-delay-e" d="M410 300C446 430 376 514 294 536" stroke="url(#solutions-hero-line)" opacity="0.34" />
-        {[132, 208, 298, 410, 528, 636, 734].map((x, index) => (
-          <circle key={x} className="solutions-hero-network-node" cx={x} cy={index % 2 ? 218 : 392} r="4" fill={index % 3 === 0 ? "#06B6D4" : index % 3 === 1 ? "#2563EB" : "#A78BFA"} />
-        ))}
-      </svg>
+        <svg className="pointer-events-none absolute inset-0 z-0 h-full w-full overflow-visible" viewBox="0 0 820 620" fill="none" preserveAspectRatio="xMidYMid meet">
+          <defs>
+            <linearGradient id="solutions-hero-line" x1="104" y1="132" x2="720" y2="494" gradientUnits="userSpaceOnUse">
+              <stop stopColor="#06B6D4" />
+              <stop offset="0.46" stopColor="#2563EB" />
+              <stop offset="1" stopColor="#8B5CF6" />
+            </linearGradient>
+            <filter id="solutions-node-glow" x="-80%" y="-80%" width="260%" height="260%">
+              <feGaussianBlur stdDeviation="4" result="blur" />
+              <feMerge>
+                <feMergeNode in="blur" />
+                <feMergeNode in="SourceGraphic" />
+              </feMerge>
+            </filter>
+          </defs>
 
-      {heroCards.map((card, index) => {
-        const Icon = card.Icon;
-        const positions = [
-          "left-[30px] top-[120px] border-b-[#2563EB]",
-          "right-[26px] top-[124px] border-b-[#7C3AED]",
-          "left-[14px] top-[354px] border-b-[#06B6D4]",
-          "right-[16px] top-[374px] border-b-[#7C3AED]",
-        ];
-        const iconTones = [
-          "text-[#2563EB]",
-          "text-[#7C3AED]",
-          "text-[#06B6D4]",
-          "text-[#7C3AED]",
-        ];
+          <ellipse cx="410" cy="282" rx="230" ry="162" stroke="rgba(255,255,255,0.56)" strokeWidth="1.2" />
+          <ellipse className="evada-dash-flow opacity-40" cx="410" cy="282" rx="174" ry="116" stroke="#60A5FA" strokeWidth="1.4" strokeDasharray="4 10" />
+          <ellipse className="evada-dash-flow opacity-55" cx="410" cy="282" rx="278" ry="202" stroke="url(#solutions-hero-line)" strokeWidth="1.8" strokeDasharray="8 12" />
 
-        return (
-          <div
-            key={card.title}
-            className={`solutions-challenge-card absolute z-30 min-h-[138px] w-[248px] rounded-[22px] border border-blue-100/80 bg-white/90 p-5 shadow-[0_24px_58px_rgba(37,99,235,0.14)] backdrop-blur-xl ${positions[index]}`}
-            style={{ animationDelay: `${index * 170}ms` }}
-          >
-            <div className="flex gap-4">
-              <span className="grid h-16 w-16 shrink-0 place-items-center rounded-full border border-blue-100 bg-[linear-gradient(135deg,#F8FBFF,#F5F3FF)] shadow-[0_14px_34px_rgba(37,99,235,0.13)]">
-                <Icon className={`h-8 w-8 ${iconTones[index]}`} strokeWidth={2.05} />
-              </span>
-              <span className="min-w-0">
-                <span className="block text-[20px] font-semibold tracking-[-0.02em] text-slate-950">{card.title}</span>
-                <span className="mt-2 block text-[13px] font-normal leading-relaxed text-slate-600">{card.text}</span>
-              </span>
+          <path className="evada-dash-flow opacity-70" d="M410 282C292 234 228 204 174 190" stroke="url(#solutions-hero-line)" strokeWidth="2" strokeLinecap="round" />
+          <path className="evada-dash-flow opacity-70" d="M410 282C528 226 592 196 686 190" stroke="url(#solutions-hero-line)" strokeWidth="2" strokeLinecap="round" />
+          <path className="evada-dash-flow opacity-70" d="M410 282C286 340 220 380 168 394" stroke="url(#solutions-hero-line)" strokeWidth="2" strokeLinecap="round" />
+          <path className="evada-dash-flow opacity-70" d="M410 282C532 340 606 382 696 410" stroke="url(#solutions-hero-line)" strokeWidth="2" strokeLinecap="round" />
+          <path className="evada-dash-flow opacity-60" d="M410 282C414 178 430 108 410 72" stroke="url(#solutions-hero-line)" strokeWidth="2" strokeLinecap="round" />
+          <path className="evada-dash-flow opacity-55" d="M410 282C378 394 332 458 286 492" stroke="url(#solutions-hero-line)" strokeWidth="2" strokeLinecap="round" />
+          <path className="evada-dash-flow opacity-55" d="M410 282C456 394 502 456 546 492" stroke="url(#solutions-hero-line)" strokeWidth="2" strokeLinecap="round" />
+
+          {([
+            [174, 190, "#2563EB"],
+            [686, 190, "#7C3AED"],
+            [168, 394, "#06B6D4"],
+            [696, 410, "#7C3AED"],
+            [410, 118, "#2563EB"],
+            [286, 492, "#06B6D4"],
+            [546, 492, "#7C3AED"],
+          ] as Array<[number, number, string]>).map(([cx, cy, fill], index) => (
+            <g key={`${cx}-${cy}`} className="evada-node-pulse" style={{ "--delay": `${index * 0.16}s` } as CSSProperties}>
+              <circle cx={cx} cy={cy} r="12" fill={fill as string} opacity="0.14" />
+              <circle cx={cx} cy={cy} r="5.5" fill={fill as string} filter="url(#solutions-node-glow)" />
+            </g>
+          ))}
+        </svg>
+
+        {heroCards.map((card, index) => {
+          const Icon = card.Icon;
+
+          return (
+            <div
+              key={card.title}
+              className="absolute z-30"
+              style={{
+                left: `${card.x}%`,
+                top: `${card.y}%`,
+                transform: "translate(-50%, -50%)",
+              }}
+            >
+              <div
+                className="evada-float-card group relative min-h-[150px] w-[240px] rounded-[24px] border border-blue-100/80 bg-white/90 p-4 shadow-[0_22px_62px_rgba(37,99,235,0.12)] backdrop-blur-xl transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_28px_78px_rgba(37,99,235,0.16)]"
+                style={
+                  {
+                    "--delay": `${index * 0.2}s`,
+                    "--duration": `${7 + index * 0.35}s`,
+                  } as CSSProperties
+                }
+              >
+                <div className="flex gap-3.5">
+                  <span className="grid h-12 w-12 shrink-0 place-items-center rounded-full border border-blue-100 bg-white shadow-[inset_0_0_18px_rgba(37,99,235,0.08),0_12px_26px_rgba(37,99,235,0.11)] transition group-hover:shadow-[inset_0_0_22px_rgba(34,211,238,0.16),0_15px_32px_rgba(37,99,235,0.16)]">
+                    <Icon className={`h-6 w-6 ${card.iconClassName}`} strokeWidth={2.05} />
+                  </span>
+                  <span className="min-w-0">
+                    <span className="block text-[20px] font-bold tracking-[-0.02em] text-slate-950">{card.title}</span>
+                    <span className={`mt-2.5 block h-[3px] w-11 rounded-full bg-gradient-to-r ${card.accent}`} />
+                    <span className="mt-2.5 block text-[12.5px] leading-5 text-slate-600">{card.text}</span>
+                  </span>
+                </div>
+                <span className={`absolute bottom-4 right-4 grid h-8 w-8 place-items-center rounded-full border border-blue-100 bg-white ${card.iconClassName} shadow-sm transition group-hover:translate-x-1`}>
+                  <ArrowRight aria-hidden="true" className="h-4 w-4" strokeWidth={2.1} />
+                </span>
+                <span className={`absolute inset-x-5 bottom-0 h-[2px] rounded-full bg-gradient-to-r ${card.accent}`} />
+              </div>
             </div>
-            <ArrowRight aria-hidden="true" className={`absolute bottom-5 right-5 h-5 w-5 ${iconTones[index]}`} strokeWidth={2.1} />
-          </div>
-        );
-      })}
+          );
+        })}
 
-      {heroContextTags.map((tag, index) => {
-        const Icon = tag.Icon;
+        {heroSupportCards.map((tag, index) => {
+          const Icon = tag.Icon;
 
-        return (
-          <div
-            key={tag.title}
-            className={`solutions-context-pill absolute z-20 flex items-center gap-3 rounded-[14px] border border-blue-100/80 bg-white/78 px-4 py-3 shadow-[0_16px_38px_rgba(37,99,235,0.11)] backdrop-blur-xl ${tag.className}`}
-            style={{ animationDelay: `${index * 210}ms` }}
-          >
-            <span className="grid h-10 w-10 place-items-center rounded-full bg-[linear-gradient(135deg,#EEF5FF,#F5F3FF)] text-[#2563EB] ring-1 ring-blue-100">
-              <Icon className="h-5 w-5" strokeWidth={2.1} />
-            </span>
-            <span className="max-w-[92px] text-[12px] font-semibold leading-snug text-slate-700">{tag.title}</span>
-          </div>
-        );
-      })}
+          return (
+            <div
+              key={tag.title}
+              className="absolute z-30"
+              style={{
+                left: `${tag.x}%`,
+                top: `${tag.y}%`,
+                transform: "translate(-50%, -50%)",
+              }}
+            >
+              <div
+                className="evada-float-small flex w-[192px] items-center gap-3 rounded-[18px] border border-blue-100/70 bg-white/85 p-3.5 shadow-[0_16px_44px_rgba(37,99,235,0.09)] backdrop-blur-xl"
+                style={
+                  {
+                    "--delay": `${index * 0.25}s`,
+                    "--duration": `${6.2 + index * 0.3}s`,
+                  } as CSSProperties
+                }
+              >
+                <span className="grid h-10 w-10 shrink-0 place-items-center rounded-full bg-[linear-gradient(135deg,#EEF5FF,#F5F3FF)] ring-1 ring-blue-100">
+                  <Icon className={`h-5 w-5 ${tag.accent}`} strokeWidth={2.1} />
+                </span>
+                <span className="min-w-0">
+                  <span className="block text-[13px] font-bold leading-tight text-slate-950">{tag.title}</span>
+                  <span className="mt-1 block text-[11px] leading-4 text-slate-600">{tag.text}</span>
+                </span>
+              </div>
+            </div>
+          );
+        })}
 
-        <div className="solutions-hex-system absolute left-1/2 top-[308px] z-10 h-[330px] w-[330px] -translate-x-1/2 -translate-y-1/2">
+        <div className="solutions-hex-system absolute left-1/2 top-[288px] z-10 h-[350px] w-[350px] -translate-x-1/2 -translate-y-1/2">
           <div className="solutions-hex-light" />
           <div className="solutions-hex-column solutions-hex-column-a" />
           <div className="solutions-hex-column solutions-hex-column-b" />
@@ -345,6 +498,26 @@ function SolutionsHeroVisual() {
             <div className="solutions-hex-check" />
           </div>
         </div>
+
+        <div className="absolute bottom-[-76px] left-1/2 z-40 w-[104%] -translate-x-1/2">
+          <div className="grid grid-cols-5 rounded-[22px] border border-blue-100/80 bg-white/90 px-4 py-3.5 shadow-[0_18px_54px_rgba(37,99,235,0.11)] backdrop-blur-xl">
+            {heroCapabilities.map((capability) => {
+              const Icon = capability.Icon;
+
+              return (
+                <div key={capability.title} className="flex items-center gap-2.5 border-slate-200/80 px-2 first:pl-0 last:pr-0 [&:not(:first-child)]:border-l">
+                  <span className="grid h-9 w-9 shrink-0 place-items-center rounded-full bg-white shadow-[0_10px_20px_rgba(37,99,235,0.09)] ring-1 ring-blue-100">
+                    <Icon className={`h-[18px] w-[18px] ${capability.iconClassName}`} strokeWidth={2.1} />
+                  </span>
+                  <span className="min-w-0">
+                    <span className="block whitespace-nowrap text-[11px] font-bold leading-tight text-slate-950">{capability.title}</span>
+                    <span className="mt-1 block text-[9.5px] leading-[1.3] text-slate-600">{capability.text}</span>
+                  </span>
+                </div>
+              );
+            })}
+          </div>
+        </div>
       </div>
     </div>
   );
@@ -352,7 +525,7 @@ function SolutionsHeroVisual() {
 
 function HeroSection() {
   return (
-    <section className="evada-home-hero relative overflow-hidden bg-white px-5 pb-10 pt-7 sm:px-8 sm:pb-12 sm:pt-9 lg:px-10 lg:pb-16 lg:pt-10">
+    <section className="evada-home-hero relative overflow-x-hidden bg-white px-5 pb-16 pt-7 sm:px-8 sm:pb-20 sm:pt-9 lg:px-10 lg:pb-20 lg:pt-10">
       <div aria-hidden="true" className="absolute inset-0 bg-[radial-gradient(circle_at_14%_16%,rgba(37,99,235,0.12),transparent_35%),radial-gradient(circle_at_80%_14%,rgba(124,58,237,0.14),transparent_34%),radial-gradient(circle_at_84%_70%,rgba(34,211,238,0.13),transparent_32%),linear-gradient(180deg,#FFFFFF_0%,#F8FBFF_58%,#FFFFFF_100%)]" />
       <div aria-hidden="true" className="solutions-grid-bg absolute inset-0 opacity-70" />
 
