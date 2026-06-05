@@ -2,27 +2,18 @@ import Link from "next/link";
 import type { LucideIcon } from "lucide-react";
 import {
   ArrowRight,
-  Bell,
   BookOpen,
   CheckCircle2,
   ChevronLeft,
   ChevronRight,
-  ClipboardList,
-  Code2,
-  FileText,
-  Library,
   Mail,
-  Newspaper,
-  PlayCircle,
-  Rocket,
   Search,
-  ShieldCheck,
-  Video,
 } from "lucide-react";
 import FooterSection from "@/components/FooterSection";
 import MarketingNav from "@/components/MarketingNav";
 import Reveal from "@/components/Reveal";
 import MarketingAnimatedBackground from "@/components/marketing/MarketingAnimatedBackground";
+import { marketingIconMap } from "@/components/marketing/MarketingIcon";
 
 type IconItem = {
   title: string;
@@ -45,57 +36,57 @@ type LearningPath = {
 };
 
 const heroChips: IconItem[] = [
-  { title: "Documentation", text: "Technical docs", Icon: FileText },
-  { title: "Guides", text: "Step-by-step", Icon: ClipboardList },
-  { title: "API Reference", text: "Integrate & build", Icon: Code2 },
-  { title: "Knowledge Hub", text: "Security insights", Icon: ShieldCheck },
+  { title: "Documentation", text: "Technical docs", Icon: marketingIconMap.documentation },
+  { title: "Guides", text: "Step-by-step guidance", Icon: marketingIconMap.guides },
+  { title: "API Reference", text: "Integrate and build", Icon: marketingIconMap["api-reference"] },
+  { title: "Knowledge Hub", text: "Security insight", Icon: marketingIconMap["knowledge-hub"] },
 ];
 
 const floatingCards: IconItem[] = [
-  { title: "Documentation", text: "Technical guides and references", Icon: Library },
-  { title: "Knowledge Hub", text: "Vulnerability insights and research", Icon: ShieldCheck },
-  { title: "Guides", text: "Tutorials and best practices", Icon: ClipboardList },
-  { title: "Webinars", text: "Learn from experts and practitioners", Icon: Video },
+  { title: "Documentation", text: "Technical guides and references", Icon: marketingIconMap.documentation },
+  { title: "Knowledge Hub", text: "Vulnerability insights and research", Icon: marketingIconMap["knowledge-hub"] },
+  { title: "Guides", text: "Tutorials and best practices", Icon: marketingIconMap.guides },
+  { title: "Webinars", text: "Learn from experts and practitioners", Icon: marketingIconMap.webinars },
 ];
 
 const featuredResources: FeaturedResource[] = [
   {
     badge: "GUIDE",
-    title: "Getting Started with EVADA Platform",
-    text: "A complete walkthrough to set up your environment and run your first scan.",
+    title: "Getting Started with EVADA",
+    text: "A practical walkthrough to configure your environment and run your first validation workflow.",
     cta: "Read Guide",
-    Icon: Rocket,
+    Icon: marketingIconMap.launch,
   },
   {
     badge: "DOCUMENTATION",
     title: "EVADA Platform Documentation",
-    text: "Comprehensive technical documentation for all platform features and APIs.",
+    text: "Technical documentation for platform features, integrations and APIs.",
     cta: "View Documentation",
-    Icon: BookOpen,
+    Icon: marketingIconMap.documentation,
   },
   {
     badge: "WHITEPAPER",
-    title: "AI-Assisted Security Validation Framework",
-    text: "Understand our approach to AI-supported pentesting, governed validation, and risk analysis.",
+    title: "AI-Supported Security Validation Framework",
+    text: "Understand EVADA's approach to controlled AI validation, risk context and evidence.",
     cta: "Download Whitepaper",
-    Icon: ShieldCheck,
+    Icon: marketingIconMap.whitepaper,
   },
   {
     badge: "WEBINAR",
-    title: "Building a Modern Security Program",
-    text: "Watch our on-demand webinar with industry experts and practitioners.",
+    title: "Building a Modern Security Programme",
+    text: "Watch our on-demand session on continuous validation and operational security.",
     cta: "Watch Now",
-    Icon: PlayCircle,
+    Icon: marketingIconMap["webinar-recording"],
   },
 ];
 
 const resourceTypes: IconItem[] = [
-  { title: "Documentation", text: "Technical docs", Icon: FileText },
-  { title: "Guides & Tutorials", text: "Practical guides", Icon: ClipboardList },
-  { title: "API Reference", text: "Integration endpoints", Icon: Code2 },
-  { title: "Blog & Insights", text: "Security articles", Icon: Newspaper },
-  { title: "Webinars", text: "Expert sessions", Icon: Video },
-  { title: "Release Notes", text: "Product updates", Icon: Bell },
+  { title: "Documentation", text: "Technical docs", Icon: marketingIconMap.documentation },
+  { title: "Guides and Tutorials", text: "Practical guides", Icon: marketingIconMap.guides },
+  { title: "API Reference", text: "Integration endpoints", Icon: marketingIconMap["api-reference"] },
+  { title: "Blog and Insights", text: "Security articles", Icon: marketingIconMap["blog-insights"] },
+  { title: "Webinars", text: "Expert sessions", Icon: marketingIconMap.webinars },
+  { title: "Release Notes", text: "Product updates", Icon: marketingIconMap["release-notes"] },
 ];
 
 const learningPaths: LearningPath[] = [
@@ -111,7 +102,7 @@ const learningPaths: LearningPath[] = [
     badge: "INTERMEDIATE",
     title: "Security Operations",
     description: "Deep dive into security operations and validation workflows.",
-    checklist: ["Advanced Scanning", "AI-Supported Pentest Workflows", "Pipeline Management", "Reporting & Analytics"],
+    checklist: ["Advanced Scanning", "AI Pentester Workflows", "Pipeline Management", "Reporting and Analytics"],
     meta: "6 modules \u00B7 2.5 hrs",
     tone: "blue",
   },
@@ -119,7 +110,7 @@ const learningPaths: LearningPath[] = [
     badge: "ADVANCED",
     title: "Enterprise Administration",
     description: "Master enterprise features and administration.",
-    checklist: ["Multi-tenant Management", "RBAC & Permissions", "Agent Management", "Audit-Ready Controls"],
+    checklist: ["Multi-tenant Management", "RBAC and Permissions", "Agent Management", "Compliance and Audit"],
     meta: "5 modules \u00B7 3 hrs",
     tone: "purple",
   },
@@ -356,13 +347,12 @@ function HeroSection() {
               Resources
             </p>
             <h1 className="mt-5 max-w-full break-words text-[34px] font-bold leading-[1.02] tracking-[-0.035em] text-slate-950 sm:text-[46px] lg:text-[clamp(3rem,4.55vw,3.75rem)]">
-              <span className="block">Security resources</span>
-              <span className="block">for teams that</span>
-              <span className="block bg-[linear-gradient(90deg,#6D49F4,#2563EB,#04A9C7)] bg-clip-text text-transparent">validate</span>
-              <span className="block bg-[linear-gradient(90deg,#6D49F4,#2563EB,#04A9C7)] bg-clip-text pl-[1.15em] text-transparent sm:pl-[1.25em]">risk</span>
+              <span className="block">Knowledge.</span>
+              <span className="block">Guidance.</span>
+              <span className="block bg-[linear-gradient(90deg,#6D49F4,#2563EB,#04A9C7)] bg-clip-text text-transparent">Security confidence.</span>
             </h1>
             <p className="mt-5 w-full max-w-full text-[15px] font-normal leading-[1.7] text-slate-600 sm:max-w-[540px] sm:text-[16px]">
-              Explore EVADA documentation, guides, webinars, and practical security content for AI-assisted validation workflows.
+              Explore documentation, guides, webinars and expert resources to help your team get more value from EVADA&apos;s AI-supported security validation platform.
             </p>
 
             <div role="search" className="mt-8 flex w-full max-w-full flex-col gap-3 rounded-[18px] border border-blue-100 bg-white p-2 shadow-[0_18px_44px_rgba(37,99,235,0.12)] sm:max-w-[520px] sm:flex-row sm:items-center">
@@ -374,7 +364,7 @@ function HeroSection() {
                 <input
                   id="resources-search"
                   type="search"
-                  placeholder="Search resources, docs, guides, blogs..."
+                  placeholder="Search documentation, guides, research and webinars..."
                   className="h-12 min-w-0 flex-1 bg-transparent text-[14px] font-normal text-slate-800 outline-none placeholder:text-slate-400"
                 />
               </div>
@@ -552,7 +542,7 @@ function PopularTopicsSection() {
         <SectionIntro
           eyebrow="POPULAR TOPICS"
           title="Quick answers to common questions"
-          text="Get help with frequently asked questions and how-to guides."
+          text="Get help with frequently asked questions and practical guidance."
         />
 
         <div className="mt-9 grid gap-4 md:grid-cols-2 xl:grid-cols-3">
@@ -585,7 +575,7 @@ function NewsletterSection() {
                 Stay updated with the latest resources
               </h2>
               <p className="mt-2 max-w-[560px] text-[15px] leading-relaxed text-slate-600 sm:text-[17px]">
-                Get new guides, security insights, and platform updates delivered to your inbox.
+                Get new guides, security insight and platform updates delivered to your inbox.
               </p>
             </div>
           </div>

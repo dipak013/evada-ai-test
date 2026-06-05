@@ -4,26 +4,24 @@ import {
   CalendarCheck,
   CheckCircle2,
   Clock3,
-  ShieldCheck,
-  Sparkles,
-  UserCheck,
 } from "lucide-react";
 import { EnquiryForm } from "@/components/common/EnquiryForm";
 import FooterSection from "@/components/FooterSection";
 import MarketingNav from "@/components/MarketingNav";
 import MarketingAnimatedBackground from "@/components/marketing/MarketingAnimatedBackground";
+import { marketingIconMap } from "@/components/marketing/MarketingIcon";
 
 const demoHighlights = [
   { label: "Platform walkthrough", Icon: CalendarCheck },
-  { label: "AI validation workflow", Icon: Sparkles },
-  { label: "Governance & RBAC review", Icon: ShieldCheck },
-  { label: "Security team Q&A", Icon: UserCheck },
+  { label: "AI validation workflow", Icon: marketingIconMap["ai-supported"] },
+  { label: "Governance and RBAC review", Icon: marketingIconMap["admin-rbac"] },
+  { label: "Security team questions", Icon: marketingIconMap["human-expertise"] },
 ];
 
 const demoOutcomes = [
-  "See how EVADA connects findings, validation workflows, evidence, and reports.",
+  "See how EVADA connects findings, validation workflows, evidence and reports.",
   "Review controlled AI validation with human approval and safe sandboxing.",
-  "Discuss integrations, tenants, agents, RBAC, and remediation workflows.",
+  "Discuss integrations, tenants, agents, RBAC and remediation workflows.",
 ];
 
 export default function BookDemoPage() {
@@ -46,7 +44,7 @@ export default function BookDemoPage() {
                 See EVADA in <span className="bg-[linear-gradient(90deg,#2563EB,#06B6D4,#7C3AED)] bg-clip-text text-transparent">action.</span>
               </h1>
               <p className="mt-5 w-full max-w-full text-[15px] leading-[1.7] text-slate-600 sm:max-w-[540px] sm:text-[16px]">
-                Meet with our team to explore AI-assisted validation, controlled workflows, evidence-backed reporting, and enterprise governance for your security program.
+                Meet with our team to explore AI-supported validation, controlled workflows, evidence-backed reporting and enterprise governance for your security programme.
               </p>
 
               <div className="mt-8 grid w-full max-w-[620px] grid-cols-2 gap-3 sm:grid-cols-4">

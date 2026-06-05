@@ -1,5 +1,7 @@
-import { ArrowRight, CheckCircle2, ShieldCheck } from "lucide-react";
+import type { LucideIcon } from "lucide-react";
+import { ArrowRight, CheckCircle2 } from "lucide-react";
 import Reveal from "@/components/Reveal";
+import { marketingIconMap } from "@/components/marketing/MarketingIcon";
 
 const beforeItems = [
   "Large scanner backlog",
@@ -10,7 +12,7 @@ const beforeItems = [
 
 const engineSteps = [
   "Ingest",
-  "Analyze",
+  "Analyse",
   "Validate",
   "Evidence",
   "Approval",
@@ -18,7 +20,7 @@ const engineSteps = [
 ];
 
 const afterItems = [
-  "Prioritized validated risk",
+  "Prioritised validated risk",
   "Exploit evidence",
   "Fewer false positives",
   "Clear remediation ownership",
@@ -26,16 +28,19 @@ const afterItems = [
 
 const summaryChips = [
   {
-    title: "Reduce Noise & Backlog",
+    title: "Reduce noise and backlog",
     body: "Focus on what matters",
+    Icon: marketingIconMap["scanner-noise"],
   },
   {
-    title: "Validated Risk at a Glance",
+    title: "Validated risk at a glance",
     body: "See real risk with evidence",
+    Icon: marketingIconMap.evidence,
   },
   {
-    title: "Operationalized Remediation",
+    title: "Operationalised remediation",
     body: "Sync to tools and drive action",
+    Icon: marketingIconMap.sync,
   },
 ];
 
@@ -47,13 +52,13 @@ export default function WhyEvadaSection() {
       <div className="relative mx-auto max-w-[1360px]">
         <Reveal>
           <div className="mx-auto max-w-[760px] text-center">
-            <p className="text-[12px] font-black uppercase tracking-[0.18em] text-[#04A9C7]">From Security Noise to Validated Risk</p>
+            <p className="text-[12px] font-black uppercase tracking-[0.18em] text-[#04A9C7]">From security noise to validated risk</p>
             <h2 className="mx-auto mt-4 max-w-[760px] text-[clamp(1.55rem,5vw,2.75rem)] font-bold leading-[1.1] tracking-[-0.025em] text-slate-950">
-              <span className="block">Turn Scanner Backlog Into</span>
-              <span className="block">Evidence-Backed Decisions</span>
+              <span className="block">Turn scanner backlog into</span>
+              <span className="block">evidence-backed decisions</span>
             </h2>
             <p className="mx-auto mt-5 max-w-[700px] text-[15px] leading-[1.75] text-slate-600 sm:text-[16px]">
-              EVADA transforms scattered scanner findings, false positives, and stale reports into validated, auditable, and actionable security workflows.
+              EVADA transforms scattered scanner findings, false positives and stale reports into validated, auditable and actionable security workflows.
             </p>
           </div>
         </Reveal>
@@ -137,12 +142,15 @@ export default function WhyEvadaSection() {
         </div>
 
         <div className="mx-auto mt-6 grid max-w-[1080px] grid-cols-1 gap-4 md:grid-cols-3">
-          {summaryChips.map((chip, index) => (
+          {summaryChips.map((chip: { title: string; body: string; Icon: LucideIcon }, index) => {
+            const Icon = chip.Icon;
+
+            return (
             <Reveal key={chip.title} delayMs={320 + index * 80} className="min-w-0">
               <div className="h-full rounded-[20px] border border-violet-100 bg-white px-5 py-5 shadow-[0_16px_45px_rgba(15,23,42,0.06)]">
                 <div className="flex min-w-0 items-start gap-4">
                   <span className="grid h-11 w-11 shrink-0 place-items-center rounded-full bg-[#EEF2FF] text-[#04A9C7] shadow-[0_0_24px_rgba(4,169,199,0.18)]">
-                    <ShieldCheck aria-hidden="true" className="h-5 w-5" strokeWidth={2} />
+                    <Icon aria-hidden="true" className="h-5 w-5" strokeWidth={2} />
                   </span>
                   <div className="min-w-0">
                     <h3 className="text-[15px] font-black leading-tight text-slate-950">{chip.title}</h3>
@@ -151,7 +159,8 @@ export default function WhyEvadaSection() {
                 </div>
               </div>
             </Reveal>
-          ))}
+            );
+          })}
         </div>
 
         <Reveal delayMs={240}>

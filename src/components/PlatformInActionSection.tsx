@@ -1,15 +1,8 @@
 import type { ReactNode } from "react";
 import type { LucideIcon } from "lucide-react";
-import {
-  ArrowRight,
-  Code2,
-  FileSearch,
-  GitBranch,
-  RefreshCw,
-  ShieldCheck,
-  UserCheck,
-} from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import Reveal from "@/components/Reveal";
+import { marketingIconMap } from "@/components/marketing/MarketingIcon";
 
 type PlatformCard = {
   title: string;
@@ -40,7 +33,7 @@ function MiniHeader({ title, Icon }: { title: string; Icon: LucideIcon }) {
 function ValidationQueuePreview() {
   return (
     <div className="h-full overflow-hidden rounded-[16px] border border-slate-200 bg-white">
-      <MiniHeader title="Validation Queue" Icon={ShieldCheck} />
+      <MiniHeader title="Validation Queue" Icon={marketingIconMap["next-steps"]} />
       <div className="overflow-x-auto p-3">
         <table className="w-full min-w-[250px] text-left text-[10px]">
           <thead className="text-slate-400">
@@ -68,7 +61,7 @@ function ValidationQueuePreview() {
 function EvidencePreview() {
   return (
     <div className="h-full overflow-hidden rounded-[16px] border border-slate-200 bg-white">
-      <MiniHeader title="Evidence & Exploit Proof" Icon={Code2} />
+      <MiniHeader title="Evidence & Exploit Proof" Icon={marketingIconMap.evidence} />
       <div className="grid h-[calc(100%-41px)] gap-3 overflow-hidden p-3">
         <div className="rounded-[14px] bg-[#F8FAFC] p-3">
           <p className="text-[10px] font-black text-[#04A9C7]">Request</p>
@@ -94,7 +87,7 @@ function ApprovalPreview() {
 
   return (
     <div className="h-full overflow-hidden rounded-[16px] border border-slate-200 bg-white">
-      <MiniHeader title="Approval Workflows" Icon={UserCheck} />
+      <MiniHeader title="Approval Workflows" Icon={marketingIconMap.approval} />
       <div className="grid gap-3 p-3">
         {rows.map(([name, risk, status]) => (
           <div key={name} className="flex min-w-0 items-center justify-between gap-3 rounded-[14px] border border-slate-100 bg-[#F8FAFC] px-3 py-3">
@@ -117,21 +110,21 @@ function ApprovalPreview() {
 
 function RemediationPreview() {
   const rows = [
-    ["Jira Cloud", "Ticket synced", "#2563EB"],
-    ["Slack", "Alert created", "#04A9C7"],
-    ["Microsoft Sentinel", "Event", "#7C3AED"],
-    ["ServiceNow", "Updated", "#F97316"],
+    { name: "Jira Cloud", status: "Ticket synced", color: "#2563EB", Icon: marketingIconMap["jira-itsm"] },
+    { name: "Slack", status: "Alert created", color: "#04A9C7", Icon: marketingIconMap["team-chat"] },
+    { name: "Microsoft Sentinel", status: "Event", color: "#7C3AED", Icon: marketingIconMap.siem },
+    { name: "ServiceNow", status: "Updated", color: "#F97316", Icon: marketingIconMap["service-management"] },
   ];
 
   return (
     <div className="h-full overflow-hidden rounded-[16px] border border-slate-200 bg-white">
-      <MiniHeader title="Remediation Sync" Icon={RefreshCw} />
+      <MiniHeader title="Remediation Sync" Icon={marketingIconMap.sync} />
       <div className="grid gap-3 p-3">
-        {rows.map(([name, status, color]) => (
+        {rows.map(({ name, status, color, Icon }) => (
           <div key={name} className="flex min-w-0 items-center justify-between gap-3 rounded-[14px] border border-slate-100 bg-white px-3 py-3 shadow-sm">
             <div className="flex min-w-0 items-center gap-2">
               <span className="grid h-8 w-8 shrink-0 place-items-center rounded-xl bg-slate-50" style={{ color }}>
-                <GitBranch aria-hidden="true" className="h-4 w-4" strokeWidth={2.1} />
+                <Icon aria-hidden="true" className="h-4 w-4" strokeWidth={2.1} />
               </span>
               <span className="truncate text-[10px] font-black text-slate-950">{name}</span>
             </div>
@@ -146,26 +139,26 @@ function RemediationPreview() {
 const cards: PlatformCard[] = [
   {
     title: "Validation Queue",
-    body: "See what findings from scanners, whom, and next steps.",
-    Icon: ShieldCheck,
+    body: "See what is pending, approved, validated or in review.",
+    Icon: marketingIconMap["next-steps"],
     Preview: ValidationQueuePreview,
   },
   {
-    title: "Evidence & Exploit Proof",
-    body: "Review artifacts, request/response, and proof of exploitability.",
-    Icon: FileSearch,
+    title: "Evidence and exploit proof",
+    body: "Review artefacts, request/response logs and proof of exploitability.",
+    Icon: marketingIconMap.evidence,
     Preview: EvidencePreview,
   },
   {
     title: "Approval Workflows",
     body: "Human-in-the-loop approvals for high-risk validations.",
-    Icon: UserCheck,
+    Icon: marketingIconMap.approval,
     Preview: ApprovalPreview,
   },
   {
     title: "Remediation Sync",
-    body: "Push validated issues directly into Jira, Slack, or your SIEM.",
-    Icon: RefreshCw,
+    body: "Push validated issues directly into Jira, Slack, ServiceNow or your SIEM.",
+    Icon: marketingIconMap.sync,
     Preview: RemediationPreview,
   },
 ];
@@ -176,10 +169,10 @@ export default function PlatformInActionSection() {
       <div className="mx-auto max-w-[1360px]">
         <Reveal>
           <div className="mx-auto max-w-[760px] text-center">
-            <p className="text-[12px] font-black uppercase tracking-[0.18em] text-[#04A9C7]">Operational Visibility</p>
+            <p className="text-[12px] font-black uppercase tracking-[0.18em] text-[#04A9C7]">Operational visibility</p>
             <h2 className="mx-auto mt-4 max-w-[760px] break-words text-[clamp(1.55rem,5vw,2.75rem)] font-bold leading-[1.1] tracking-[-0.02em] text-slate-950 sm:tracking-[-0.025em]">
-              <span className="block">Operational Visibility for Every</span>
-              <span className="block">Security Team</span>
+              <span className="block">Operational visibility for every</span>
+              <span className="block">security team</span>
             </h2>
             <span className="mx-auto mt-5 block h-1.5 w-16 rounded-full bg-[#04A9C7]" />
           </div>

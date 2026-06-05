@@ -1,6 +1,7 @@
 import type { LucideIcon } from "lucide-react";
-import { CheckCircle2, GitBranch, Radar, ShieldCheck, Sparkles } from "lucide-react";
+import { CheckCircle2 } from "lucide-react";
 import Reveal from "@/components/Reveal";
+import { marketingIconMap } from "@/components/marketing/MarketingIcon";
 
 type Phase = {
   phase: string;
@@ -15,29 +16,29 @@ const phases: Phase[] = [
     phase: "Phase 1",
     title: "Continuous Validation",
     subtitle: "(always-on assurance)",
-    Icon: ShieldCheck,
+    Icon: marketingIconMap["continuous-validation"],
     checks: ["Always-on validation", "Reduce risk exposure windows", "Continuous assurance"],
   },
   {
     phase: "Phase 2",
     title: "CI/CD Integration",
     subtitle: "(shift-left validation)",
-    Icon: GitBranch,
+    Icon: marketingIconMap["security-workflow"],
     checks: ["Shift-left security validation", "Validate in pipelines", "Block risky deployments"],
   },
   {
     phase: "Phase 3",
     title: "Detection Engineering",
     subtitle: "(signal quality)",
-    Icon: Radar,
+    Icon: marketingIconMap["security-signals"],
     checks: ["Feed detections with validated context", "Improve signal-to-noise", "Strengthen alert quality"],
   },
   {
     phase: "Phase 4",
     title: "Guardrailed Security Automation",
     subtitle: "(human-approved)",
-    Icon: Sparkles,
-    checks: ["Human-approved automation", "Auto-generate evidence", "Accelerate response at scale"],
+    Icon: marketingIconMap["policy-restrictions"],
+    checks: ["Human-approved automation", "Generate evidence", "Accelerate response at scale"],
   },
 ];
 
@@ -85,10 +86,10 @@ export default function PlatformEvolutionSection() {
       <div className="mx-auto max-w-[1360px]">
         <Reveal>
           <div className="mx-auto max-w-[760px] text-center">
-            <p className="text-[12px] font-black uppercase tracking-[0.18em] text-[#04A9C7]">The Future of Continuous Security Validation</p>
+            <p className="text-[12px] font-black uppercase tracking-[0.18em] text-[#04A9C7]">The future of continuous security validation</p>
             <h2 className="mx-auto mt-4 max-w-[760px] text-[clamp(1.55rem,5vw,2.75rem)] font-bold leading-[1.1] tracking-[-0.025em] text-slate-950">
-              <span className="block">From Periodic Testing to</span>
-              <span className="block">Continuous Validation</span>
+              <span className="block">From periodic testing to</span>
+              <span className="block">continuous validation</span>
             </h2>
             <span className="mx-auto mt-5 block h-1.5 w-16 rounded-full bg-[#04A9C7]" />
           </div>
@@ -120,8 +121,8 @@ export default function PlatformEvolutionSection() {
               <CheckCircle2 aria-hidden="true" className="h-7 w-7" strokeWidth={2.1} />
             </span>
             <p className="text-[14px] font-black leading-relaxed text-slate-900 sm:text-[16px]">
-              From periodic testing to continuous, evidence-backed security validation.{" "}
-              <span className="text-[#5F3FEA]">Always validating. Always improving. Always ahead.</span>
+              Continuous validation.{" "}
+              <span className="text-[#5F3FEA]">Less risk. More confidence.</span>
             </p>
           </div>
         </Reveal>

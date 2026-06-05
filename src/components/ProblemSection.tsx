@@ -2,9 +2,9 @@ import { AlertTriangle, CheckCircle2 } from "lucide-react";
 import Reveal from "@/components/Reveal";
 
 const problemItems = [
-  "Continuously validates across your attack surface",
+  "Continuous validation across your attack surface",
   "Verify exploitability, not just presence",
-  "Prioritize what matters - reduce noise",
+  "Prioritise what matters and reduce noise",
 ];
 
 const timeline = [
@@ -20,14 +20,14 @@ export default function ProblemSection() {
     <section className="bg-white px-5 py-10 sm:px-8 sm:py-12 lg:px-10 lg:py-16">
       <div className="mx-auto grid max-w-[1360px] min-w-0 grid-cols-1 items-center gap-10 xl:grid-cols-[0.42fr_0.58fr] xl:gap-16">
         <Reveal className="min-w-0">
-          <p className="text-[12px] font-black uppercase tracking-[0.18em] text-[#04A9C7]">The Problem</p>
+          <p className="text-[12px] font-black uppercase tracking-[0.18em] text-[#04A9C7]">The problem</p>
           <h2 className="mt-5 max-w-[570px] text-[clamp(1.75rem,6vw,2.75rem)] font-black leading-[1.06] tracking-[-0.025em] text-slate-950">
-            Periodic Pentests Leave
+            Periodic pentests leave
             <br />
-            Months of Unvalidated Risk
+            months of unvalidated risk
           </h2>
           <p className="mt-5 max-w-[560px] text-[15px] leading-[1.75] text-slate-600 sm:text-[17px]">
-            Attackers do not wait for your next pentest. EVADA AI continuously validates findings, verifies exploitability, and closes the gap.
+            Attackers do not wait for your next assessment. EVADA continuously validates findings, verifies exploitability and helps close the gap between discovery and remediation.
           </p>
 
           <div className="mt-7 space-y-4">
@@ -41,14 +41,18 @@ export default function ProblemSection() {
         </Reveal>
 
         <Reveal className="min-w-0" delayMs={120}>
-          <div className="w-full rounded-[24px] border border-blue-100/80 bg-white/95 p-5 shadow-[0_24px_70px_rgba(37,99,235,0.08)] backdrop-blur sm:p-8">
+          <div className="problem-edge-card relative isolate w-full overflow-hidden rounded-[24px] border border-blue-100/80 bg-white/95 p-5 shadow-[0_24px_70px_rgba(37,99,235,0.08)] backdrop-blur sm:p-8">
+            <span className="problem-border-runner problem-border-runner-top" aria-hidden="true" />
+            <span className="problem-border-runner problem-border-runner-left" aria-hidden="true" />
+            <span className="problem-border-runner problem-border-runner-right" aria-hidden="true" />
+            <span className="problem-border-runner problem-border-runner-bottom" aria-hidden="true" />
             <h3 className="max-w-[560px] text-[20px] font-black leading-tight tracking-[-0.01em] text-slate-950 sm:text-[24px]">
-              Typical Risk Lifecycle Without Continuous Validation
+              Typical risk lifecycle without continuous validation
             </h3>
 
             <div className="mt-8">
               <div className="relative">
-                <div className="risk-timeline-track absolute left-[7%] right-[7%] top-[18px] hidden h-px sm:block" aria-hidden="true">
+                <div className="risk-timeline-track absolute left-[10%] right-[10%] top-[18px] hidden h-[2px] sm:block" aria-hidden="true">
                   <span className="risk-timeline-base" />
                   <span className="risk-timeline-progress" />
                   <span className="risk-timeline-pulse">
@@ -63,14 +67,14 @@ export default function ProblemSection() {
                         className={`risk-timeline-node relative z-10 mx-auto grid h-9 w-9 place-items-center rounded-full border-[5px] bg-white ${
                           step.active ? "border-[#04A9C7]" : "border-slate-300"
                         }`}
-                        style={{ animationDelay: `${index * 1.55}s` }}
+                        style={{ animationDelay: `${index * 1.78}s` }}
                         aria-hidden="true"
                       >
                         <span className={`risk-timeline-node-inner h-2.5 w-2.5 rounded-full ${step.active ? "bg-[#04A9C7]" : "bg-slate-100"}`} />
                       </span>
                       <p className="mt-4 text-[12px] font-black leading-tight text-slate-950 sm:text-[14px]">{step.day}</p>
                       <p className="mt-1 break-words text-[10px] font-semibold leading-tight text-slate-500 sm:text-[12px]">{step.label}</p>
-                      <span className="risk-risk-dot mx-auto mt-4 hidden h-2 w-2 rounded-full bg-[#EF4444] sm:block" style={{ animationDelay: `${index * 1.45 + 0.35}s` }} aria-hidden="true" />
+                      <span className="risk-risk-dot mx-auto mt-4 hidden h-2 w-2 rounded-full bg-[#EF4444] sm:block" style={{ animationDelay: `${index * 1.78 + 0.32}s` }} aria-hidden="true" />
                     </div>
                   ))}
                 </div>

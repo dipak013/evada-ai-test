@@ -2,37 +2,37 @@ import { MarketingPageShell } from "@/components/common/MarketingPageShell";
 
 const legalSections = [
   {
-    title: "Service Scope",
+    title: "Service scope",
     styleClass: "border-indigo-200 bg-indigo-50/70",
     detail:
-      "EVADA provides authorized security testing workflows, exploit validation, and reporting capabilities designed for enterprise risk management.",
+      "EVADA provides authorised security testing workflows, exploit validation and reporting capabilities designed for enterprise risk management.",
   },
   {
-    title: "Customer Responsibilities",
+    title: "Customer responsibilities",
     styleClass: "border-cyan-200 bg-cyan-50/70",
     detail:
       "Customers must maintain legal authority for all assessments, secure account credentials, and assign access rights responsibly.",
   },
   {
-    title: "Acceptable Use",
+    title: "Acceptable use",
     styleClass: "border-rose-200 bg-rose-50/70",
     detail:
-      "The platform may not be used for unauthorized scanning, malicious disruption, or activity outside approved security boundaries.",
+      "The platform may not be used for unauthorised scanning, malicious disruption or activity outside approved security boundaries.",
   },
   {
-    title: "Intellectual Property",
+    title: "Intellectual property",
     styleClass: "border-violet-200 bg-violet-50/70",
     detail:
       "EVADA retains software and platform IP rights. Customers retain ownership of their data and generated security assessment outputs.",
   },
   {
-    title: "Support and Commercial Terms",
+    title: "Support and commercial terms",
     styleClass: "border-emerald-200 bg-emerald-50/70",
     detail:
       "Service support, commitments, and contractual obligations are defined by subscription agreements and enterprise order forms.",
   },
   {
-    title: "Limitation and Enforcement",
+    title: "Limitation and enforcement",
     styleClass: "border-amber-200 bg-amber-50/70",
     detail:
       "Violations may result in suspension or termination to protect customers, platform integrity, and lawful operating standards.",
@@ -49,23 +49,23 @@ export default function TermsOfServicePage() {
               Terms of Service
             </p>
             <h1 className="text-3xl font-bold text-slate-900 sm:text-4xl lg:text-5xl">
-              Clear Legal Standards for
+              Clear legal standards for
               {" "}
-              <span className="evada-gradient-text block">Responsible Security Operations</span>
+              <span className="evada-gradient-text block">responsible security operations</span>
             </h1>
             <p className="mt-4 max-w-2xl text-sm leading-relaxed text-slate-600 sm:text-base">
-              Effective Date: April 25, 2026. These terms define the legal and operational
-              framework for using EVADA services, including authorized assessments, governance, and
+              Effective date: April 25, 2026. These terms define the legal and operational
+              framework for using EVADA services, including authorised assessments, governance and
               support obligations.
             </p>
           </div>
 
           <div className="rounded-2xl border border-slate-700/70 bg-slate-900/95 p-5 text-slate-100">
             <p className="text-xs font-semibold uppercase tracking-[0.14em] text-cyan-200">
-              Legal Principles
+              Legal principles
             </p>
             <div className="mt-3 space-y-2 text-sm">
-              <p className="rounded-lg border border-slate-700 bg-slate-800/80 px-3 py-2">Authorized use only</p>
+              <p className="rounded-lg border border-slate-700 bg-slate-800/80 px-3 py-2">Authorised use only</p>
               <p className="rounded-lg border border-slate-700 bg-slate-800/80 px-3 py-2">Shared responsibility model</p>
               <p className="rounded-lg border border-slate-700 bg-slate-800/80 px-3 py-2">Contract-aligned governance</p>
             </div>
@@ -89,9 +89,9 @@ export default function TermsOfServicePage() {
       </section>
 
       <section className="animate-reveal-up reveal-delay-4 mb-6 rounded-3xl border border-white/70 bg-white/75 p-6 ring-1 ring-white/45 sm:p-8">
-        <h2 className="text-2xl font-bold text-slate-900">Legal and Commercial Contact</h2>
+        <h2 className="text-2xl font-bold text-slate-900">Legal and commercial contact</h2>
         <p className="mt-2 text-sm leading-relaxed text-slate-600">
-          For contractual or legal inquiries, contact
+          For contractual or legal enquiries, contact
           {" "}
           <span className="font-semibold text-slate-800">info@evada.ai</span>.
         </p>

@@ -640,11 +640,23 @@ html {
 
 @keyframes riskTimelineProgress {
   0%,
-  8% {
+  5% {
     opacity: 0.45;
     transform: scaleX(0);
   }
-  74% {
+  24% {
+    opacity: 0.95;
+    transform: scaleX(0.25);
+  }
+  43% {
+    opacity: 1;
+    transform: scaleX(0.5);
+  }
+  62% {
+    opacity: 1;
+    transform: scaleX(0.75);
+  }
+  82% {
     opacity: 1;
     transform: scaleX(1);
   }
@@ -654,21 +666,89 @@ html {
   }
 }
 
+@keyframes problemBorderTopRun {
+  0%,
+  100% {
+    left: 8%;
+    opacity: 0;
+  }
+  14%,
+  74% {
+    opacity: 0.95;
+  }
+  50% {
+    left: calc(100% - 150px);
+    opacity: 1;
+  }
+}
+
+@keyframes problemBorderBottomRun {
+  0%,
+  100% {
+    right: 8%;
+    opacity: 0;
+  }
+  14%,
+  74% {
+    opacity: 0.9;
+  }
+  50% {
+    right: calc(100% - 150px);
+    opacity: 1;
+  }
+}
+
+@keyframes problemBorderSideDown {
+  0%,
+  100% {
+    top: 14%;
+    opacity: 0;
+  }
+  16%,
+  78% {
+    opacity: 0.85;
+  }
+  50% {
+    top: calc(100% - 118px);
+    opacity: 1;
+  }
+}
+
+@keyframes problemBorderSideUp {
+  0%,
+  100% {
+    top: calc(100% - 118px);
+    opacity: 0;
+  }
+  16%,
+  78% {
+    opacity: 0.85;
+  }
+  50% {
+    top: 14%;
+    opacity: 1;
+  }
+}
+
 @keyframes riskTimelinePulse {
   0%,
-  8% {
+  5% {
     left: 0%;
     transform: translate(-50%, -50%) scale(0.92);
   }
-  28% {
-    left: 33.333%;
+  24% {
+    left: 25%;
     transform: translate(-50%, -50%) scale(1.12);
   }
-  50% {
-    left: 66.666%;
+  43% {
+    left: 50%;
     transform: translate(-50%, -50%) scale(1.12);
   }
-  72%,
+  62% {
+    left: 75%;
+    transform: translate(-50%, -50%) scale(1.12);
+  }
+  82%,
   100% {
     left: 100%;
     transform: translate(-50%, -50%) scale(1);
@@ -677,12 +757,12 @@ html {
 
 @keyframes riskNodeGlow {
   0%,
-  8%,
-  20% {
+  9%,
+  17% {
     border-color: #04a9c7;
     box-shadow: 0 0 0 7px rgba(4, 169, 199, 0.13), 0 0 28px rgba(4, 169, 199, 0.3);
   }
-  34%,
+  28%,
   100% {
     border-color: #475569;
     box-shadow: 0 0 0 0 rgba(4, 169, 199, 0);
@@ -691,11 +771,11 @@ html {
 
 @keyframes riskNodeInnerGlow {
   0%,
-  8%,
-  20% {
+  9%,
+  17% {
     background-color: #04a9c7;
   }
-  34%,
+  28%,
   100% {
     background-color: #ffffff;
   }
@@ -2232,6 +2312,10 @@ html {
   isolation: isolate;
 }
 
+.evada-solutions-page .evada-home-hero {
+  overflow: visible !important;
+}
+
 .solutions-orbit {
   position: absolute;
   left: 50%;
@@ -2483,6 +2567,41 @@ html {
   animation: solutionsNodePulse 4.4s ease-in-out infinite;
 }
 
+.solutions-blue-connector {
+  fill: none;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 3.4;
+  opacity: 0.74;
+  filter: drop-shadow(0 0 10px rgba(37, 99, 235, 0.26));
+  stroke-dasharray: 1 0;
+  animation: solutionsConnectorPulse 5.6s ease-in-out infinite;
+}
+
+.solutions-blue-connector-delay-a {
+  animation-delay: -0.65s;
+}
+
+.solutions-blue-connector-delay-b {
+  animation-delay: -1.2s;
+}
+
+.solutions-blue-connector-delay-c {
+  animation-delay: -1.85s;
+}
+
+.solutions-blue-connector-delay-d {
+  animation-delay: -2.45s;
+}
+
+.solutions-blue-connector-delay-e {
+  animation-delay: -3.05s;
+}
+
+.solutions-blue-connector-delay-f {
+  animation-delay: -3.65s;
+}
+
 .solutions-challenge-card {
   animation: solutionsFloatCard 6.6s ease-in-out infinite;
 }
@@ -2587,12 +2706,14 @@ html {
     inset 18px 0 28px rgba(255, 255, 255, 0.24),
     inset -18px 0 32px rgba(88, 28, 135, 0.22);
   transform: translateX(-50%);
+  isolation: isolate;
   animation: solutionsHexFloat 5.4s ease-in-out infinite;
 }
 
 .solutions-hex-core::before {
   content: "";
   position: absolute;
+  z-index: 0;
   inset: 12px;
   clip-path: inherit;
   border: 1px solid rgba(255, 255, 255, 0.64);
@@ -2601,6 +2722,7 @@ html {
 
 .solutions-hex-core-ring {
   position: absolute;
+  z-index: 1;
   inset: 28px;
   clip-path: inherit;
   border: 3px solid rgba(255, 255, 255, 0.34);
@@ -2627,6 +2749,28 @@ html {
   border-radius: 8px;
   transform: rotate(-42deg);
   filter: drop-shadow(0 10px 20px rgba(255, 255, 255, 0.24));
+}
+
+.solutions-hex-icon {
+  position: absolute;
+  left: 50%;
+  top: 52%;
+  z-index: 4;
+  display: grid;
+  width: 112px;
+  height: 112px;
+  place-items: center;
+  border-radius: 9999px;
+  color: rgba(255, 255, 255, 0.96);
+  background:
+    radial-gradient(circle at 50% 42%, rgba(255, 255, 255, 0.22), transparent 52%),
+    radial-gradient(circle, rgba(34, 211, 238, 0.18), transparent 68%);
+  filter: drop-shadow(0 14px 24px rgba(255, 255, 255, 0.2));
+  transform: translate(-50%, -50%);
+}
+
+.solutions-hex-icon svg {
+  filter: drop-shadow(0 10px 22px rgba(15, 23, 42, 0.12)) drop-shadow(0 0 16px rgba(255, 255, 255, 0.28));
 }
 
 .solutions-workflow-node {
@@ -4824,6 +4968,18 @@ html {
   }
 }
 
+@keyframes solutionsConnectorPulse {
+  0%,
+  100% {
+    opacity: 0.66;
+    stroke-width: 3.1;
+  }
+  50% {
+    opacity: 0.88;
+    stroke-width: 3.7;
+  }
+}
+
 @keyframes solutionsContextFloat {
   0%,
   100% {
@@ -5149,6 +5305,79 @@ html {
   animation-play-state: paused;
 }
 
+.problem-motion-card::before,
+.problem-motion-card::after {
+  content: none !important;
+  display: none !important;
+}
+
+.problem-edge-card {
+  position: relative;
+}
+
+.problem-edge-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+  border-radius: inherit;
+  border: 1px solid rgba(4, 169, 199, 0.18);
+  box-shadow: inset 0 0 0 1px rgba(95, 63, 234, 0.08);
+}
+
+.problem-edge-card > :not(.problem-border-runner) {
+  position: relative;
+  z-index: 1;
+}
+
+.problem-border-runner {
+  position: absolute;
+  z-index: 3;
+  pointer-events: none;
+  border-radius: 9999px;
+  box-shadow: 0 0 8px rgba(4, 169, 199, 0.36);
+}
+
+.problem-border-runner-top {
+  top: 0;
+  left: 8%;
+  width: 140px;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, rgba(4, 169, 199, 0.95), rgba(95, 63, 234, 0.85), transparent);
+  animation: problemBorderTopRun 6.4s ease-in-out infinite;
+}
+
+.problem-border-runner-bottom {
+  right: 8%;
+  bottom: 0;
+  width: 140px;
+  height: 2px;
+  background: linear-gradient(270deg, transparent, rgba(4, 169, 199, 0.9), rgba(95, 63, 234, 0.82), transparent);
+  animation: problemBorderBottomRun 6.4s ease-in-out infinite;
+  animation-delay: -3.2s;
+}
+
+.problem-border-runner-left,
+.problem-border-runner-right {
+  width: 2px;
+  height: 104px;
+  background: linear-gradient(180deg, transparent, rgba(4, 169, 199, 0.9), rgba(95, 63, 234, 0.82), transparent);
+}
+
+.problem-border-runner-left {
+  left: 0;
+  top: 14%;
+  animation: problemBorderSideDown 7.2s ease-in-out infinite;
+}
+
+.problem-border-runner-right {
+  right: 0;
+  top: calc(100% - 118px);
+  animation: problemBorderSideUp 7.2s ease-in-out infinite;
+  animation-delay: -1.2s;
+}
+
 .risk-timeline-track {
   pointer-events: none;
 }
@@ -5161,12 +5390,12 @@ html {
 }
 
 .risk-timeline-base {
-  background: #cbd5e1;
+  background: linear-gradient(90deg, transparent 0%, #cbd5e1 8%, #cbd5e1 92%, transparent 100%);
 }
 
 .risk-timeline-progress {
   height: 2px;
-  top: -0.5px;
+  top: 0;
   border-radius: 9999px;
   background: linear-gradient(90deg, #04a9c7, #6d49f4, rgba(4, 169, 199, 0.2));
   transform: scaleX(0);
@@ -5279,6 +5508,16 @@ html {
   background: #04a9c7;
   box-shadow: 0 0 0 6px rgba(4, 169, 199, 0.12), 0 0 16px rgba(4, 169, 199, 0.35);
   animation: governancePulseTravelA 5.2s ease-in-out infinite;
+}
+
+.governance-flow-packet {
+  fill: #04a9c7;
+  filter: drop-shadow(0 0 9px rgba(4, 169, 199, 0.45));
+}
+
+.governance-flow-packet-glow {
+  fill: #04a9c7;
+  filter: drop-shadow(0 0 14px rgba(4, 169, 199, 0.32));
 }
 
 .governance-engine-spine {
@@ -5397,6 +5636,8 @@ html {
   .terminal-stream-track,
   .trust-marquee-track,
   .integration-marquee-track,
+  .problem-motion-card::before,
+  .problem-border-runner,
   .risk-timeline-progress,
   .risk-timeline-pulse,
   .risk-timeline-node,
@@ -5411,6 +5652,8 @@ html {
   .governance-flow-path,
   .governance-engine-path,
   .governance-flow-dot,
+  .governance-flow-packet,
+  .governance-flow-packet-glow,
   .governance-engine-spine,
   .governance-engine-chip,
   .governance-chip-icon,
@@ -5458,6 +5701,7 @@ html {
   .solutions-hex-dot-field,
   .solutions-hero-network-line,
   .solutions-hero-network-node,
+  .solutions-blue-connector,
   .solutions-challenge-card,
   .solutions-context-pill,
   .solutions-hex-light,

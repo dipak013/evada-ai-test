@@ -3,34 +3,14 @@ import type { CSSProperties } from "react";
 import type { LucideIcon } from "lucide-react";
 import {
   ArrowRight,
-  BarChart3,
-  BookOpen,
-  Box,
-  BrainCircuit,
-  Bug,
   CheckCircle2,
-  ClipboardCheck,
-  Code2,
-  Database,
-  FileCheck2,
-  FileText,
-  LockKeyhole,
-  Network,
-  Search,
-  Settings,
   ShieldCheck,
-  Sparkles,
-  UploadCloud,
-  UserCheck,
-  Users,
-  Workflow,
-  Zap,
-  RefreshCw,
 } from "lucide-react";
 import FooterSection from "@/components/FooterSection";
 import MarketingNav from "@/components/MarketingNav";
 import Reveal from "@/components/Reveal";
 import MarketingAnimatedBackground from "@/components/marketing/MarketingAnimatedBackground";
+import { marketingIconMap } from "@/components/marketing/MarketingIcon";
 
 type IconTextItem = {
   title: string;
@@ -40,7 +20,7 @@ type IconTextItem = {
 
 type ArchitectureColumn = {
   title: string;
-  items: string[];
+  items: IconTextItem[];
   tone: "blue" | "violet" | "cyan";
 };
 
@@ -64,10 +44,10 @@ type PlatformHeroNode = {
 };
 
 const heroChips: Array<{ label: string; Icon: LucideIcon }> = [
-  { label: "AI-Assisted Validation", Icon: Sparkles },
-  { label: "Human in the Loop", Icon: UserCheck },
-  { label: "Evidence-Backed Results", Icon: FileCheck2 },
-  { label: "Enterprise Ready", Icon: ShieldCheck },
+  { label: "AI-Supported Validation", Icon: marketingIconMap["ai-supported"] },
+  { label: "Human in the Loop", Icon: marketingIconMap.approval },
+  { label: "Evidence-Backed Results", Icon: marketingIconMap.evidence },
+  { label: "Enterprise Ready", Icon: marketingIconMap["enterprise-governance"] },
 ];
 
 const platformHeroSteps: PlatformHeroStep[] = [
@@ -75,7 +55,7 @@ const platformHeroSteps: PlatformHeroStep[] = [
     number: "1",
     label: "Ingest",
     description: "Collect data from scans, logs, apps and tools.",
-    Icon: Database,
+    Icon: marketingIconMap.ingest,
     x: 50,
     y: 11,
     iconClassName: "text-[#2563EB]",
@@ -83,9 +63,9 @@ const platformHeroSteps: PlatformHeroStep[] = [
   },
   {
     number: "2",
-    label: "Analyze",
+    label: "Analyse",
     description: "AI correlates, enriches and identifies real risks.",
-    Icon: BrainCircuit,
+    Icon: marketingIconMap.analyse,
     x: 82,
     y: 30,
     iconClassName: "text-[#7C3AED]",
@@ -95,7 +75,7 @@ const platformHeroSteps: PlatformHeroStep[] = [
     number: "3",
     label: "Validate",
     description: "Human experts validate and confirm exploitability.",
-    Icon: ShieldCheck,
+    Icon: marketingIconMap.validate,
     x: 83,
     y: 65,
     iconClassName: "text-[#06B6D4]",
@@ -105,7 +85,7 @@ const platformHeroSteps: PlatformHeroStep[] = [
     number: "4",
     label: "Evidence",
     description: "Capture proof, PoC and business impact.",
-    Icon: FileCheck2,
+    Icon: marketingIconMap.evidence,
     x: 50,
     y: 89,
     iconClassName: "text-[#2563EB]",
@@ -115,7 +95,7 @@ const platformHeroSteps: PlatformHeroStep[] = [
     number: "5",
     label: "Approval",
     description: "Security leads review and approve the risk.",
-    Icon: UserCheck,
+    Icon: marketingIconMap.approval,
     x: 18,
     y: 65,
     iconClassName: "text-[#7C3AED]",
@@ -125,7 +105,7 @@ const platformHeroSteps: PlatformHeroStep[] = [
     number: "6",
     label: "Sync",
     description: "Sync to tools, tickets and stakeholders.",
-    Icon: RefreshCw,
+    Icon: marketingIconMap.sync,
     x: 17,
     y: 30,
     iconClassName: "text-[#06B6D4]",
@@ -134,52 +114,52 @@ const platformHeroSteps: PlatformHeroStep[] = [
 ];
 
 const platformHeroNodes: PlatformHeroNode[] = [
-  { label: "Secure & Compliant", Icon: LockKeyhole, x: 8, y: 9, iconClassName: "text-[#2563EB]" },
-  { label: "AI-Powered", Icon: ShieldCheck, x: 92, y: 9, iconClassName: "text-[#7C3AED]" },
-  { label: "Actionable Insights", Icon: BarChart3, x: 8, y: 90, iconClassName: "text-[#2563EB]" },
-  { label: "Trusted by Experts", Icon: Users, x: 92, y: 90, iconClassName: "text-[#7C3AED]" },
+  { label: "Secure and compliant", Icon: marketingIconMap["secure-compliant"], x: 8, y: 9, iconClassName: "text-[#2563EB]" },
+  { label: "AI-supported", Icon: marketingIconMap["ai-supported"], x: 92, y: 9, iconClassName: "text-[#7C3AED]" },
+  { label: "Actionable Insights", Icon: marketingIconMap["actionable-insights"], x: 8, y: 90, iconClassName: "text-[#2563EB]" },
+  { label: "Trusted by Experts", Icon: marketingIconMap["human-expertise"], x: 92, y: 90, iconClassName: "text-[#7C3AED]" },
 ];
 
 const moduleCards: IconTextItem[] = [
   {
     title: "Application Configuration",
-    description: "Configure applications, scan targets, schedules, and manage monitored assets with ease.",
-    Icon: Settings,
+    description: "Configure applications, scan targets, schedules and monitored assets with ease.",
+    Icon: marketingIconMap["application-configuration"],
   },
   {
     title: "Classic Scans",
-    description: "Run traditional scans, upload scan data, review history, and inspect latest results.",
-    Icon: Search,
+    description: "Run traditional scans, upload scan data, review history and inspect latest results.",
+    Icon: marketingIconMap["classic-scans"],
   },
   {
     title: "Network Scans",
     description: "Discover network assets and map validated exposure with graph-style outputs.",
-    Icon: Network,
+    Icon: marketingIconMap["network-scans"],
   },
   {
     title: "AI-Supported Pentest",
-    description: "Launch AI-supported pentest jobs, monitor pipeline stages, and review validated findings.",
-    Icon: BrainCircuit,
+    description: "Launch AI-supported pentest jobs, monitor pipeline stages and review validated findings.",
+    Icon: marketingIconMap["ai-pentester"],
   },
   {
     title: "WebApp Scanner (ZAP)",
-    description: "Start OWASP ZAP scans, stream live output, identify issues, and download reports.",
-    Icon: Zap,
+    description: "Start OWASP ZAP scans, stream live output, identify issues and download reports.",
+    Icon: marketingIconMap["webapp-scanner"],
   },
   {
     title: "Knowledge Hub",
-    description: "Search vulnerability knowledge, exploit context, remediation guidance, and scanner context.",
-    Icon: BookOpen,
+    description: "Search vulnerability intelligence, exploit context, remediation guidance and AI scanner intelligence.",
+    Icon: marketingIconMap["knowledge-hub"],
   },
   {
-    title: "Clients & Agents",
-    description: "Manage clients, agents, licenses, agent health, downloads, uploads, and heartbeat status.",
-    Icon: Users,
+    title: "Clients and Agents",
+    description: "Manage clients, agents, licences, agent health, downloads, uploads and heartbeat status.",
+    Icon: marketingIconMap["clients-agents"],
   },
   {
-    title: "Admin & RBAC",
-    description: "Support SaaS Admin, Client Admin, and Superadmin workflows with permission-gated access.",
-    Icon: LockKeyhole,
+    title: "Admin and RBAC",
+    description: "Support SaaS Admin, Client Admin and Superadmin workflows with permission-gated access.",
+    Icon: marketingIconMap["admin-rbac"],
   },
 ];
 
@@ -187,42 +167,42 @@ const pipelineStages: IconTextItem[] = [
   {
     title: "Ingestion",
     description: "Upload JSON logs or scanner output",
-    Icon: UploadCloud,
+    Icon: marketingIconMap["manual-uploads"],
   },
   {
     title: "Parser",
-    description: "Extract and normalize data",
-    Icon: FileText,
+    description: "Extract and normalise data",
+    Icon: marketingIconMap.parser,
   },
   {
     title: "Weakness Identifier",
     description: "Identify technical weaknesses",
-    Icon: Bug,
+    Icon: marketingIconMap["weakness-identifier"],
   },
   {
     title: "Knowledge Base Lookup",
     description: "Enrich with internal knowledge base",
-    Icon: Database,
+    Icon: marketingIconMap["knowledge-lookup"],
   },
   {
     title: "LLM Script Generator",
     description: "Generate safe test scripts",
-    Icon: Code2,
+    Icon: marketingIconMap["script-generator"],
   },
   {
     title: "Sandbox Executor",
     description: "Execute in isolated sandbox",
-    Icon: Box,
+    Icon: marketingIconMap["sandbox-executor"],
   },
   {
     title: "Report Generator",
-    description: "Create findings, evidence & impact",
-    Icon: ClipboardCheck,
+    description: "Create findings, evidence and impact",
+    Icon: marketingIconMap["report-generator"],
   },
   {
     title: "Script Validator",
     description: "Validate results with human approval",
-    Icon: ShieldCheck,
+    Icon: marketingIconMap["script-validator"],
   },
 ];
 
@@ -230,23 +210,35 @@ const architectureColumns: ArchitectureColumn[] = [
   {
     title: "Input Sources",
     tone: "blue",
-    items: ["Vulnerability Scanners", "Cloud Findings", "AppSec Tools", "Security Signals", "Manual Uploads"],
+    items: [
+      { title: "Vulnerability Scanners", description: "", Icon: marketingIconMap["classic-scans"] },
+      { title: "Cloud Findings", description: "", Icon: marketingIconMap["infrastructure-security"] },
+      { title: "AppSec Tools", description: "", Icon: marketingIconMap["api-reference"] },
+      { title: "Security Signals", description: "", Icon: marketingIconMap["security-signals"] },
+      { title: "Manual Uploads", description: "", Icon: marketingIconMap["manual-uploads"] },
+    ],
   },
   {
     title: "EVADA Platform",
     tone: "violet",
     items: [
-      "Sanitization Layer",
-      "AI Analysis & Prioritization",
-      "Controlled Validation Safe Sandbox",
-      "Human Approval",
-      "Evidence & Audit Logging",
+      { title: "Sanitisation Layer", description: "", Icon: marketingIconMap.sanitisation },
+      { title: "AI Analysis and Prioritisation", description: "", Icon: marketingIconMap["ai-supported"] },
+      { title: "Controlled Validation Safe Sandbox", description: "", Icon: marketingIconMap["safe-sandbox"] },
+      { title: "Human Approval", description: "", Icon: marketingIconMap.approval },
+      { title: "Evidence and Audit Logging", description: "", Icon: marketingIconMap["audit-logs"] },
     ],
   },
   {
-    title: "Outputs & Integrations",
+    title: "Outputs and Integrations",
     tone: "cyan",
-    items: ["Jira / ITSM", "SIEM", "Slack / Teams", "Reports", "Dashboards"],
+    items: [
+      { title: "Jira / ITSM", description: "", Icon: marketingIconMap["jira-itsm"] },
+      { title: "SIEM", description: "", Icon: marketingIconMap.siem },
+      { title: "Slack / Teams", description: "", Icon: marketingIconMap["team-chat"] },
+      { title: "Reports", description: "", Icon: marketingIconMap.documentation },
+      { title: "Dashboards", description: "", Icon: marketingIconMap.dashboards },
+    ],
   },
 ];
 
@@ -254,30 +246,30 @@ const architectureBullets = [
   "Session & CSRF-ready APIs",
   "Role-based access control",
   "Multi-tenant architecture",
-  "Audit logging & observability",
+  "Audit logging and observability",
   "Secure sandbox validation",
 ];
 
 const trustCards: IconTextItem[] = [
   {
     title: "Enterprise Security",
-    description: "Security by design with secure APIs, data isolation, and protection.",
-    Icon: ShieldCheck,
+    description: "Security by design with secure APIs, data isolation and protection.",
+    Icon: marketingIconMap["secure-platform"],
   },
   {
     title: "Human Approval",
     description: "High-risk validations require analyst approval before execution.",
-    Icon: UserCheck,
+    Icon: marketingIconMap.approval,
   },
   {
     title: "Audit Everything",
-    description: "Full audit trail for every action, validation, and user activity.",
-    Icon: FileCheck2,
+    description: "Full audit trail for every action, validation and user activity.",
+    Icon: marketingIconMap["audit-logs"],
   },
   {
     title: "Connected Workflows",
-    description: "Connect with Jira, SIEM, Slack, cloud providers, and more.",
-    Icon: Workflow,
+    description: "Connect with Jira, SIEM, Slack, cloud providers and more.",
+    Icon: marketingIconMap["security-workflow"],
   },
 ];
 
@@ -446,7 +438,7 @@ function PlatformHeroVisual() {
 
 function HeroSection() {
   return (
-    <section className="evada-home-hero relative overflow-x-hidden bg-white px-5 pb-10 pt-7 sm:px-8 sm:pb-12 sm:pt-9 lg:px-10 lg:pb-16 lg:pt-10">
+    <section className="evada-home-hero relative overflow-hidden bg-white px-5 pb-10 pt-7 sm:px-8 sm:pb-12 sm:pt-9 lg:px-10 lg:pb-16 lg:pt-10">
       <div aria-hidden="true" className="absolute inset-0 bg-[radial-gradient(circle_at_10%_18%,rgba(255,255,255,0.86),transparent_34%),radial-gradient(circle_at_78%_8%,rgba(124,58,237,0.09),transparent_34%),radial-gradient(circle_at_86%_72%,rgba(34,211,238,0.1),transparent_32%),linear-gradient(180deg,rgba(255,255,255,0.86)_0%,rgba(248,251,255,0.62)_58%,rgba(255,255,255,0.72)_100%)]" />
       <div aria-hidden="true" className="platform-grid-bg absolute inset-0 opacity-20" />
 
@@ -458,13 +450,13 @@ function HeroSection() {
               Platform
             </p>
             <h1 className="mt-5 max-w-full break-words text-[34px] font-bold leading-[1.07] tracking-[-0.035em] text-slate-950 sm:text-[46px] lg:text-[clamp(3rem,4.55vw,3.75rem)]">
-              <span className="block">One platform</span>
-              <span className="block">for</span>
+              <span className="block">The complete</span>
+              <span className="block">platform for</span>
               <span className="block">continuous security</span>
               <span className="block bg-[linear-gradient(90deg,#6D49F4,#2563EB,#04A9C7)] bg-clip-text text-transparent">validation</span>
             </h1>
             <p className="mt-5 w-full max-w-full text-[15px] leading-[1.7] text-slate-600 sm:max-w-[540px] sm:text-[16px]">
-              EVADA combines AI-assisted analysis, controlled validation, human approval, and evidence-backed workflows in one secure platform.
+              EVADA brings AI-supported analysis, controlled validation, human approval and evidence-backed workflows into one secure platform.
             </p>
 
             <div className="mt-8 grid w-full max-w-full gap-3 sm:max-w-[520px] sm:flex sm:flex-wrap sm:items-center">
@@ -479,7 +471,7 @@ function HeroSection() {
                 href="#architecture"
                 className="inline-flex min-h-11 w-full items-center justify-center gap-2 rounded-full border border-blue-100 bg-white px-6 py-3 text-[14px] font-semibold text-slate-950 shadow-[0_12px_28px_rgba(37,99,235,0.06)] transition hover:-translate-y-0.5 hover:border-blue-200 hover:text-[#2563EB] sm:w-auto"
               >
-                Explore Platform Architecture
+                Explore platform architecture
                 <ArrowRight aria-hidden="true" className="h-4 w-4" strokeWidth={2.2} />
               </Link>
             </div>
@@ -490,10 +482,10 @@ function HeroSection() {
 
                 return (
                   <div key={chip.label} className="group flex min-w-0 flex-col items-center border-slate-200/80 text-center sm:border-l sm:first:border-l-0">
-                    <span className="grid h-10 w-10 place-items-center rounded-[14px] bg-[linear-gradient(135deg,#EEF5FF,#F5F3FF)] text-[#2563EB] shadow-[0_10px_22px_rgba(37,99,235,0.10)] ring-1 ring-blue-100">
-                      <Icon className="h-5 w-5" strokeWidth={2.1} />
+                    <span className="grid h-10 w-10 shrink-0 place-items-center rounded-2xl bg-white text-[#5F3FEA] shadow-[0_10px_26px_rgba(37,99,235,0.08)] ring-1 ring-blue-100 transition group-hover:-translate-y-0.5 group-hover:text-[#04A9C7] motion-reduce:transform-none">
+                      <Icon aria-hidden="true" className="h-[18px] w-[18px]" strokeWidth={2} />
                     </span>
-                    <span className="mt-3 max-w-[118px] text-[11px] font-semibold leading-snug text-slate-950 [overflow-wrap:normal] [word-break:normal] sm:text-[12px]">{chip.label}</span>
+                    <span className="mt-3 max-w-[118px] text-[11px] font-semibold leading-snug text-slate-900 [overflow-wrap:normal] [word-break:normal] sm:text-[12px]">{chip.label}</span>
                   </div>
                 );
               })}
@@ -539,11 +531,11 @@ function PlatformModulesSection() {
           <div className="mx-auto max-w-[760px] text-center">
             <Eyebrow>PLATFORM MODULES</Eyebrow>
             <h2 className="mx-auto mt-3 max-w-[760px] text-[clamp(1.55rem,5vw,2.75rem)] font-bold leading-[1.1] tracking-[-0.025em] text-[#071633]">
-              <span className="block">Everything You Need in</span>
-              <span className="block">One Unified Console</span>
+              <span className="block">Everything you need in</span>
+              <span className="block">one unified console</span>
             </h2>
             <p className="mx-auto mt-4 max-w-[700px] text-[15px] font-normal leading-relaxed text-slate-600 sm:text-[16px]">
-              From asset configuration to AI-supported validation and reporting, built for every security team.
+              From asset configuration to AI-supported validation and reporting, EVADA is built for every security team.
             </p>
           </div>
         </Reveal>
@@ -566,11 +558,11 @@ function AIPipelineSection() {
           <div className="mx-auto max-w-[760px] text-center">
             <Eyebrow>AI-SUPPORTED PENTEST PIPELINE</Eyebrow>
             <h2 className="mx-auto mt-3 max-w-[760px] text-[clamp(1.55rem,5vw,2.75rem)] font-bold leading-[1.1] tracking-[-0.025em] text-[#071633]">
-              <span className="block">AI-Supported Pentest</span>
-              <span className="block">Pipeline</span>
+              <span className="block">AI-supported pentest</span>
+              <span className="block">pipeline</span>
             </h2>
             <p className="mx-auto mt-4 max-w-[700px] text-[15px] font-normal leading-relaxed text-slate-600 sm:text-[16px]">
-              Observe every stage of the AI validation workflow in real time.
+              Observe every stage of the validation workflow in real time.
             </p>
           </div>
         </Reveal>
@@ -600,9 +592,9 @@ function AIPipelineSection() {
                 <ShieldCheck aria-hidden="true" className="h-6 w-6" strokeWidth={2.1} />
               </span>
               <div className="min-w-0">
-                <h3 className="text-[16px] font-black text-[#2563EB]">Live Pipeline Monitoring</h3>
+                <h3 className="text-[16px] font-black text-[#2563EB]">Live pipeline monitoring</h3>
                 <p className="mt-1 text-[14px] font-medium leading-relaxed text-slate-600">
-                  Track active jobs, live events, and stage-by-stage progress in real time.
+                  Track active jobs, live events and stage-by-stage progress in real time.
                 </p>
               </div>
             </div>
@@ -610,7 +602,7 @@ function AIPipelineSection() {
               href="/login"
               className="inline-flex shrink-0 items-center justify-center gap-2 rounded-[14px] px-4 py-3 text-[15px] font-black text-[#2563EB] transition hover:bg-blue-50"
             >
-              Go to AI-Supported Pentest
+              Go to AI-supported pentest
               <ArrowRight aria-hidden="true" className="h-4 w-4" strokeWidth={2.2} />
             </Link>
           </div>
@@ -637,22 +629,26 @@ function ArchitectureDiagram() {
           <div key={column.title} className="rounded-[18px] border border-blue-100 bg-[#FBFDFF]/95 p-4 shadow-[0_12px_30px_rgba(37,99,235,0.06)]">
             <h3 className="text-center text-[13px] font-black text-[#2563EB]">{column.title}</h3>
             <div className="mt-4 grid gap-3">
-              {column.items.map((item) => (
-                <div key={item} className="flex items-center gap-3 rounded-[12px] border border-blue-100 bg-white px-4 py-3 shadow-sm">
+              {column.items.map((item) => {
+                const Icon = item.Icon;
+
+                return (
+                <div key={item.title} className="flex items-center gap-3 rounded-[12px] border border-blue-100 bg-white px-4 py-3 shadow-sm">
                   <span
                     className={`grid h-7 w-7 shrink-0 place-items-center rounded-[10px] ${
                       column.tone === "violet"
                         ? "bg-violet-50 text-violet-600"
                         : column.tone === "cyan"
                           ? "bg-cyan-50 text-cyan-600"
-                          : "bg-blue-50 text-blue-600"
+                        : "bg-blue-50 text-blue-600"
                     }`}
                   >
-                    <ShieldCheck aria-hidden="true" className="h-4 w-4" strokeWidth={2.1} />
+                    <Icon aria-hidden="true" className="h-4 w-4" strokeWidth={2.1} />
                   </span>
-                  <span className="text-[13px] font-bold leading-snug text-slate-800">{item}</span>
+                  <span className="text-[13px] font-bold leading-snug text-slate-800">{item.title}</span>
                 </div>
-              ))}
+                );
+              })}
             </div>
           </div>
         ))}
@@ -669,8 +665,8 @@ function ArchitectureSection() {
           <div>
             <Eyebrow>ARCHITECTURE</Eyebrow>
             <h2 className="mt-3 max-w-[460px] text-[clamp(1.55rem,4.2vw,2.75rem)] font-bold leading-[1.1] tracking-[-0.025em] text-[#071633]">
-              <span className="block">Built for Security,</span>
-              <span className="block">Control & Scale</span>
+              <span className="block">Built for security,</span>
+              <span className="block">control and scale</span>
             </h2>
             <p className="mt-5 max-w-[420px] text-[15px] font-normal leading-relaxed text-slate-600 sm:text-[16px]">
               EVADA is designed with security and governance at every layer.

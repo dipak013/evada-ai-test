@@ -19,8 +19,7 @@ export function MarketingFooter() {
             />
           </HomeLogoLink>
           <p className="text-sm leading-relaxed text-slate-600">
-            EVADA delivers AI-supported penetration testing and governed security validation for
-            enterprise teams that need measurable, board-ready risk outcomes.
+            EVADA helps security teams validate exploitable risk, evidence what matters and operationalise remediation through governed AI-supported workflows.
           </p>
         </div>
 
@@ -31,22 +30,22 @@ export function MarketingFooter() {
           <ul className="space-y-2 text-sm text-slate-600">
             <li>
               <Link href="/platform" className="hover:text-[var(--evada-primary)]">
-                Attack Surface Discovery
+                Attack surface discovery
               </Link>
             </li>
             <li>
               <Link href="/platform" prefetch={false} className="hover:text-[var(--evada-primary)]">
-                AI-Supported Pentest Pipelines
+                AI-supported pentest pipelines
               </Link>
             </li>
             <li>
               <Link href="/platform" prefetch={false} className="hover:text-[var(--evada-primary)]">
-                Exploit Validation Sandbox
+                Exploit validation sandbox
               </Link>
             </li>
             <li>
               <Link href="/platform" prefetch={false} className="hover:text-[var(--evada-primary)]">
-                Executive Risk Reporting
+                Executive risk reporting
               </Link>
             </li>
           </ul>
@@ -64,17 +63,17 @@ export function MarketingFooter() {
             </li>
             <li>
               <Link href="/solutions" prefetch={false} className="hover:text-[var(--evada-primary)]">
-                Security Solutions
+                Security solutions
               </Link>
             </li>
             <li>
               <Link href="/resources" prefetch={false} className="hover:text-[var(--evada-primary)]">
-                Reports and Playbooks
+                Reports and playbooks
               </Link>
             </li>
             <li>
               <Link href="/contact" prefetch={false} className="hover:text-[var(--evada-primary)]">
-                Contact Team
+                Contact team
               </Link>
             </li>
           </ul>
@@ -110,7 +109,7 @@ export function MarketingFooter() {
             Terms of Service
           </Link>
           <Link href="/trust-center" prefetch={false} className="hover:text-[var(--evada-primary)]">
-            Trust Center
+            Trust Centre
           </Link>
         </div>
       </div>

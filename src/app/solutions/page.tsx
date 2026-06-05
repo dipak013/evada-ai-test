@@ -3,38 +3,16 @@ import type { CSSProperties } from "react";
 import type { LucideIcon } from "lucide-react";
 import {
   ArrowRight,
-  BadgeCheck,
-  BarChart3,
-  BookOpen,
-  BrainCircuit,
-  Building2,
-  Bug,
   CheckCircle2,
   ChevronLeft,
   ChevronRight,
-  Clock3,
-  Compass,
-  Code2,
-  Factory,
-  FileCheck2,
-  FileText,
-  HeartPulse,
-  Landmark,
-  LockKeyhole,
-  Network,
-  Search,
   ShieldCheck,
-  ShoppingCart,
-  Target,
-  UploadCloud,
-  Users,
-  Wrench,
-  Zap,
 } from "lucide-react";
 import FooterSection from "@/components/FooterSection";
 import MarketingNav from "@/components/MarketingNav";
 import Reveal from "@/components/Reveal";
 import MarketingAnimatedBackground from "@/components/marketing/MarketingAnimatedBackground";
+import { marketingIconMap } from "@/components/marketing/MarketingIcon";
 
 type Feature = {
   label: string;
@@ -87,26 +65,26 @@ type Industry = {
 };
 
 const heroFeatures: Feature[] = [
-  { label: "Continuous Validation", Icon: ShieldCheck },
-  { label: "AI + Human Collaboration", Icon: BrainCircuit },
-  { label: "Evidence-Backed Results", Icon: FileCheck2 },
-  { label: "Enterprise-Grade Security", Icon: LockKeyhole },
+  { label: "Continuous Validation", Icon: marketingIconMap["continuous-validation"] },
+  { label: "AI + Human Collaboration", Icon: marketingIconMap["ai-supported"] },
+  { label: "Evidence-Backed Results", Icon: marketingIconMap.evidence },
+  { label: "Enterprise-grade security", Icon: marketingIconMap["enterprise-governance"] },
 ];
 
 const heroCards: HeroVisualCard[] = [
   {
     title: "Discover",
     text: "Surface all exposures across your attack surface.",
-    Icon: Compass,
+    Icon: marketingIconMap.discover,
     x: 17,
     y: 28,
     accent: "from-[#2563EB] via-[#22D3EE] to-[#60A5FA]",
     iconClassName: "text-[#2563EB]",
   },
   {
-    title: "Prioritize",
+    title: "Prioritise",
     text: "Focus on what matters most with context and risk.",
-    Icon: Target,
+    Icon: marketingIconMap.prioritise,
     x: 83,
     y: 28,
     accent: "from-[#7C3AED] via-[#8B5CF6] to-[#A78BFA]",
@@ -114,8 +92,8 @@ const heroCards: HeroVisualCard[] = [
   },
   {
     title: "Validate",
-    text: "Confirm exploitability with controlled, AI-assisted tests.",
-    Icon: CheckCircle2,
+    text: "Confirm exploitability with controlled, AI-supported tests.",
+    Icon: marketingIconMap.validate,
     x: 17,
     y: 61,
     accent: "from-[#06B6D4] via-[#22D3EE] to-[#2563EB]",
@@ -124,7 +102,7 @@ const heroCards: HeroVisualCard[] = [
   {
     title: "Remediate",
     text: "Fix with confidence and verify risk reduction.",
-    Icon: Wrench,
+    Icon: marketingIconMap.remediate,
     x: 83,
     y: 61,
     accent: "from-[#7C3AED] via-[#8B5CF6] to-[#2563EB]",
@@ -136,7 +114,7 @@ const heroSupportCards: HeroSupportCard[] = [
   {
     title: "Security Signals",
     text: "Continuous monitoring for emerging threats",
-    Icon: Bug,
+    Icon: marketingIconMap["security-signals"],
     x: 50,
     y: 7,
     accent: "text-[#2563EB]",
@@ -144,7 +122,7 @@ const heroSupportCards: HeroSupportCard[] = [
   {
     title: "Business Context",
     text: "Align risk with what matters to your business",
-    Icon: BarChart3,
+    Icon: marketingIconMap["business-context"],
     x: 33,
     y: 80,
     accent: "text-[#2563EB]",
@@ -152,7 +130,7 @@ const heroSupportCards: HeroSupportCard[] = [
   {
     title: "Security Team",
     text: "Collaborate and act across your teams",
-    Icon: Users,
+    Icon: marketingIconMap["human-expertise"],
     x: 67,
     y: 80,
     accent: "text-[#7C3AED]",
@@ -161,33 +139,33 @@ const heroSupportCards: HeroSupportCard[] = [
 
 const heroCapabilities: Array<{ title: string; text: string; Icon: LucideIcon; iconClassName: string }> = [
   {
-    title: "AI-Powered",
-    text: "Intelligent analysis and automated validation",
-    Icon: ShieldCheck,
+    title: "AI-supported",
+    text: "Intelligent analysis and controlled validation",
+    Icon: marketingIconMap["ai-supported"],
     iconClassName: "text-[#2563EB]",
   },
   {
-    title: "Real-Time",
+    title: "Real-time",
     text: "Continuous discovery and monitoring",
-    Icon: Zap,
+    Icon: marketingIconMap["real-time"],
     iconClassName: "text-[#7C3AED]",
   },
   {
-    title: "Risk-Based",
-    text: "Contextual prioritization that matters",
-    Icon: LockKeyhole,
+    title: "Risk-based",
+    text: "Contextual prioritisation that matters",
+    Icon: marketingIconMap.prioritise,
     iconClassName: "text-[#2563EB]",
   },
   {
     title: "Actionable",
     text: "Clear guidance and remediation steps",
-    Icon: BarChart3,
+    Icon: marketingIconMap["next-steps"],
     iconClassName: "text-[#7C3AED]",
   },
   {
     title: "Integrated",
     text: "Seamless workflow across your security stack",
-    Icon: BadgeCheck,
+    Icon: marketingIconMap["integration-categories"],
     iconClassName: "text-[#7C3AED]",
   },
 ];
@@ -195,51 +173,51 @@ const heroCapabilities: Array<{ title: string; text: string; Icon: LucideIcon; i
 const solutions: SolutionCard[] = [
   {
     title: "Application Security",
-    description: "Continuously scan and validate web applications for vulnerabilities.",
-    bullets: ["OWASP Top 10 Coverage", "Dynamic & Static Analysis", "False Positive Reduction"],
-    Icon: Target,
+    description: "Continuously scan and validate web applications for exploitable risk.",
+    bullets: ["OWASP Top 10 coverage", "Dynamic and static analysis", "False positive reduction"],
+    Icon: marketingIconMap["application-security"],
   },
   {
     title: "Network Security",
-    description: "Discover, map, and validate exposure across your network infrastructure.",
-    bullets: ["Network Discovery", "Exposure Visualization", "Infrastructure Assessment"],
-    Icon: Network,
+    description: "Discover, map and validate risk across your network infrastructure.",
+    bullets: ["Network discovery", "Risk visualisation", "Infrastructure assessment"],
+    Icon: marketingIconMap["network-scans"],
   },
   {
     title: "AI-Supported Pentest",
     description: "AI-supported pentest workflows with controlled validation and sandboxing.",
-    bullets: ["AI-Supported Pentest", "Sandbox Validation", "Evidence Generation"],
-    Icon: BrainCircuit,
+    bullets: ["AI-supported pentest workflows", "Sandbox validation", "Exploit evidence generation"],
+    Icon: marketingIconMap["ai-pentester"],
   },
   {
     title: "WebApp Scanner (ZAP)",
     description: "OWASP ZAP-powered scanning with real-time insights and reporting.",
-    bullets: ["ZAP Integration", "Real-Time Scan Streaming", "Detailed Reports"],
-    Icon: Zap,
+    bullets: ["ZAP integration", "Real-time scan streaming", "Detailed reports"],
+    Icon: marketingIconMap["webapp-scanner"],
   },
   {
     title: "Knowledge Hub",
-    description: "Centralized vulnerability knowledge with AI-enriched insights.",
-    bullets: ["Vulnerability Knowledge", "Exploit & Remediation Guidance", "AI Context & Patterns"],
-    Icon: BookOpen,
+    description: "Centralised vulnerability knowledge with AI-enriched insight.",
+    bullets: ["Vulnerability intelligence", "Exploit and remediation guidance", "AI context and patterns"],
+    Icon: marketingIconMap["knowledge-hub"],
   },
   {
     title: "Clients & Agents",
-    description: "Manage clients, agents, licenses, and monitor agent health.",
-    bullets: ["Agent Health Monitoring", "License Management", "Downloads & Uploads"],
-    Icon: Users,
+    description: "Manage clients, agents, licences and agent health.",
+    bullets: ["Agent health monitoring", "Licence management", "Downloads and uploads"],
+    Icon: marketingIconMap["clients-agents"],
   },
   {
-    title: "Reporting & Analytics",
-    description: "Actionable reports and dashboards for data-driven decisions.",
-    bullets: ["Executive Dashboards", "Custom Reports", "Risk Reduction Trends"],
-    Icon: BarChart3,
+    title: "Reporting and Analytics",
+    description: "Actionable reports and dashboards for data-led decisions.",
+    bullets: ["Executive dashboards", "Custom reports", "Trend and risk analytics"],
+    Icon: marketingIconMap["reports-analytics"],
   },
   {
-    title: "Administration & RBAC",
+    title: "Administration and RBAC",
     description: "Role-based access and multi-tenant administration at scale.",
     bullets: ["SaaS & Client Admin", "Permission Controls", "Audit-Ready Controls"],
-    Icon: LockKeyhole,
+    Icon: marketingIconMap["admin-rbac"],
   },
 ];
 
@@ -247,32 +225,32 @@ const workflowSteps: WorkflowStep[] = [
   {
     title: "Ingest",
     description: "Collect findings from scanners, tools, and manual uploads.",
-    Icon: UploadCloud,
+    Icon: marketingIconMap["manual-uploads"],
   },
   {
-    title: "Analyze",
-    description: "AI-supported analysis deduplicates findings and prioritizes real risk.",
-    Icon: Search,
+    title: "Analyse",
+    description: "AI models analyse, deduplicate and prioritise risks.",
+    Icon: marketingIconMap.analyse,
   },
   {
     title: "Validate",
     description: "Controlled validation in a safe sandbox with human approval.",
-    Icon: ShieldCheck,
+    Icon: marketingIconMap.validate,
   },
   {
     title: "Evidence",
     description: "Capture proof, impact, and system-level evidence.",
-    Icon: FileCheck2,
+    Icon: marketingIconMap.evidence,
   },
   {
     title: "Report",
     description: "Generate reports with impact, severity and remediation.",
-    Icon: FileText,
+    Icon: marketingIconMap["report-generator"],
   },
   {
     title: "Remediate",
     description: "Sync to your tools and close the remediation loop.",
-    Icon: CheckCircle2,
+    Icon: marketingIconMap.remediate,
   },
 ];
 
@@ -281,25 +259,25 @@ const metrics: Metric[] = [
     value: "Proof",
     title: "Evidence-Backed Validation",
     text: "Focus on findings backed by controlled validation.",
-    Icon: BadgeCheck,
+    Icon: marketingIconMap.evidence,
   },
   {
     value: "Focus",
     title: "Clearer Risk Priorities",
-    text: "Prioritize what attackers can realistically exploit.",
-    Icon: Clock3,
+    text: "Prioritise what attackers can realistically exploit.",
+    Icon: marketingIconMap.prioritise,
   },
   {
     value: "Flow",
     title: "Connected Remediation",
     text: "Integrated workflows help teams move from evidence to action.",
-    Icon: Target,
+    Icon: marketingIconMap["security-workflow"],
   },
   {
     value: "Trace",
     title: "Evidence-Backed Results",
     text: "Validation activity keeps proof, context, and audit history together.",
-    Icon: BarChart3,
+    Icon: marketingIconMap["audit-logs"],
   },
 ];
 
@@ -307,32 +285,32 @@ const industries: Industry[] = [
   {
     title: "Technology",
     text: "Secure your applications, APIs, and cloud-native infrastructure.",
-    Icon: Code2,
+    Icon: marketingIconMap.technology,
   },
   {
     title: "Financial Services",
-    text: "Protect sensitive financial data and support audit-ready security programs.",
-    Icon: Landmark,
+    text: "Protect sensitive financial data and support audit-ready security programmes.",
+    Icon: marketingIconMap["financial-services"],
   },
   {
     title: "Healthcare",
     text: "Secure patient data and critical healthcare infrastructure.",
-    Icon: HeartPulse,
+    Icon: marketingIconMap.healthcare,
   },
   {
-    title: "Retail & E-Commerce",
+    title: "Retail and E-Commerce",
     text: "Protect customer data and ensure secure digital experiences.",
-    Icon: ShoppingCart,
+    Icon: marketingIconMap.retail,
   },
   {
     title: "Manufacturing",
     text: "Secure OT, IT, and connected industrial environments.",
-    Icon: Factory,
+    Icon: marketingIconMap.manufacturing,
   },
   {
     title: "Government",
     text: "Strengthen cybersecurity with evidence-backed validation and clear reporting.",
-    Icon: Building2,
+    Icon: marketingIconMap.government,
   },
 ];
 
@@ -385,22 +363,22 @@ function SolutionsHeroVisual() {
           <ellipse className="evada-dash-flow opacity-40" cx="410" cy="282" rx="174" ry="116" stroke="#60A5FA" strokeWidth="1.4" strokeDasharray="4 10" />
           <ellipse className="evada-dash-flow opacity-55" cx="410" cy="282" rx="278" ry="202" stroke="url(#solutions-hero-line)" strokeWidth="1.8" strokeDasharray="8 12" />
 
-          <path className="evada-dash-flow opacity-70" d="M410 282C292 234 228 204 174 190" stroke="url(#solutions-hero-line)" strokeWidth="2" strokeLinecap="round" />
-          <path className="evada-dash-flow opacity-70" d="M410 282C528 226 592 196 686 190" stroke="url(#solutions-hero-line)" strokeWidth="2" strokeLinecap="round" />
-          <path className="evada-dash-flow opacity-70" d="M410 282C286 340 220 380 168 394" stroke="url(#solutions-hero-line)" strokeWidth="2" strokeLinecap="round" />
-          <path className="evada-dash-flow opacity-70" d="M410 282C532 340 606 382 696 410" stroke="url(#solutions-hero-line)" strokeWidth="2" strokeLinecap="round" />
-          <path className="evada-dash-flow opacity-60" d="M410 282C414 178 430 108 410 72" stroke="url(#solutions-hero-line)" strokeWidth="2" strokeLinecap="round" />
-          <path className="evada-dash-flow opacity-55" d="M410 282C378 394 332 458 286 492" stroke="url(#solutions-hero-line)" strokeWidth="2" strokeLinecap="round" />
-          <path className="evada-dash-flow opacity-55" d="M410 282C456 394 502 456 546 492" stroke="url(#solutions-hero-line)" strokeWidth="2" strokeLinecap="round" />
+          <path className="solutions-blue-connector" d="M410 108C410 126 410 142 410 162" stroke="url(#solutions-hero-line)" />
+          <path className="solutions-blue-connector solutions-blue-connector-delay-a" d="M252 214C282 206 306 195 328 194" stroke="url(#solutions-hero-line)" />
+          <path className="solutions-blue-connector solutions-blue-connector-delay-b" d="M492 194C520 196 538 206 566 214" stroke="url(#solutions-hero-line)" />
+          <path className="solutions-blue-connector solutions-blue-connector-delay-c" d="M252 352C284 348 312 322 326 298" stroke="url(#solutions-hero-line)" />
+          <path className="solutions-blue-connector solutions-blue-connector-delay-d" d="M494 298C508 322 536 348 568 352" stroke="url(#solutions-hero-line)" />
+          <path className="solutions-blue-connector solutions-blue-connector-delay-e" d="M388 340C374 382 334 430 286 456" stroke="url(#solutions-hero-line)" />
+          <path className="solutions-blue-connector solutions-blue-connector-delay-f" d="M432 340C448 382 494 430 546 456" stroke="url(#solutions-hero-line)" />
 
           {([
-            [174, 190, "#2563EB"],
-            [686, 190, "#7C3AED"],
-            [168, 394, "#06B6D4"],
-            [696, 410, "#7C3AED"],
-            [410, 118, "#2563EB"],
-            [286, 492, "#06B6D4"],
-            [546, 492, "#7C3AED"],
+            [410, 162, "#2563EB"],
+            [328, 194, "#2563EB"],
+            [492, 194, "#7C3AED"],
+            [326, 298, "#06B6D4"],
+            [494, 298, "#7C3AED"],
+            [286, 456, "#06B6D4"],
+            [546, 456, "#7C3AED"],
           ] as Array<[number, number, string]>).map(([cx, cy, fill], index) => (
             <g key={`${cx}-${cy}`} className="evada-node-pulse" style={{ "--delay": `${index * 0.16}s` } as CSSProperties}>
               <circle cx={cx} cy={cy} r="12" fill={fill as string} opacity="0.14" />
@@ -495,7 +473,9 @@ function SolutionsHeroVisual() {
             <div className="solutions-hex-core-ring solutions-hex-core-ring-a" />
             <div className="solutions-hex-core-ring solutions-hex-core-ring-b" />
             <div className="solutions-hex-core-ring solutions-hex-core-ring-c" />
-            <div className="solutions-hex-check" />
+            <div className="solutions-hex-icon">
+              <ShieldCheck aria-hidden="true" className="h-20 w-20" strokeWidth={2.15} />
+            </div>
           </div>
         </div>
 
@@ -525,22 +505,24 @@ function SolutionsHeroVisual() {
 
 function HeroSection() {
   return (
-    <section className="evada-home-hero relative overflow-x-hidden bg-white px-5 pb-16 pt-7 sm:px-8 sm:pb-20 sm:pt-9 lg:px-10 lg:pb-20 lg:pt-10">
+    <section className="evada-home-hero relative overflow-x-clip overflow-y-visible bg-white px-5 pb-16 pt-7 sm:px-8 sm:pb-20 sm:pt-9 lg:px-10 lg:pb-20 lg:pt-10">
       <div aria-hidden="true" className="absolute inset-0 bg-[radial-gradient(circle_at_14%_16%,rgba(37,99,235,0.12),transparent_35%),radial-gradient(circle_at_80%_14%,rgba(124,58,237,0.14),transparent_34%),radial-gradient(circle_at_84%_70%,rgba(34,211,238,0.13),transparent_32%),linear-gradient(180deg,#FFFFFF_0%,#F8FBFF_58%,#FFFFFF_100%)]" />
       <div aria-hidden="true" className="solutions-grid-bg absolute inset-0 opacity-70" />
 
-      <div className="relative mx-auto grid w-full max-w-full min-w-0 grid-cols-1 items-center gap-10 sm:max-w-[1220px] lg:grid-cols-[0.43fr_0.57fr] xl:gap-12">
+      <div className="relative mx-auto grid w-full max-w-full min-w-0 grid-cols-1 items-center gap-10 sm:max-w-[1220px] lg:grid-cols-[0.48fr_0.52fr] xl:gap-12">
         <Reveal className="w-full min-w-0 max-w-full">
-          <div className="w-full max-w-full sm:max-w-[560px]">
+          <div className="w-full max-w-full sm:max-w-[640px]">
             <Eyebrow>SOLUTIONS</Eyebrow>
-            <h1 className="mt-5 max-w-full break-words text-[34px] font-bold leading-[1.07] tracking-[-0.035em] text-slate-950 sm:text-[46px] lg:text-[clamp(3rem,4.55vw,3.75rem)]">
-              <span className="block">Security</span>
-              <span className="block">Validation for</span>
-              <span className="block">Every</span>
-              <span className="block bg-[linear-gradient(100deg,#2563EB_0%,#06B6D4_42%,#7C3AED_100%)] bg-clip-text text-transparent">Security Team</span>
+            <h1 className="mt-5 max-w-full break-words text-[clamp(2rem,8.5vw,2.85rem)] font-bold leading-[1.07] tracking-[-0.035em] text-slate-950 sm:text-[46px] lg:text-[clamp(2.85rem,4.1vw,3.45rem)]">
+              <span className="block">Purpose-built</span>
+              <span className="block whitespace-nowrap [overflow-wrap:normal] [word-break:normal]">
+                validation <span className="text-[0.84em] sm:text-[0.88em] lg:text-[0.9em]">workflows</span>
+              </span>
+              <span className="block">for every</span>
+              <span className="block whitespace-nowrap bg-[linear-gradient(100deg,#2563EB_0%,#06B6D4_42%,#7C3AED_100%)] bg-clip-text pb-1 leading-[1.16] text-transparent">security challenge</span>
             </h1>
             <p className="mt-5 w-full max-w-full text-[15px] leading-[1.7] text-slate-600 sm:max-w-[540px] sm:text-[16px]">
-              EVADA helps security, AppSec, and governance teams validate real risk, reduce noise, and prioritize fixes with evidence.
+              EVADA brings together AI-supported analysis, controlled validation and human expertise to deliver continuous, evidence-backed security outcomes across your attack surface.
             </p>
 
             <div className="mt-8 grid w-full max-w-full grid-cols-2 gap-x-4 gap-y-6 sm:max-w-[560px] sm:grid-cols-4">
@@ -569,7 +551,7 @@ function HeroSection() {
                 href="/platform#architecture"
                 className="inline-flex min-h-11 w-full items-center justify-center gap-2 rounded-full border border-blue-100 bg-white px-6 py-3 text-[14px] font-semibold text-slate-950 shadow-[0_12px_28px_rgba(37,99,235,0.06)] transition hover:-translate-y-0.5 hover:border-blue-200 hover:text-[#2563EB] sm:w-auto"
               >
-                Explore Platform Architecture
+                Explore platform architecture
                 <ArrowRight aria-hidden="true" className="h-4 w-4" strokeWidth={2.2} />
               </Link>
             </div>
@@ -629,8 +611,8 @@ function SolutionsGridSection() {
           <div className="mx-auto max-w-[760px] text-center">
             <Eyebrow>OUR SOLUTIONS</Eyebrow>
             <h2 className="mx-auto mt-3 max-w-[760px] text-[clamp(1.55rem,5vw,2.75rem)] font-bold leading-[1.1] tracking-[-0.025em] text-[#071633]">
-              <span className="block">Complete Coverage.</span>
-              <span className="block">Continuous Confidence.</span>
+              <span className="block">Complete coverage.</span>
+              <span className="block">Continuous confidence.</span>
             </h2>
             <p className="mx-auto mt-4 max-w-[700px] text-[15px] font-normal leading-relaxed text-slate-600 sm:text-[16px]">
               From discovery to remediation, EVADA helps you validate what matters most.
@@ -656,10 +638,10 @@ function ValidationWorkflowSection() {
           <div className="mx-auto max-w-[760px] text-center">
             <Eyebrow>HOW IT WORKS</Eyebrow>
             <h2 className="mx-auto mt-3 max-w-[760px] text-[clamp(1.55rem,5vw,2.75rem)] font-bold leading-[1.1] tracking-[-0.025em] text-[#071633]">
-              The EVADA Validation Workflow
+              The EVADA validation workflow
             </h2>
             <p className="mx-auto mt-4 max-w-[700px] text-[15px] font-normal leading-relaxed text-slate-600 sm:text-[16px]">
-              A continuous cycle that turns findings into actionable, evidence-backed risk insights.
+              A continuous cycle that turns findings into actionable, evidence-backed risk insight.
             </p>
           </div>
         </Reveal>
@@ -699,11 +681,11 @@ function ImpactSection() {
           <div>
             <Eyebrow>REAL IMPACT</Eyebrow>
             <h2 className="mt-3 max-w-[460px] text-[clamp(1.55rem,4.2vw,2.75rem)] font-bold leading-[1.1] tracking-[-0.025em] text-[#071633]">
-              <span className="block">Validate What Matters.</span>
-              <span className="block">Reduce What Does Not.</span>
+              <span className="block">Validate what matters.</span>
+              <span className="block">Reduce what does not.</span>
             </h2>
             <p className="mt-5 max-w-[420px] text-[15px] font-normal leading-relaxed text-slate-600 sm:text-[16px]">
-              EVADA helps security teams focus on what attackers can exploit, reduce noise, and move remediation forward with confidence.
+              EVADA helps teams focus on exploitable risk, reduce noise and accelerate remediation with confidence.
             </p>
             <Link href="/resources" className="mt-5 inline-flex items-center gap-2 text-[14px] font-semibold text-[#2563EB] transition hover:translate-x-1">
               Learn more about our impact
@@ -832,7 +814,7 @@ function SolutionsCTASection() {
               Book a Demo
             </Link>
             <Link href="/platform#architecture" className="inline-flex min-h-11 items-center justify-center gap-2 rounded-full border border-white/30 bg-white/10 px-6 py-3 text-[14px] font-semibold text-white transition hover:-translate-y-0.5 hover:bg-white/16 sm:min-w-[282px]">
-              Explore Platform Architecture
+              Explore platform architecture
               <ArrowRight aria-hidden="true" className="h-4 w-4" strokeWidth={2.2} />
             </Link>
           </div>

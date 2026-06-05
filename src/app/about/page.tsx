@@ -2,28 +2,14 @@ import Link from "next/link";
 import type { LucideIcon } from "lucide-react";
 import {
   ArrowRight,
-  BadgeCheck,
-  BarChart3,
-  Building2,
   CheckCircle2,
-  Clock3,
-  Eye,
-  Globe2,
-  Heart,
-  KeyRound,
   Lightbulb,
-  Network,
-  Rocket,
-  ShieldCheck,
-  Sparkles,
-  Target,
-  UserCheck,
-  Users,
 } from "lucide-react";
 import FooterSection from "@/components/FooterSection";
 import MarketingNav from "@/components/MarketingNav";
 import Reveal from "@/components/Reveal";
 import MarketingAnimatedBackground from "@/components/marketing/MarketingAnimatedBackground";
+import { marketingIconMap } from "@/components/marketing/MarketingIcon";
 
 type IconCard = {
   title: string;
@@ -46,23 +32,23 @@ type TimelineItem = {
 const heroCards: IconCard[] = [
   {
     title: "AI-Driven Validation",
-    text: "Smarter validation with AI that learns, adapts, and accelerates security outcomes.",
-    Icon: Sparkles,
+    text: "Smarter validation with AI that learns, adapts and accelerates security outcomes.",
+    Icon: marketingIconMap["ai-supported"],
   },
   {
     title: "Built With Security Teams",
-    text: "Designed for teams that need validation with confidence, control, and trust.",
-    Icon: Users,
+    text: "Designed for teams that need validation with confidence, control and trust.",
+    Icon: marketingIconMap["human-expertise"],
   },
   {
     title: "Human Expertise",
-    text: "Deep security expertise ensures context, judgment, and real-world impact.",
-    Icon: UserCheck,
+    text: "Deep security expertise ensures context, judgement and real-world impact.",
+    Icon: marketingIconMap["human-expertise"],
   },
   {
     title: "Built for the Future",
     text: "Continuously evolving to help teams validate real risk as environments change.",
-    Icon: Rocket,
+    Icon: marketingIconMap["company-future"],
   },
 ];
 
@@ -70,77 +56,77 @@ const heroChips: IconCard[] = [
   {
     title: "Mission-led",
     text: "",
-    Icon: Target,
+    Icon: marketingIconMap["company-mission"],
   },
   {
     title: "Human expertise",
     text: "",
-    Icon: Users,
+    Icon: marketingIconMap["human-expertise"],
   },
   {
     title: "Security-first culture",
     text: "",
-    Icon: ShieldCheck,
+    Icon: marketingIconMap["security-culture"],
   },
   {
     title: "Trusted platform",
     text: "",
-    Icon: BadgeCheck,
+    Icon: marketingIconMap["trusted-platform"],
   },
 ];
 
 const missionColumns: IconCard[] = [
   {
     title: "Our Mission",
-    text: "Empower security teams with AI-supported validation and actionable insights that reduce real risk with confidence.",
-    Icon: Target,
+    text: "Empower security teams with AI-supported validation and actionable insight to stay ahead of threats and reduce risk with confidence.",
+    Icon: marketingIconMap["company-mission"],
   },
   {
     title: "Our Vision",
-    text: "A world where every organization can validate risk continuously and make security decisions with clarity and trust.",
-    Icon: Eye,
+    text: "A world where every organisation can validate risk continuously and make security decisions with clarity and trust.",
+    Icon: marketingIconMap.vision,
   },
   {
     title: "Our Values",
-    text: "Security First|Customer Success|Innovation with Integrity|Transparency & Trust",
-    Icon: Heart,
+    text: "Security First|Customer Success|Innovation with Integrity|Transparency and Trust",
+    Icon: marketingIconMap.values,
   },
 ];
 
 const metrics: Metric[] = [
-  { value: "8+", label: "Platform Modules", Icon: ShieldCheck },
-  { value: "4", label: "Core Security Workflows", Icon: Users },
-  { value: "3", label: "Admin Access Layers", Icon: KeyRound },
-  { value: "8", label: "AI Pipeline Stages", Icon: BarChart3 },
-  { value: "10+", label: "Integration Categories", Icon: Globe2 },
-  { value: "24/7", label: "Validation Visibility", Icon: Clock3 },
+  { value: "8+", label: "Platform Modules", Icon: marketingIconMap["platform-modules"] },
+  { value: "4", label: "Core Security Workflows", Icon: marketingIconMap["security-workflow"] },
+  { value: "3", label: "Admin Access Layers", Icon: marketingIconMap["admin-access-layers"] },
+  { value: "8", label: "AI Pipeline Stages", Icon: marketingIconMap["ai-supported"] },
+  { value: "10+", label: "Integration Categories", Icon: marketingIconMap["integration-categories"] },
+  { value: "24/7", label: "Validation Visibility", Icon: marketingIconMap["validation-visibility"] },
 ];
 
 const teamRoles: IconCard[] = [
   {
     title: "Chief Executive Officer",
-    text: "Guides EVADA's mission, strategy, and customer-focused growth.",
-    Icon: UserCheck,
+    text: "Guides EVADA's mission, strategy and customer-focused growth.",
+    Icon: marketingIconMap.partners,
   },
   {
     title: "Chief Product Officer",
-    text: "Leads product direction across validation workflows, reporting, and user experience.",
+    text: "Leads product direction across validation workflows, reporting and user experience.",
     Icon: Lightbulb,
   },
   {
     title: "Chief Technology Officer",
-    text: "Oversees platform architecture, backend integrations, and scalable systems.",
-    Icon: Network,
+    text: "Oversees platform architecture, backend integrations and scalable systems.",
+    Icon: marketingIconMap["infrastructure-security"],
   },
   {
     title: "Chief Security Officer",
-    text: "Drives secure design, governance, privacy, and enterprise trust.",
-    Icon: ShieldCheck,
+    text: "Drives secure design, governance, privacy and enterprise trust.",
+    Icon: marketingIconMap["secure-platform"],
   },
   {
     title: "VP of Customer Success",
-    text: "Helps customers adopt continuous validation and operationalize remediation.",
-    Icon: BadgeCheck,
+    text: "Helps customers adopt continuous validation and operationalise remediation.",
+    Icon: marketingIconMap["trusted-platform"],
   },
 ];
 
@@ -148,50 +134,50 @@ const timeline: TimelineItem[] = [
   {
     year: "2021",
     title: "The Beginning",
-    text: "EVADA began with a vision to make security validation continuous, evidence-backed, and easier to operationalize.",
+    text: "EVADA began with a vision to make security validation continuous, evidence-backed and easier to operationalise.",
   },
   {
     year: "2022",
     title: "Platform Foundation",
-    text: "Core platform concepts formed around application configuration, scanning workflows, and dashboard visibility.",
+    text: "Core platform concepts formed around application configuration, scanning workflows and dashboard visibility.",
   },
   {
     year: "2023",
     title: "AI-Supported Pentest",
-    text: "AI-supported pentest workflows introduced pipeline stages, sandbox validation, and evidence-backed reporting.",
+    text: "AI-supported pentest workflows introduced pipeline stages, sandbox validation and evidence-backed reporting.",
   },
   {
     year: "2024",
     title: "Enterprise Controls",
-    text: "Agent management, RBAC, tenant administration, audit visibility, and integrations became central to the platform.",
+    text: "Agent management, RBAC, tenant administration, audit visibility and integrations became central to the platform.",
   },
   {
     year: "2025+",
     title: "The Future",
-    text: "Continuing to advance governed AI validation, remediation workflows, and continuous security assurance.",
+    text: "Continuing to advance governed AI validation, remediation workflows and continuous security assurance.",
   },
 ];
 
 const cultureValues: IconCard[] = [
   {
     title: "Security First",
-    text: "We design every workflow around safety, control, and trust.",
-    Icon: ShieldCheck,
+    text: "We design every workflow around safety, control and trust.",
+    Icon: marketingIconMap["security-culture"],
   },
   {
-    title: "Human + AI Collaboration",
-    text: "We believe AI should assist experts, not replace judgment.",
-    Icon: Users,
+    title: "Human and AI Collaboration",
+    text: "We believe AI should assist experts, not replace judgement.",
+    Icon: marketingIconMap["ai-supported"],
   },
   {
     title: "Evidence Over Noise",
-    text: "We focus on validated risk, proof, and actionable remediation.",
-    Icon: BadgeCheck,
+    text: "We focus on validated risk, proof and actionable remediation.",
+    Icon: marketingIconMap.evidence,
   },
   {
     title: "Built for Operators",
     text: "We create workflows that fit real security teams and enterprise environments.",
-    Icon: Building2,
+    Icon: marketingIconMap["security-workflow"],
   },
 ];
 
@@ -328,7 +314,7 @@ function HeroSection() {
               <span className="block bg-[linear-gradient(90deg,#6D49F4,#2563EB,#04A9C7)] bg-clip-text text-transparent">human expertise</span>
             </h1>
             <p className="mt-5 w-full max-w-[540px] text-[15px] font-normal leading-[1.7] text-slate-600 sm:text-[16px]">
-              EVADA helps modern security teams validate real risk with AI-assisted workflows, governed controls, and expert judgment.
+              At EVADA, we help modern security teams validate smarter, operate with trust and turn findings into controlled action through AI-supported workflows and human expertise.
             </p>
 
             <div className="mt-8 grid w-full max-w-full gap-3 sm:max-w-[520px] sm:flex sm:flex-wrap sm:items-center">
@@ -417,7 +403,7 @@ function MetricsSection() {
   return (
     <section className="bg-[#FBFDFF] px-5 py-11 sm:px-8 lg:px-10 lg:py-14">
       <div className="mx-auto max-w-[1360px]">
-        <SectionIntro eyebrow="EVADA BY THE NUMBERS" title="EVADA by the Numbers" />
+        <SectionIntro eyebrow="EVADA BY THE NUMBERS" title="EVADA by the numbers" />
 
         <div className="mt-9 grid grid-cols-2 gap-4 md:grid-cols-3 xl:grid-cols-6">
           {metrics.map((metric, index) => {
@@ -449,7 +435,7 @@ function LeadershipSection() {
       <div className="mx-auto max-w-[1360px]">
         <SectionIntro
           title="Leadership Team"
-          text="Experienced security and product leaders building AI-supported validation for real risk reduction."
+          text="Experienced security and product leaders building the future of AI-supported security validation."
         />
 
         <div className="mt-9 grid gap-5 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">
@@ -482,7 +468,7 @@ function TimelineSection() {
   return (
     <section className="bg-[#FBFDFF] px-5 py-10 sm:px-8 lg:px-10 lg:py-12">
       <div className="mx-auto max-w-[1360px]">
-        <SectionIntro title="Our Journey" text="Key milestones in our mission to modernize security validation." />
+        <SectionIntro title="Our Journey" text="Key milestones in our mission to modernise security validation." />
 
         <Reveal>
           <div className="relative mt-10 overflow-hidden rounded-[22px] border border-blue-100 bg-white px-5 py-8 shadow-[0_20px_55px_rgba(37,99,235,0.08)] lg:px-8">
@@ -516,8 +502,8 @@ function CultureValuesSection() {
       <div className="mx-auto max-w-[1360px]">
         <SectionIntro
           eyebrow="HOW WE WORK"
-          title="Built by People Who Care About Safer Security"
-          text="We build responsible security workflows for teams that need clarity, control, and trust."
+          title="Built by people who care about safer security"
+          text="We build responsible security workflows for teams that need clarity, control and trust."
         />
 
         <div className="mt-9 grid gap-5 md:grid-cols-2 xl:grid-cols-4">

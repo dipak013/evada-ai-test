@@ -2,25 +2,25 @@ import { MarketingPageShell } from "@/components/common/MarketingPageShell";
 
 const sections = [
   {
-    title: "Information We Process",
+    title: "Information we process",
     toneClass: "border-cyan-200 bg-cyan-50/70",
     points: [
       "Account identity and authentication metadata required for secure access.",
-      "Security telemetry and scan outputs generated through authorized platform use.",
+      "Security telemetry and scan outputs generated through authorised platform use.",
       "Operational diagnostics used to maintain reliability, threat visibility, and response quality.",
     ],
   },
   {
-    title: "Why We Process It",
+    title: "Why we process it",
     toneClass: "border-indigo-200 bg-indigo-50/70",
     points: [
       "Deliver continuous security monitoring, exploit validation, and report generation.",
-      "Improve model-assisted detection quality and prioritize high-confidence risks.",
+      "Improve model-assisted detection quality and prioritise high-confidence risks.",
       "Meet contractual, legal, and regulatory obligations for enterprise customers.",
     ],
   },
   {
-    title: "Sharing and Subprocessors",
+    title: "Sharing and subprocessors",
     toneClass: "border-violet-200 bg-violet-50/70",
     points: [
       "We do not sell personal information.",
@@ -29,7 +29,7 @@ const sections = [
     ],
   },
   {
-    title: "Retention and Security",
+    title: "Retention and security",
     toneClass: "border-emerald-200 bg-emerald-50/70",
     points: [
       "Encryption in transit and at rest for sensitive data channels.",
@@ -49,20 +49,20 @@ export default function PrivacyPolicyPage() {
               Privacy Policy
             </p>
             <h1 className="text-3xl font-bold text-slate-900 sm:text-4xl lg:text-5xl">
-              Transparent Data Practices,
+              Transparent data practices,
               {" "}
-              <span className="evada-gradient-text block">Engineered for Enterprise Trust</span>
+              <span className="evada-gradient-text block">engineered for enterprise trust</span>
             </h1>
             <p className="mt-4 max-w-2xl text-sm leading-relaxed text-slate-600 sm:text-base">
-              Effective Date: April 25, 2026. This policy describes how EVADA processes data to
+              Effective date: April 25, 2026. This policy describes how EVADA processes data to
               power secure operations, maintain service integrity, and support compliant cyber risk
-              programs.
+              programmes.
             </p>
           </div>
 
           <div className="rounded-2xl border border-slate-700/70 bg-slate-900/95 p-5 text-slate-100">
             <p className="text-xs font-semibold uppercase tracking-[0.14em] text-cyan-200">
-              Privacy Commitments
+              Privacy commitments
             </p>
             <ul className="mt-3 space-y-2 text-sm text-slate-200">
               <li className="rounded-lg border border-slate-700 bg-slate-800/80 px-3 py-2">No sale of personal data</li>
@@ -93,9 +93,9 @@ export default function PrivacyPolicyPage() {
       </section>
 
       <section className="animate-reveal-up reveal-delay-4 mb-6 rounded-3xl border border-white/70 bg-white/75 p-6 ring-1 ring-white/45 sm:p-8">
-        <h2 className="text-2xl font-bold text-slate-900">Privacy Contact</h2>
+        <h2 className="text-2xl font-bold text-slate-900">Privacy contact</h2>
         <p className="mt-2 text-sm leading-relaxed text-slate-600">
-          For data rights, processing requests, or privacy review inquiries, contact
+          For data rights, processing requests or privacy review enquiries, contact
           {" "}
           <span className="font-semibold text-slate-800">info@evada.ai</span>.
         </p>

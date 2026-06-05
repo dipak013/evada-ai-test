@@ -1,15 +1,7 @@
 import type { LucideIcon } from "lucide-react";
-import {
-  CheckCircle2,
-  CloudUpload,
-  FileCheck2,
-  LockKeyhole,
-  Search,
-  Send,
-  ShieldCheck,
-  UserCheck,
-} from "lucide-react";
+import { CheckCircle2 } from "lucide-react";
 import Reveal from "@/components/Reveal";
+import { marketingIconMap } from "@/components/marketing/MarketingIcon";
 
 type WorkflowItem = {
   step: string;
@@ -28,34 +20,34 @@ const workflow: WorkflowItem[] = [
   {
     step: "1",
     title: "Ingest",
-    body: "Import scanner, cloud, appsec, and manual findings in real time.",
-    Icon: CloudUpload,
+    body: "Import scanner, cloud, AppSec and manual findings in real time.",
+    Icon: marketingIconMap.ingest,
   },
   {
     step: "2",
-    title: "Analyze",
-    body: "AI models deduplicate, prioritize, and enrich exploitability context.",
-    Icon: Search,
+    title: "Analyse",
+    body: "AI models deduplicate, prioritise and enrich exploitability context.",
+    Icon: marketingIconMap.analyse,
   },
   {
     step: "3",
     title: "Validate",
     body: "Correlate findings and test safely in a controlled sandbox with human approval.",
-    Icon: ShieldCheck,
+    Icon: marketingIconMap.validate,
   },
   {
     step: "4",
-    title: "Operationalize",
-    body: "Push validated issues and remediation actions into Jira, Slack, SIEM, and reports.",
-    Icon: Send,
+    title: "Operationalise",
+    body: "Push validated issues and remediation actions into Jira, Slack, SIEM and reports.",
+    Icon: marketingIconMap["security-workflow"],
   },
 ];
 
 const supportItems: SupportItem[] = [
-  { title: "Controlled AI Engine", body: "Policy-driven, safe, and explainable", Icon: FileCheck2 },
-  { title: "Human in the Loop", body: "Analysts approve high-risk steps", Icon: UserCheck },
-  { title: "Auditable Workflow", body: "Full audit trail for every action", Icon: LockKeyhole },
-  { title: "Tool-Ready", body: "Built to integrate and scale", Icon: ShieldCheck },
+  { title: "Controlled AI Engine", body: "Policy-led, safe and explainable", Icon: marketingIconMap["ai-supported"] },
+  { title: "Human in the Loop", body: "Analysts approve high-risk steps", Icon: marketingIconMap.approval },
+  { title: "Auditable Workflow", body: "Full audit trail for every action", Icon: marketingIconMap["audit-logs"] },
+  { title: "Tool-Ready", body: "Built to integrate and scale", Icon: marketingIconMap["integration-categories"] },
 ];
 
 function WorkflowCard({ item, index }: { item: WorkflowItem; index: number }) {
@@ -123,10 +115,10 @@ export default function HowEvadaWorksSection() {
       <div className="relative mx-auto max-w-[1180px]">
         <Reveal>
           <div className="mx-auto max-w-[760px] text-center">
-            <p className="text-[12px] font-black uppercase tracking-[0.18em] text-[#04A9C7]">How EVADA Works</p>
+            <p className="text-[12px] font-black uppercase tracking-[0.18em] text-[#04A9C7]">How EVADA works</p>
             <h2 className="mx-auto mt-4 max-w-[760px] break-words text-[clamp(1.55rem,5vw,2.75rem)] font-bold leading-[1.1] tracking-[-0.02em] text-slate-950 sm:tracking-[-0.025em]">
-              <span className="block">A Controlled Validation Workflow</span>
-              <span className="block">for Enterprise Security Teams</span>
+              <span className="block">A controlled validation workflow</span>
+              <span className="block">for enterprise security teams</span>
             </h2>
             <span className="mx-auto mt-5 block h-1.5 w-16 rounded-full bg-[#04A9C7]" />
           </div>

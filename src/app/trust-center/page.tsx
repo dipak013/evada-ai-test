@@ -4,26 +4,14 @@ import {
   ArrowRight,
   BadgeCheck,
   CheckCircle2,
-  Cloud,
-  Code2,
-  Database,
-  Eye,
-  FileText,
-  Gauge,
-  KeyRound,
-  Landmark,
   LockKeyhole,
-  Radar,
-  ScrollText,
-  ServerCog,
   ShieldCheck,
-  UserCheck,
-  Users,
 } from "lucide-react";
 import FooterSection from "@/components/FooterSection";
 import MarketingNav from "@/components/MarketingNav";
 import Reveal from "@/components/Reveal";
 import MarketingAnimatedBackground from "@/components/marketing/MarketingAnimatedBackground";
+import { marketingIconMap } from "@/components/marketing/MarketingIcon";
 
 type IconCard = {
   title: string;
@@ -48,37 +36,37 @@ type SecurityHeroBadge = {
 };
 
 const heroChips: IconCard[] = [
-  { title: "Secure by Design", text: "", Icon: ShieldCheck },
-  { title: "Data Protection", text: "", Icon: LockKeyhole },
-  { title: "Audit & Logging", text: "", Icon: ScrollText },
-  { title: "RBAC Controls", text: "", Icon: Users },
+  { title: "Secure by Design", text: "", Icon: marketingIconMap["secure-platform"] },
+  { title: "Data Protection", text: "", Icon: marketingIconMap["data-protection"] },
+  { title: "Audit and Logging", text: "", Icon: marketingIconMap["audit-logs"] },
+  { title: "RBAC Controls", text: "", Icon: marketingIconMap["admin-rbac"] },
 ];
 
 const pillars: IconCard[] = [
   {
     title: "Secure Platform",
-    text: "Hardened infrastructure, secure configuration, and continuous vulnerability management.",
-    Icon: ShieldCheck,
+    text: "Hardened infrastructure, secure configuration and continuous vulnerability management.",
+    Icon: marketingIconMap["secure-platform"],
   },
   {
     title: "Data Protection",
     text: "Encryption in transit and at rest with strict data isolation.",
-    Icon: LockKeyhole,
+    Icon: marketingIconMap["data-protection"],
   },
   {
-    title: "Identity & Access",
-    text: "RBAC, SSO, and least-privilege access for every user and tenant.",
-    Icon: Users,
+    title: "Identity and Access",
+    text: "RBAC, SSO and least-privilege access for every user and tenant.",
+    Icon: marketingIconMap["identity-access"],
   },
   {
-    title: "Monitoring & Audit",
-    text: "Real-time monitoring, detailed audit logs, and tamper-proof records.",
-    Icon: Eye,
+    title: "Monitoring and Audit",
+    text: "Real-time monitoring, detailed audit logs and tamper-proof records.",
+    Icon: marketingIconMap["monitoring-audit"],
   },
   {
     title: "Compliance",
-    text: "Aligned with SOC 2, ISO 27001, GDPR, and industry standards.",
-    Icon: BadgeCheck,
+    text: "Aligned with SOC 2, ISO 27001, GDPR and industry standards.",
+    Icon: marketingIconMap.compliance,
   },
 ];
 
@@ -95,59 +83,59 @@ const complianceCards: ComplianceCard[] = [
   {
     label: "SOC 2",
     title: "SOC 2 Type II Aligned",
-    text: "Security, Availability, Confidentiality",
-    Icon: ShieldCheck,
+    text: "Security, availability and confidentiality.",
+    Icon: marketingIconMap.compliance,
   },
   {
     label: "ISO 27001",
     title: "ISO 27001 Aligned",
-    text: "Information Security Management",
-    Icon: Landmark,
+    text: "Information security management.",
+    Icon: marketingIconMap.compliance,
   },
   {
     label: "GDPR",
     title: "GDPR Aligned",
-    text: "EU General Data Protection Regulation",
-    Icon: LockKeyhole,
+    text: "EU General Data Protection Regulation.",
+    Icon: marketingIconMap["data-protection"],
   },
   {
     label: "CCPA",
     title: "CCPA Ready",
-    text: "California Consumer Privacy Act",
-    Icon: BadgeCheck,
+    text: "California Consumer Privacy Act.",
+    Icon: marketingIconMap.compliance,
   },
 ];
 
 const platformSecurityCards: IconCard[] = [
   {
     title: "Secure Development",
-    text: "Secure SDLC, code reviews, SAST, DAST, and dependency scanning.",
-    Icon: Code2,
+    text: "Secure SDLC, code reviews, SAST, DAST and dependency scanning.",
+    Icon: marketingIconMap["secure-development"],
   },
   {
     title: "Infrastructure Security",
     text: "Cloud-native architecture with network isolation and firewall controls.",
-    Icon: Cloud,
+    Icon: marketingIconMap["infrastructure-security"],
   },
   {
     title: "Data Security",
-    text: "Encrypted databases, backups, and strict access controls.",
-    Icon: Database,
+    text: "Encrypted databases, backups and strict access controls.",
+    Icon: marketingIconMap["data-security"],
   },
   {
     title: "Application Security",
-    text: "Input validation, CSRF protection, rate limiting, and secure APIs.",
-    Icon: ServerCog,
+    text: "Input validation, CSRF protection, rate limiting and secure APIs.",
+    Icon: marketingIconMap["application-security"],
   },
   {
     title: "AI Validation Safety",
-    text: "Safe sandbox environment, human approval, and controlled execution.",
-    Icon: ShieldCheck,
+    text: "Safe sandbox environment, human approval and controlled execution.",
+    Icon: marketingIconMap["ai-validation-safety"],
   },
   {
     title: "Tenant Isolation",
-    text: "Multi-tenant isolation ensures your data stays private and secure.",
-    Icon: Users,
+    text: "Multi-tenant isolation helps keep customer data private and secure.",
+    Icon: marketingIconMap["tenant-isolation"],
   },
 ];
 
@@ -155,52 +143,52 @@ const transparencyFeatures: IconCard[] = [
   {
     title: "Public Security Documentation",
     text: "Clear documentation for platform security practices.",
-    Icon: FileText,
+    Icon: marketingIconMap.documentation,
   },
   {
     title: "Regular Compliance Reports",
     text: "Ongoing reviews and reporting for enterprise assurance.",
-    Icon: Gauge,
+    Icon: marketingIconMap.compliance,
   },
   {
-    title: "Vulnerability Disclosure Program",
-    text: "Responsible disclosure process for security researchers.",
-    Icon: Radar,
+    title: "Vulnerability Disclosure Programme",
+    text: "A responsible disclosure process for security researchers.",
+    Icon: marketingIconMap["vulnerability-disclosure"],
   },
   {
     title: "Customer Data Ownership",
-    text: "Your data remains yours with clear access and privacy controls.",
-    Icon: Users,
+    text: "Your data remains yours, with clear access and privacy controls.",
+    Icon: marketingIconMap["customer-data-ownership"],
   },
 ];
 
 const governanceCards: IconCard[] = [
   {
     title: "RBAC Permissions",
-    text: "Control access to AI Scanner, Knowledge Hub, SaaS Admin, Client Admin, and Superadmin areas.",
-    Icon: KeyRound,
+    text: "Control access to AI Scanner, Knowledge Hub, SaaS Admin, Client Admin and Superadmin areas.",
+    Icon: marketingIconMap["admin-rbac"],
   },
   {
-    title: "Session & CSRF Protection",
+    title: "Session and CSRF Protection",
     text: "Support session-cookie authentication and CSRF-aware backend APIs.",
-    Icon: LockKeyhole,
+    Icon: marketingIconMap["session-csrf"],
   },
   {
-    title: "Audit & Logs",
-    text: "Review audit logs, APM logs, security events, and operational activity.",
-    Icon: ScrollText,
+    title: "Audit and Logs",
+    text: "Review audit logs, APM logs, security events and operational activity.",
+    Icon: marketingIconMap["audit-logs"],
   },
   {
     title: "Human Approval",
     text: "Require analyst approval before sensitive AI validation and sandbox execution steps.",
-    Icon: UserCheck,
+    Icon: marketingIconMap.approval,
   },
 ];
 
 const securityHeroBadges: SecurityHeroBadge[] = [
   {
     label: "Security Operations",
-    Icon: Radar,
+    Icon: marketingIconMap["security-signals"],
     className: "left-[356px] top-[58px]",
     delayMs: 20,
     showDot: true,
@@ -208,49 +196,49 @@ const securityHeroBadges: SecurityHeroBadge[] = [
   },
   {
     label: "Secure Validation",
-    Icon: ShieldCheck,
+    Icon: marketingIconMap.validate,
     className: "left-[56px] top-[118px]",
     delayMs: 60,
     showDot: true,
   },
   {
     label: "Data Protection",
-    Icon: LockKeyhole,
+    Icon: marketingIconMap["data-protection"],
     className: "right-[72px] top-[118px]",
     delayMs: 160,
     showDot: true,
   },
   {
     label: "RBAC Access",
-    Icon: Users,
+    Icon: marketingIconMap["admin-rbac"],
     className: "left-[8px] top-[302px]",
     delayMs: 260,
     showDot: true,
   },
   {
     label: "Audit Trails",
-    Icon: FileText,
+    Icon: marketingIconMap["audit-logs"],
     className: "right-[14px] top-[302px]",
     delayMs: 340,
     showDot: true,
   },
   {
-    label: "Session & CSRF",
-    Icon: ShieldCheck,
+    label: "Session and CSRF",
+    Icon: marketingIconMap["session-csrf"],
     className: "left-[54px] bottom-[112px]",
     delayMs: 430,
     showDot: true,
   },
   {
     label: "Human Approval",
-    Icon: UserCheck,
+    Icon: marketingIconMap.approval,
     className: "right-[52px] bottom-[112px]",
     delayMs: 520,
     showDot: true,
   },
   {
     label: "All Systems Secure",
-    Icon: ShieldCheck,
+    Icon: marketingIconMap["secure-platform"],
     className: "left-[356px] bottom-[26px]",
     delayMs: 610,
     showDot: true,
@@ -366,15 +354,16 @@ function HeroSection() {
           <div className="w-full max-w-full sm:max-w-[560px]">
             <p className="inline-flex items-center gap-2 text-[11px] font-semibold uppercase tracking-[0.18em] text-[#2563EB]">
               <span className="h-2 w-2 rounded-full bg-[#04A9C7]" />
-              Security & Trust
+              Security and trust
             </p>
             <h1 className="mt-5 max-w-full break-words text-[34px] font-bold leading-[1.07] tracking-[-0.035em] text-slate-950 sm:text-[46px] lg:text-[clamp(3rem,4.55vw,3.75rem)]">
-              <span className="block">Enterprise Security</span>
-              <span className="block">Governance</span>
-              <span className="block bg-[linear-gradient(90deg,#6D49F4,#2563EB,#04A9C7)] bg-clip-text text-transparent">Built for Trust</span>
+              <span className="block">Enterprise security</span>
+              <span className="block">governance</span>
+              <span className="block bg-[linear-gradient(90deg,#6D49F4,#2563EB,#04A9C7)] bg-clip-text text-transparent">built for</span>
+              <span className="block bg-[linear-gradient(90deg,#6D49F4,#2563EB,#04A9C7)] bg-clip-text text-transparent">trust</span>
             </h1>
             <p className="mt-5 w-full max-w-full text-[15px] leading-[1.7] text-slate-600 sm:max-w-[540px] sm:text-[16px]">
-              EVADA protects AI-assisted workflows with secure validation, data controls, audit trails, and role-based access, helping teams move faster without losing governance.
+              EVADA protects AI-supported workflows with secure validation, data controls, audit trails and role-based access, helping teams move faster without losing governance.
             </p>
 
             <div className="mt-8 grid w-full max-w-full gap-3 sm:max-w-[520px] sm:flex sm:flex-wrap sm:items-center">
@@ -383,7 +372,7 @@ function HeroSection() {
                 className="inline-flex min-h-11 w-full items-center justify-center gap-2 rounded-full border border-blue-100 bg-white px-6 py-3 text-[14px] font-semibold text-slate-950 shadow-[0_12px_28px_rgba(37,99,235,0.06)] transition hover:-translate-y-0.5 hover:border-blue-200 hover:text-[#2563EB] sm:w-auto"
               >
                 <ShieldCheck aria-hidden="true" className="h-5 w-5" strokeWidth={2.1} />
-                View Trust Center
+                View Trust Centre
                 <ArrowRight aria-hidden="true" className="h-4 w-4" strokeWidth={2.2} />
               </Link>
               <Link
@@ -428,7 +417,7 @@ function SecurityPillarsSection() {
           <div className="mx-auto max-w-[760px] text-center">
             <Eyebrow>OUR SECURITY COMMITMENTS</Eyebrow>
             <h2 className="mx-auto mt-3 max-w-[760px] text-[clamp(1.55rem,5vw,2.75rem)] font-bold leading-[1.1] tracking-[-0.025em] text-[#071633]">
-              Five Pillars of Security
+              Five pillars of security
             </h2>
             <p className="mx-auto mt-4 max-w-[700px] text-[15px] font-normal leading-relaxed text-slate-600 sm:text-[16px]">
               Our platform is built on strong security principles that protect your data and your business.
@@ -468,13 +457,13 @@ function ComplianceSection() {
       <div className="mx-auto grid max-w-[1360px] gap-8 lg:grid-cols-[0.32fr_0.68fr] lg:items-center">
         <Reveal>
           <div>
-            <Eyebrow>COMPLIANCE & CERTIFICATIONS</Eyebrow>
+            <Eyebrow>COMPLIANCE AND CERTIFICATIONS</Eyebrow>
             <h2 className="mt-3 max-w-[460px] text-[clamp(1.55rem,4.2vw,2.75rem)] font-bold leading-[1.1] tracking-[-0.025em] text-[#071633]">
-              <span className="block">Built for Enterprise</span>
-              <span className="block">Compliance</span>
+              <span className="block">Built for enterprise</span>
+              <span className="block">compliance</span>
             </h2>
             <p className="mt-5 max-w-[430px] text-[15px] font-normal leading-relaxed text-slate-600 sm:text-[16px]">
-              EVADA aligns with global security standards so you can meet regulatory and compliance requirements with confidence.
+              EVADA aligns with global security standards so teams can meet regulatory and compliance requirements with confidence.
             </p>
             <ul className="mt-6 grid gap-3">
               {complianceChecklist.map((item) => (
@@ -487,7 +476,7 @@ function ComplianceSection() {
               ))}
             </ul>
             <Link href="/resources" className="mt-6 inline-flex min-h-11 items-center justify-center rounded-[12px] border border-blue-200 bg-white px-5 py-2.5 text-[14px] font-black text-[#2563EB] transition hover:-translate-y-0.5 hover:border-blue-300">
-              View Compliance Details
+              View compliance details
             </Link>
           </div>
         </Reveal>
@@ -523,11 +512,11 @@ function PlatformSecuritySection() {
           <div className="mx-auto max-w-[760px] text-center">
             <Eyebrow>SECURITY ACROSS THE PLATFORM</Eyebrow>
             <h2 className="mx-auto mt-3 max-w-[760px] text-[clamp(1.55rem,5vw,2.75rem)] font-bold leading-[1.1] tracking-[-0.025em] text-[#071633]">
-              <span className="block">Security Built Into</span>
-              <span className="block">Every Layer</span>
+              <span className="block">Security built into</span>
+              <span className="block">every layer</span>
             </h2>
             <p className="mx-auto mt-4 max-w-[700px] text-[15px] font-normal leading-relaxed text-slate-600 sm:text-[16px]">
-              From code to cloud, we follow industry best practices to keep your data and applications secure.
+              From code to cloud, EVADA follows industry practices to keep data, workflows and applications secure.
             </p>
           </div>
         </Reveal>
@@ -564,7 +553,7 @@ function TransparencySection() {
             <div>
               <p className="text-[12px] font-black uppercase tracking-[0.2em] text-[#C4B5FD]">TRANSPARENCY YOU CAN TRUST</p>
               <h2 className="mt-4 max-w-[460px] text-[clamp(1.55rem,4.2vw,2.75rem)] font-bold leading-[1.1] tracking-[-0.025em]">
-                Transparency and Accountability
+                Transparency and accountability
               </h2>
               <p className="mt-4 max-w-[420px] text-[15px] font-normal leading-relaxed text-slate-200 sm:text-[16px]">
                 We believe in being open about how we protect your data and operate our platform.
@@ -601,12 +590,12 @@ function GovernanceSection() {
           <div className="mx-auto max-w-[760px] text-center">
             <Eyebrow>GOVERNED SECURITY OPERATIONS</Eyebrow>
             <h2 className="mx-auto mt-3 max-w-[760px] text-[clamp(1.55rem,5vw,2.75rem)] font-bold leading-[1.1] tracking-[-0.025em] text-[#071633]">
-              <span className="block">Controlled Access,</span>
-              <span className="block">Auditable Actions,</span>
-              <span className="block">Safer Validation</span>
+              <span className="block">Controlled access,</span>
+              <span className="block">auditable actions and</span>
+              <span className="block">safer validation</span>
             </h2>
             <p className="mx-auto mt-4 max-w-[700px] text-[15px] font-normal leading-relaxed text-slate-600 sm:text-[16px]">
-              EVADA combines permission-gated access, audit visibility, and human-approved validation workflows to keep security operations controlled and accountable.
+              EVADA combines permission-gated access, audit visibility and human-approved validation workflows to keep operations controlled and accountable.
             </p>
           </div>
         </Reveal>
@@ -655,7 +644,7 @@ function SecurityCTASection() {
 
           <div className="relative grid gap-3 sm:flex sm:items-center">
             <Link href="/contact" className="evada-gradient-cta inline-flex min-h-12 items-center justify-center rounded-[14px] px-7 py-3 text-[15px] font-extrabold text-white transition hover:-translate-y-0.5">
-              Talk to Security Team
+              Talk to Security
             </Link>
             <Link href="/book-demo" className="inline-flex min-h-12 items-center justify-center whitespace-nowrap rounded-[14px] border border-blue-200 bg-white px-7 py-3 text-[15px] font-extrabold text-[#2563EB] shadow-sm transition hover:-translate-y-0.5 hover:border-blue-300 sm:min-w-[190px]">
               Book a Demo

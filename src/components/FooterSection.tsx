@@ -16,7 +16,7 @@ const columns: FooterColumn[] = [
   },
   {
     title: "Resources",
-    links: ["Documentation", "Blog", "Guides", "Webinars", "Help Center"],
+    links: ["Documentation", "Blog", "Guides", "Webinars", "Help Centre"],
   },
   {
     title: "Company",
@@ -48,7 +48,7 @@ const footerHrefMap: Record<string, string> = {
   Blog: "/resources",
   Guides: "/resources",
   Webinars: "/resources",
-  "Help Center": "/resources",
+  "Help Centre": "/resources",
   "About Us": "/about",
   Careers: "/about",
   Partners: "/about",
@@ -97,7 +97,7 @@ function FooterCTA() {
               href="/platform#architecture"
               className="inline-flex min-h-12 items-center justify-center gap-2 rounded-[14px] border border-slate-200 bg-white px-7 py-3 text-center text-[15px] font-extrabold text-slate-950 shadow-sm transition hover:-translate-y-0.5 hover:border-blue-200 hover:text-[#2563EB] sm:min-w-[282px] sm:whitespace-nowrap"
             >
-              Explore Platform Architecture
+              Explore platform architecture
               <span aria-hidden="true">{"\u2192"}</span>
             </Link>
           </div>
@@ -190,14 +190,60 @@ type FooterSectionProps = {
   descriptionVariant?: "continuous" | "aiPowered";
 };
 
+type SocialIconName = "LinkedIn" | "X" | "GitHub" | "YouTube";
+
+function FooterSocialIcon({ name }: { name: SocialIconName }) {
+  if (name === "LinkedIn") {
+    return (
+      <svg aria-hidden="true" viewBox="0 0 24 24" className="h-4 w-4" fill="none">
+        <path d="M7.2 9.2V18" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" />
+        <path d="M11.3 18v-4.7c0-2.4 1.4-4 3.5-4 2 0 3 1.4 3 3.8V18" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" />
+        <path d="M7.2 6.2h.01" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="3" />
+      </svg>
+    );
+  }
+
+  if (name === "X") {
+    return (
+      <svg aria-hidden="true" viewBox="0 0 24 24" className="h-4 w-4" fill="none">
+        <path d="M5 5l14 14" stroke="currentColor" strokeLinecap="round" strokeWidth="2" />
+        <path d="M19 5 5 19" stroke="currentColor" strokeLinecap="round" strokeWidth="2" />
+      </svg>
+    );
+  }
+
+  if (name === "GitHub") {
+    return (
+      <svg aria-hidden="true" viewBox="0 0 24 24" className="h-4 w-4" fill="none">
+        <path d="M9 19c-4.5 1.3-4.5-2-6.3-2.4" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.9" />
+        <path d="M15 22v-3.5c0-1 .1-1.4-.5-2 3.8-.4 7.7-1.8 7.7-8a6.2 6.2 0 0 0-1.7-4.3 5.9 5.9 0 0 0-.1-4.2s-1.4-.4-4.5 1.7a15.4 15.4 0 0 0-8.2 0C4.6-.4 3.2 0 3.2 0a5.9 5.9 0 0 0-.1 4.2 6.2 6.2 0 0 0-1.7 4.3c0 6.2 3.9 7.6 7.6 8-.5.5-.7 1.1-.7 2V22" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.9" />
+      </svg>
+    );
+  }
+
+  return (
+    <svg aria-hidden="true" viewBox="0 0 24 24" className="h-4 w-4" fill="none">
+      <rect x="3.5" y="6.5" width="17" height="11" rx="3" stroke="currentColor" strokeWidth="1.9" />
+      <path d="m10.5 9.5 4 2.5-4 2.5v-5Z" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.9" />
+    </svg>
+  );
+}
+
 export default function FooterSection({
   showCta = true,
   descriptionVariant = "continuous",
 }: FooterSectionProps) {
   const description =
     descriptionVariant === "aiPowered"
-      ? ["AI-supported pentest platform", "for modern security teams.", "Validate what attackers can exploit.", "Reduce real risk."]
-      : ["Continuous risk validation platform", "for modern security teams.", "Validate findings. Reduce risk.", "Accelerate remediation."];
+      ? ["AI-supported pentest platform", "for modern security teams.", "Validate exploitable risk.", "Remediate with confidence."]
+      : ["Continuous security validation platform", "for modern security teams.", "Validate findings, reduce risk", "and accelerate remediation."];
+
+  const socialLinks: Array<{ label: SocialIconName }> = [
+    { label: "LinkedIn" },
+    { label: "X" },
+    { label: "GitHub" },
+    { label: "YouTube" },
+  ];
 
   return (
     <>
@@ -221,15 +267,15 @@ export default function FooterSection({
                 </p>
 
                 <div className="mt-6 flex items-center gap-3">
-                  {["in", "X", "GH", "YT"].map((label, index) => (
+                  {socialLinks.map(({ label }, index) => (
                     <a
                       href="#"
                       key={label}
-                      aria-label={`${label} social link`}
+                      aria-label={label}
                       className="footer-social-link grid h-10 w-10 place-items-center rounded-full text-[12px] font-black text-white"
                       style={{ animationDelay: `${index * 0.18}s` }}
                     >
-                      <span>{label}</span>
+                      <FooterSocialIcon name={label} />
                     </a>
                   ))}
                 </div>
@@ -262,7 +308,7 @@ export default function FooterSection({
               <p className="text-[13px] font-medium text-slate-400">{"\u00A9"} 2025 EVADA, Inc. All rights reserved.</p>
               <button type="button" className="inline-flex w-fit items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-2 text-[14px] font-bold text-slate-100">
                 <Globe2 aria-hidden="true" className="h-4 w-4" strokeWidth={2} />
-                English (US)
+                English (UK)
                 <ChevronDown aria-hidden="true" className="h-4 w-4" strokeWidth={2} />
               </button>
             </div>

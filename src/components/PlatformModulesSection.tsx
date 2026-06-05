@@ -1,15 +1,6 @@
 import type { LucideIcon } from "lucide-react";
-import {
-  BookOpen,
-  Bot,
-  Network,
-  Settings,
-  ShieldCheck,
-  SlidersHorizontal,
-  Users,
-  Webhook,
-} from "lucide-react";
 import Reveal from "@/components/Reveal";
+import { marketingIconMap } from "@/components/marketing/MarketingIcon";
 
 type ModuleCard = {
   title: string;
@@ -21,50 +12,50 @@ type ModuleCard = {
 const modules: ModuleCard[] = [
   {
     title: "Application Configuration",
-    body: "Configure applications, scan targets, schedules, and enable or disable monitored assets.",
-    Icon: SlidersHorizontal,
+    body: "Configure applications, scan targets, schedules and monitored assets.",
+    Icon: marketingIconMap["application-configuration"],
     tone: "cyan",
   },
   {
     title: "Classic Scans",
-    body: "Run traditional scans, upload scan data, review scan history, and inspect latest results.",
-    Icon: ShieldCheck,
+    body: "Run traditional scans, upload scan data, review history and inspect latest results.",
+    Icon: marketingIconMap["classic-scans"],
     tone: "blue",
   },
   {
     title: "Network Scans",
-    body: "Trigger infrastructure scans and visualize network findings using graph-style outputs.",
-    Icon: Network,
+    body: "Trigger infrastructure scans and visualise network findings using graph-style outputs.",
+    Icon: marketingIconMap["network-scans"],
     tone: "violet",
   },
   {
     title: "AI Scanner",
-    body: "Launch AI-supported pentest jobs, monitor pipeline stages, and review validated findings.",
-    Icon: Bot,
+    body: "Launch AI-supported pentest jobs, monitor pipeline stages and review validated findings.",
+    Icon: marketingIconMap["ai-pentester"],
     tone: "cyan",
   },
   {
     title: "WebApp Scanner",
-    body: "Start OWASP ZAP-style web scans, stream scan output, and download reports.",
-    Icon: Webhook,
+    body: "Start OWASP ZAP-style web scans, stream scan output and download reports.",
+    Icon: marketingIconMap["webapp-scanner"],
     tone: "blue",
   },
   {
     title: "Knowledge Hub",
-    body: "Search vulnerability knowledge, exploit context, remediation guidance, and AI scanner knowledge.",
-    Icon: BookOpen,
+    body: "Search vulnerability knowledge, exploit context, remediation guidance and AI scanner intelligence.",
+    Icon: marketingIconMap["knowledge-hub"],
     tone: "violet",
   },
   {
     title: "Clients & Agents",
-    body: "Manage clients, agents, licenses, agent health, heartbeat status, downloads, and uploads.",
-    Icon: Users,
+    body: "Manage clients, agents, licences, agent health, heartbeat status, downloads and uploads.",
+    Icon: marketingIconMap["clients-agents"],
     tone: "cyan",
   },
   {
     title: "Admin & RBAC",
-    body: "Support SaaS Admin, Client Admin, and Superadmin workflows with permission-gated access.",
-    Icon: Settings,
+    body: "Support SaaS Admin, Client Admin and Superadmin workflows with permission-gated access.",
+    Icon: marketingIconMap["admin-rbac"],
     tone: "blue",
   },
 ];
@@ -83,13 +74,13 @@ export default function PlatformModulesSection() {
       <div className="relative mx-auto max-w-[1360px]">
         <Reveal>
           <div className="mx-auto max-w-[760px] text-center">
-            <p className="text-[12px] font-black uppercase tracking-[0.18em] text-[#04A9C7]">Platform Modules</p>
+            <p className="text-[12px] font-black uppercase tracking-[0.18em] text-[#04A9C7]">Platform modules</p>
             <h2 className="mx-auto mt-4 max-w-[760px] text-[clamp(1.55rem,5vw,2.75rem)] font-bold leading-[1.1] tracking-[-0.025em] text-slate-950">
-              <span className="block">One Console for Scans, Agents,</span>
-              <span className="block">Reports, and Administration</span>
+              <span className="block">One console for scans, agents,</span>
+              <span className="block">reports and administration</span>
             </h2>
             <p className="mx-auto mt-5 max-w-[700px] text-[15px] leading-[1.75] text-slate-600 sm:text-[16px]">
-              EVADA unifies target configuration, scan sources, governed AI validation, and operational workflows in one platform console.
+              EVADA unifies target configuration, scan sources, governed AI validation and operational workflows in one platform console.
             </p>
           </div>
         </Reveal>

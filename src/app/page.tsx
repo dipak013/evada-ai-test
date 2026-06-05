@@ -1,10 +1,11 @@
 import Link from "next/link";
 import type { LucideIcon } from "lucide-react";
-import { ArrowRight, Bot, FileCheck2, RadioTower, ShieldCheck } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import MarketingNav from "@/components/MarketingNav";
 import Reveal from "@/components/Reveal";
 import HeroDashboardCarousel from "@/components/HeroDashboardCarousel";
 import HomepageAnimatedBackground from "@/components/marketing/HomepageAnimatedBackground";
+import { marketingIconMap } from "@/components/marketing/MarketingIcon";
 import ProblemSection from "@/components/ProblemSection";
 import HowEvadaWorksSection from "@/components/HowEvadaWorksSection";
 import AIPentesterPipelineSection from "@/components/AIPentesterPipelineSection";
@@ -23,10 +24,10 @@ type FeatureItem = {
 };
 
 const heroFeatures: FeatureItem[] = [
-  { label: "AI-Supported Pentest", Icon: Bot },
-  { label: "Continuous Risk Validation", Icon: RadioTower },
-  { label: "Security Workflow Ready", Icon: ShieldCheck },
-  { label: "Enterprise Governance", Icon: FileCheck2 },
+  { label: "AI-Supported Pentest", Icon: marketingIconMap["ai-pentester"] },
+  { label: "Continuous Risk Validation", Icon: marketingIconMap["continuous-validation"] },
+  { label: "Security Workflow Ready", Icon: marketingIconMap["security-workflow"] },
+  { label: "Enterprise Governance", Icon: marketingIconMap["enterprise-governance"] },
 ];
 
 function HeroFeatureCard({ item }: { item: FeatureItem }) {
@@ -59,12 +60,12 @@ function HeroSection() {
 
             <h1 className="mt-5 max-w-full break-words text-[34px] font-bold leading-[1.07] tracking-[-0.035em] text-slate-950 sm:text-[46px] lg:text-[clamp(3rem,4.55vw,3.75rem)]">
               <span className="block">Continuously validate</span>
-              <span className="block">what attackers</span>
-              <span className="block bg-[linear-gradient(90deg,#6D49F4,#2563EB,#04A9C7)] bg-clip-text text-transparent">can exploit</span>
+              <span className="block">exploitable risk</span>
+              <span className="block bg-[linear-gradient(90deg,#6D49F4,#2563EB,#04A9C7)] bg-clip-text text-transparent">between pentests</span>
             </h1>
 
             <p className="mt-5 w-full max-w-full text-[15px] leading-[1.7] text-slate-600 sm:max-w-[540px] sm:text-[16px]">
-              EVADA AI continuously validates what attackers can exploit, helping your team reduce real risk, not just meet compliance.
+              EVADA helps security teams continuously validate what attackers can exploit, reduce scanner noise and turn findings into evidence-backed action.
             </p>
 
             <div className="mt-8 grid w-full max-w-full gap-3 sm:max-w-[520px] sm:flex sm:flex-wrap sm:items-center">
@@ -79,7 +80,7 @@ function HeroSection() {
                 href="/trust-center"
                 className="inline-flex min-h-11 w-full items-center justify-center gap-2 rounded-full border border-blue-100 bg-white px-6 py-3 text-[14px] font-semibold text-slate-950 shadow-[0_12px_28px_rgba(37,99,235,0.06)] transition hover:-translate-y-0.5 hover:border-blue-200 hover:text-[#2563EB] sm:w-auto"
               >
-                View Trust Center
+                View Trust Centre
                 <ArrowRight aria-hidden="true" className="h-4 w-4" strokeWidth={2.2} />
               </Link>
             </div>
@@ -104,15 +105,18 @@ function BetweenPentestsSection() {
   const items = [
     {
       title: "Point-in-time tests expire quickly",
-      text: "New releases, new assets, and configuration changes can create risk after a traditional pentest is complete.",
+      text: "Traditional reports become stale as environments change.",
+      Icon: marketingIconMap["stale-reports"],
     },
     {
       title: "Attack paths keep changing",
-      text: "EVADA keeps validation active so teams can see what attackers can exploit as the environment changes.",
+      text: "EVADA helps teams track exploitable paths between assessment cycles.",
+      Icon: marketingIconMap["attack-paths"],
     },
     {
       title: "Evidence guides action",
-      text: "Security teams get proof-backed context to prioritize real risk instead of chasing every finding.",
+      text: "Proof-backed context helps teams focus on real risk rather than every finding.",
+      Icon: marketingIconMap["evidence-action"],
     },
   ];
 
@@ -121,12 +125,12 @@ function BetweenPentestsSection() {
       <div className="mx-auto grid max-w-[1220px] gap-8 lg:grid-cols-[0.42fr_0.58fr] lg:items-start">
         <Reveal>
           <div className="max-w-[520px]">
-            <p className="text-[12px] font-black uppercase tracking-[0.2em] text-[#2563EB]">Between Pentests</p>
+            <p className="text-[12px] font-black uppercase tracking-[0.2em] text-[#2563EB]">Between pentests</p>
             <h2 className="mt-3 text-[clamp(1.8rem,3.4vw,2.55rem)] font-black leading-tight tracking-[-0.025em] text-slate-950">
               What happens after the annual pentest?
             </h2>
             <p className="mt-4 text-[15px] leading-relaxed text-slate-600 sm:text-[16px]">
-              EVADA helps teams continuously validate exploitable paths between assessment cycles, keeping risk visible before it becomes a business problem.
+              New releases, assets and configuration changes create fresh exposure long before the next assessment. EVADA keeps validation active so teams can see what remains exploitable.
             </p>
           </div>
         </Reveal>
@@ -136,7 +140,7 @@ function BetweenPentestsSection() {
             <Reveal key={item.title} delayMs={index * 80}>
               <article className="h-full rounded-[18px] border border-blue-100 bg-white p-6 shadow-[0_18px_44px_rgba(37,99,235,0.07)]">
                 <span className="grid h-11 w-11 place-items-center rounded-[14px] bg-[linear-gradient(135deg,#EEF5FF,#F5F3FF)] text-[15px] font-black text-[#2563EB] ring-1 ring-blue-100">
-                  {index + 1}
+                  <item.Icon aria-hidden="true" className="h-5 w-5" strokeWidth={2} />
                 </span>
                 <h3 className="mt-5 text-[18px] font-black leading-snug text-slate-950">{item.title}</h3>
                 <p className="mt-3 text-[14px] leading-relaxed text-slate-600">{item.text}</p>

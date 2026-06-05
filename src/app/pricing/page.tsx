@@ -1,9 +1,10 @@
 import Link from "next/link";
-import { ArrowRight, Clock3 } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import FooterSection from "@/components/FooterSection";
 import MarketingNav from "@/components/MarketingNav";
 import Reveal from "@/components/Reveal";
 import MarketingAnimatedBackground from "@/components/marketing/MarketingAnimatedBackground";
+import { MarketingIcon } from "@/components/marketing/MarketingIcon";
 
 function PricingHeroVisual() {
   return (
@@ -15,13 +16,13 @@ function PricingHeroVisual() {
         <div className="absolute left-[128px] top-[118px] grid h-[320px] w-[476px] place-items-center rounded-[30px] border border-blue-100 bg-[linear-gradient(180deg,#FFFFFF_0%,#F8FBFF_100%)] p-8 text-center shadow-[0_20px_54px_rgba(37,99,235,0.12)]">
           <div>
             <span className="mx-auto grid h-20 w-20 place-items-center rounded-[24px] bg-[linear-gradient(135deg,#2563EB,#7C3AED)] text-white shadow-[0_20px_44px_rgba(37,99,235,0.24)]">
-              <Clock3 className="h-10 w-10" strokeWidth={2.1} />
+              <MarketingIcon name="pricing-launch" className="h-10 w-10" strokeWidth={2.1} />
             </span>
             <p className="mt-7 text-[15px] font-black uppercase tracking-[0.18em] text-[#2563EB]">
               Pricing
             </p>
             <h2 className="mt-3 text-[42px] font-bold leading-none tracking-[-0.035em] text-slate-950">
-              Launching Soon
+              Launching soon
             </h2>
           </div>
         </div>
@@ -48,12 +49,12 @@ function HeroSection() {
             </p>
 
             <h1 className="mt-5 max-w-full break-words text-[34px] font-bold leading-[1.07] tracking-[-0.035em] text-slate-950 sm:text-[46px] lg:text-[clamp(3rem,4.55vw,3.75rem)]">
-              <span className="block">Pricing</span>
-              <span className="block bg-[linear-gradient(90deg,#6D49F4,#2563EB,#04A9C7)] bg-clip-text text-transparent">Launching Soon</span>
+              <span className="block">Pricing is</span>
+              <span className="block bg-[linear-gradient(90deg,#6D49F4,#2563EB,#04A9C7)] bg-clip-text text-transparent">launching soon</span>
             </h1>
 
             <p className="mt-5 w-full max-w-full text-[15px] font-normal leading-[1.7] text-slate-600 sm:max-w-[540px] sm:text-[16px]">
-              Pricing details will be available soon.
+              We are finalising simple plans for teams that need continuous validation, governed AI-supported workflows and evidence-backed reporting.
             </p>
 
             <div className="mt-8 grid w-full max-w-full gap-3 sm:max-w-[520px] sm:flex sm:flex-wrap sm:items-center">
@@ -65,10 +66,10 @@ function HeroSection() {
                 <ArrowRight aria-hidden="true" className="h-4 w-4" strokeWidth={2.2} />
               </Link>
               <Link
-                href="/"
+                href="/contact"
                 className="inline-flex min-h-11 w-full items-center justify-center gap-2 rounded-full border border-blue-100 bg-white px-6 py-3 text-[14px] font-semibold text-slate-950 shadow-[0_12px_28px_rgba(37,99,235,0.06)] transition hover:-translate-y-0.5 hover:border-blue-200 hover:text-[#2563EB] sm:w-auto"
               >
-                Back Home
+                Join Early Access
                 <ArrowRight aria-hidden="true" className="h-4 w-4" strokeWidth={2.2} />
               </Link>
             </div>

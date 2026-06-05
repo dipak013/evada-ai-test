@@ -11,11 +11,11 @@ export default function PricingSection() {
           <div className="mx-auto max-w-[760px] text-center">
             <p className="text-[12px] font-black uppercase tracking-[0.18em] text-[#04A9C7]">Pricing</p>
             <h2 className="mx-auto mt-4 max-w-[760px] text-[clamp(1.55rem,5vw,2.75rem)] font-bold leading-[1.1] tracking-[-0.025em] text-slate-950">
-              <span className="block">Pricing</span>
-              <span className="block bg-[linear-gradient(90deg,#6D49F4,#2563EB,#04A9C7)] bg-clip-text text-transparent">Launching Soon</span>
+              <span className="block">Pricing is</span>
+              <span className="block bg-[linear-gradient(90deg,#6D49F4,#2563EB,#04A9C7)] bg-clip-text text-transparent">launching soon</span>
             </h2>
             <p className="mx-auto mt-5 max-w-[700px] text-[15px] leading-[1.75] text-slate-600 sm:text-[16px]">
-              Pricing details will be available soon.
+              We are finalising simple plans for teams that need governed validation, evidence-backed reporting and operational workflows.
             </p>
             <div className="mt-7 flex flex-col items-center justify-center gap-3 sm:flex-row">
               <Link
