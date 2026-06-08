@@ -116,7 +116,11 @@ export default function PlatformEvolutionSection() {
         </div>
 
         <Reveal delayMs={180}>
-          <div className="mt-10 flex flex-col gap-4 rounded-[20px] border border-violet-100 bg-[#EEF2FF] px-5 py-5 text-center shadow-[0_16px_45px_rgba(15,23,42,0.06)] sm:flex-row sm:items-center sm:text-left">
+          <div className="problem-edge-card relative isolate mt-10 flex flex-col gap-4 overflow-hidden rounded-[20px] border border-violet-100 bg-[#EEF2FF] px-5 py-5 text-center shadow-[0_16px_45px_rgba(15,23,42,0.06)] sm:flex-row sm:items-center sm:text-left">
+            <span className="problem-border-runner problem-border-runner-top" aria-hidden="true" />
+            <span className="problem-border-runner problem-border-runner-left" aria-hidden="true" />
+            <span className="problem-border-runner problem-border-runner-right" aria-hidden="true" />
+            <span className="problem-border-runner problem-border-runner-bottom" aria-hidden="true" />
             <span className="mx-auto grid h-12 w-12 shrink-0 place-items-center rounded-full bg-[#04A9C7] text-white sm:mx-0">
               <CheckCircle2 aria-hidden="true" className="h-7 w-7" strokeWidth={2.1} />
             </span>

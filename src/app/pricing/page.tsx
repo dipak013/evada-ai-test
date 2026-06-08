@@ -48,9 +48,9 @@ function HeroSection() {
               PRICING
             </p>
 
-            <h1 className="mt-5 max-w-full break-words text-[34px] font-bold leading-[1.07] tracking-[-0.035em] text-slate-950 sm:text-[46px] lg:text-[clamp(3rem,4.55vw,3.75rem)]">
+            <h1 className="mt-5 max-w-full break-words pb-2 text-[34px] font-bold leading-[1.14] tracking-[-0.035em] text-slate-950 sm:text-[46px] lg:text-[clamp(3rem,4.55vw,3.75rem)]">
               <span className="block">Pricing is</span>
-              <span className="block bg-[linear-gradient(90deg,#6D49F4,#2563EB,#04A9C7)] bg-clip-text text-transparent">launching soon</span>
+              <span className="block pb-[0.16em] leading-[1.16] bg-[linear-gradient(90deg,#6D49F4,#2563EB,#04A9C7)] bg-clip-text text-transparent">launching soon</span>
             </h1>
 
             <p className="mt-5 w-full max-w-full text-[15px] font-normal leading-[1.7] text-slate-600 sm:max-w-[540px] sm:text-[16px]">

@@ -647,7 +647,11 @@ function ValidationWorkflowSection() {
         </Reveal>
 
         <Reveal delayMs={120}>
-          <div className="mt-8 rounded-[24px] border border-blue-100 bg-white px-5 py-6 shadow-[0_18px_52px_rgba(37,99,235,0.08)] lg:px-8">
+          <div className="problem-edge-card relative isolate mt-8 overflow-hidden rounded-[24px] border border-blue-100 bg-white px-5 py-6 shadow-[0_18px_52px_rgba(37,99,235,0.08)] lg:px-8">
+            <span className="problem-border-runner problem-border-runner-top" aria-hidden="true" />
+            <span className="problem-border-runner problem-border-runner-left" aria-hidden="true" />
+            <span className="problem-border-runner problem-border-runner-right" aria-hidden="true" />
+            <span className="problem-border-runner problem-border-runner-bottom" aria-hidden="true" />
             <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-6 lg:gap-3">
               {workflowSteps.map((step, index) => {
                 const Icon = step.Icon;
@@ -734,7 +738,11 @@ function IndustryStripSection() {
             <button type="button" aria-label="Previous industries" className="absolute -left-4 top-1/2 z-10 hidden h-12 w-12 -translate-y-1/2 place-items-center rounded-full border border-blue-100 bg-white text-[#2563EB] shadow-[0_12px_28px_rgba(37,99,235,0.12)] lg:grid">
               <ChevronLeft className="h-5 w-5" strokeWidth={2.2} />
             </button>
-            <div className="solutions-industry-scroll grid gap-0 overflow-x-auto rounded-[22px] border border-blue-100 bg-white shadow-[0_18px_44px_rgba(37,99,235,0.08)] sm:grid-cols-2 lg:grid-cols-6">
+            <div className="problem-edge-card solutions-industry-scroll relative isolate grid gap-0 overflow-x-auto rounded-[22px] border border-blue-100 bg-white shadow-[0_18px_44px_rgba(37,99,235,0.08)] sm:grid-cols-2 lg:grid-cols-6">
+              <span className="problem-border-runner problem-border-runner-top" aria-hidden="true" />
+              <span className="problem-border-runner problem-border-runner-left" aria-hidden="true" />
+              <span className="problem-border-runner problem-border-runner-right" aria-hidden="true" />
+              <span className="problem-border-runner problem-border-runner-bottom" aria-hidden="true" />
               {industries.map((industry) => {
                 const Icon = industry.Icon;
 
@@ -772,7 +780,11 @@ function IntegrationsStripSection() {
         </Reveal>
 
         <Reveal delayMs={100}>
-          <div className="flex flex-wrap items-center justify-center gap-x-7 gap-y-4 rounded-[22px] border border-blue-100 bg-white px-6 py-5 shadow-[0_18px_44px_rgba(37,99,235,0.08)]">
+          <div className="problem-edge-card relative isolate flex flex-wrap items-center justify-center gap-x-7 gap-y-4 overflow-hidden rounded-[22px] border border-blue-100 bg-white px-6 py-5 shadow-[0_18px_44px_rgba(37,99,235,0.08)]">
+            <span className="problem-border-runner problem-border-runner-top" aria-hidden="true" />
+            <span className="problem-border-runner problem-border-runner-left" aria-hidden="true" />
+            <span className="problem-border-runner problem-border-runner-right" aria-hidden="true" />
+            <span className="problem-border-runner problem-border-runner-bottom" aria-hidden="true" />
             {integrations.map((integration, index) => (
               <span key={integration} className="inline-flex items-center gap-2.5 text-[14px] font-semibold text-slate-800">
                 <span className="grid h-8 w-8 place-items-center rounded-[12px] bg-[#EEF5FF] text-[#2563EB] ring-1 ring-blue-100">
@@ -793,7 +805,11 @@ function SolutionsCTASection() {
   return (
     <section className="bg-white px-5 pb-12 pt-4 sm:px-8 lg:px-10">
       <Reveal>
-        <div className="relative mx-auto flex max-w-[1360px] flex-col gap-6 overflow-hidden rounded-[24px] bg-[linear-gradient(100deg,#2563EB_0%,#06B6D4_48%,#8B5CF6_100%)] px-6 py-7 text-white shadow-[0_24px_70px_rgba(37,99,235,0.22)] sm:px-8 lg:flex-row lg:items-center lg:justify-between">
+        <div className="problem-edge-card relative isolate mx-auto flex max-w-[1360px] flex-col gap-6 overflow-hidden rounded-[24px] bg-[linear-gradient(100deg,#2563EB_0%,#06B6D4_48%,#8B5CF6_100%)] px-6 py-7 text-white shadow-[0_24px_70px_rgba(37,99,235,0.22)] sm:px-8 lg:flex-row lg:items-center lg:justify-between">
+          <span className="problem-border-runner problem-border-runner-top" aria-hidden="true" />
+          <span className="problem-border-runner problem-border-runner-left" aria-hidden="true" />
+          <span className="problem-border-runner problem-border-runner-right" aria-hidden="true" />
+          <span className="problem-border-runner problem-border-runner-bottom" aria-hidden="true" />
           <div aria-hidden="true" className="absolute inset-0 bg-[radial-gradient(circle_at_10%_20%,rgba(255,255,255,0.22),transparent_30%),radial-gradient(circle_at_90%_40%,rgba(255,255,255,0.16),transparent_34%)]" />
           <div className="relative flex min-w-0 flex-col gap-5 sm:flex-row sm:items-center">
             <span className="grid h-20 w-20 shrink-0 place-items-center rounded-full bg-white/16 text-white shadow-[0_0_40px_rgba(255,255,255,0.18)] ring-1 ring-white/25">
@@ -810,10 +826,14 @@ function SolutionsCTASection() {
           </div>
 
           <div className="relative grid gap-3 sm:flex sm:items-center">
-            <Link href="/book-demo" className="inline-flex min-h-11 min-w-[150px] items-center justify-center whitespace-nowrap rounded-full bg-white px-6 py-3 text-[14px] font-semibold text-[#2563EB] shadow-[0_12px_28px_rgba(15,23,42,0.12)] transition hover:-translate-y-0.5">
+            <Link href="/book-demo" className="problem-edge-card problem-edge-card-compact relative isolate inline-flex min-h-11 min-w-[150px] items-center justify-center overflow-hidden whitespace-nowrap rounded-full bg-white px-6 py-3 text-[14px] font-semibold text-[#2563EB] shadow-[0_12px_28px_rgba(15,23,42,0.12)] transition hover:-translate-y-0.5">
+              <span className="problem-border-runner problem-border-runner-top" aria-hidden="true" />
+              <span className="problem-border-runner problem-border-runner-bottom" aria-hidden="true" />
               Book a Demo
             </Link>
-            <Link href="/platform#architecture" className="inline-flex min-h-11 items-center justify-center gap-2 rounded-full border border-white/30 bg-white/10 px-6 py-3 text-[14px] font-semibold text-white transition hover:-translate-y-0.5 hover:bg-white/16 sm:min-w-[282px]">
+            <Link href="/platform#architecture" className="problem-edge-card problem-edge-card-compact relative isolate inline-flex min-h-11 items-center justify-center gap-2 overflow-hidden rounded-full border border-white/30 bg-white/10 px-6 py-3 text-[14px] font-semibold text-white transition hover:-translate-y-0.5 hover:bg-white/16 sm:min-w-[282px]">
+              <span className="problem-border-runner problem-border-runner-top" aria-hidden="true" />
+              <span className="problem-border-runner problem-border-runner-bottom" aria-hidden="true" />
               Explore platform architecture
               <ArrowRight aria-hidden="true" className="h-4 w-4" strokeWidth={2.2} />
             </Link>

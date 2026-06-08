@@ -164,7 +164,11 @@ export default function WhyEvadaSection() {
         </div>
 
         <Reveal delayMs={240}>
-          <div className="mx-auto mt-6 flex max-w-[760px] items-center justify-center gap-2 rounded-full border border-violet-100 bg-[#EEF2FF] px-5 py-3 text-center text-[13px] font-black text-[#5F3FEA] shadow-[0_12px_28px_rgba(15,23,42,0.05)]">
+          <div className="problem-edge-card relative isolate mx-auto mt-6 flex max-w-[760px] items-center justify-center gap-2 overflow-hidden rounded-full border border-violet-100 bg-[#EEF2FF] px-5 py-3 text-center text-[13px] font-black text-[#5F3FEA] shadow-[0_12px_28px_rgba(15,23,42,0.05)]">
+            <span className="problem-border-runner problem-border-runner-top" aria-hidden="true" />
+            <span className="problem-border-runner problem-border-runner-left" aria-hidden="true" />
+            <span className="problem-border-runner problem-border-runner-right" aria-hidden="true" />
+            <span className="problem-border-runner problem-border-runner-bottom" aria-hidden="true" />
             <CheckCircle2 aria-hidden="true" className="h-5 w-5 shrink-0" strokeWidth={2.1} />
             <span>From noise to action. From risk to resilience.</span>
           </div>

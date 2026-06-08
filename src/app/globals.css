@@ -59,7 +59,7 @@ html {
 
 .evada-homepage .evada-animated-background {
   z-index: -1;
-  filter: saturate(1.12) contrast(1.04);
+  filter: saturate(1.18) contrast(1.05);
 }
 
 .evada-homepage :where(section, header, footer, div, article, aside, nav) {
@@ -78,7 +78,8 @@ html {
 
 .evada-homepage section {
   position: relative;
-  background-color: rgba(255, 255, 255, 0.1);
+  /* EVADA tint consistency pass: revert this line and the shared background gradients to undo the 5-10% stronger light theme. */
+  background-color: rgba(240, 249, 255, 0.16);
   background-image: none;
   backdrop-filter: none;
   content-visibility: visible;
@@ -440,19 +441,23 @@ html {
 }
 
 .evada-mesh-drift {
+  filter: drop-shadow(0 0 12px rgba(37, 99, 235, 0.12));
   animation: evadaMeshDrift 12s ease-in-out infinite;
 }
 
 .evada-particle-float {
+  opacity: 0.96;
   animation: evadaParticleFloat var(--duration, 12s) ease-in-out infinite;
   animation-delay: var(--delay, 0s);
 }
 
 .evada-wave-drift {
+  filter: drop-shadow(0 0 10px rgba(34, 211, 238, 0.12));
   animation: evadaWaveDrift 18s ease-in-out infinite;
 }
 
 .evada-dot-drift {
+  filter: saturate(1.14) contrast(1.08);
   animation: evadaDotDrift 24s linear infinite;
 }
 
@@ -461,13 +466,14 @@ html {
 }
 
 .evada-network-field {
+  filter: drop-shadow(0 0 12px rgba(37, 99, 235, 0.14));
   animation: evadaNetworkFieldDrift 12s ease-in-out infinite;
 }
 
 .evada-network-node {
   transform-box: fill-box;
   transform-origin: center;
-  filter: drop-shadow(0 0 8px rgba(37, 99, 235, 0.22));
+  filter: drop-shadow(0 0 10px rgba(37, 99, 235, 0.3));
   animation: evadaNetworkNodePulse 4s ease-in-out infinite;
 }
 
@@ -669,7 +675,7 @@ html {
 @keyframes problemBorderTopRun {
   0%,
   100% {
-    left: 8%;
+    left: var(--edge-runner-x-offset, 8%);
     opacity: 0;
   }
   14%,
@@ -677,7 +683,7 @@ html {
     opacity: 0.95;
   }
   50% {
-    left: calc(100% - 150px);
+    left: calc(100% - var(--edge-runner-size, 140px) - var(--edge-runner-x-offset, 8%));
     opacity: 1;
   }
 }
@@ -685,7 +691,7 @@ html {
 @keyframes problemBorderBottomRun {
   0%,
   100% {
-    right: 8%;
+    right: var(--edge-runner-x-offset, 8%);
     opacity: 0;
   }
   14%,
@@ -693,7 +699,7 @@ html {
     opacity: 0.9;
   }
   50% {
-    right: calc(100% - 150px);
+    right: calc(100% - var(--edge-runner-size, 140px) - var(--edge-runner-x-offset, 8%));
     opacity: 1;
   }
 }
@@ -701,7 +707,7 @@ html {
 @keyframes problemBorderSideDown {
   0%,
   100% {
-    top: 14%;
+    top: var(--edge-runner-y-offset, 14%);
     opacity: 0;
   }
   16%,
@@ -709,7 +715,7 @@ html {
     opacity: 0.85;
   }
   50% {
-    top: calc(100% - 118px);
+    top: calc(100% - var(--edge-runner-side-size, 104px) - var(--edge-runner-y-offset, 14%));
     opacity: 1;
   }
 }
@@ -717,7 +723,7 @@ html {
 @keyframes problemBorderSideUp {
   0%,
   100% {
-    top: calc(100% - 118px);
+    top: calc(100% - var(--edge-runner-side-size, 104px) - var(--edge-runner-y-offset, 14%));
     opacity: 0;
   }
   16%,
@@ -725,7 +731,7 @@ html {
     opacity: 0.85;
   }
   50% {
-    top: 14%;
+    top: var(--edge-runner-y-offset, 14%);
     opacity: 1;
   }
 }
@@ -4473,31 +4479,31 @@ html {
 
 .company-orbit {
   left: 50%;
-  top: 56%;
+  top: 55%;
   z-index: 2;
   border-color: rgba(37, 99, 235, 0.14);
   box-shadow: 0 0 60px rgba(37, 99, 235, 0.07);
 }
 
 .company-orbit-a {
-  width: 660px;
-  height: 430px;
+  width: 700px;
+  height: 455px;
 }
 
 .company-orbit-b {
-  width: 540px;
-  height: 330px;
+  width: 560px;
+  height: 352px;
   border-color: rgba(124, 58, 237, 0.18);
 }
 
 .company-orbit-c {
-  width: 380px;
-  height: 230px;
+  width: 400px;
+  height: 248px;
   border-color: rgba(34, 211, 238, 0.18);
 }
 
 .company-floating-card {
-  width: 260px;
+  width: 250px;
   animation: companyFloatCard 6.8s ease-in-out infinite;
 }
 
@@ -4519,25 +4525,25 @@ html {
 }
 
 .company-base-back {
-  bottom: 24px;
-  width: 500px;
-  height: 210px;
+  bottom: 20px;
+  width: 520px;
+  height: 218px;
   background: linear-gradient(145deg, rgba(237, 242, 255, 0.95), rgba(219, 234, 254, 0.86));
   box-shadow: 0 46px 92px rgba(37, 99, 235, 0.2), inset 0 0 50px rgba(124, 58, 237, 0.08);
 }
 
 .company-base-mid {
   bottom: 72px;
-  width: 420px;
-  height: 172px;
+  width: 436px;
+  height: 178px;
   background: linear-gradient(145deg, rgba(255, 255, 255, 0.98), rgba(224, 231, 255, 0.92));
   box-shadow: 0 34px 72px rgba(37, 99, 235, 0.22), inset 0 0 48px rgba(6, 182, 212, 0.12);
 }
 
 .company-base-front {
-  bottom: 116px;
-  width: 330px;
-  height: 132px;
+  bottom: 118px;
+  width: 350px;
+  height: 140px;
   background: linear-gradient(145deg, rgba(255, 255, 255, 0.96), rgba(219, 234, 254, 0.9) 36%, rgba(124, 58, 237, 0.72));
   box-shadow: 0 24px 58px rgba(37, 99, 235, 0.28), inset 0 -18px 36px rgba(37, 99, 235, 0.24), inset 0 0 44px rgba(255, 255, 255, 0.24);
 }
@@ -4550,16 +4556,16 @@ html {
 }
 
 .company-glow-disc-a {
-  bottom: 138px;
-  width: 330px;
-  height: 142px;
+  bottom: 140px;
+  width: 350px;
+  height: 150px;
   background: radial-gradient(circle, rgba(255, 255, 255, 0.72), rgba(124, 58, 237, 0.3) 48%, transparent 74%);
 }
 
 .company-glow-disc-b {
-  bottom: 164px;
-  width: 220px;
-  height: 96px;
+  bottom: 170px;
+  width: 238px;
+  height: 104px;
   background: radial-gradient(circle, rgba(34, 211, 238, 0.42), rgba(37, 99, 235, 0.2) 54%, transparent 76%);
   animation-delay: 600ms;
 }
@@ -4567,10 +4573,10 @@ html {
 .company-crystal-beam {
   position: absolute;
   left: 50%;
-  bottom: 150px;
+  bottom: 154px;
   z-index: 5;
-  width: 58px;
-  height: 250px;
+  width: 66px;
+  height: 268px;
   background: linear-gradient(180deg, rgba(255, 255, 255, 0.72), rgba(34, 211, 238, 0.22), transparent);
   filter: blur(8px);
   transform: translateX(-50%);
@@ -4580,10 +4586,10 @@ html {
 .company-crystal {
   position: absolute;
   left: 50%;
-  top: 14px;
+  top: 8px;
   z-index: 8;
-  width: 188px;
-  height: 318px;
+  width: 204px;
+  height: 344px;
   transform: translateX(-50%);
   transform-style: preserve-3d;
   animation: companyCrystalFloat 6.2s ease-in-out infinite;
@@ -4628,7 +4634,7 @@ html {
 }
 
 .company-crystal-core {
-  inset: 90px 66px 88px;
+  inset: 98px 72px 96px;
   background: radial-gradient(circle, rgba(255, 255, 255, 0.96), rgba(34, 211, 238, 0.62), rgba(124, 58, 237, 0.22));
   filter: blur(0.2px);
   opacity: 0.9;
@@ -4655,36 +4661,36 @@ html {
 }
 
 .company-person-1 {
-  left: 19%;
+  left: 21%;
   transform: scale(0.82);
 }
 
 .company-person-2 {
-  left: 24%;
+  left: 26%;
   transform: scale(0.96);
   animation-delay: 500ms;
 }
 
 .company-person-3 {
-  left: 29%;
+  left: 31%;
   transform: scale(0.76);
   animation-delay: 900ms;
 }
 
 .company-person-4 {
-  right: 23%;
+  right: 27%;
   transform: scale(0.96);
   animation-delay: 1.3s;
 }
 
 .company-person-5 {
-  right: 18%;
+  right: 22%;
   transform: scale(0.82);
   animation-delay: 1.7s;
 }
 
 .company-person-6 {
-  right: 13%;
+  right: 17%;
   transform: scale(0.74);
   animation-delay: 2.1s;
 }
@@ -5313,6 +5319,15 @@ html {
 
 .problem-edge-card {
   position: relative;
+  --edge-runner-size: 140px;
+  --edge-runner-side-size: 104px;
+  --edge-runner-x-offset: 8%;
+  --edge-runner-y-offset: 14%;
+}
+
+.problem-edge-card-compact {
+  --edge-runner-size: 76px;
+  --edge-runner-x-offset: 14px;
 }
 
 .problem-edge-card::before {
@@ -5326,11 +5341,6 @@ html {
   box-shadow: inset 0 0 0 1px rgba(95, 63, 234, 0.08);
 }
 
-.problem-edge-card > :not(.problem-border-runner) {
-  position: relative;
-  z-index: 1;
-}
-
 .problem-border-runner {
   position: absolute;
   z-index: 3;
@@ -5341,17 +5351,17 @@ html {
 
 .problem-border-runner-top {
   top: 0;
-  left: 8%;
-  width: 140px;
+  left: var(--edge-runner-x-offset, 8%);
+  width: var(--edge-runner-size, 140px);
   height: 2px;
   background: linear-gradient(90deg, transparent, rgba(4, 169, 199, 0.95), rgba(95, 63, 234, 0.85), transparent);
   animation: problemBorderTopRun 6.4s ease-in-out infinite;
 }
 
 .problem-border-runner-bottom {
-  right: 8%;
+  right: var(--edge-runner-x-offset, 8%);
   bottom: 0;
-  width: 140px;
+  width: var(--edge-runner-size, 140px);
   height: 2px;
   background: linear-gradient(270deg, transparent, rgba(4, 169, 199, 0.9), rgba(95, 63, 234, 0.82), transparent);
   animation: problemBorderBottomRun 6.4s ease-in-out infinite;
@@ -5361,19 +5371,19 @@ html {
 .problem-border-runner-left,
 .problem-border-runner-right {
   width: 2px;
-  height: 104px;
+  height: var(--edge-runner-side-size, 104px);
   background: linear-gradient(180deg, transparent, rgba(4, 169, 199, 0.9), rgba(95, 63, 234, 0.82), transparent);
 }
 
 .problem-border-runner-left {
   left: 0;
-  top: 14%;
+  top: var(--edge-runner-y-offset, 14%);
   animation: problemBorderSideDown 7.2s ease-in-out infinite;
 }
 
 .problem-border-runner-right {
   right: 0;
-  top: calc(100% - 118px);
+  top: calc(100% - var(--edge-runner-side-size, 104px) - var(--edge-runner-y-offset, 14%));
   animation: problemBorderSideUp 7.2s ease-in-out infinite;
   animation-delay: -1.2s;
 }

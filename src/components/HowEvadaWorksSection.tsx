@@ -133,7 +133,11 @@ export default function HowEvadaWorksSection() {
         </div>
 
         <Reveal delayMs={180}>
-          <div className="mt-8 grid grid-cols-1 overflow-hidden rounded-[22px] border border-slate-200 bg-white shadow-[0_16px_45px_rgba(15,23,42,0.07)] sm:grid-cols-2 xl:grid-cols-4">
+          <div className="problem-edge-card relative isolate mt-8 grid grid-cols-1 overflow-hidden rounded-[22px] border border-slate-200 bg-white shadow-[0_16px_45px_rgba(15,23,42,0.07)] sm:grid-cols-2 xl:grid-cols-4">
+            <span className="problem-border-runner problem-border-runner-top" aria-hidden="true" />
+            <span className="problem-border-runner problem-border-runner-left" aria-hidden="true" />
+            <span className="problem-border-runner problem-border-runner-right" aria-hidden="true" />
+            <span className="problem-border-runner problem-border-runner-bottom" aria-hidden="true" />
             {supportItems.map((item, index) => (
               <div key={item.title} className={index > 0 ? "border-t border-slate-200 sm:border-l sm:border-t-0" : ""}>
                 <SupportCard item={item} />

@@ -84,15 +84,15 @@ const particles: Particle[] = [
 function MeshCluster({ className = "" }: { className?: string }) {
   return (
     <svg className={`evada-mesh-drift absolute h-[260px] w-[320px] ${className}`} viewBox="0 0 320 260" fill="none" aria-hidden="true">
-      <g opacity="0.66" strokeLinecap="round">
-        <path d="M22 32L78 62L130 28L198 58L278 34" stroke="#93C5FD" strokeWidth="1.08" opacity="0.66" />
-        <path d="M78 62L108 124L178 112L198 58" stroke="#22D3EE" strokeWidth="1.08" opacity="0.48" />
-        <path d="M108 124L52 172L128 218L178 112L248 164L278 34" stroke="#7C3AED" strokeWidth="1.08" opacity="0.34" />
-        <path d="M178 112L236 222L248 164" stroke="#2563EB" strokeWidth="1.08" opacity="0.46" />
-        <path d="M52 172L22 32" stroke="#93C5FD" strokeWidth="1.08" opacity="0.34" />
+      <g opacity="0.78" strokeLinecap="round">
+        <path d="M22 32L78 62L130 28L198 58L278 34" stroke="#93C5FD" strokeWidth="1.16" opacity="0.78" />
+        <path d="M78 62L108 124L178 112L198 58" stroke="#22D3EE" strokeWidth="1.16" opacity="0.62" />
+        <path d="M108 124L52 172L128 218L178 112L248 164L278 34" stroke="#7C3AED" strokeWidth="1.16" opacity="0.46" />
+        <path d="M178 112L236 222L248 164" stroke="#2563EB" strokeWidth="1.16" opacity="0.58" />
+        <path d="M52 172L22 32" stroke="#93C5FD" strokeWidth="1.16" opacity="0.46" />
       </g>
       {[["22", "32", "#2563EB"], ["78", "62", "#22D3EE"], ["130", "28", "#FFFFFF"], ["198", "58", "#A78BFA"], ["278", "34", "#7C3AED"], ["108", "124", "#FFFFFF"], ["178", "112", "#38BDF8"], ["52", "172", "#7C3AED"], ["128", "218", "#FFFFFF"], ["248", "164", "#2563EB"], ["236", "222", "#22D3EE"]].map(([cx, cy, fill]) => (
-        <circle key={`${cx}-${cy}`} cx={cx} cy={cy} r={fill === "#FFFFFF" ? "3.2" : "2.6"} fill={fill} opacity="0.86" />
+        <circle key={`${cx}-${cy}`} cx={cx} cy={cy} r={fill === "#FFFFFF" ? "3.4" : "2.8"} fill={fill} opacity="0.94" />
       ))}
     </svg>
   );
@@ -159,8 +159,8 @@ function NetworkField({ className = "" }: { className?: string }) {
               d={`M${start.x} ${start.y}L${end.x} ${end.y}`}
               stroke={index % 3 === 0 ? "#22D3EE" : index % 3 === 1 ? "#93C5FD" : "#A78BFA"}
               strokeDasharray="6 12"
-              strokeWidth="1.12"
-              opacity={index % 4 === 0 ? "0.5" : "0.34"}
+              strokeWidth="1.24"
+              opacity={index % 4 === 0 ? "0.66" : "0.48"}
             />
           );
         })}
@@ -171,9 +171,9 @@ function NetworkField({ className = "" }: { className?: string }) {
           className="evada-network-node"
           cx={node.x}
           cy={node.y}
-          r={node.r}
+          r={node.r + 0.35}
           fill={node.fill}
-          opacity="0.94"
+          opacity="0.98"
           style={{ animationDelay: `${index * 0.18}s` }}
         />
       ))}
@@ -185,39 +185,39 @@ export default function HomepageAnimatedBackground() {
   return (
     <div
       aria-hidden="true"
-      className="evada-animated-background pointer-events-none fixed inset-0 z-0 overflow-hidden bg-[linear-gradient(135deg,#ffffff_0%,#f2fbff_34%,#eaf7ff_64%,#efe9ff_100%)]"
+      className="evada-animated-background pointer-events-none fixed inset-0 z-0 overflow-hidden bg-[linear-gradient(135deg,#ffffff_0%,#eefaff_34%,#e3f5ff_64%,#ece6ff_100%)]"
     >
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_32%,rgba(255,255,255,0.8),transparent_34%),radial-gradient(circle_at_18%_20%,rgba(223,251,255,0.78),transparent_34%),radial-gradient(circle_at_86%_20%,rgba(167,139,250,0.4),transparent_28%),radial-gradient(circle_at_78%_68%,rgba(34,211,238,0.36),transparent_30%),radial-gradient(circle_at_8%_78%,rgba(124,58,237,0.32),transparent_28%)]" />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_32%,rgba(255,255,255,0.68),transparent_34%),radial-gradient(circle_at_18%_20%,rgba(214,249,255,0.86),transparent_34%),radial-gradient(circle_at_86%_20%,rgba(167,139,250,0.46),transparent_28%),radial-gradient(circle_at_78%_68%,rgba(34,211,238,0.42),transparent_30%),radial-gradient(circle_at_8%_78%,rgba(124,58,237,0.38),transparent_28%)]" />
 
       {orbs.map((orb) => (
         <span key={orb.className} className={`evada-float-soft absolute rounded-full blur-3xl ${orb.className}`} style={orb.style} />
       ))}
 
-      <div className="evada-dot-drift absolute -left-20 bottom-[-4rem] h-[34rem] w-[34rem] rounded-full opacity-[0.54] [background-image:radial-gradient(circle,rgba(255,255,255,0.95)_1.1px,transparent_1.7px)] [background-size:10px_10px] [mask-image:radial-gradient(circle,#000_0%,transparent_68%)]" />
-      <div className="evada-dot-drift absolute right-[-7rem] top-[22%] h-[28rem] w-[28rem] rounded-full opacity-[0.44] [animation-delay:-14s] [background-image:radial-gradient(circle,rgba(34,211,238,0.78)_1px,transparent_1.8px)] [background-size:12px_12px] [mask-image:radial-gradient(circle,#000_0%,transparent_70%)]" />
-      <div className="evada-dot-drift absolute right-[-5rem] top-[-5rem] hidden h-[24rem] w-[24rem] rounded-full opacity-[0.38] [animation-delay:-22s] [background-image:radial-gradient(circle,rgba(167,139,250,0.78)_1px,transparent_1.8px)] [background-size:11px_11px] [mask-image:radial-gradient(circle,#000_0%,transparent_68%)] md:block" />
+      <div className="evada-dot-drift absolute -left-20 bottom-[-4rem] h-[34rem] w-[34rem] rounded-full opacity-[0.58] [background-image:radial-gradient(circle,rgba(255,255,255,0.95)_1.1px,transparent_1.7px)] [background-size:10px_10px] [mask-image:radial-gradient(circle,#000_0%,transparent_68%)]" />
+      <div className="evada-dot-drift absolute right-[-7rem] top-[22%] h-[28rem] w-[28rem] rounded-full opacity-[0.49] [animation-delay:-14s] [background-image:radial-gradient(circle,rgba(34,211,238,0.82)_1px,transparent_1.8px)] [background-size:12px_12px] [mask-image:radial-gradient(circle,#000_0%,transparent_70%)]" />
+      <div className="evada-dot-drift absolute right-[-5rem] top-[-5rem] hidden h-[24rem] w-[24rem] rounded-full opacity-[0.43] [animation-delay:-22s] [background-image:radial-gradient(circle,rgba(167,139,250,0.82)_1px,transparent_1.8px)] [background-size:11px_11px] [mask-image:radial-gradient(circle,#000_0%,transparent_68%)] md:block" />
 
-      <NetworkField className="left-[-5rem] top-[1rem] opacity-[0.72]" />
-      <NetworkField className="right-[-8rem] top-[5rem] hidden rotate-12 opacity-[0.72] lg:block" />
-      <NetworkField className="left-[-8rem] top-[40%] hidden -rotate-6 opacity-[0.64] xl:block" />
-      <NetworkField className="bottom-[-1rem] right-[-9rem] hidden rotate-6 opacity-70 lg:block" />
+      <NetworkField className="left-[-5rem] top-[1rem] opacity-[0.86]" />
+      <NetworkField className="right-[-8rem] top-[5rem] hidden rotate-12 opacity-[0.84] lg:block" />
+      <NetworkField className="left-[-8rem] top-[40%] hidden -rotate-6 opacity-[0.78] xl:block" />
+      <NetworkField className="bottom-[-1rem] right-[-9rem] hidden rotate-6 opacity-80 lg:block" />
 
-      <MeshCluster className="left-[-2rem] top-[-1rem] opacity-[0.74]" />
-      <MeshCluster className="right-[-3rem] top-[-2rem] hidden rotate-12 opacity-70 lg:block" />
-      <MeshCluster className="right-[-5rem] top-[44%] hidden -rotate-6 opacity-[0.62] 2xl:block" />
-      <MeshCluster className="bottom-[-1rem] left-[-4rem] hidden -rotate-12 opacity-70 xl:block" />
-      <MeshCluster className="bottom-[2rem] right-[-4rem] hidden rotate-6 opacity-[0.66] xl:block" />
+      <MeshCluster className="left-[-2rem] top-[-1rem] opacity-[0.88]" />
+      <MeshCluster className="right-[-3rem] top-[-2rem] hidden rotate-12 opacity-85 lg:block" />
+      <MeshCluster className="right-[-5rem] top-[44%] hidden -rotate-6 opacity-[0.78] 2xl:block" />
+      <MeshCluster className="bottom-[-1rem] left-[-4rem] hidden -rotate-12 opacity-85 xl:block" />
+      <MeshCluster className="bottom-[2rem] right-[-4rem] hidden rotate-6 opacity-[0.82] xl:block" />
 
-      <svg className="evada-wave-drift absolute left-[-10%] top-[4%] hidden h-[24rem] w-[78rem] opacity-55 md:block" viewBox="0 0 1240 380" fill="none" aria-hidden="true">
+      <svg className="evada-wave-drift absolute left-[-10%] top-[4%] hidden h-[24rem] w-[78rem] opacity-[0.68] md:block" viewBox="0 0 1240 380" fill="none" aria-hidden="true">
         {Array.from({ length: 11 }).map((_, index) => (
           <path
             key={index}
             className="evada-dash-flow"
             d={`M0 ${118 + index * 10}C180 ${34 + index * 8} 320 ${20 + index * 5} 520 ${92 + index * 8}C756 ${178 + index * 7} 920 ${176 + index * 6} 1240 ${62 + index * 9}`}
             stroke="url(#home-wave-a)"
-            strokeWidth="1"
+            strokeWidth="1.08"
             strokeDasharray="12 18"
-            opacity={0.2 + index * 0.018}
+            opacity={0.28 + index * 0.02}
           />
         ))}
         <defs>
@@ -229,28 +229,28 @@ export default function HomepageAnimatedBackground() {
         </defs>
       </svg>
 
-      <svg className="evada-wave-drift absolute left-[-12%] top-[43%] h-[24rem] w-[130vw] opacity-50 [animation-delay:-10s]" viewBox="0 0 1460 360" fill="none" aria-hidden="true">
+      <svg className="evada-wave-drift absolute left-[-12%] top-[43%] h-[24rem] w-[130vw] opacity-[0.62] [animation-delay:-10s]" viewBox="0 0 1460 360" fill="none" aria-hidden="true">
         {Array.from({ length: 13 }).map((_, index) => (
           <path
             key={index}
             className="evada-dash-flow"
             d={`M0 ${210 + index * 6}C220 ${150 + index * 5} 356 ${112 + index * 5} 570 ${174 + index * 4}C836 ${250 + index * 4} 1040 ${272 + index * 3} 1460 ${124 + index * 6}`}
-            stroke="rgba(255,255,255,0.72)"
-            strokeWidth="0.9"
+            stroke="rgba(255,255,255,0.86)"
+            strokeWidth="1.02"
             strokeDasharray="10 22"
-            opacity={0.22}
+            opacity={0.32}
           />
         ))}
       </svg>
 
-      <svg className="evada-wave-drift absolute bottom-[-2rem] left-[-8%] hidden h-[28rem] w-[126vw] opacity-60 [animation-delay:-18s] md:block" viewBox="0 0 1500 420" fill="none" aria-hidden="true">
+      <svg className="evada-wave-drift absolute bottom-[-2rem] left-[-8%] hidden h-[28rem] w-[126vw] opacity-[0.72] [animation-delay:-18s] md:block" viewBox="0 0 1500 420" fill="none" aria-hidden="true">
         {Array.from({ length: 15 }).map((_, index) => (
           <path
             key={index}
             d={`M0 ${122 + index * 8}C250 ${38 + index * 9} 430 ${54 + index * 7} 680 ${154 + index * 6}C960 ${266 + index * 4} 1180 ${294 + index * 5} 1500 ${178 + index * 6}`}
             stroke="url(#home-wave-b)"
-            strokeWidth="0.8"
-            opacity={0.15 + index * 0.012}
+            strokeWidth="0.95"
+            opacity={0.23 + index * 0.014}
           />
         ))}
         <defs>
@@ -262,13 +262,13 @@ export default function HomepageAnimatedBackground() {
         </defs>
       </svg>
 
-      <svg className="absolute right-[2%] top-[38%] hidden h-48 w-48 opacity-[0.12] lg:block" viewBox="0 0 120 120" fill="none" aria-hidden="true">
+      <svg className="absolute right-[2%] top-[38%] hidden h-48 w-48 opacity-[0.16] lg:block" viewBox="0 0 120 120" fill="none" aria-hidden="true">
         <path d="M60 10L94 24V52C94 78 80 96 60 108C40 96 26 78 26 52V24L60 10Z" stroke="#2563EB" strokeWidth="3" />
         <path d="M43 58L55 70L80 43" stroke="#7C3AED" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round" />
       </svg>
 
       {particles.map((particle, index) => {
-        const dotSize = Math.max(2, Math.round(particle.size * 0.68));
+        const dotSize = Math.max(3, Math.round(particle.size * 0.82));
 
         return (
           <span
@@ -281,7 +281,7 @@ export default function HomepageAnimatedBackground() {
                 width: `${dotSize}px`,
                 height: `${dotSize}px`,
                 backgroundColor: particle.color,
-                boxShadow: `0 0 ${dotSize * 5}px ${particle.shadow}`,
+                boxShadow: `0 0 ${dotSize * 6}px ${particle.shadow}`,
                 "--delay": particle.delay,
                 "--duration": particle.duration,
               } as CSSProperties

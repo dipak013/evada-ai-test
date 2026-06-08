@@ -564,7 +564,11 @@ function NewsletterSection() {
   return (
     <section className="bg-white px-5 pb-12 pt-4 sm:px-8 lg:px-10">
       <Reveal>
-        <div className="relative mx-auto flex max-w-[1360px] flex-col gap-6 overflow-hidden rounded-[24px] border border-blue-100 bg-[linear-gradient(135deg,#EAF7FF_0%,#FFFFFF_45%,#F1E7FF_100%)] px-6 py-7 shadow-[0_24px_70px_rgba(37,99,235,0.12)] sm:px-8 lg:flex-row lg:items-center lg:justify-between">
+        <div className="problem-edge-card relative isolate mx-auto flex max-w-[1360px] flex-col gap-6 overflow-hidden rounded-[24px] border border-blue-100 bg-[linear-gradient(135deg,#EAF7FF_0%,#FFFFFF_45%,#F1E7FF_100%)] px-6 py-7 shadow-[0_24px_70px_rgba(37,99,235,0.12)] sm:px-8 lg:flex-row lg:items-center lg:justify-between">
+          <span className="problem-border-runner problem-border-runner-top" aria-hidden="true" />
+          <span className="problem-border-runner problem-border-runner-left" aria-hidden="true" />
+          <span className="problem-border-runner problem-border-runner-right" aria-hidden="true" />
+          <span className="problem-border-runner problem-border-runner-bottom" aria-hidden="true" />
           <div aria-hidden="true" className="absolute inset-0 bg-[radial-gradient(circle_at_8%_20%,rgba(34,211,238,0.22),transparent_32%),radial-gradient(circle_at_78%_30%,rgba(124,58,237,0.18),transparent_34%)]" />
           <div className="relative flex min-w-0 flex-col gap-5 sm:flex-row sm:items-center">
             <span className="grid h-20 w-20 shrink-0 place-items-center rounded-[24px] bg-white text-[#2563EB] shadow-[0_0_44px_rgba(124,58,237,0.20)] ring-1 ring-blue-100">
@@ -590,7 +594,9 @@ function NewsletterSection() {
               placeholder="Enter your email address"
               className="min-h-[52px] min-w-0 flex-1 rounded-[14px] border border-blue-100 bg-white px-5 text-[15px] font-semibold text-slate-800 shadow-sm outline-none transition placeholder:text-slate-400 focus:border-blue-300 focus:ring-4 focus:ring-blue-100"
             />
-            <button type="button" className="evada-gradient-cta inline-flex min-h-[52px] items-center justify-center rounded-[14px] px-8 text-[15px] font-extrabold text-white transition hover:-translate-y-0.5">
+            <button type="button" className="problem-edge-card problem-edge-card-compact evada-gradient-cta relative isolate inline-flex min-h-[52px] items-center justify-center overflow-hidden rounded-[14px] px-8 text-[15px] font-extrabold text-white transition hover:-translate-y-0.5">
+              <span className="problem-border-runner problem-border-runner-top" aria-hidden="true" />
+              <span className="problem-border-runner problem-border-runner-bottom" aria-hidden="true" />
               Subscribe
             </button>
           </div>

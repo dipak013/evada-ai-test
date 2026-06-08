@@ -205,9 +205,9 @@ function SectionIntro({ eyebrow, title, text }: { eyebrow?: string; title: strin
 
 function CompanyHeroVisual() {
   return (
-    <div className="company-hero-visual relative mx-auto h-[460px] w-full max-w-full sm:h-[520px] sm:max-w-[700px] lg:-mt-2 xl:-mt-4" aria-hidden="true">
+    <div className="company-hero-visual relative mx-auto h-[480px] w-full max-w-full sm:h-[540px] sm:max-w-[720px] lg:-mt-2 xl:-mt-4" aria-hidden="true">
       <div className="company-hero-aurora absolute inset-0" />
-      <div className="company-visual-stage absolute left-1/2 top-1/2 h-[620px] w-[820px] -translate-x-1/2 -translate-y-1/2 scale-[0.52] sm:scale-[0.66] md:scale-[0.72] lg:scale-[0.76] xl:scale-[0.82] 2xl:scale-[0.86]">
+      <div className="company-visual-stage absolute left-1/2 top-1/2 h-[650px] w-[900px] -translate-x-1/2 -translate-y-1/2 scale-[0.5] sm:scale-[0.62] md:scale-[0.68] lg:scale-[0.72] xl:scale-[0.78] 2xl:scale-[0.82]">
         <svg className="company-connector-svg absolute inset-0 z-[3]" viewBox="0 0 820 620" fill="none" aria-hidden="true">
           <path className="company-signal-path" d="M178 214C260 118 460 86 640 174C764 235 792 386 678 476C540 584 242 548 122 400C36 294 76 230 178 214Z" stroke="url(#companyPathA)" strokeWidth="2" strokeDasharray="10 12" />
           <path className="company-signal-path company-signal-path-b" d="M118 356C224 254 386 230 528 286C690 348 746 432 686 496C612 574 360 560 186 486C70 438 38 392 118 356Z" stroke="url(#companyPathB)" strokeWidth="2" strokeDasharray="8 14" />
@@ -246,32 +246,33 @@ function CompanyHeroVisual() {
         {heroCards.map((card, index) => {
           const Icon = card.Icon;
           const positions = [
-            "left-[72px] top-[92px]",
-            "right-[48px] top-[112px]",
-            "left-[18px] top-[322px]",
-            "right-[26px] top-[334px]",
+            "left-[70px] top-[84px]",
+            "right-[70px] top-[98px]",
+            "left-[48px] top-[344px]",
+            "right-[48px] top-[348px]",
           ];
 
           return (
             <div
               key={card.title}
-              className={`company-floating-card absolute z-30 rounded-[22px] border border-blue-100 bg-white/90 p-5 shadow-[0_22px_60px_rgba(37,99,235,0.16)] backdrop-blur ${positions[index]}`}
+              className={`company-floating-card absolute z-30 rounded-[22px] border border-blue-100 bg-white/92 p-4 shadow-[0_22px_60px_rgba(37,99,235,0.16)] backdrop-blur ${positions[index]}`}
               style={{ animationDelay: `${index * 360}ms` }}
             >
               <div className="flex items-start gap-4">
-                <span className="grid h-14 w-14 shrink-0 place-items-center rounded-full bg-[linear-gradient(135deg,#EAF7FF,#F4F0FF)] text-[#2563EB] ring-1 ring-blue-100">
-                  <Icon className="h-7 w-7" strokeWidth={2} />
+                <span className="grid h-12 w-12 shrink-0 place-items-center rounded-full bg-[linear-gradient(135deg,#EAF7FF,#F4F0FF)] text-[#2563EB] ring-1 ring-blue-100">
+                  <Icon className="h-6 w-6" strokeWidth={2} />
                 </span>
                 <span>
-                  <span className="block text-[18px] font-extrabold leading-tight text-slate-950">{card.title}</span>
-                  <span className="mt-3 block text-[13px] font-medium leading-[1.6] text-slate-600">{card.text}</span>
+                  <span className="block text-[17px] font-extrabold leading-tight text-slate-950">{card.title}</span>
+                  <span className="mt-3 block h-1 w-14 rounded-full bg-[linear-gradient(90deg,#2563EB,#7C3AED)]" />
+                  <span className="mt-3 block text-[13px] font-medium leading-[1.58] text-slate-600">{card.text}</span>
                 </span>
               </div>
             </div>
           );
         })}
 
-        <div className="company-crystal-system absolute left-1/2 top-[360px] z-20 h-[430px] w-[520px] -translate-x-1/2 -translate-y-1/2">
+        <div className="company-crystal-system absolute left-1/2 top-[358px] z-20 h-[450px] w-[560px] -translate-x-1/2 -translate-y-1/2">
           <div className="company-base company-base-back" />
           <div className="company-base company-base-mid" />
           <div className="company-base company-base-front" />
@@ -471,7 +472,11 @@ function TimelineSection() {
         <SectionIntro title="Our Journey" text="Key milestones in our mission to modernise security validation." />
 
         <Reveal>
-          <div className="relative mt-10 overflow-hidden rounded-[22px] border border-blue-100 bg-white px-5 py-8 shadow-[0_20px_55px_rgba(37,99,235,0.08)] lg:px-8">
+          <div className="problem-edge-card relative isolate mt-10 overflow-hidden rounded-[22px] border border-blue-100 bg-white px-5 py-8 shadow-[0_20px_55px_rgba(37,99,235,0.08)] lg:px-8">
+            <span className="problem-border-runner problem-border-runner-top" aria-hidden="true" />
+            <span className="problem-border-runner problem-border-runner-left" aria-hidden="true" />
+            <span className="problem-border-runner problem-border-runner-right" aria-hidden="true" />
+            <span className="problem-border-runner problem-border-runner-bottom" aria-hidden="true" />
             <div aria-hidden="true" className="absolute left-10 right-10 top-[82px] hidden border-t-2 border-dotted border-blue-300 lg:block" />
             <div className="grid gap-6 lg:grid-cols-5">
               {timeline.map((item, index) => (

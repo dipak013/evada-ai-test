@@ -567,7 +567,11 @@ function AIPipelineSection() {
           </div>
         </Reveal>
 
-        <div className="mt-10 grid gap-7 lg:grid-cols-8 lg:gap-3">
+        <div className="problem-edge-card relative isolate mt-10 grid gap-7 overflow-hidden rounded-[24px] border border-blue-100 bg-white p-5 shadow-[0_18px_52px_rgba(37,99,235,0.08)] lg:grid-cols-8 lg:gap-3">
+          <span className="problem-border-runner problem-border-runner-top" aria-hidden="true" />
+          <span className="problem-border-runner problem-border-runner-left" aria-hidden="true" />
+          <span className="problem-border-runner problem-border-runner-right" aria-hidden="true" />
+          <span className="problem-border-runner problem-border-runner-bottom" aria-hidden="true" />
           {pipelineStages.map((stage, index) => {
             const Icon = stage.Icon;
 
@@ -586,7 +590,11 @@ function AIPipelineSection() {
         </div>
 
         <Reveal delayMs={160}>
-          <div className="mt-9 flex flex-col gap-5 rounded-[20px] border border-blue-100 bg-[linear-gradient(135deg,#F8FBFF,#FFFFFF)] px-5 py-5 shadow-[0_18px_46px_rgba(37,99,235,0.08)] sm:flex-row sm:items-center sm:justify-between">
+          <div className="problem-edge-card relative isolate mt-9 flex flex-col gap-5 overflow-hidden rounded-[20px] border border-blue-100 bg-[linear-gradient(135deg,#F8FBFF,#FFFFFF)] px-5 py-5 shadow-[0_18px_46px_rgba(37,99,235,0.08)] sm:flex-row sm:items-center sm:justify-between">
+            <span className="problem-border-runner problem-border-runner-top" aria-hidden="true" />
+            <span className="problem-border-runner problem-border-runner-left" aria-hidden="true" />
+            <span className="problem-border-runner problem-border-runner-right" aria-hidden="true" />
+            <span className="problem-border-runner problem-border-runner-bottom" aria-hidden="true" />
             <div className="flex min-w-0 gap-4">
               <span className="grid h-12 w-12 shrink-0 place-items-center rounded-[14px] bg-[#EEF5FF] text-[#2563EB] ring-1 ring-blue-100">
                 <ShieldCheck aria-hidden="true" className="h-6 w-6" strokeWidth={2.1} />
@@ -696,7 +704,11 @@ function TrustStripSection() {
   return (
     <section className="bg-white px-5 pb-4 pt-4 sm:px-8 lg:px-10">
       <div className="mx-auto max-w-[1360px]">
-        <div className="grid overflow-hidden rounded-[22px] border border-blue-100 bg-white shadow-[0_18px_48px_rgba(37,99,235,0.08)] sm:grid-cols-2 xl:grid-cols-4">
+        <div className="problem-edge-card relative isolate grid overflow-hidden rounded-[22px] border border-blue-100 bg-white shadow-[0_18px_48px_rgba(37,99,235,0.08)] sm:grid-cols-2 xl:grid-cols-4">
+          <span className="problem-border-runner problem-border-runner-top" aria-hidden="true" />
+          <span className="problem-border-runner problem-border-runner-left" aria-hidden="true" />
+          <span className="problem-border-runner problem-border-runner-right" aria-hidden="true" />
+          <span className="problem-border-runner problem-border-runner-bottom" aria-hidden="true" />
           {trustCards.map((card, index) => {
             const Icon = card.Icon;
 

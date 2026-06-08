@@ -21,43 +21,43 @@ const themes: Record<MarketingBackgroundVariant, VariantTheme> = {
     primary: "#2563EB",
     secondary: "#7C3AED",
     accent: "#06B6D4",
-    soft: "rgba(37,99,235,0.16)",
+    soft: "rgba(37,99,235,0.19)",
   },
   solutions: {
     primary: "#2563EB",
     secondary: "#8B5CF6",
     accent: "#22D3EE",
-    soft: "rgba(34,211,238,0.16)",
+    soft: "rgba(34,211,238,0.19)",
   },
   security: {
     primary: "#1D4ED8",
     secondary: "#7C3AED",
     accent: "#06B6D4",
-    soft: "rgba(124,58,237,0.14)",
+    soft: "rgba(124,58,237,0.17)",
   },
   pricing: {
     primary: "#2563EB",
     secondary: "#7C3AED",
     accent: "#06B6D4",
-    soft: "rgba(37,99,235,0.14)",
+    soft: "rgba(37,99,235,0.17)",
   },
   resources: {
     primary: "#2563EB",
     secondary: "#A78BFA",
     accent: "#06B6D4",
-    soft: "rgba(6,182,212,0.15)",
+    soft: "rgba(6,182,212,0.18)",
   },
   company: {
     primary: "#2563EB",
     secondary: "#7C3AED",
     accent: "#22D3EE",
-    soft: "rgba(167,139,250,0.16)",
+    soft: "rgba(167,139,250,0.19)",
   },
   demo: {
     primary: "#2563EB",
     secondary: "#7C3AED",
     accent: "#06B6D4",
-    soft: "rgba(6,182,212,0.16)",
+    soft: "rgba(6,182,212,0.19)",
   },
 };
 
@@ -137,8 +137,8 @@ function NetworkField({ className = "", theme }: { className?: string; theme: Va
               d={`M${start[0]} ${start[1]}L${end[0]} ${end[1]}`}
               stroke={index % 3 === 0 ? theme.accent : index % 3 === 1 ? theme.primary : theme.secondary}
               strokeDasharray="6 12"
-              strokeWidth="1.12"
-              opacity={index % 4 === 0 ? "0.5" : "0.34"}
+              strokeWidth="1.24"
+              opacity={index % 4 === 0 ? "0.66" : "0.48"}
             />
           );
         })}
@@ -149,9 +149,9 @@ function NetworkField({ className = "", theme }: { className?: string; theme: Va
           className="evada-network-node"
           cx={cx}
           cy={cy}
-          r={fill === "#FFFFFF" ? "3.2" : "2.6"}
+          r={fill === "#FFFFFF" ? "3.5" : "2.95"}
           fill={fill}
-          opacity="0.94"
+          opacity="0.98"
           style={{ animationDelay: `${index * 0.16}s` }}
         />
       ))}
@@ -170,39 +170,39 @@ export default function MarketingAnimatedBackground({ variant }: { variant: Mark
   return (
     <div
       aria-hidden="true"
-      className="evada-animated-background pointer-events-none fixed inset-0 z-0 overflow-hidden bg-[linear-gradient(135deg,#ffffff_0%,#f5fbff_32%,#edf8ff_62%,#f3edff_100%)]"
+      className="evada-animated-background pointer-events-none fixed inset-0 z-0 overflow-hidden bg-[linear-gradient(135deg,#ffffff_0%,#eefaff_32%,#e5f6ff_62%,#eee8ff_100%)]"
       style={style}
     >
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_48%_30%,rgba(255,255,255,0.78),transparent_32%),radial-gradient(circle_at_12%_20%,rgba(34,211,238,0.34),transparent_34%),radial-gradient(circle_at_88%_18%,rgba(124,58,237,0.3),transparent_30%),radial-gradient(circle_at_74%_76%,rgba(6,182,212,0.28),transparent_28%),radial-gradient(circle_at_12%_82%,rgba(167,139,250,0.26),transparent_30%)]" />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_48%_30%,rgba(255,255,255,0.66),transparent_32%),radial-gradient(circle_at_12%_20%,rgba(34,211,238,0.4),transparent_34%),radial-gradient(circle_at_88%_18%,rgba(124,58,237,0.36),transparent_30%),radial-gradient(circle_at_74%_76%,rgba(6,182,212,0.34),transparent_28%),radial-gradient(circle_at_12%_82%,rgba(167,139,250,0.32),transparent_30%)]" />
 
-      <span className="evada-float-soft absolute -left-24 top-[-5rem] h-[30rem] w-[30rem] rounded-full bg-cyan-200/30 blur-3xl" />
-      <span className="evada-float-reverse absolute -right-28 top-[-4rem] h-[34rem] w-[34rem] rounded-full bg-violet-200/30 blur-3xl" />
+      <span className="evada-float-soft absolute -left-24 top-[-5rem] h-[30rem] w-[30rem] rounded-full bg-cyan-200/35 blur-3xl" />
+      <span className="evada-float-reverse absolute -right-28 top-[-4rem] h-[34rem] w-[34rem] rounded-full bg-violet-200/35 blur-3xl" />
       <span className="evada-float-soft absolute bottom-[-8rem] left-[24%] h-[28rem] w-[28rem] rounded-full blur-3xl" style={{ backgroundColor: theme.soft, animationDelay: "-7s" }} />
       <span className="evada-pulse-glow absolute left-[40%] top-[20%] h-[26rem] w-[26rem] rounded-full bg-white/75 blur-3xl" />
 
-      <div className="evada-dot-drift absolute -left-20 bottom-[-5rem] h-[32rem] w-[32rem] rounded-full opacity-[0.54] [background-image:radial-gradient(circle,rgba(255,255,255,0.94)_1.1px,transparent_1.7px)] [background-size:10px_10px] [mask-image:radial-gradient(circle,#000_0%,transparent_68%)]" />
-      <div className="evada-dot-drift absolute right-[-8rem] top-[20%] h-[28rem] w-[28rem] rounded-full opacity-[0.42] [animation-delay:-12s] [background-image:radial-gradient(circle,rgba(34,211,238,0.78)_1px,transparent_1.8px)] [background-size:12px_12px] [mask-image:radial-gradient(circle,#000_0%,transparent_70%)]" />
+      <div className="evada-dot-drift absolute -left-20 bottom-[-5rem] h-[32rem] w-[32rem] rounded-full opacity-[0.58] [background-image:radial-gradient(circle,rgba(255,255,255,0.94)_1.1px,transparent_1.7px)] [background-size:10px_10px] [mask-image:radial-gradient(circle,#000_0%,transparent_68%)]" />
+      <div className="evada-dot-drift absolute right-[-8rem] top-[20%] h-[28rem] w-[28rem] rounded-full opacity-[0.48] [animation-delay:-12s] [background-image:radial-gradient(circle,rgba(34,211,238,0.82)_1px,transparent_1.8px)] [background-size:12px_12px] [mask-image:radial-gradient(circle,#000_0%,transparent_70%)]" />
 
-      <NetworkField className="left-[-7rem] top-[2rem] opacity-[0.72]" theme={theme} />
-      <NetworkField className="right-[-9rem] top-[8rem] hidden rotate-12 opacity-[0.72] lg:block" theme={theme} />
-      <NetworkField className="bottom-[-2rem] right-[-10rem] hidden rotate-6 opacity-[0.68] xl:block" theme={theme} />
+      <NetworkField className="left-[-7rem] top-[2rem] opacity-[0.86]" theme={theme} />
+      <NetworkField className="right-[-9rem] top-[8rem] hidden rotate-12 opacity-[0.84] lg:block" theme={theme} />
+      <NetworkField className="bottom-[-2rem] right-[-10rem] hidden rotate-6 opacity-[0.8] xl:block" theme={theme} />
 
-      <svg className="evada-wave-drift absolute left-[-12%] top-[40%] h-[24rem] w-[130vw] opacity-[0.46] [animation-delay:-10s]" viewBox="0 0 1460 360" fill="none" aria-hidden="true">
+      <svg className="evada-wave-drift absolute left-[-12%] top-[40%] h-[24rem] w-[130vw] opacity-[0.62] [animation-delay:-10s]" viewBox="0 0 1460 360" fill="none" aria-hidden="true">
         {Array.from({ length: 12 }).map((_, index) => (
           <path
             key={index}
             className="evada-dash-flow"
             d={`M0 ${198 + index * 6}C220 ${136 + index * 5} 356 ${108 + index * 5} 570 ${170 + index * 4}C836 ${246 + index * 4} 1040 ${272 + index * 3} 1460 ${118 + index * 6}`}
-            stroke="rgba(255,255,255,0.72)"
-            strokeWidth="0.9"
+            stroke="rgba(255,255,255,0.86)"
+            strokeWidth="1.02"
             strokeDasharray="10 22"
-            opacity={0.22}
+            opacity={0.32}
           />
         ))}
       </svg>
 
       {particlePositions.map(([left, top, size, color, delay], index) => {
-        const dotSize = Math.max(2, Math.round(size * 0.68));
+        const dotSize = Math.max(3, Math.round(size * 0.84));
 
         return (
           <span
@@ -215,7 +215,7 @@ export default function MarketingAnimatedBackground({ variant }: { variant: Mark
                 width: `${dotSize}px`,
                 height: `${dotSize}px`,
                 backgroundColor: color,
-                boxShadow: `0 0 ${dotSize * 5}px ${color === "#FFFFFF" ? "rgba(255,255,255,0.78)" : color}`,
+                boxShadow: `0 0 ${dotSize * 6}px ${color === "#FFFFFF" ? "rgba(255,255,255,0.86)" : color}`,
                 "--delay": delay,
                 "--duration": `${8 + (index % 5)}s`,
               } as CSSProperties
