@@ -283,7 +283,7 @@ function Eyebrow({ children }: { children: string }) {
 
 function PlatformHeroVisual() {
   return (
-    <div className="platform-hero-visual platform-workflow-visual relative mx-auto aspect-[1.35/1] w-full max-w-[820px] overflow-visible lg:-mt-2 xl:-mt-4" aria-hidden="true">
+    <div className="platform-hero-visual platform-workflow-visual relative mx-auto aspect-[1.35/1] w-full max-w-[820px] overflow-visible lg:mt-3 xl:mt-2" aria-hidden="true">
       <div className="platform-workflow-ambient absolute inset-[-8%] rounded-full" />
 
       <div className="absolute left-1/2 top-1/2 h-[680px] w-[900px] -translate-x-1/2 -translate-y-1/2 scale-[0.42] sm:scale-[0.58] md:scale-[0.68] lg:scale-[0.74] xl:scale-[0.78] 2xl:scale-[0.84]">
