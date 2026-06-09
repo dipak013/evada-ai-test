@@ -421,9 +421,9 @@ function WorkWithUsSection() {
   return (
     <section id="careers" className="bg-white px-5 pb-9 pt-1 sm:px-8 lg:px-10">
       <Reveal>
-        <div className="relative mx-auto grid max-w-[1360px] overflow-hidden rounded-[22px] bg-[linear-gradient(135deg,#4F46E5_0%,#2563EB_45%,#7C3AED_100%)] shadow-[0_22px_62px_rgba(37,99,235,0.18)] lg:grid-cols-[0.38fr_0.62fr]">
-          <div aria-hidden="true" className="absolute inset-0 bg-[radial-gradient(circle_at_14%_25%,rgba(34,211,238,0.26),transparent_32%),radial-gradient(circle_at_88%_40%,rgba(255,255,255,0.18),transparent_34%)]" />
-          <div className="company-collab-panel relative min-h-[210px] overflow-hidden lg:min-h-[230px]">
+        <div className="company-work-card relative mx-auto grid max-w-[1360px] overflow-hidden rounded-[22px] shadow-[0_24px_70px_rgba(15,13,40,0.28)] lg:grid-cols-[0.38fr_0.62fr]">
+          <div aria-hidden="true" className="company-work-card-glow absolute inset-0" />
+          <div className="company-collab-panel relative z-10 min-h-[210px] overflow-hidden lg:min-h-[230px]">
             <div className="company-collab-wave company-collab-wave-a" />
             <div className="company-collab-wave company-collab-wave-b" />
             {[0, 1, 2, 3, 4].map((item) => (
@@ -432,7 +432,7 @@ function WorkWithUsSection() {
             <div className="company-collab-laptop" />
           </div>
 
-          <div className="relative p-6 text-white sm:p-7 lg:p-9">
+          <div className="relative z-10 p-6 text-white sm:p-7 lg:p-9">
             <Eyebrow>CAREERS</Eyebrow>
             <h2 className="mt-2.5 text-[clamp(1.55rem,3.5vw,2.45rem)] font-bold leading-[1.1] tracking-[-0.025em]">
               Work With Us
@@ -462,7 +462,7 @@ export default function AboutPage() {
       <MarketingAnimatedBackground variant="company" />
       <MarketingScrollOptimizer
         scrollLerp={0.22}
-        settleDelayMs={430}
+        settleDelayMs={100}
         strictActiveSectionAnimations
         wheelMultiplier={1.62}
       />

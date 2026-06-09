@@ -739,7 +739,7 @@ export default function PlatformPage() {
       <MarketingAnimatedBackground variant="platform" />
       <MarketingScrollOptimizer
         scrollLerp={0.22}
-        settleDelayMs={430}
+        settleDelayMs={100}
         strictActiveSectionAnimations
         wheelMultiplier={1.62}
       />

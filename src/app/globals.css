@@ -4413,10 +4413,43 @@ html.lenis.lenis-stopped {
   animation: companyNodePulse 4.8s ease-in-out infinite;
 }
 
+.company-work-card {
+  isolation: isolate;
+  background:
+    linear-gradient(135deg, #111027 0%, #151333 48%, #19143f 100%);
+}
+
+.company-work-card-glow {
+  z-index: 0;
+  background:
+    radial-gradient(circle at 15% 28%, rgba(37, 99, 235, 0.26), transparent 34%),
+    radial-gradient(circle at 76% 42%, rgba(124, 58, 237, 0.28), transparent 38%),
+    linear-gradient(90deg, rgba(37, 99, 235, 0.3), rgba(37, 99, 235, 0.34) 44%, rgba(124, 58, 237, 0.34) 100%);
+  opacity: 0.78;
+}
+
+.company-work-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background:
+    linear-gradient(30deg, rgba(255, 255, 255, 0.06) 12%, transparent 12.5%, transparent 87%, rgba(255, 255, 255, 0.06) 87.5%, rgba(255, 255, 255, 0.06)),
+    linear-gradient(150deg, rgba(255, 255, 255, 0.06) 12%, transparent 12.5%, transparent 87%, rgba(255, 255, 255, 0.06) 87.5%, rgba(255, 255, 255, 0.06)),
+    linear-gradient(30deg, rgba(255, 255, 255, 0.06) 12%, transparent 12.5%, transparent 87%, rgba(255, 255, 255, 0.06) 87.5%, rgba(255, 255, 255, 0.06)),
+    linear-gradient(150deg, rgba(255, 255, 255, 0.06) 12%, transparent 12.5%, transparent 87%, rgba(255, 255, 255, 0.06) 87.5%, rgba(255, 255, 255, 0.06)),
+    linear-gradient(60deg, rgba(255, 255, 255, 0.075) 25%, transparent 25.5%, transparent 75%, rgba(255, 255, 255, 0.075) 75%, rgba(255, 255, 255, 0.075)),
+    linear-gradient(60deg, rgba(255, 255, 255, 0.075) 25%, transparent 25.5%, transparent 75%, rgba(255, 255, 255, 0.075) 75%, rgba(255, 255, 255, 0.075));
+  background-position: 0 0, 0 0, 36px 62px, 36px 62px, 0 0, 36px 62px;
+  background-size: 72px 124px;
+  opacity: 0.52;
+}
+
 .company-collab-panel {
   background:
-    radial-gradient(circle at 30% 32%, rgba(255, 255, 255, 0.28), transparent 28%),
-    linear-gradient(135deg, rgba(224, 242, 254, 0.34), rgba(124, 58, 237, 0.22));
+    radial-gradient(circle at 30% 32%, rgba(255, 255, 255, 0.18), transparent 28%),
+    linear-gradient(135deg, rgba(37, 99, 235, 0.22), rgba(124, 58, 237, 0.1));
 }
 
 .company-collab-wave {
@@ -4425,7 +4458,7 @@ html.lenis.lenis-stopped {
   right: -10%;
   height: 120px;
   border-radius: 50%;
-  border: 2px solid rgba(255, 255, 255, 0.24);
+  border: 2px solid rgba(255, 255, 255, 0.18);
   transform: rotate(-12deg);
 }
 
@@ -4444,8 +4477,8 @@ html.lenis.lenis-stopped {
   width: 34px;
   height: 58px;
   border-radius: 999px 999px 14px 14px;
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0.96), rgba(219, 234, 254, 0.9));
-  box-shadow: 0 16px 32px rgba(2, 11, 31, 0.14);
+  background: linear-gradient(180deg, rgba(239, 246, 255, 0.96), rgba(199, 210, 254, 0.82));
+  box-shadow: 0 16px 32px rgba(2, 11, 31, 0.2);
 }
 
 .company-collab-person::before {
@@ -4456,7 +4489,7 @@ html.lenis.lenis-stopped {
   width: 30px;
   height: 30px;
   border-radius: 999px;
-  background: linear-gradient(135deg, #e0f2fe, #f5f3ff);
+  background: linear-gradient(135deg, #dbeafe, #eef2ff);
   transform: translateX(-50%);
 }
 
@@ -4493,8 +4526,8 @@ html.lenis.lenis-stopped {
   width: 118px;
   height: 74px;
   border-radius: 14px;
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.96), rgba(224, 231, 255, 0.9));
-  box-shadow: 0 20px 46px rgba(2, 11, 31, 0.18);
+  background: linear-gradient(135deg, rgba(239, 246, 255, 0.94), rgba(199, 210, 254, 0.86));
+  box-shadow: 0 20px 46px rgba(2, 11, 31, 0.28);
   transform: translateX(-50%);
 }
 
@@ -4506,7 +4539,7 @@ html.lenis.lenis-stopped {
   bottom: -12px;
   height: 14px;
   border-radius: 999px;
-  background: rgba(255, 255, 255, 0.78);
+  background: rgba(226, 232, 240, 0.86);
 }
 
 @media (max-width: 640px) {

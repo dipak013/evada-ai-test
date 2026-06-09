@@ -119,7 +119,7 @@ export default function ContactPage() {
       <MarketingAnimatedBackground variant="demo" />
       <MarketingScrollOptimizer
         scrollLerp={0.22}
-        settleDelayMs={430}
+        settleDelayMs={100}
         strictActiveSectionAnimations
         wheelMultiplier={1.62}
       />
@@ -204,14 +204,15 @@ export default function ContactPage() {
         </section>
 
         <section className="bg-[#F8FBFF] px-4 pb-14 sm:px-8 lg:px-10">
-          <div className="mx-auto flex max-w-[1360px] flex-col gap-4 rounded-[24px] border border-blue-100 bg-white p-6 shadow-[0_20px_56px_rgba(37,99,235,0.09)] sm:flex-row sm:items-center sm:justify-between sm:p-8">
-            <div>
-              <p className="text-[12px] font-black uppercase tracking-[0.18em] text-[#2563EB]">Prefer a direct enquiry?</p>
-              <h2 className="mt-2 text-[clamp(1.5rem,4vw,2rem)] font-bold leading-[1.1] tracking-[-0.025em] text-[#071633]">Use the dedicated enquiry workspace.</h2>
+          <div className="company-work-card relative isolate mx-auto flex max-w-[1360px] flex-col gap-4 overflow-hidden rounded-[24px] border border-white/10 p-6 shadow-[0_24px_70px_rgba(15,13,40,0.28)] sm:flex-row sm:items-center sm:justify-between sm:p-8">
+            <div aria-hidden="true" className="company-work-card-glow absolute inset-0" />
+            <div className="relative z-10">
+              <p className="text-[12px] font-black uppercase tracking-[0.18em] text-[#C4B5FD]">Prefer a direct enquiry?</p>
+              <h2 className="mt-2 text-[clamp(1.5rem,4vw,2rem)] font-bold leading-[1.1] tracking-[-0.025em] text-white">Use the dedicated enquiry workspace.</h2>
             </div>
             <Link
               href="/contact/enquiry"
-              className="evada-gradient-cta inline-flex min-h-12 items-center justify-center gap-2 rounded-full px-6 py-3 text-[15px] font-extrabold text-white transition hover:-translate-y-0.5 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-slate-900 motion-reduce:transform-none"
+              className="evada-gradient-cta relative z-10 inline-flex min-h-12 items-center justify-center gap-2 rounded-full px-6 py-3 text-[15px] font-extrabold text-white transition hover:-translate-y-0.5 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-slate-900 motion-reduce:transform-none"
             >
               Open Enquiry Workspace
               <ArrowRight aria-hidden="true" className="h-4 w-4" strokeWidth={2.2} />

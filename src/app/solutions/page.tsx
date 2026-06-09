@@ -806,14 +806,14 @@ function SolutionsCTASection() {
   return (
     <section className="bg-white px-5 pb-12 pt-4 sm:px-8 lg:px-10">
       <Reveal>
-        <div className="problem-edge-card relative isolate mx-auto flex max-w-[1360px] flex-col gap-6 overflow-hidden rounded-[24px] bg-[linear-gradient(100deg,#2563EB_0%,#06B6D4_48%,#8B5CF6_100%)] px-6 py-7 text-white shadow-[0_24px_70px_rgba(37,99,235,0.22)] sm:px-8 lg:flex-row lg:items-center lg:justify-between">
+        <div className="company-work-card problem-edge-card relative isolate mx-auto flex max-w-[1360px] flex-col gap-6 overflow-hidden rounded-[24px] border border-white/10 px-6 py-7 text-white shadow-[0_24px_70px_rgba(15,13,40,0.28)] sm:px-8 lg:flex-row lg:items-center lg:justify-between">
           <span className="problem-border-runner problem-border-runner-top" aria-hidden="true" />
           <span className="problem-border-runner problem-border-runner-left" aria-hidden="true" />
           <span className="problem-border-runner problem-border-runner-right" aria-hidden="true" />
           <span className="problem-border-runner problem-border-runner-bottom" aria-hidden="true" />
-          <div aria-hidden="true" className="absolute inset-0 bg-[radial-gradient(circle_at_10%_20%,rgba(255,255,255,0.22),transparent_30%),radial-gradient(circle_at_90%_40%,rgba(255,255,255,0.16),transparent_34%)]" />
-          <div className="relative flex min-w-0 flex-col gap-5 sm:flex-row sm:items-center">
-            <span className="grid h-20 w-20 shrink-0 place-items-center rounded-full bg-white/16 text-white shadow-[0_0_40px_rgba(255,255,255,0.18)] ring-1 ring-white/25">
+          <div aria-hidden="true" className="company-work-card-glow absolute inset-0" />
+          <div className="relative z-10 flex min-w-0 flex-col gap-5 sm:flex-row sm:items-center">
+            <span className="grid h-20 w-20 shrink-0 place-items-center rounded-full bg-white/12 text-white shadow-[0_0_40px_rgba(255,255,255,0.16)] ring-1 ring-white/20">
               <ShieldCheck aria-hidden="true" className="h-11 w-11" strokeWidth={1.9} />
             </span>
             <div className="min-w-0">
@@ -826,7 +826,7 @@ function SolutionsCTASection() {
             </div>
           </div>
 
-          <div className="relative grid gap-3 sm:flex sm:items-center">
+          <div className="relative z-10 grid gap-3 sm:flex sm:items-center">
             <Link href="/book-demo" className="problem-edge-card problem-edge-card-compact relative isolate inline-flex min-h-11 min-w-[150px] items-center justify-center overflow-hidden whitespace-nowrap rounded-full bg-white px-6 py-3 text-[14px] font-semibold text-[#2563EB] shadow-[0_12px_28px_rgba(15,23,42,0.12)] transition hover:-translate-y-0.5">
               <span className="problem-border-runner problem-border-runner-top" aria-hidden="true" />
               <span className="problem-border-runner problem-border-runner-bottom" aria-hidden="true" />
@@ -851,7 +851,7 @@ export default function SolutionsPage() {
       <MarketingAnimatedBackground variant="solutions" />
       <MarketingScrollOptimizer
         scrollLerp={0.22}
-        settleDelayMs={430}
+        settleDelayMs={100}
         strictActiveSectionAnimations
         wheelMultiplier={1.62}
       />

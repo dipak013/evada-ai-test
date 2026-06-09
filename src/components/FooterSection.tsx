@@ -70,27 +70,27 @@ function FooterCTA() {
   return (
     <section className="bg-white px-5 pb-12 pt-4 sm:px-8 lg:px-10">
       <Reveal>
-        <div className="problem-edge-card relative isolate mx-auto flex max-w-[1220px] flex-col gap-6 overflow-hidden rounded-[24px] border border-blue-100 bg-[linear-gradient(135deg,#EEF5FF_0%,#FFFFFF_45%,#F3E8FF_100%)] px-6 py-6 shadow-[0_24px_70px_rgba(37,99,235,0.12)] sm:px-8 lg:flex-row lg:items-center lg:justify-between">
+        <div className="company-work-card problem-edge-card relative isolate mx-auto flex max-w-[1220px] flex-col gap-6 overflow-hidden rounded-[24px] border border-white/10 px-6 py-6 shadow-[0_24px_70px_rgba(15,13,40,0.28)] sm:px-8 lg:flex-row lg:items-center lg:justify-between">
           <span className="problem-border-runner problem-border-runner-top" aria-hidden="true" />
           <span className="problem-border-runner problem-border-runner-left" aria-hidden="true" />
           <span className="problem-border-runner problem-border-runner-right" aria-hidden="true" />
           <span className="problem-border-runner problem-border-runner-bottom" aria-hidden="true" />
-          <div aria-hidden="true" className="absolute inset-0 bg-[radial-gradient(circle_at_8%_20%,rgba(34,211,238,0.24),transparent_32%),radial-gradient(circle_at_78%_30%,rgba(124,58,237,0.18),transparent_34%)]" />
-          <div className="relative flex min-w-0 flex-col gap-5 sm:flex-row sm:items-center">
-            <span className="relative grid h-20 w-20 shrink-0 place-items-center rounded-full bg-white text-[#2563EB] shadow-[0_0_44px_rgba(124,58,237,0.20)] ring-1 ring-blue-100">
+          <div aria-hidden="true" className="company-work-card-glow absolute inset-0" />
+          <div className="relative z-10 flex min-w-0 flex-col gap-5 sm:flex-row sm:items-center">
+            <span className="relative grid h-20 w-20 shrink-0 place-items-center rounded-full bg-white/12 text-white shadow-[0_0_44px_rgba(124,58,237,0.22)] ring-1 ring-white/18">
               <ShieldCheck aria-hidden="true" className="h-11 w-11" strokeWidth={1.9} />
             </span>
             <div className="min-w-0">
-              <h2 className="text-[clamp(1.65rem,4.4vw,2.35rem)] font-black leading-tight tracking-[-0.025em] text-slate-950">
+              <h2 className="text-[clamp(1.65rem,4.4vw,2.35rem)] font-black leading-tight tracking-[-0.025em] text-white">
                 Ready to validate risk continuously?
               </h2>
-              <p className="mt-2 text-[15px] leading-relaxed text-slate-600 sm:text-[17px]">
+              <p className="mt-2 text-[15px] leading-relaxed text-slate-200/86 sm:text-[17px]">
                 See how EVADA helps security teams move faster with confidence.
               </p>
             </div>
           </div>
 
-          <div className="relative grid gap-3 sm:flex sm:shrink-0 sm:items-center">
+          <div className="relative z-10 grid gap-3 sm:flex sm:shrink-0 sm:items-center">
             <Link
               href="/book-demo"
               className="problem-edge-card problem-edge-card-compact evada-gradient-cta relative isolate inline-flex min-h-12 min-w-[156px] items-center justify-center overflow-hidden whitespace-nowrap rounded-[14px] px-8 py-3 text-[15px] font-extrabold text-white transition hover:-translate-y-0.5"

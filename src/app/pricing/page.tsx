@@ -91,7 +91,7 @@ export default function PricingPage() {
       <MarketingAnimatedBackground variant="pricing" />
       <MarketingScrollOptimizer
         scrollLerp={0.22}
-        settleDelayMs={430}
+        settleDelayMs={100}
         strictActiveSectionAnimations
         wheelMultiplier={1.62}
       />

@@ -161,7 +161,7 @@ export default function HomePage() {
       <HomepageAnimatedBackground />
       <MarketingScrollOptimizer
         scrollLerp={0.22}
-        settleDelayMs={430}
+        settleDelayMs={100}
         strictActiveSectionAnimations
         wheelMultiplier={1.62}
       />
