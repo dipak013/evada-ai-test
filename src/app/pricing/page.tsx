@@ -5,6 +5,7 @@ import MarketingNav from "@/components/MarketingNav";
 import Reveal from "@/components/Reveal";
 import MarketingAnimatedBackground from "@/components/marketing/MarketingAnimatedBackground";
 import { MarketingIcon } from "@/components/marketing/MarketingIcon";
+import MarketingScrollOptimizer from "@/components/marketing/MarketingScrollOptimizer";
 
 function PricingHeroVisual() {
   return (
@@ -86,8 +87,14 @@ function HeroSection() {
 
 export default function PricingPage() {
   return (
-    <main className="evada-homepage evada-pricing-page relative min-h-screen overflow-x-clip bg-[#F8FBFF] text-slate-950">
+    <main className="evada-homepage evada-pricing-page evada-marketing-strict-lazy evada-marketing-scroll-optimized relative min-h-screen overflow-x-clip bg-[#F8FBFF] text-slate-950" data-marketing-ready="false">
       <MarketingAnimatedBackground variant="pricing" />
+      <MarketingScrollOptimizer
+        scrollLerp={0.22}
+        settleDelayMs={430}
+        strictActiveSectionAnimations
+        wheelMultiplier={1.62}
+      />
       <div className="evada-homepage-content relative z-10">
         <MarketingNav />
         <HeroSection />

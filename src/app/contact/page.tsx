@@ -9,6 +9,7 @@ import FooterSection from "@/components/FooterSection";
 import MarketingNav from "@/components/MarketingNav";
 import MarketingAnimatedBackground from "@/components/marketing/MarketingAnimatedBackground";
 import { marketingIconMap } from "@/components/marketing/MarketingIcon";
+import MarketingScrollOptimizer from "@/components/marketing/MarketingScrollOptimizer";
 
 type ExpectationItem = {
   text: string;
@@ -114,8 +115,14 @@ function OfficeMapCard() {
 
 export default function ContactPage() {
   return (
-    <main className="evada-homepage relative min-h-screen overflow-x-clip bg-[#F8FBFF] text-slate-950">
+    <main className="evada-homepage evada-contact-page evada-marketing-strict-lazy evada-marketing-scroll-optimized relative min-h-screen overflow-x-clip bg-[#F8FBFF] text-slate-950" data-marketing-ready="false">
       <MarketingAnimatedBackground variant="demo" />
+      <MarketingScrollOptimizer
+        scrollLerp={0.22}
+        settleDelayMs={430}
+        strictActiveSectionAnimations
+        wheelMultiplier={1.62}
+      />
       <div className="evada-homepage-content relative z-10">
         <MarketingNav />
 
