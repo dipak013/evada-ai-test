@@ -6,6 +6,7 @@ import Reveal from "@/components/Reveal";
 import HeroDashboardCarousel from "@/components/HeroDashboardCarousel";
 import HomepageAnimatedBackground from "@/components/marketing/HomepageAnimatedBackground";
 import { marketingIconMap } from "@/components/marketing/MarketingIcon";
+import MarketingScrollOptimizer from "@/components/marketing/MarketingScrollOptimizer";
 import ProblemSection from "@/components/ProblemSection";
 import HowEvadaWorksSection from "@/components/HowEvadaWorksSection";
 import AIPentesterPipelineSection from "@/components/AIPentesterPipelineSection";
@@ -156,8 +157,14 @@ function BetweenPentestsSection() {
 
 export default function HomePage() {
   return (
-    <main className="evada-homepage relative min-h-screen overflow-x-clip bg-[#F8FBFF] text-slate-950">
+    <main className="evada-homepage evada-marketing-strict-lazy evada-marketing-scroll-optimized relative min-h-screen overflow-x-clip bg-[#F8FBFF] text-slate-950" data-marketing-ready="false">
       <HomepageAnimatedBackground />
+      <MarketingScrollOptimizer
+        scrollLerp={0.22}
+        settleDelayMs={430}
+        strictActiveSectionAnimations
+        wheelMultiplier={1.62}
+      />
       <div className="evada-homepage-content relative z-10">
         <MarketingNav />
         <HeroSection />

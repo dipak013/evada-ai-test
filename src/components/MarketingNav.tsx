@@ -49,13 +49,29 @@ export default function MarketingNav() {
   const router = useRouter();
 
   useEffect(() => {
+    const idleWindow = window as Window & {
+      requestIdleCallback?: (callback: () => void, options?: { timeout: number }) => number;
+      cancelIdleCallback?: (id: number) => void;
+    };
+
     const warmNavigation = () => {
       prefetchRoutes.forEach((href) => router.prefetch(href));
     };
 
-    const timeoutId = window.setTimeout(warmNavigation, 600);
+    const idleId = idleWindow.requestIdleCallback
+      ? idleWindow.requestIdleCallback(warmNavigation, { timeout: 4200 })
+      : undefined;
+    const timeoutId = idleId === undefined ? window.setTimeout(warmNavigation, 2200) : undefined;
 
-    return () => window.clearTimeout(timeoutId);
+    return () => {
+      if (idleId !== undefined) {
+        idleWindow.cancelIdleCallback?.(idleId);
+      }
+
+      if (timeoutId !== undefined) {
+        window.clearTimeout(timeoutId);
+      }
+    };
   }, [router]);
 
   useEffect(() => {
@@ -92,7 +108,7 @@ export default function MarketingNav() {
               <Link
                 key={item.label}
                 href={item.href}
-                prefetch
+                prefetch={false}
                 aria-current={active ? "page" : undefined}
                 className={`group relative inline-flex items-center gap-1.5 rounded-lg px-1 py-2 transition-all hover:font-bold hover:text-[#5F3FEA] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-slate-900 ${
                   active ? "font-bold text-[#2563EB]" : ""
@@ -113,12 +129,14 @@ export default function MarketingNav() {
         <div className="hidden shrink-0 items-center gap-3 xl:flex">
           <Link
             href="/login"
+            prefetch={false}
             className="whitespace-nowrap rounded-xl px-2 py-2 text-[13px] font-medium text-slate-800 transition-all hover:font-bold hover:text-[#5F3FEA] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-slate-900"
           >
             See EVADA in Action
           </Link>
           <Link
             href="/book-demo"
+            prefetch={false}
             className="evada-gradient-cta inline-flex min-w-[142px] items-center justify-center whitespace-nowrap rounded-full px-6 py-3 text-[13px] font-extrabold text-white transition hover:-translate-y-0.5 motion-reduce:transform-none 2xl:px-7 2xl:text-[14px]"
           >
             Book a Demo
@@ -148,7 +166,7 @@ export default function MarketingNav() {
                 <Link
                   key={item.label}
                   href={item.href}
-                  prefetch
+                  prefetch={false}
                   onClick={() => setMobileOpen(false)}
                   aria-current={isActive(item.href) ? "page" : undefined}
                   className={`flex items-center justify-between rounded-2xl px-4 py-3 text-[16px] font-semibold transition hover:bg-[#F8FAFC] hover:font-bold ${
@@ -164,6 +182,7 @@ export default function MarketingNav() {
             <div className="mt-3 grid gap-3">
               <Link
                 href="/login"
+                prefetch={false}
                 onClick={() => setMobileOpen(false)}
                 className="inline-flex items-center justify-center rounded-[14px] border border-slate-200 bg-white px-4 py-3 text-[15px] font-semibold text-slate-950 shadow-sm transition hover:font-bold hover:text-[#5F3FEA]"
               >
@@ -171,6 +190,7 @@ export default function MarketingNav() {
               </Link>
               <Link
                 href="/book-demo"
+                prefetch={false}
                 onClick={() => setMobileOpen(false)}
                 className="evada-gradient-cta inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-full px-4 py-3 text-[15px] font-extrabold text-white"
               >

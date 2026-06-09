@@ -1,5 +1,7 @@
+"use client";
+
 import Image from "next/image";
-import type { CSSProperties } from "react";
+import { useEffect, useRef, useState } from "react";
 
 const slides = [
   {
@@ -24,9 +26,66 @@ const slides = [
   },
 ];
 
+const SLIDE_INTERVAL_MS = 3600;
+const SLIDE_TRANSITION_MS = 620;
+
 export default function HeroDashboardCarousel() {
+  const [activeIndex, setActiveIndex] = useState(0);
+  const [previousIndex, setPreviousIndex] = useState<number | null>(null);
+  const carouselRef = useRef<HTMLDivElement | null>(null);
+  const clearPreviousTimer = useRef<number | null>(null);
+
+  useEffect(() => {
+    const canAdvanceCarousel = () => {
+      if (!document.querySelector(".evada-marketing-scroll-optimized.is-marketing-settled")) {
+        return false;
+      }
+
+      const section = carouselRef.current?.closest<HTMLElement>("[data-marketing-section='true']");
+
+      return !section || section.classList.contains("is-marketing-section-active");
+    };
+
+    const showNextSlide = () => {
+      if (document.hidden || !canAdvanceCarousel()) {
+        return;
+      }
+
+      setActiveIndex((currentIndex) => {
+        const nextIndex = (currentIndex + 1) % slides.length;
+
+        setPreviousIndex(currentIndex);
+
+        if (clearPreviousTimer.current !== null) {
+          window.clearTimeout(clearPreviousTimer.current);
+        }
+
+        clearPreviousTimer.current = window.setTimeout(() => {
+          setPreviousIndex(null);
+          clearPreviousTimer.current = null;
+        }, SLIDE_TRANSITION_MS);
+
+        return nextIndex;
+      });
+    };
+
+    const intervalId = window.setInterval(showNextSlide, SLIDE_INTERVAL_MS);
+
+    return () => {
+      window.clearInterval(intervalId);
+
+      if (clearPreviousTimer.current !== null) {
+        window.clearTimeout(clearPreviousTimer.current);
+      }
+    };
+  }, []);
+
+  const visibleIndexes =
+    previousIndex !== null && previousIndex !== activeIndex ? [previousIndex, activeIndex] : [activeIndex];
+
   return (
     <div
+      ref={carouselRef}
       className="hero-carousel-float relative mx-auto w-full max-w-[calc(100vw-2.5rem)] sm:max-w-[760px] lg:-mr-1 xl:-mr-3"
       role="img"
       aria-label="EVADA dashboard preview carousel"
@@ -35,19 +94,21 @@ export default function HeroDashboardCarousel() {
 
       <div className="hero-carousel-shell relative overflow-hidden rounded-[26px] border border-blue-100/80 bg-white/95 shadow-[0_24px_70px_rgba(37,99,235,0.12)] backdrop-blur">
         <div className="relative aspect-[1640/1124] w-full overflow-hidden">
-          {slides.map((slide, index) => {
+          {visibleIndexes.map((index) => {
+            const slide = slides[index];
+            const isActive = index === activeIndex;
+
             return (
               <div
-                key={slide.image}
-                className="hero-dashboard-slide absolute inset-0 grid place-items-center"
-                style={{ "--slide-delay": `${index * 3.5}s` } as CSSProperties}
+                key={`${slide.image}-${isActive ? "active" : "previous"}`}
+                className={`hero-dashboard-slide absolute inset-0 grid place-items-center ${isActive ? "is-active" : "is-previous"}`}
                 aria-hidden="true"
               >
                 <Image
                   src={slide.image}
                   alt=""
                   fill
-                  priority={index === 0}
+                  {...(index === 0 ? { priority: true } : { loading: "lazy" as const })}
                   sizes="(min-width: 1280px) 760px, (min-width: 1024px) 57vw, (min-width: 640px) 640px, calc(100vw - 2.5rem)"
                   className="object-cover"
                 />
