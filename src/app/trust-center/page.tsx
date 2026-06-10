@@ -4,7 +4,6 @@ import {
   ArrowRight,
   BadgeCheck,
   CheckCircle2,
-  LockKeyhole,
   ShieldCheck,
 } from "lucide-react";
 import FooterSection from "@/components/FooterSection";
@@ -255,94 +254,396 @@ function Eyebrow({ children }: { children: string }) {
   );
 }
 
-function SecurityOpsBadge({ badge }: { badge: SecurityHeroBadge }) {
+
+function SecurityCommandCoreIcon({
+  className = "",
+  idPrefix = "security-command",
+}: {
+  className?: string;
+  idPrefix?: string;
+}) {
+  const shieldFillId = `${idPrefix}-shield-fill`;
+  const shieldStrokeId = `${idPrefix}-shield-stroke`;
+  const lineId = `${idPrefix}-line`;
+  const glowId = `${idPrefix}-glow`;
+
+  return (
+    <svg
+      aria-hidden="true"
+      className={`security-command-icon ${className}`}
+      viewBox="0 0 190 210"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <defs>
+        <linearGradient id={shieldFillId} x1="28" y1="18" x2="162" y2="190" gradientUnits="userSpaceOnUse">
+          <stop stopColor="#22D3EE" />
+          <stop offset="0.46" stopColor="#2563EB" />
+          <stop offset="1" stopColor="#7C3AED" />
+        </linearGradient>
+
+        <linearGradient id={shieldStrokeId} x1="40" y1="18" x2="150" y2="188" gradientUnits="userSpaceOnUse">
+          <stop stopColor="rgba(255,255,255,0.98)" />
+          <stop offset="0.5" stopColor="rgba(191,239,255,0.94)" />
+          <stop offset="1" stopColor="rgba(237,233,254,0.94)" />
+        </linearGradient>
+
+        <linearGradient id={lineId} x1="54" y1="66" x2="136" y2="146" gradientUnits="userSpaceOnUse">
+          <stop stopColor="#FFFFFF" />
+          <stop offset="0.5" stopColor="#BFDBFE" />
+          <stop offset="1" stopColor="#FFFFFF" />
+        </linearGradient>
+
+        <filter id={glowId} x="-45%" y="-45%" width="190%" height="190%">
+          <feGaussianBlur stdDeviation="4.2" result="blur" />
+          <feMerge>
+            <feMergeNode in="blur" />
+            <feMergeNode in="SourceGraphic" />
+          </feMerge>
+        </filter>
+      </defs>
+
+      <path
+        className="security-command-shield-body"
+        d="M95 10.5L148 32.5V83.5C148 128.5 127.2 164.1 95 186.5C62.8 164.1 42 128.5 42 83.5V32.5L95 10.5Z"
+        fill={`url(#${shieldFillId})`}
+        stroke={`url(#${shieldStrokeId})`}
+        strokeWidth="4.4"
+        strokeLinejoin="round"
+        filter={`url(#${glowId})`}
+      />
+
+      <path
+        className="security-command-shield-inner"
+        d="M95 28L130 42.8V83.6C130 115.5 116.4 141.5 95 158.8C73.6 141.5 60 115.5 60 83.6V42.8L95 28Z"
+        fill="rgba(255,255,255,0.08)"
+        stroke="rgba(255,255,255,0.3)"
+        strokeWidth="1.7"
+        strokeLinejoin="round"
+      />
+
+      <path
+        className="security-command-radar-arc security-command-radar-arc-a"
+        d="M67 89C72.5 74.5 83 66.5 95 66.5C107 66.5 117.5 74.5 123 89"
+        stroke={`url(#${lineId})`}
+        strokeWidth="3.3"
+        strokeLinecap="round"
+      />
+
+      <path
+        className="security-command-radar-arc security-command-radar-arc-b"
+        d="M76 92C80.2 83.4 86.8 78.8 95 78.8C103.2 78.8 109.8 83.4 114 92"
+        stroke={`url(#${lineId})`}
+        strokeWidth="3.3"
+        strokeLinecap="round"
+      />
+
+      <path
+        className="security-command-lock-shackle"
+        d="M78 105V94C78 84.6 85.2 78 95 78C104.8 78 112 84.6 112 94V105"
+        stroke="white"
+        strokeWidth="4.4"
+        strokeLinecap="round"
+      />
+
+      <rect
+        className="security-command-lock-body"
+        x="70"
+        y="101"
+        width="50"
+        height="42"
+        rx="13"
+        fill="rgba(255,255,255,0.18)"
+        stroke="white"
+        strokeWidth="4.2"
+      />
+
+      <path
+        className="security-command-check"
+        d="M82.5 122.5L91.5 131.5L108.5 112.5"
+        stroke="white"
+        strokeWidth="4.8"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        filter={`url(#${glowId})`}
+      />
+
+      <path
+        className="security-command-circuit-line"
+        d="M64 151H48M126 151H142M95 154V174M58 72H44M146 72H132"
+        stroke="rgba(191,239,255,0.96)"
+        strokeWidth="3"
+        strokeLinecap="round"
+      />
+
+      <circle className="security-command-svg-node security-command-svg-node-a" cx="44" cy="72" r="4" fill="#A7F3FF" />
+      <circle className="security-command-svg-node security-command-svg-node-b" cx="146" cy="72" r="4" fill="#DDD6FE" />
+      <circle className="security-command-svg-node security-command-svg-node-c" cx="95" cy="174" r="4.2" fill="#BFDBFE" />
+    </svg>
+  );
+}
+
+function SecurityCommandCore({ compact = false }: { compact?: boolean }) {
+  return (
+    <div className={`security-command-core-float relative ${compact ? "h-[255px] w-[300px]" : "h-[300px] w-[330px]"}`}>
+      <div className="security-command-core-aurora" />
+
+      <div className="security-command-core-ring security-command-core-ring-a" />
+      <div className="security-command-core-ring security-command-core-ring-b" />
+      <div className="security-command-core-ring security-command-core-ring-c" />
+
+      <div className="security-command-beam security-command-beam-a" />
+      <div className="security-command-beam security-command-beam-b" />
+
+      <div className="security-command-base security-command-base-shadow" />
+      <div className="security-command-base security-command-base-back" />
+      <div className="security-command-base security-command-base-mid" />
+      <div className="security-command-base security-command-base-front" />
+
+      <div className={`security-command-core-shell ${compact ? "security-command-core-shell-compact" : ""}`}>
+        <span className="security-command-scan-ring" />
+        <span className="security-command-scan-ring security-command-scan-ring-b" />
+        <span className="security-command-orbit-dot security-command-orbit-dot-a" />
+        <span className="security-command-orbit-dot security-command-orbit-dot-b" />
+        <span className="security-command-orbit-dot security-command-orbit-dot-c" />
+
+        <SecurityCommandCoreIcon
+          idPrefix={compact ? "security-command-mobile" : "security-command-desktop"}
+          className={compact ? "h-[136px] w-[136px]" : "h-[154px] w-[154px]"}
+        />
+      </div>
+
+      <div className={`absolute left-1/2 z-40 -translate-x-1/2 text-center ${compact ? "bottom-[4px] w-[190px]" : "bottom-[8px] w-[220px]"}`}>
+        <p className={`${compact ? "text-[16px]" : "text-[18px]"} font-bold leading-none tracking-[-0.02em] text-[#071633]`}>
+          Security Core
+        </p>
+        <p className={`${compact ? "mt-1 text-[11px]" : "mt-1.5 text-[12px]"} font-semibold text-slate-600`}>
+          Trust, access and audit control
+        </p>
+        <span className="mx-auto mt-2.5 block h-[3px] w-24 rounded-full bg-[linear-gradient(90deg,#06B6D4,#2563EB,#7C3AED)]" />
+      </div>
+    </div>
+  );
+}
+
+function SecurityOpsBadge({ badge, index = 0, compact = false }: { badge: SecurityHeroBadge; index?: number; compact?: boolean }) {
   const Icon = badge.Icon;
   const isStatus = badge.variant === "status";
 
   return (
     <div
-      className={`security-ops-card absolute z-30 inline-flex min-h-12 items-center gap-3 whitespace-nowrap rounded-full border border-white/70 bg-white/90 px-5 py-2.5 text-[14px] font-bold text-[#0A1A3A] shadow-[0_18px_44px_rgba(37,99,235,0.16)] ring-1 ring-blue-100/60 backdrop-blur-xl ${isStatus ? "min-w-[224px] justify-center text-[15px] text-[#2563EB]" : ""} ${badge.className}`}
-      style={{ animationDelay: `${badge.delayMs ?? 0}ms` }}
+      className="security-command-badge-float"
+      style={{
+        animationDelay: `${badge.delayMs ?? index * 90}ms`,
+        animationDuration: `${6.8 + index * 0.24}s`,
+      }}
     >
-      <Icon aria-hidden="true" className="h-5 w-5 shrink-0 text-[#2563EB]" strokeWidth={2.2} />
-      {badge.showDot && <span className="h-2.5 w-2.5 shrink-0 rounded-full bg-emerald-400 shadow-[0_0_14px_rgba(52,211,153,0.9)]" />}
-      <span>{badge.label}</span>
+      <div
+        className={`security-command-badge group relative flex items-center gap-2.5 overflow-hidden border border-blue-100/80 bg-white/92 shadow-[0_16px_44px_rgba(37,99,235,0.105)] backdrop-blur-xl transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_22px_62px_rgba(37,99,235,0.16)] ${
+          compact
+            ? "min-h-[58px] rounded-[18px] px-3 py-2.5"
+            : isStatus
+              ? "min-h-[56px] w-[206px] justify-center rounded-full px-3.5 py-2.5"
+              : "min-h-[64px] w-[192px] rounded-[20px] px-3.5 py-3"
+        }`}
+      >
+        <span className="grid h-9 w-9 shrink-0 place-items-center rounded-full bg-[linear-gradient(135deg,#EEF5FF,#F5F3FF)] text-[#2563EB] shadow-[0_10px_22px_rgba(37,99,235,0.10)] ring-1 ring-blue-100 transition group-hover:shadow-[0_0_0_7px_rgba(34,211,238,0.08),0_14px_30px_rgba(37,99,235,0.15)]">
+          <Icon aria-hidden="true" className={`${compact ? "h-[17px] w-[17px]" : "h-[18px] w-[18px]"}`} strokeWidth={2.15} />
+        </span>
+
+        <span className="min-w-0">
+          <span className={`${compact ? "text-[12.5px]" : isStatus ? "text-[13px]" : "text-[12.5px]"} block font-bold leading-tight text-[#071633]`}>
+            {badge.label}
+          </span>
+
+          {!compact && !isStatus && (
+            <span className="mt-1 flex items-center gap-2 text-[9.5px] font-semibold uppercase tracking-[0.08em] text-slate-500">
+              <span className="h-2 w-2 rounded-full bg-emerald-400 shadow-[0_0_12px_rgba(52,211,153,0.85)]" />
+              Active control
+            </span>
+          )}
+
+          {!compact && isStatus && (
+            <span className="mt-1 flex items-center justify-center gap-2 text-[9.5px] font-semibold uppercase tracking-[0.08em] text-slate-500">
+              <span className="h-2 w-2 rounded-full bg-emerald-400 shadow-[0_0_12px_rgba(52,211,153,0.85)]" />
+              Live
+            </span>
+          )}
+        </span>
+      </div>
     </div>
   );
 }
 
 function SecurityHeroVisual() {
+  const badgeSlots: Array<{ left?: string; right?: string; top?: string; bottom?: string; transform?: string }> = [
+    { left: "50%", top: "5%", transform: "translateX(-50%)" },
+    { left: "4%", top: "22%" },
+    { right: "4%", top: "22%" },
+    { left: "0%", top: "49%" },
+    { right: "0%", top: "49%" },
+    { left: "7%", bottom: "12%" },
+    { right: "7%", bottom: "12%" },
+    { left: "50%", bottom: "1%", transform: "translateX(-50%)" },
+  ];
+
   return (
-    <div className="security-hero-visual relative mx-auto h-[540px] w-full max-w-full sm:h-[610px] sm:max-w-[800px] lg:-mt-1 xl:-mt-3" aria-hidden="true">
-      <div className="security-ops-aurora absolute inset-0" />
-      <div className="absolute left-1/2 top-1/2 h-[620px] w-[900px] -translate-x-1/2 -translate-y-1/2 scale-[0.48] sm:scale-[0.66] md:scale-[0.72] lg:scale-[0.76] xl:scale-[0.84] 2xl:scale-[0.9]">
-        <svg className="security-ops-orbits absolute inset-0 z-0 h-full w-full" viewBox="0 0 900 620" fill="none">
-          <defs>
-            <linearGradient id="security-ops-orbit-gradient" x1="118" y1="86" x2="742" y2="536" gradientUnits="userSpaceOnUse">
-              <stop stopColor="#06B6D4" />
-              <stop offset="0.46" stopColor="#2563EB" />
-              <stop offset="1" stopColor="#7C3AED" />
-            </linearGradient>
-            <radialGradient id="security-ops-core-gradient" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(380 282) rotate(90) scale(214)">
-              <stop stopColor="#FFFFFF" stopOpacity="0.65" />
-              <stop offset="0.34" stopColor="#2563EB" stopOpacity="0.78" />
-              <stop offset="0.74" stopColor="#7C3AED" stopOpacity="0.58" />
-              <stop offset="1" stopColor="#06B6D4" stopOpacity="0.22" />
-            </radialGradient>
-            <radialGradient id="security-ops-glow-gradient" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(470 306) rotate(90) scale(255)">
-              <stop stopColor="#FFFFFF" stopOpacity="0.82" />
-              <stop offset="0.24" stopColor="#38BDF8" stopOpacity="0.72" />
-              <stop offset="0.57" stopColor="#2563EB" stopOpacity="0.5" />
-              <stop offset="0.84" stopColor="#7C3AED" stopOpacity="0.38" />
-              <stop offset="1" stopColor="#FFFFFF" stopOpacity="0" />
-            </radialGradient>
-          </defs>
+    <div
+      className="security-hero-visual security-command-visual relative mx-auto w-full max-w-[800px] overflow-visible lg:mt-1 xl:mt-2"
+      aria-hidden="true"
+    >
+      <div className="hidden md:block">
+        <div className="security-command-shell relative h-[548px] w-full overflow-visible">
+          <div className="security-command-ambient absolute inset-[-6%] rounded-full" />
+          <div className="security-command-mesh absolute right-[2%] top-[3%] h-[235px] w-[310px]" />
+          <div className="security-command-mesh absolute bottom-[3%] left-[4%] h-[190px] w-[270px] rotate-180 opacity-55" />
 
-          <circle cx="470" cy="306" r="264" fill="url(#security-ops-glow-gradient)" opacity="0.9" />
-          <circle cx="470" cy="306" r="314" stroke="rgba(255,255,255,0.58)" strokeWidth="1.1" />
-          <circle cx="470" cy="306" r="282" stroke="rgba(255,255,255,0.42)" strokeDasharray="4 9" strokeWidth="1.1" />
-          <circle className="security-ops-dash-ring" cx="470" cy="306" r="238" stroke="url(#security-ops-orbit-gradient)" strokeDasharray="7 12" strokeWidth="1.8" opacity="0.85" />
-          <circle cx="470" cy="306" r="204" stroke="rgba(255,255,255,0.68)" strokeWidth="1.25" />
-          <circle className="security-ops-dash-ring security-ops-dash-ring-slow" cx="470" cy="306" r="166" stroke="rgba(255,255,255,0.7)" strokeDasharray="2 9" strokeWidth="1.1" />
-          <circle cx="470" cy="306" r="126" stroke="rgba(255,255,255,0.52)" strokeWidth="1.1" />
-          <circle cx="470" cy="306" r="82" stroke="rgba(255,255,255,0.42)" strokeWidth="1" />
+          <svg
+            className="pointer-events-none absolute inset-0 z-10 h-full w-full overflow-visible"
+            viewBox="0 0 820 565"
+            fill="none"
+            preserveAspectRatio="xMidYMid meet"
+          >
+            <defs>
+              <linearGradient id="securityCommandConnector" x1="92" y1="80" x2="728" y2="520" gradientUnits="userSpaceOnUse">
+                <stop stopColor="#06B6D4" />
+                <stop offset="0.48" stopColor="#2563EB" />
+                <stop offset="1" stopColor="#7C3AED" />
+              </linearGradient>
 
-          <path className="security-ops-signal security-ops-signal-c" d="M230 430C342 366 612 366 740 430" stroke="url(#security-ops-orbit-gradient)" strokeDasharray="5 13" strokeWidth="1.3" />
+              <filter id="securityCommandNodeGlow" x="-90%" y="-90%" width="280%" height="280%">
+                <feGaussianBlur stdDeviation="4.6" result="blur" />
+                <feMerge>
+                  <feMergeNode in="blur" />
+                  <feMergeNode in="SourceGraphic" />
+                </feMerge>
+              </filter>
+            </defs>
 
-          <path className="security-ops-badge-wire" d="M470 108V176" />
-          <path className="security-ops-badge-wire" d="M158 148V222C158 238 172 252 188 252H360" />
-          <path className="security-ops-badge-wire" d="M724 148V222C724 238 710 252 694 252H582" />
-          <path className="security-ops-badge-wire" d="M118 330H362" />
-          <path className="security-ops-badge-wire" d="M636 330H828" />
-          <path className="security-ops-badge-wire" d="M158 478V408C158 392 172 378 188 378H384" />
-          <path className="security-ops-badge-wire" d="M724 478V408C724 392 710 378 694 378H582" />
-          <path className="security-ops-badge-wire" d="M470 448V542" />
+            <ellipse cx="410" cy="294" rx="252" ry="188" fill="rgba(255,255,255,0.13)" />
+            <ellipse
+              className="security-command-orbit-path"
+              cx="410"
+              cy="294"
+              rx="260"
+              ry="192"
+              stroke="url(#securityCommandConnector)"
+              strokeWidth="1.8"
+              strokeDasharray="8 13"
+            />
+            <ellipse
+              className="security-command-orbit-path security-command-orbit-path-slow"
+              cx="410"
+              cy="294"
+              rx="184"
+              ry="134"
+              stroke="#60A5FA"
+              strokeWidth="1.25"
+              strokeDasharray="4 11"
+            />
+            <ellipse cx="410" cy="294" rx="130" ry="96" stroke="rgba(255,255,255,0.56)" strokeWidth="1.1" />
 
-          <path id="security-ops-text-top" d="M324 198A180 180 0 0 1 616 198" />
-          <text className="security-ops-ring-text" fill="#4F46E5" fontSize="14" fontWeight="800" letterSpacing="4.2">
-            <textPath href="#security-ops-text-top" startOffset="50%" textAnchor="middle">EVADA SECURITY OPERATIONS</textPath>
-          </text>
-          <path id="security-ops-text-bottom" d="M320 472A188 188 0 0 0 620 472" />
-          <text className="security-ops-ring-text" fill="#2563EB" fontSize="15" fontWeight="800" letterSpacing="4.4">
-            <textPath href="#security-ops-text-bottom" startOffset="50%" textAnchor="middle">TRUST - PROTECT - VALIDATE</textPath>
-          </text>
-        </svg>
+            <path className="security-command-connector" d="M410 102C410 144 410 180 410 226" stroke="url(#securityCommandConnector)" />
+            <path className="security-command-connector" d="M214 168C288 184 342 226 378 270" stroke="url(#securityCommandConnector)" style={{ animationDelay: "-0.8s" }} />
+            <path className="security-command-connector" d="M606 168C532 184 478 226 442 270" stroke="url(#securityCommandConnector)" style={{ animationDelay: "-1.6s" }} />
+            <path className="security-command-connector" d="M202 316C278 312 335 303 370 296" stroke="url(#securityCommandConnector)" style={{ animationDelay: "-2.4s" }} />
+            <path className="security-command-connector" d="M618 316C542 312 485 303 450 296" stroke="url(#securityCommandConnector)" style={{ animationDelay: "-3.2s" }} />
+            <path className="security-command-connector" d="M240 440C302 404 350 362 380 326" stroke="url(#securityCommandConnector)" style={{ animationDelay: "-4s" }} />
+            <path className="security-command-connector" d="M580 440C518 404 470 362 440 326" stroke="url(#securityCommandConnector)" style={{ animationDelay: "-4.8s" }} />
+            <path className="security-command-connector" d="M410 520C410 452 410 392 410 352" stroke="url(#securityCommandConnector)" style={{ animationDelay: "-5.6s" }} />
 
-        <div className="security-ops-core absolute left-[470px] top-[306px] z-20 -translate-x-1/2 -translate-y-1/2">
-          <div className="security-ops-core-pulse" />
-          <div className="security-ops-lock-shield">
-            <LockKeyhole className="h-24 w-24" strokeWidth={1.7} />
+            <path
+              className="security-command-connector security-command-connector-soft"
+              d="M142 286C232 136 588 136 678 286"
+              stroke="url(#securityCommandConnector)"
+              style={{ animationDelay: "-2s" }}
+            />
+            <path
+              className="security-command-connector security-command-connector-soft"
+              d="M138 356C236 492 584 492 682 356"
+              stroke="url(#securityCommandConnector)"
+              style={{ animationDelay: "-5s" }}
+            />
+
+            {([
+              [410, 102, "#2563EB"],
+              [214, 168, "#06B6D4"],
+              [606, 168, "#7C3AED"],
+              [202, 316, "#2563EB"],
+              [618, 316, "#7C3AED"],
+              [240, 440, "#06B6D4"],
+              [580, 440, "#7C3AED"],
+              [410, 520, "#2563EB"],
+              [410, 226, "#22D3EE"],
+              [378, 270, "#06B6D4"],
+              [442, 270, "#7C3AED"],
+              [410, 352, "#22D3EE"],
+            ] as Array<[number, number, string]>).map(([cx, cy, fill], index) => (
+              <g
+                key={`${cx}-${cy}`}
+                className="security-command-signal-node"
+                style={{ animationDelay: `${index * 0.14}s` }}
+              >
+                <circle cx={cx} cy={cy} r="12" fill={fill} opacity="0.14" />
+                <circle cx={cx} cy={cy} r="5" fill={fill} filter="url(#securityCommandNodeGlow)" />
+              </g>
+            ))}
+          </svg>
+
+          <span className="security-command-particle security-command-particle-a" />
+          <span className="security-command-particle security-command-particle-b" />
+          <span className="security-command-particle security-command-particle-c" />
+          <span className="security-command-particle security-command-particle-d" />
+          <span className="security-command-particle security-command-particle-e" />
+          <span className="security-command-particle security-command-particle-f" />
+
+          <div className="absolute left-1/2 top-[52%] z-30 -translate-x-1/2 -translate-y-1/2">
+            <SecurityCommandCore />
+          </div>
+
+          {securityHeroBadges.map((badge, index) => {
+            const slot = badgeSlots[index] ?? badgeSlots[0];
+
+            return (
+              <div
+                key={badge.label}
+                className="absolute z-40"
+                style={{
+                  left: slot.left,
+                  right: slot.right,
+                  top: slot.top,
+                  bottom: slot.bottom,
+                  transform: slot.transform,
+                }}
+              >
+                <SecurityOpsBadge badge={badge} index={index} />
+              </div>
+            );
+          })}
+        </div>
+      </div>
+
+      <div className="md:hidden">
+        <div className="relative overflow-hidden rounded-[28px] border border-blue-100/80 bg-white/72 p-4 shadow-[0_18px_48px_rgba(37,99,235,0.10)] backdrop-blur-xl">
+          <div className="security-command-ambient absolute inset-0 rounded-[28px]" />
+          <div className="relative mx-auto h-[255px] max-w-[320px]">
+            <div className="absolute left-1/2 top-1/2 z-10 -translate-x-1/2 -translate-y-1/2">
+              <SecurityCommandCore compact />
+            </div>
+          </div>
+
+          <div className="relative z-20 mt-3 grid grid-cols-1 gap-3 sm:grid-cols-2">
+            {securityHeroBadges.map((badge, index) => (
+              <SecurityOpsBadge key={badge.label} badge={badge} index={index} compact />
+            ))}
           </div>
         </div>
-
-        {securityHeroBadges.map((badge) => (
-          <SecurityOpsBadge key={badge.label} badge={badge} />
-        ))}
-
       </div>
     </div>
   );
 }
+
+
 
 function HeroSection() {
   return (
@@ -350,9 +651,9 @@ function HeroSection() {
       <div aria-hidden="true" className="absolute inset-0 bg-[radial-gradient(circle_at_14%_18%,rgba(255,255,255,0.78),transparent_35%),radial-gradient(circle_at_82%_12%,rgba(124,58,237,0.18),transparent_36%),radial-gradient(circle_at_78%_74%,rgba(34,211,238,0.15),transparent_34%),linear-gradient(90deg,rgba(255,255,255,0.86)_0%,rgba(248,251,255,0.58)_45%,rgba(124,58,237,0.22)_100%)]" />
       <div aria-hidden="true" className="security-grid-bg absolute inset-0 opacity-[0.24]" />
 
-      <div className="relative mx-auto grid w-full max-w-full min-w-0 grid-cols-1 items-center gap-10 sm:max-w-[1220px] lg:grid-cols-[0.43fr_0.57fr] xl:gap-12">
+      <div className="relative mx-auto grid w-full max-w-[calc(100vw-2.5rem)] min-w-0 grid-cols-1 items-center gap-10 sm:max-w-[1220px] lg:grid-cols-[0.43fr_0.57fr] xl:gap-12">
         <Reveal className="w-full min-w-0 max-w-full">
-          <div className="w-full max-w-full sm:max-w-[560px]">
+          <div className="w-full max-w-[calc(100vw-2.5rem)] sm:max-w-[560px]">
             <p className="inline-flex items-center gap-2 text-[11px] font-semibold uppercase tracking-[0.18em] text-[#2563EB]">
               <span className="h-2 w-2 rounded-full bg-[#04A9C7]" />
               Security and trust

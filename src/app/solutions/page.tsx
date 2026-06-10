@@ -336,21 +336,132 @@ function Eyebrow({ children }: { children: string }) {
   );
 }
 
+function AIValidationShieldIcon({ className = "" }: { className?: string }) {
+  return (
+    <svg
+      aria-hidden="true"
+      className={`solutions-ai-core-icon ${className}`}
+      viewBox="0 0 128 128"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <defs>
+        <linearGradient id="solutionsAiShieldFill" x1="22" y1="12" x2="106" y2="116" gradientUnits="userSpaceOnUse">
+          <stop stopColor="#22D3EE" />
+          <stop offset="0.48" stopColor="#2563EB" />
+          <stop offset="1" stopColor="#7C3AED" />
+        </linearGradient>
+
+        <linearGradient id="solutionsAiShieldStroke" x1="30" y1="10" x2="98" y2="116" gradientUnits="userSpaceOnUse">
+          <stop stopColor="rgba(255,255,255,0.98)" />
+          <stop offset="0.48" stopColor="rgba(191,239,255,0.96)" />
+          <stop offset="1" stopColor="rgba(237,233,254,0.94)" />
+        </linearGradient>
+
+        <filter id="solutionsAiIconGlow" x="-45%" y="-45%" width="190%" height="190%">
+          <feGaussianBlur stdDeviation="3.2" result="blur" />
+          <feMerge>
+            <feMergeNode in="blur" />
+            <feMergeNode in="SourceGraphic" />
+          </feMerge>
+        </filter>
+      </defs>
+
+      <path
+        className="solutions-ai-shield-body"
+        d="M64 10.5L98.5 24.8V54.6C98.5 80.8 85.1 101.3 64 113.5C42.9 101.3 29.5 80.8 29.5 54.6V24.8L64 10.5Z"
+        fill="url(#solutionsAiShieldFill)"
+        stroke="url(#solutionsAiShieldStroke)"
+        strokeWidth="4"
+        strokeLinejoin="round"
+        filter="url(#solutionsAiIconGlow)"
+      />
+
+      <path
+        className="solutions-ai-shield-inner"
+        d="M64 21L88.5 31.2V55.2C88.5 75.2 79.5 91.4 64 101.2C48.5 91.4 39.5 75.2 39.5 55.2V31.2L64 21Z"
+        fill="rgba(255,255,255,0.08)"
+        stroke="rgba(255,255,255,0.28)"
+        strokeWidth="1.5"
+        strokeLinejoin="round"
+      />
+
+      <path
+        className="solutions-ai-neural-line"
+        d="M50.5 52.5C45.3 52.5 41.5 56.2 41.5 61.2C41.5 65.1 43.8 68.3 47.1 69.7C45.7 75.8 50.1 81 56.4 81"
+        stroke="white"
+        strokeWidth="3.6"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+
+      <path
+        className="solutions-ai-neural-line solutions-ai-neural-line-delay-a"
+        d="M77.5 52.5C82.7 52.5 86.5 56.2 86.5 61.2C86.5 65.1 84.2 68.3 80.9 69.7C82.3 75.8 77.9 81 71.6 81"
+        stroke="white"
+        strokeWidth="3.6"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+
+      <path
+        className="solutions-ai-neural-line solutions-ai-neural-line-delay-b"
+        d="M50.5 52.5C50.5 43.9 56.2 38.5 64 38.5C71.8 38.5 77.5 43.9 77.5 52.5M64 38.5V88M55 62H46.5M81.5 62H73M56.4 81C61.2 81 64 77.5 64 72.5M71.6 81C66.8 81 64 77.5 64 72.5"
+        stroke="white"
+        strokeWidth="3.2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+
+      <path
+        className="solutions-ai-check-mark"
+        d="M52.8 69.2L60.8 77.2L76.8 58.8"
+        stroke="white"
+        strokeWidth="4.6"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        filter="url(#solutionsAiIconGlow)"
+      />
+
+      <path
+        className="solutions-ai-circuit-line"
+        d="M44 88H55M73 88H84M64 88V100M44 72H35.5M92.5 72H84"
+        stroke="rgba(191,239,255,0.96)"
+        strokeWidth="3"
+        strokeLinecap="round"
+      />
+
+      <circle className="solutions-ai-node solutions-ai-node-a" cx="35.5" cy="72" r="3.7" fill="#A7F3FF" />
+      <circle className="solutions-ai-node solutions-ai-node-b" cx="92.5" cy="72" r="3.7" fill="#DDD6FE" />
+      <circle className="solutions-ai-node solutions-ai-node-c" cx="64" cy="100" r="3.9" fill="#BFDBFE" />
+    </svg>
+  );
+}
+
 function SolutionsHeroVisual() {
   return (
-    <div className="solutions-hero-visual relative mx-auto aspect-[1.35/1] min-h-[560px] w-full max-w-[820px] overflow-visible pb-24 sm:min-h-[590px] lg:min-h-[610px] lg:-mt-3 xl:-mt-5" aria-hidden="true">
-      <div className="solutions-hero-stage absolute left-1/2 top-1/2 h-[620px] w-[820px] -translate-x-1/2 -translate-y-1/2 scale-[0.38] sm:scale-[0.62] md:scale-[0.72] lg:scale-[0.78] xl:scale-[0.84] 2xl:scale-[0.88]">
+    <div
+      className="solutions-hero-visual relative mx-auto aspect-[1.35/1] min-h-[535px] w-full max-w-[820px] overflow-visible pb-20 sm:min-h-[560px] lg:min-h-[585px] lg:-mt-3 xl:-mt-5"
+      aria-hidden="true"
+    >
+      <div className="solutions-hero-stage absolute left-1/2 top-1/2 h-[600px] w-[820px] -translate-x-1/2 -translate-y-1/2 scale-[0.38] sm:scale-[0.62] md:scale-[0.72] lg:scale-[0.78] xl:scale-[0.84] 2xl:scale-[0.88]">
         <div className="solutions-hex-backdrop absolute inset-0" />
         <div className="solutions-hex-dot-field absolute right-[-3%] top-[-10%] h-[260px] w-[320px]" />
         <div className="solutions-hex-dot-field absolute bottom-[-8%] right-[8%] h-[260px] w-[320px] rotate-180 opacity-70" />
 
-        <svg className="pointer-events-none absolute inset-0 z-0 h-full w-full overflow-visible" viewBox="0 0 820 620" fill="none" preserveAspectRatio="xMidYMid meet">
+        <svg
+          className="pointer-events-none absolute inset-0 z-10 h-full w-full overflow-visible"
+          viewBox="0 0 820 600"
+          fill="none"
+          preserveAspectRatio="xMidYMid meet"
+        >
           <defs>
-            <linearGradient id="solutions-hero-line" x1="104" y1="132" x2="720" y2="494" gradientUnits="userSpaceOnUse">
+            <linearGradient id="solutions-hero-line" x1="90" y1="120" x2="730" y2="500" gradientUnits="userSpaceOnUse">
               <stop stopColor="#06B6D4" />
               <stop offset="0.46" stopColor="#2563EB" />
               <stop offset="1" stopColor="#8B5CF6" />
             </linearGradient>
+
             <filter id="solutions-node-glow" x="-80%" y="-80%" width="260%" height="260%">
               <feGaussianBlur stdDeviation="4" result="blur" />
               <feMerge>
@@ -360,30 +471,55 @@ function SolutionsHeroVisual() {
             </filter>
           </defs>
 
-          <ellipse cx="410" cy="282" rx="230" ry="162" stroke="rgba(255,255,255,0.56)" strokeWidth="1.2" />
-          <ellipse className="evada-dash-flow opacity-40" cx="410" cy="282" rx="174" ry="116" stroke="#60A5FA" strokeWidth="1.4" strokeDasharray="4 10" />
-          <ellipse className="evada-dash-flow opacity-55" cx="410" cy="282" rx="278" ry="202" stroke="url(#solutions-hero-line)" strokeWidth="1.8" strokeDasharray="8 12" />
+          <ellipse cx="410" cy="286" rx="230" ry="158" stroke="rgba(255,255,255,0.54)" strokeWidth="1.2" />
+          <ellipse
+            className="solutions-flow-orbit"
+            cx="410"
+            cy="286"
+            rx="178"
+            ry="114"
+            stroke="#60A5FA"
+            strokeWidth="1.4"
+            strokeDasharray="4 10"
+          />
+          <ellipse
+            className="solutions-flow-orbit solutions-flow-orbit-slow"
+            cx="410"
+            cy="286"
+            rx="278"
+            ry="198"
+            stroke="url(#solutions-hero-line)"
+            strokeWidth="1.8"
+            strokeDasharray="8 12"
+          />
 
-          <path className="solutions-blue-connector" d="M410 108C410 126 410 142 410 162" stroke="url(#solutions-hero-line)" />
-          <path className="solutions-blue-connector solutions-blue-connector-delay-a" d="M252 214C282 206 306 195 328 194" stroke="url(#solutions-hero-line)" />
-          <path className="solutions-blue-connector solutions-blue-connector-delay-b" d="M492 194C520 196 538 206 566 214" stroke="url(#solutions-hero-line)" />
-          <path className="solutions-blue-connector solutions-blue-connector-delay-c" d="M252 352C284 348 312 322 326 298" stroke="url(#solutions-hero-line)" />
-          <path className="solutions-blue-connector solutions-blue-connector-delay-d" d="M494 298C508 322 536 348 568 352" stroke="url(#solutions-hero-line)" />
-          <path className="solutions-blue-connector solutions-blue-connector-delay-e" d="M388 340C374 382 334 430 286 456" stroke="url(#solutions-hero-line)" />
-          <path className="solutions-blue-connector solutions-blue-connector-delay-f" d="M432 340C448 382 494 430 546 456" stroke="url(#solutions-hero-line)" />
+          <path className="solutions-flow-connector" d="M410 88C410 122 410 150 410 184" stroke="url(#solutions-hero-line)" />
+          <path className="solutions-flow-connector solutions-flow-connector-delay-a" d="M252 170C302 178 335 218 357 256" stroke="url(#solutions-hero-line)" />
+          <path className="solutions-flow-connector solutions-flow-connector-delay-b" d="M568 170C518 178 485 218 463 256" stroke="url(#solutions-hero-line)" />
+          <path className="solutions-flow-connector solutions-flow-connector-delay-c" d="M252 366C302 358 334 330 357 306" stroke="url(#solutions-hero-line)" />
+          <path className="solutions-flow-connector solutions-flow-connector-delay-d" d="M568 366C518 358 486 330 463 306" stroke="url(#solutions-hero-line)" />
+          <path className="solutions-flow-connector solutions-flow-connector-delay-e" d="M314 474C350 426 378 376 394 338" stroke="url(#solutions-hero-line)" />
+          <path className="solutions-flow-connector solutions-flow-connector-delay-f" d="M506 474C470 426 442 376 426 338" stroke="url(#solutions-hero-line)" />
+
+          <path className="solutions-flow-connector-soft" d="M174 300C260 160 560 160 646 300" stroke="url(#solutions-hero-line)" />
+          <path className="solutions-flow-connector-soft solutions-flow-connector-delay-c" d="M172 404C270 520 550 520 648 404" stroke="url(#solutions-hero-line)" />
 
           {([
-            [410, 162, "#2563EB"],
-            [328, 194, "#2563EB"],
-            [492, 194, "#7C3AED"],
-            [326, 298, "#06B6D4"],
-            [494, 298, "#7C3AED"],
-            [286, 456, "#06B6D4"],
-            [546, 456, "#7C3AED"],
+            [410, 184, "#2563EB"],
+            [357, 256, "#2563EB"],
+            [463, 256, "#7C3AED"],
+            [357, 306, "#06B6D4"],
+            [463, 306, "#7C3AED"],
+            [314, 474, "#06B6D4"],
+            [506, 474, "#7C3AED"],
           ] as Array<[number, number, string]>).map(([cx, cy, fill], index) => (
-            <g key={`${cx}-${cy}`} className="evada-node-pulse" style={{ "--delay": `${index * 0.16}s` } as CSSProperties}>
-              <circle cx={cx} cy={cy} r="12" fill={fill as string} opacity="0.14" />
-              <circle cx={cx} cy={cy} r="5.5" fill={fill as string} filter="url(#solutions-node-glow)" />
+            <g
+              key={`${cx}-${cy}`}
+              className="solutions-flow-node"
+              style={{ "--delay": `${index * 0.15}s` } as CSSProperties}
+            >
+              <circle cx={cx} cy={cy} r="13" fill={fill} opacity="0.13" />
+              <circle cx={cx} cy={cy} r="5.5" fill={fill} filter="url(#solutions-node-glow)" />
             </g>
           ))}
         </svg>
@@ -394,7 +530,7 @@ function SolutionsHeroVisual() {
           return (
             <div
               key={card.title}
-              className="absolute z-30"
+              className="absolute z-40"
               style={{
                 left: `${card.x}%`,
                 top: `${card.y}%`,
@@ -402,28 +538,33 @@ function SolutionsHeroVisual() {
               }}
             >
               <div
-                className="evada-float-card group relative min-h-[150px] w-[240px] rounded-[24px] border border-blue-100/80 bg-white/90 p-4 shadow-[0_22px_62px_rgba(37,99,235,0.12)] backdrop-blur-xl transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_28px_78px_rgba(37,99,235,0.16)]"
+                className="evada-float-card"
                 style={
                   {
                     "--delay": `${index * 0.2}s`,
-                    "--duration": `${7 + index * 0.35}s`,
+                    "--duration": `${7.2 + index * 0.35}s`,
                   } as CSSProperties
                 }
               >
-                <div className="flex gap-3.5">
-                  <span className="grid h-12 w-12 shrink-0 place-items-center rounded-full border border-blue-100 bg-white shadow-[inset_0_0_18px_rgba(37,99,235,0.08),0_12px_26px_rgba(37,99,235,0.11)] transition group-hover:shadow-[inset_0_0_22px_rgba(34,211,238,0.16),0_15px_32px_rgba(37,99,235,0.16)]">
-                    <Icon className={`h-6 w-6 ${card.iconClassName}`} strokeWidth={2.05} />
+                <div className="solutions-hero-card group relative min-h-[124px] w-[228px] rounded-[24px] border border-blue-100/80 p-4 shadow-[0_18px_48px_rgba(37,99,235,0.10)] backdrop-blur-xl transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_24px_64px_rgba(37,99,235,0.16)]">
+                  <div className="flex gap-3.5">
+                    <span className="grid h-12 w-12 shrink-0 place-items-center rounded-full border border-blue-100 bg-white shadow-[inset_0_0_16px_rgba(37,99,235,0.08),0_10px_22px_rgba(37,99,235,0.10)] transition group-hover:shadow-[inset_0_0_20px_rgba(34,211,238,0.18),0_14px_28px_rgba(37,99,235,0.16)]">
+                      <Icon className={`h-[22px] w-[22px] ${card.iconClassName}`} strokeWidth={2.1} />
+                    </span>
+
+                    <span className="min-w-0 pr-7">
+                      <span className="block text-[17px] font-bold leading-tight tracking-[-0.02em] text-slate-950">{card.title}</span>
+                      <span className={`mt-1.5 block h-[3px] w-10 rounded-full bg-gradient-to-r ${card.accent}`} />
+                      <span className="mt-1.5 block text-[13.2px] leading-[1.45] text-slate-600">{card.text}</span>
+                    </span>
+                  </div>
+
+                  <span className={`absolute bottom-3 right-3 grid h-6 w-6 place-items-center rounded-full border border-blue-100 bg-white ${card.iconClassName} shadow-sm transition group-hover:translate-x-1`}>
+                    <ArrowRight aria-hidden="true" className="h-3.5 w-3.5" strokeWidth={2.15} />
                   </span>
-                  <span className="min-w-0">
-                    <span className="block text-[20px] font-bold tracking-[-0.02em] text-slate-950">{card.title}</span>
-                    <span className={`mt-2.5 block h-[3px] w-11 rounded-full bg-gradient-to-r ${card.accent}`} />
-                    <span className="mt-2.5 block text-[12.5px] leading-5 text-slate-600">{card.text}</span>
-                  </span>
+
+                  <span className={`absolute inset-x-4 bottom-0 h-[2px] rounded-full bg-gradient-to-r ${card.accent}`} />
                 </div>
-                <span className={`absolute bottom-4 right-4 grid h-8 w-8 place-items-center rounded-full border border-blue-100 bg-white ${card.iconClassName} shadow-sm transition group-hover:translate-x-1`}>
-                  <ArrowRight aria-hidden="true" className="h-4 w-4" strokeWidth={2.1} />
-                </span>
-                <span className={`absolute inset-x-5 bottom-0 h-[2px] rounded-full bg-gradient-to-r ${card.accent}`} />
               </div>
             </div>
           );
@@ -435,7 +576,7 @@ function SolutionsHeroVisual() {
           return (
             <div
               key={tag.title}
-              className="absolute z-30"
+              className="absolute z-40"
               style={{
                 left: `${tag.x}%`,
                 top: `${tag.y}%`,
@@ -443,7 +584,7 @@ function SolutionsHeroVisual() {
               }}
             >
               <div
-                className="evada-float-small flex w-[192px] items-center gap-3 rounded-[18px] border border-blue-100/70 bg-white/85 p-3.5 shadow-[0_16px_44px_rgba(37,99,235,0.09)] backdrop-blur-xl"
+                className="evada-float-small"
                 style={
                   {
                     "--delay": `${index * 0.25}s`,
@@ -451,48 +592,69 @@ function SolutionsHeroVisual() {
                   } as CSSProperties
                 }
               >
-                <span className="grid h-10 w-10 shrink-0 place-items-center rounded-full bg-[linear-gradient(135deg,#EEF5FF,#F5F3FF)] ring-1 ring-blue-100">
-                  <Icon className={`h-5 w-5 ${tag.accent}`} strokeWidth={2.1} />
-                </span>
-                <span className="min-w-0">
-                  <span className="block text-[13px] font-bold leading-tight text-slate-950">{tag.title}</span>
-                  <span className="mt-1 block text-[11px] leading-4 text-slate-600">{tag.text}</span>
-                </span>
+                <div className="solutions-support-card flex w-[156px] items-center gap-2 rounded-[14px] border border-blue-100/70 p-2.5 shadow-[0_14px_38px_rgba(37,99,235,0.085)] backdrop-blur-xl">
+                  <span className="grid h-8 w-8 shrink-0 place-items-center rounded-full bg-[linear-gradient(135deg,#EEF5FF,#F5F3FF)] ring-1 ring-blue-100">
+                    <Icon className={`h-4 w-4 ${tag.accent}`} strokeWidth={2.1} />
+                  </span>
+
+                  <span className="min-w-0">
+                    <span className="block text-[11.2px] font-bold leading-tight text-slate-950">{tag.title}</span>
+                    <span className="mt-0.5 block text-[9.5px] leading-[1.32] text-slate-600">{tag.text}</span>
+                  </span>
+                </div>
               </div>
             </div>
           );
         })}
 
-        <div className="solutions-hex-system absolute left-1/2 top-[288px] z-10 h-[350px] w-[350px] -translate-x-1/2 -translate-y-1/2">
-          <div className="solutions-hex-light" />
-          <div className="solutions-hex-column solutions-hex-column-a" />
-          <div className="solutions-hex-column solutions-hex-column-b" />
-          <div className="solutions-hex-platform solutions-hex-platform-back" />
-          <div className="solutions-hex-platform solutions-hex-platform-mid" />
-          <div className="solutions-hex-platform solutions-hex-platform-front" />
-          <div className="solutions-hex-core">
-            <div className="solutions-hex-core-ring solutions-hex-core-ring-a" />
-            <div className="solutions-hex-core-ring solutions-hex-core-ring-b" />
-            <div className="solutions-hex-core-ring solutions-hex-core-ring-c" />
-            <div className="solutions-hex-icon">
-              <ShieldCheck aria-hidden="true" className="h-20 w-20" strokeWidth={2.15} />
+        <div className="solutions-core-system absolute left-1/2 top-[292px] z-30 h-[320px] w-[320px] -translate-x-1/2 -translate-y-1/2">
+          <div className="solutions-core-float relative h-full w-full">
+            <div className="solutions-core-aurora" />
+            <div className="solutions-core-orbit solutions-core-orbit-a" />
+            <div className="solutions-core-orbit solutions-core-orbit-b" />
+            <div className="solutions-core-orbit solutions-core-orbit-c" />
+
+            <div className="solutions-core-beam solutions-core-beam-a" />
+            <div className="solutions-core-beam solutions-core-beam-b" />
+
+            <div className="solutions-core-platform solutions-core-platform-shadow" />
+            <div className="solutions-core-platform solutions-core-platform-back" />
+            <div className="solutions-core-platform solutions-core-platform-mid" />
+            <div className="solutions-core-platform solutions-core-platform-front" />
+
+            <div className="solutions-core-shell">
+              <span className="solutions-core-scan-ring" />
+              <span className="solutions-core-scan-ring solutions-core-scan-ring-b" />
+              <span className="solutions-core-orbit-dot solutions-core-orbit-dot-a" />
+              <span className="solutions-core-orbit-dot solutions-core-orbit-dot-b" />
+              <span className="solutions-core-orbit-dot solutions-core-orbit-dot-c" />
+
+              <div className="solutions-core-icon-shell">
+                <AIValidationShieldIcon className="h-[132px] w-[132px]" />
+              </div>
             </div>
           </div>
         </div>
 
-        <div className="absolute bottom-[-76px] left-1/2 z-40 w-[104%] -translate-x-1/2">
-          <div className="grid grid-cols-5 rounded-[22px] border border-blue-100/80 bg-white/90 px-4 py-3.5 shadow-[0_18px_54px_rgba(37,99,235,0.11)] backdrop-blur-xl">
+        <div className="absolute bottom-[-56px] left-1/2 z-40 w-[92%] -translate-x-1/2">
+          <div className="grid grid-cols-5 rounded-[16px] border border-blue-100/80 bg-white/90 px-2.5 py-2 shadow-[0_15px_44px_rgba(37,99,235,0.10)] backdrop-blur-xl">
             {heroCapabilities.map((capability) => {
               const Icon = capability.Icon;
 
               return (
-                <div key={capability.title} className="flex items-center gap-2.5 border-slate-200/80 px-2 first:pl-0 last:pr-0 [&:not(:first-child)]:border-l">
-                  <span className="grid h-9 w-9 shrink-0 place-items-center rounded-full bg-white shadow-[0_10px_20px_rgba(37,99,235,0.09)] ring-1 ring-blue-100">
-                    <Icon className={`h-[18px] w-[18px] ${capability.iconClassName}`} strokeWidth={2.1} />
+                <div
+                  key={capability.title}
+                  className="flex items-center gap-1.5 border-slate-200/80 px-1 first:pl-0 last:pr-0 [&:not(:first-child)]:border-l"
+                >
+                  <span className="grid h-7 w-7 shrink-0 place-items-center rounded-full bg-white shadow-[0_8px_18px_rgba(37,99,235,0.08)] ring-1 ring-blue-100">
+                    <Icon className={`h-[15px] w-[15px] ${capability.iconClassName}`} strokeWidth={2.1} />
                   </span>
+
                   <span className="min-w-0">
-                    <span className="block whitespace-nowrap text-[11px] font-bold leading-tight text-slate-950">{capability.title}</span>
-                    <span className="mt-1 block text-[9.5px] leading-[1.3] text-slate-600">{capability.text}</span>
+                    <span className="block whitespace-nowrap text-[9.5px] font-bold leading-tight text-slate-950">
+                      {capability.title}
+                    </span>
+                    <span className="mt-0.5 block text-[8.1px] leading-[1.22] text-slate-600">{capability.text}</span>
                   </span>
                 </div>
               );
@@ -504,17 +666,18 @@ function SolutionsHeroVisual() {
   );
 }
 
+
 function HeroSection() {
   return (
     <section className="evada-home-hero relative overflow-x-clip overflow-y-visible bg-white px-5 pb-16 pt-7 sm:px-8 sm:pb-20 sm:pt-9 lg:px-10 lg:pb-20 lg:pt-10">
       <div aria-hidden="true" className="absolute inset-0 bg-[radial-gradient(circle_at_14%_16%,rgba(37,99,235,0.12),transparent_35%),radial-gradient(circle_at_80%_14%,rgba(124,58,237,0.14),transparent_34%),radial-gradient(circle_at_84%_70%,rgba(34,211,238,0.13),transparent_32%),linear-gradient(180deg,#FFFFFF_0%,#F8FBFF_58%,#FFFFFF_100%)]" />
       <div aria-hidden="true" className="solutions-grid-bg absolute inset-0 opacity-70" />
 
-      <div className="relative mx-auto grid w-full max-w-full min-w-0 grid-cols-1 items-center gap-10 sm:max-w-[1220px] lg:grid-cols-[0.48fr_0.52fr] xl:gap-12">
+      <div className="relative mx-auto grid w-full max-w-[calc(100vw-2.5rem)] min-w-0 grid-cols-1 items-center gap-10 sm:max-w-[1220px] lg:grid-cols-[0.43fr_0.57fr] xl:gap-12">
         <Reveal className="w-full min-w-0 max-w-full">
-          <div className="w-full max-w-full sm:max-w-[640px]">
+          <div className="w-full max-w-[calc(100vw-2.5rem)] sm:max-w-[560px]">
             <Eyebrow>SOLUTIONS</Eyebrow>
-            <h1 className="mt-5 max-w-full break-words text-[clamp(2rem,8.5vw,2.85rem)] font-bold leading-[1.07] tracking-[-0.035em] text-slate-950 sm:text-[46px] lg:text-[clamp(2.85rem,4.1vw,3.45rem)]">
+            <h1 className="mt-5 max-w-full break-words text-[34px] font-bold leading-[1.07] tracking-[-0.035em] text-slate-950 sm:text-[46px] lg:text-[clamp(3rem,4.55vw,3.75rem)]">
               <span className="block">Purpose-built</span>
               <span className="block whitespace-nowrap [overflow-wrap:normal] [word-break:normal]">
                 validation <span className="text-[0.84em] sm:text-[0.88em] lg:text-[0.9em]">workflows</span>

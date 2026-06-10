@@ -185,9 +185,9 @@ function SectionIntro({ eyebrow, title, text }: { eyebrow?: string; title: strin
 function HeroSection() {
   return (
     <section className="evada-home-hero relative overflow-hidden bg-white px-5 pb-10 pt-7 sm:px-8 sm:pb-12 sm:pt-9 lg:px-10 lg:pb-16 lg:pt-10">
-      <div className="relative mx-auto grid w-full max-w-full min-w-0 grid-cols-1 items-center gap-10 sm:max-w-[1220px] lg:grid-cols-[0.43fr_0.57fr] xl:gap-12">
+      <div className="relative mx-auto grid w-full max-w-[calc(100vw-2.5rem)] min-w-0 grid-cols-1 items-center gap-10 sm:max-w-[1220px] lg:grid-cols-[0.43fr_0.57fr] xl:gap-12">
         <Reveal className="w-full min-w-0 max-w-full">
-          <div className="w-full max-w-full sm:max-w-[560px]">
+          <div className="w-full max-w-[calc(100vw-2.5rem)] sm:max-w-[560px]">
             <p className="inline-flex items-center gap-2 text-[11px] font-semibold uppercase tracking-[0.18em] text-[#2563EB]">
               <span className="h-2 w-2 rounded-full bg-[#04A9C7]" />
               Company
@@ -198,7 +198,7 @@ function HeroSection() {
               <span className="block">with</span>
               <span className="block bg-[linear-gradient(90deg,#6D49F4,#2563EB,#04A9C7)] bg-clip-text text-transparent">human expertise</span>
             </h1>
-            <p className="mt-5 w-full max-w-[540px] text-[15px] font-normal leading-[1.7] text-slate-600 sm:text-[16px]">
+            <p className="mt-5 w-full max-w-full text-[15px] leading-[1.7] text-slate-600 sm:max-w-[540px] sm:text-[16px]">
               At EVADA, we help modern security teams validate smarter, operate with trust and turn findings into controlled action through AI-supported workflows and human expertise.
             </p>
 

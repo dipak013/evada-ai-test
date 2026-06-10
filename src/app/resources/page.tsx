@@ -1,4 +1,5 @@
 import Link from "next/link";
+import type { CSSProperties } from "react";
 import type { LucideIcon } from "lucide-react";
 import {
   ArrowRight,
@@ -170,163 +171,469 @@ function MiniArrowButton({ label, direction }: { label: string; direction: "left
   );
 }
 
+function ResourcesKnowledgeHubIcon({
+  className = "",
+  idPrefix = "resources-knowledge-hub",
+}: {
+  className?: string;
+  idPrefix?: string;
+}) {
+  const boardFillId = `${idPrefix}-board-fill`;
+  const boardStrokeId = `${idPrefix}-board-stroke`;
+  const lineId = `${idPrefix}-line`;
+  const glowId = `${idPrefix}-glow`;
+
+  return (
+    <svg
+      aria-hidden="true"
+      className={`resources-nexus-core-icon ${className}`}
+      viewBox="0 0 190 190"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <defs>
+        <linearGradient id={boardFillId} x1="34" y1="34" x2="154" y2="154" gradientUnits="userSpaceOnUse">
+          <stop stopColor="#22D3EE" />
+          <stop offset="0.48" stopColor="#2563EB" />
+          <stop offset="1" stopColor="#7C3AED" />
+        </linearGradient>
+
+        <linearGradient id={boardStrokeId} x1="34" y1="34" x2="154" y2="154" gradientUnits="userSpaceOnUse">
+          <stop stopColor="rgba(255,255,255,0.98)" />
+          <stop offset="0.5" stopColor="rgba(191,239,255,0.94)" />
+          <stop offset="1" stopColor="rgba(237,233,254,0.94)" />
+        </linearGradient>
+
+        <linearGradient id={lineId} x1="50" y1="58" x2="140" y2="138" gradientUnits="userSpaceOnUse">
+          <stop stopColor="#FFFFFF" />
+          <stop offset="0.5" stopColor="#BFDBFE" />
+          <stop offset="1" stopColor="#FFFFFF" />
+        </linearGradient>
+
+        <filter id={glowId} x="-45%" y="-45%" width="190%" height="190%">
+          <feGaussianBlur stdDeviation="4.2" result="blur" />
+          <feMerge>
+            <feMergeNode in="blur" />
+            <feMergeNode in="SourceGraphic" />
+          </feMerge>
+        </filter>
+      </defs>
+
+      <rect
+        className="resources-nexus-board"
+        x="34"
+        y="38"
+        width="122"
+        height="112"
+        rx="30"
+        fill={`url(#${boardFillId})`}
+        stroke={`url(#${boardStrokeId})`}
+        strokeWidth="4"
+        filter={`url(#${glowId})`}
+      />
+
+      <rect
+        className="resources-nexus-board-inner"
+        x="48"
+        y="52"
+        width="94"
+        height="84"
+        rx="23"
+        fill="rgba(255,255,255,0.08)"
+        stroke="rgba(255,255,255,0.3)"
+        strokeWidth="1.6"
+      />
+
+      <path
+        className="resources-nexus-page resources-nexus-page-a"
+        d="M63 68H91C97 68 101 72 101 78V124C101 128 98 131 94 131H68C62 131 58 127 58 121V73C58 70.2 60.2 68 63 68Z"
+        fill="rgba(255,255,255,0.18)"
+        stroke="white"
+        strokeWidth="2.8"
+        strokeLinejoin="round"
+      />
+
+      <path
+        className="resources-nexus-page resources-nexus-page-b"
+        d="M99 68H127C129.8 68 132 70.2 132 73V121C132 127 128 131 122 131H96C92 131 89 128 89 124V78C89 72 93 68 99 68Z"
+        fill="rgba(255,255,255,0.13)"
+        stroke="white"
+        strokeWidth="2.8"
+        strokeLinejoin="round"
+      />
+
+      <path
+        className="resources-nexus-page-spine"
+        d="M95 75V128"
+        stroke={`url(#${lineId})`}
+        strokeWidth="3"
+        strokeLinecap="round"
+      />
+
+      <path
+        className="resources-nexus-copy-line resources-nexus-copy-line-a"
+        d="M69 84H86M69 97H86M69 110H82"
+        stroke={`url(#${lineId})`}
+        strokeWidth="3"
+        strokeLinecap="round"
+      />
+
+      <path
+        className="resources-nexus-copy-line resources-nexus-copy-line-b"
+        d="M106 84H123M106 97H123M106 110H118"
+        stroke={`url(#${lineId})`}
+        strokeWidth="3"
+        strokeLinecap="round"
+      />
+
+      <circle
+        className="resources-nexus-search-lens"
+        cx="119"
+        cy="116"
+        r="19"
+        fill="rgba(255,255,255,0.16)"
+        stroke="white"
+        strokeWidth="4"
+        filter={`url(#${glowId})`}
+      />
+
+      <path
+        className="resources-nexus-search-handle"
+        d="M132 129L145 142"
+        stroke="white"
+        strokeWidth="5"
+        strokeLinecap="round"
+        filter={`url(#${glowId})`}
+      />
+
+      <path
+        className="resources-nexus-check"
+        d="M110.5 116.5L117 123L129 109"
+        stroke="white"
+        strokeWidth="3.8"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+
+      <path
+        className="resources-nexus-circuit"
+        d="M58 144H45M132 144H145M95 146V162M50 86H37M153 86H140"
+        stroke="rgba(191,239,255,0.96)"
+        strokeWidth="3"
+        strokeLinecap="round"
+      />
+
+      <circle className="resources-nexus-svg-node resources-nexus-svg-node-a" cx="37" cy="86" r="3.9" fill="#A7F3FF" />
+      <circle className="resources-nexus-svg-node resources-nexus-svg-node-b" cx="153" cy="86" r="3.9" fill="#DDD6FE" />
+      <circle className="resources-nexus-svg-node resources-nexus-svg-node-c" cx="95" cy="162" r="4.1" fill="#BFDBFE" />
+    </svg>
+  );
+}
+
+function ResourcesNexusCard({
+  card,
+  index,
+  compact = false,
+}: {
+  card: IconItem;
+  index: number;
+  compact?: boolean;
+}) {
+  const Icon = card.Icon;
+
+  return (
+    <div
+      className="resources-nexus-card-float"
+      style={
+        {
+          "--delay": `${index * 0.2}s`,
+          "--duration": `${7.2 + index * 0.28}s`,
+        } as CSSProperties
+      }
+    >
+      <div
+        className={`resources-nexus-card group relative overflow-hidden border border-blue-100/80 shadow-[0_18px_48px_rgba(37,99,235,0.105)] backdrop-blur-xl transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_24px_64px_rgba(37,99,235,0.16)] ${
+          compact
+            ? "min-h-[116px] rounded-[18px] p-3"
+            : "flex min-h-[104px] w-[192px] items-start gap-3 rounded-[20px] p-3.5"
+        }`}
+      >
+        <div className={compact ? "flex items-start gap-3" : "contents"}>
+          <span
+            className={`${compact ? "h-9 w-9" : "h-10 w-10"} grid shrink-0 place-items-center rounded-full bg-white text-[#2563EB] shadow-[0_12px_26px_rgba(37,99,235,0.12)] ring-1 ring-blue-100 transition group-hover:shadow-[0_0_0_7px_rgba(34,211,238,0.08),0_14px_30px_rgba(37,99,235,0.16)]`}
+          >
+            <span className={`${compact ? "h-7 w-7" : "h-8 w-8"} grid place-items-center rounded-full bg-[linear-gradient(135deg,#F8FBFF,#F5F3FF)]`}>
+              <Icon className={`${compact ? "h-[15px] w-[15px]" : "h-[18px] w-[18px]"}`} strokeWidth={2.1} />
+            </span>
+          </span>
+
+          <span className="min-w-0">
+            <span className={`${compact ? "text-[13px]" : "text-[14px]"} block font-bold leading-tight text-[#071633]`}>
+              {card.title}
+            </span>
+            <span className="mt-1 block h-[3px] w-8 rounded-full bg-[linear-gradient(90deg,#06B6D4,#2563EB,#7C3AED)]" />
+            <span className={`${compact ? "mt-1 text-[10.7px]" : "mt-1 text-[11.1px]"} block font-medium leading-[1.45] text-slate-600`}>
+              {card.text}
+            </span>
+          </span>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function ResourcesNexusPill({
+  label,
+  Icon,
+  index,
+}: {
+  label: string;
+  Icon: LucideIcon;
+  index: number;
+}) {
+  return (
+    <div
+      className="resources-nexus-pill-float"
+      style={
+        {
+          "--delay": `${index * 0.24}s`,
+          "--duration": `${6.2 + index * 0.3}s`,
+        } as CSSProperties
+      }
+    >
+      <div className="resources-nexus-pill flex items-center gap-2 rounded-full border border-blue-100/80 bg-white/90 px-3 py-2 shadow-[0_14px_40px_rgba(37,99,235,0.09)] backdrop-blur-xl">
+        <span className="grid h-7 w-7 shrink-0 place-items-center rounded-full bg-[linear-gradient(135deg,#EEF5FF,#F5F3FF)] text-[#2563EB] ring-1 ring-blue-100">
+          <Icon className="h-[15px] w-[15px]" strokeWidth={2.15} />
+        </span>
+        <span className="whitespace-nowrap text-[11px] font-bold leading-tight text-slate-800">{label}</span>
+      </div>
+    </div>
+  );
+}
+
+function ResourcesNexusCore({ compact = false }: { compact?: boolean }) {
+  return (
+    <div className={`resources-nexus-core-float relative ${compact ? "h-[255px] w-[300px]" : "h-[300px] w-[330px]"}`}>
+      <div className="resources-nexus-core-aurora" />
+
+      <div className="resources-nexus-core-ring resources-nexus-core-ring-a" />
+      <div className="resources-nexus-core-ring resources-nexus-core-ring-b" />
+      <div className="resources-nexus-core-ring resources-nexus-core-ring-c" />
+
+      <div className="resources-nexus-core-beam resources-nexus-core-beam-a" />
+      <div className="resources-nexus-core-beam resources-nexus-core-beam-b" />
+
+      <div className="resources-nexus-core-base resources-nexus-core-base-shadow" />
+      <div className="resources-nexus-core-base resources-nexus-core-base-back" />
+      <div className="resources-nexus-core-base resources-nexus-core-base-mid" />
+      <div className="resources-nexus-core-base resources-nexus-core-base-front" />
+
+      <div className={`resources-nexus-core-shell ${compact ? "resources-nexus-core-shell-compact" : ""}`}>
+        <span className="resources-nexus-scan-ring" />
+        <span className="resources-nexus-scan-ring resources-nexus-scan-ring-b" />
+        <span className="resources-nexus-orbit-dot resources-nexus-orbit-dot-a" />
+        <span className="resources-nexus-orbit-dot resources-nexus-orbit-dot-b" />
+        <span className="resources-nexus-orbit-dot resources-nexus-orbit-dot-c" />
+
+        <ResourcesKnowledgeHubIcon
+          idPrefix={compact ? "resources-mobile-core" : "resources-desktop-core"}
+          className={compact ? "h-[136px] w-[136px]" : "h-[154px] w-[154px]"}
+        />
+      </div>
+
+      <div className={`absolute left-1/2 z-40 -translate-x-1/2 text-center ${compact ? "bottom-[4px] w-[190px]" : "bottom-[8px] w-[220px]"}`}>
+        <p className={`${compact ? "text-[16px]" : "text-[18px]"} font-bold leading-none tracking-[-0.02em] text-[#071633]`}>
+          Knowledge Hub
+        </p>
+        <p className={`${compact ? "mt-1 text-[11px]" : "mt-1.5 text-[12px]"} font-semibold text-slate-600`}>
+          Docs, guides and research
+        </p>
+        <span className="mx-auto mt-2.5 block h-[3px] w-24 rounded-full bg-[linear-gradient(90deg,#06B6D4,#2563EB,#7C3AED)]" />
+      </div>
+    </div>
+  );
+}
+
 function ResourcesHeroVisual() {
-  const cardPositions = [
-    "left-[22px] top-[46px]",
-    "right-[22px] top-[58px]",
-    "left-[0px] top-[478px]",
-    "right-[0px] top-[478px]",
+  const cardSlots: Array<{ left?: string; right?: string; top: string }> = [
+    { left: "2%", top: "14%" },
+    { right: "2%", top: "14%" },
+    { left: "2%", top: "63%" },
+    { right: "2%", top: "63%" },
+  ];
+
+  const particles: Array<[number, number, number, number, number]> = [
+    [18, 20, 7, 0, 8.4],
+    [36, 12, 5, 320, 9.2],
+    [67, 18, 6, 680, 7.8],
+    [82, 34, 9, 980, 8.8],
+    [24, 52, 5, 1240, 9.4],
+    [76, 58, 6, 1540, 8.2],
+    [42, 78, 7, 1840, 9.6],
+    [60, 82, 5, 2140, 8.6],
   ];
 
   return (
-    <div className="resources-hero-visual relative mx-auto aspect-[1.28/1] min-h-[500px] w-full max-w-[820px] overflow-visible pb-10 sm:min-h-[540px] lg:min-h-[590px] lg:-mt-2 xl:-mt-4" aria-hidden="true">
-      <div className="resources-hero-aurora absolute inset-[-8%]" />
+    <div
+      className="resources-nexus-visual relative mx-auto w-full max-w-[800px] overflow-visible lg:-mt-2 xl:-mt-4"
+      aria-hidden="true"
+    >
+      <div className="hidden lg:block">
+        <div className="resources-nexus-shell relative h-[548px] w-full overflow-visible">
+          <div className="resources-nexus-ambient absolute inset-[-6%] rounded-full" />
+          <div className="resources-nexus-mesh absolute right-[2%] top-[4%] h-[230px] w-[310px]" />
+          <div className="resources-nexus-mesh absolute bottom-[6%] left-[4%] h-[190px] w-[260px] rotate-180 opacity-55" />
 
-      <div className="resources-hero-stage absolute left-1/2 top-[52.5%] h-[640px] w-[820px] -translate-x-1/2 -translate-y-1/2 scale-[0.34] sm:scale-[0.58] md:scale-[0.72] lg:top-[55%] lg:scale-[0.78] xl:scale-[0.84] 2xl:scale-[0.9]">
-        <div className="resources-orbit resources-orbit-a" />
-        <div className="resources-orbit resources-orbit-b" />
-        <div className="resources-orbit resources-orbit-c" />
+          <svg
+            className="pointer-events-none absolute inset-0 z-10 h-full w-full overflow-visible"
+            viewBox="0 0 820 560"
+            fill="none"
+            preserveAspectRatio="xMidYMid meet"
+          >
+            <defs>
+              <linearGradient id="resourcesNexusConnector" x1="90" y1="90" x2="730" y2="500" gradientUnits="userSpaceOnUse">
+                <stop stopColor="#06B6D4" />
+                <stop offset="0.48" stopColor="#2563EB" />
+                <stop offset="1" stopColor="#7C3AED" />
+              </linearGradient>
 
-        <svg className="resources-connector-svg absolute inset-0 z-[4] h-full w-full overflow-visible" viewBox="0 0 820 640" fill="none">
-          <defs>
-            <linearGradient id="resources-connector-gradient" x1="78" y1="96" x2="724" y2="514" gradientUnits="userSpaceOnUse">
-              <stop stopColor="#2563EB" />
-              <stop offset="0.45" stopColor="#06B6D4" />
-              <stop offset="1" stopColor="#7C3AED" />
-            </linearGradient>
-            <linearGradient id="resources-white-orbit" x1="102" y1="126" x2="760" y2="548" gradientUnits="userSpaceOnUse">
-              <stop stopColor="#FFFFFF" stopOpacity="0.2" />
-              <stop offset="0.5" stopColor="#FFFFFF" stopOpacity="0.86" />
-              <stop offset="1" stopColor="#FFFFFF" stopOpacity="0.16" />
-            </linearGradient>
-            <filter id="resources-node-glow" x="-80%" y="-80%" width="260%" height="260%">
-              <feGaussianBlur stdDeviation="4" result="blur" />
-              <feMerge>
-                <feMergeNode in="blur" />
-                <feMergeNode in="SourceGraphic" />
-              </feMerge>
-            </filter>
-          </defs>
+              <filter id="resourcesNexusNodeGlow" x="-90%" y="-90%" width="280%" height="280%">
+                <feGaussianBlur stdDeviation="4.5" result="blur" />
+                <feMerge>
+                  <feMergeNode in="blur" />
+                  <feMergeNode in="SourceGraphic" />
+                </feMerge>
+              </filter>
+            </defs>
 
-          <ellipse cx="410" cy="340" rx="322" ry="208" stroke="url(#resources-white-orbit)" strokeWidth="1.2" />
-          <ellipse className="resources-signal-path resources-signal-delay-a opacity-40" cx="410" cy="342" rx="264" ry="164" stroke="url(#resources-connector-gradient)" strokeDasharray="8 14" />
-          <ellipse className="resources-signal-path resources-signal-delay-b opacity-50" cx="410" cy="342" rx="204" ry="126" stroke="url(#resources-white-orbit)" strokeDasharray="10 18" />
+            <ellipse cx="410" cy="282" rx="248" ry="184" fill="rgba(255,255,255,0.13)" />
+            <ellipse
+              className="resources-nexus-orbit-path"
+              cx="410"
+              cy="282"
+              rx="258"
+              ry="190"
+              stroke="url(#resourcesNexusConnector)"
+              strokeWidth="1.8"
+              strokeDasharray="8 13"
+            />
+            <ellipse
+              className="resources-nexus-orbit-path resources-nexus-orbit-path-slow"
+              cx="410"
+              cy="282"
+              rx="182"
+              ry="132"
+              stroke="#60A5FA"
+              strokeWidth="1.25"
+              strokeDasharray="4 11"
+            />
+            <ellipse cx="410" cy="282" rx="130" ry="94" stroke="rgba(255,255,255,0.56)" strokeWidth="1.1" />
 
-          <path className="resources-signal-path resources-signal-drop" d="M164 142C172 166 206 184 250 188" stroke="url(#resources-connector-gradient)" />
-          <path className="resources-signal-path resources-signal-drop resources-signal-delay-a" d="M656 154C640 176 606 192 570 196" stroke="url(#resources-connector-gradient)" />
-          <path className="resources-signal-path" d="M250 188C300 194 334 222 360 258" stroke="url(#resources-connector-gradient)" />
-          <path className="resources-signal-path resources-signal-delay-a" d="M570 196C524 202 490 226 460 258" stroke="url(#resources-connector-gradient)" />
-          <path className="resources-signal-path resources-signal-delay-b" d="M248 490C300 438 330 400 360 372" stroke="url(#resources-connector-gradient)" />
-          <path className="resources-signal-path resources-signal-delay-c" d="M574 490C526 438 492 400 460 372" stroke="url(#resources-connector-gradient)" />
-          <path className="resources-signal-path resources-signal-delay-d" d="M188 196C188 250 216 286 270 290H326" stroke="url(#resources-connector-gradient)" />
-          <path className="resources-signal-path resources-signal-delay-e" d="M638 206C638 262 610 298 556 300H496" stroke="url(#resources-connector-gradient)" />
-          <path className="resources-signal-path resources-signal-delay-c opacity-70" d="M128 512C226 548 318 534 410 496C516 452 612 476 736 522" stroke="url(#resources-white-orbit)" />
+            <path className="resources-nexus-connector" d="M234 168C304 176 346 218 378 258" stroke="url(#resourcesNexusConnector)" />
+            <path className="resources-nexus-connector" d="M586 168C516 176 474 218 442 258" stroke="url(#resourcesNexusConnector)" style={{ "--delay": "-0.8s" } as CSSProperties} />
+            <path className="resources-nexus-connector" d="M234 396C306 370 346 334 378 304" stroke="url(#resourcesNexusConnector)" style={{ "--delay": "-1.6s" } as CSSProperties} />
+            <path className="resources-nexus-connector" d="M586 396C514 370 474 334 442 304" stroke="url(#resourcesNexusConnector)" style={{ "--delay": "-2.4s" } as CSSProperties} />
 
-          {([
-            [250, 188, "#22D3EE", 8],
-            [570, 196, "#06B6D4", 8],
-            [248, 490, "#22D3EE", 7],
-            [574, 490, "#7C3AED", 7],
-            [188, 196, "#FFFFFF", 5],
-            [638, 206, "#FFFFFF", 5],
-            [360, 368, "#FFFFFF", 5],
-            [460, 368, "#FFFFFF", 5],
-            [410, 214, "#22D3EE", 6],
-            [410, 496, "#FFFFFF", 6],
-          ] as Array<[number, number, string, number]>).map(([cx, cy, fill, r], index) => (
-            <g key={`${cx}-${cy}`} className="resources-signal-node" style={{ animationDelay: `${index * 180}ms` }}>
-              <circle cx={cx} cy={cy} r={r + 7} fill={fill} opacity="0.16" />
-              <circle cx={cx} cy={cy} r={r} fill={fill} filter="url(#resources-node-glow)" />
-            </g>
+            <path
+              className="resources-nexus-connector resources-nexus-connector-soft"
+              d="M136 280C226 132 594 132 684 280"
+              stroke="url(#resourcesNexusConnector)"
+              style={{ "--delay": "-3.2s" } as CSSProperties}
+            />
+            <path
+              className="resources-nexus-connector resources-nexus-connector-soft"
+              d="M132 346C236 482 584 482 688 346"
+              stroke="url(#resourcesNexusConnector)"
+              style={{ "--delay": "-4.4s" } as CSSProperties}
+            />
+
+            {([
+              [234, 168, "#06B6D4"],
+              [586, 168, "#7C3AED"],
+              [234, 396, "#22D3EE"],
+              [586, 396, "#7C3AED"],
+              [378, 258, "#2563EB"],
+              [442, 258, "#7C3AED"],
+              [378, 304, "#22D3EE"],
+              [442, 304, "#2563EB"],
+              [410, 150, "#FFFFFF"],
+              [410, 452, "#FFFFFF"],
+            ] as Array<[number, number, string]>).map(([cx, cy, fill], index) => (
+              <g
+                key={`${cx}-${cy}`}
+                className="resources-nexus-signal-node"
+                style={{ "--delay": `${index * 0.14}s` } as CSSProperties}
+              >
+                <circle cx={cx} cy={cy} r="12" fill={fill} opacity="0.14" />
+                <circle cx={cx} cy={cy} r="5" fill={fill} filter="url(#resourcesNexusNodeGlow)" />
+              </g>
+            ))}
+          </svg>
+
+          {particles.map(([left, top, size, delay, duration]) => (
+            <span
+              key={`${left}-${top}`}
+              className="resources-nexus-particle absolute z-20 rounded-full"
+              style={
+                {
+                  left: `${left}%`,
+                  top: `${top}%`,
+                  width: `${size}px`,
+                  height: `${size}px`,
+                  "--delay": `${delay}ms`,
+                  "--duration": `${duration}s`,
+                } as CSSProperties
+              }
+            />
           ))}
-        </svg>
 
-        {([
-          [14, 26, 7, 0],
-          [24, 56, 10, 520],
-          [41, 17, 6, 900],
-          [72, 28, 8, 340],
-          [84, 58, 11, 720],
-          [62, 76, 7, 1120],
-          [48, 54, 5, 1500],
-        ] as Array<[number, number, number, number]>).map(([left, top, size, delay]) => (
-          <span
-            key={`${left}-${top}`}
-            className="resources-particle absolute z-[3]"
-            style={{
-              left: `${left}%`,
-              top: `${top}%`,
-              width: size,
-              height: size,
-              animationDelay: `${delay}ms`,
-            }}
-          />
-        ))}
-
-        <span className="resources-cube absolute left-[16%] top-[32%]" />
-        <span className="resources-cube absolute left-[30%] top-[19%]" style={{ animationDelay: "850ms" }} />
-        <span className="resources-cube absolute right-[17%] top-[31%]" style={{ animationDelay: "1.3s" }} />
-        <span className="resources-cube absolute bottom-[20%] right-[28%]" style={{ animationDelay: "1.9s" }} />
-        <span className="resources-cube absolute bottom-[34%] left-[24%]" style={{ animationDelay: "2.2s" }} />
-
-        {floatingCards.map((card, index) => {
-          const Icon = card.Icon;
-
-          return (
-            <div
-              key={card.title}
-              className={`resources-floating-card group absolute z-40 rounded-[22px] border border-blue-100/90 bg-white/88 p-4 shadow-[0_20px_54px_rgba(37,99,235,0.12)] backdrop-blur-xl ring-1 ring-white/80 transition duration-300 hover:-translate-y-1 hover:shadow-[0_26px_72px_rgba(37,99,235,0.16)] ${cardPositions[index]}`}
-              style={{ animationDelay: `${index * 420}ms` }}
-            >
-              <div className="flex items-center gap-3.5">
-                <span className="grid h-12 w-12 shrink-0 place-items-center rounded-full bg-[linear-gradient(135deg,#F8FBFF,#EEF5FF_48%,#F5F3FF)] text-[#2563EB] shadow-[inset_0_0_18px_rgba(37,99,235,0.08),0_10px_24px_rgba(37,99,235,0.1)] ring-1 ring-blue-100 transition group-hover:shadow-[inset_0_0_22px_rgba(34,211,238,0.14),0_13px_30px_rgba(37,99,235,0.14)]">
-                  <Icon className="h-6 w-6" strokeWidth={2.05} />
-                </span>
-                <span className="min-w-0">
-                  <span className="block whitespace-nowrap text-[18px] font-bold leading-tight tracking-[-0.02em] text-slate-950">{card.title}</span>
-                  <span className="mt-2 block text-[12.5px] font-normal leading-[1.45] text-slate-600">{card.text}</span>
-                </span>
-              </div>
-            </div>
-          );
-        })}
-
-        <div className="resources-knowledge-core absolute left-1/2 top-[55%] z-10 h-[430px] w-[560px] -translate-x-1/2 -translate-y-1/2">
-          <div className="resources-knowledge-halo" />
-          <div className="resources-base resources-base-back" />
-          <div className="resources-base resources-base-mid" />
-          <div className="resources-base resources-base-front" />
-          <div className="resources-glow-disc resources-glow-disc-a" />
-          <div className="resources-glow-disc resources-glow-disc-b" />
-
-          <div className="resources-book">
-            <div className="resources-page resources-page-left">
-              <div className="resources-page-copy resources-page-copy-left">
-                <em>About EVADA</em>
-                <small>Platform docs</small>
-              </div>
-              <span />
-              <span />
-              <span />
-              <span />
-              <i />
-            </div>
-            <div className="resources-page resources-page-right">
-              <div className="resources-page-copy resources-page-copy-right">
-                <strong>Security Guides</strong>
-                <small>Best practices</small>
-              </div>
-              <span />
-              <span />
-              <span />
-              <span />
-              <i />
-            </div>
-            <div className="resources-book-spine" />
+          <div className="absolute left-1/2 top-[51%] z-30 -translate-x-1/2 -translate-y-1/2">
+            <ResourcesNexusCore />
           </div>
 
-          <div className="resources-shield">
-            <BookOpen className="h-16 w-16" strokeWidth={1.9} />
+          {floatingCards.map((card, index) => {
+            const slot = cardSlots[index] ?? cardSlots[0];
+
+            return (
+              <div
+                key={card.title}
+                className="absolute z-40"
+                style={{
+                  left: slot.left,
+                  right: slot.right,
+                  top: slot.top,
+                }}
+              >
+                <ResourcesNexusCard card={card} index={index} />
+              </div>
+            );
+          })}
+
+          <div className="absolute left-[6%] top-[3%] z-40">
+            <ResourcesNexusPill label="Technical docs" Icon={BookOpen} index={0} />
+          </div>
+
+          <div className="absolute right-[6%] top-[3%] z-40">
+            <ResourcesNexusPill label="Searchable hub" Icon={Search} index={1} />
+          </div>
+        </div>
+      </div>
+
+      <div className="lg:hidden">
+        <div className="relative overflow-hidden rounded-[28px] border border-blue-100/80 bg-white/72 p-4 shadow-[0_18px_48px_rgba(37,99,235,0.10)] backdrop-blur-xl">
+          <div className="resources-nexus-ambient absolute inset-0 rounded-[28px]" />
+          <div className="resources-nexus-mesh absolute right-[-18%] top-[-8%] h-[210px] w-[250px]" />
+
+          <div className="relative mx-auto h-[255px] max-w-[320px]">
+            <div className="absolute left-1/2 top-1/2 z-10 -translate-x-1/2 -translate-y-1/2">
+              <ResourcesNexusCore compact />
+            </div>
+          </div>
+
+          <div className="relative z-20 mt-3 grid grid-cols-1 gap-3 sm:grid-cols-2">
+            {floatingCards.map((card, index) => (
+              <ResourcesNexusCard key={card.title} card={card} index={index} compact />
+            ))}
           </div>
         </div>
       </div>
@@ -334,25 +641,26 @@ function ResourcesHeroVisual() {
   );
 }
 
+
 function HeroSection() {
   return (
     <section className="evada-home-hero evada-resources-hero relative overflow-hidden bg-white px-5 pb-10 pt-7 sm:px-8 sm:pb-12 sm:pt-9 lg:px-10 lg:pb-16 lg:pt-10">
       <div aria-hidden="true" className="absolute inset-0 bg-[radial-gradient(circle_at_14%_16%,rgba(37,99,235,0.12),transparent_36%),radial-gradient(circle_at_84%_18%,rgba(124,58,237,0.14),transparent_34%),radial-gradient(circle_at_82%_72%,rgba(34,211,238,0.15),transparent_34%),linear-gradient(180deg,#FFFFFF_0%,#F8FBFF_58%,#FFFFFF_100%)]" />
       <div aria-hidden="true" className="resources-grid-bg absolute inset-0 opacity-70" />
 
-      <div className="relative mx-auto grid w-full max-w-full min-w-0 grid-cols-1 items-center gap-10 sm:max-w-[1220px] lg:grid-cols-[0.43fr_0.57fr] xl:gap-12">
+      <div className="relative mx-auto grid w-full max-w-[calc(100vw-2.5rem)] min-w-0 grid-cols-1 items-center gap-10 sm:max-w-[1220px] lg:grid-cols-[0.43fr_0.57fr] xl:gap-12">
         <Reveal className="w-full min-w-0 max-w-full">
-          <div className="w-full max-w-full sm:max-w-[560px]">
+          <div className="w-full max-w-[calc(100vw-2.5rem)] sm:max-w-[560px]">
             <p className="inline-flex items-center gap-2 text-[11px] font-semibold uppercase tracking-[0.18em] text-[#2563EB]">
               <span className="h-2 w-2 rounded-full bg-[#04A9C7]" />
               Resources
             </p>
-            <h1 className="mt-5 max-w-full break-words text-[34px] font-bold leading-[1.02] tracking-[-0.035em] text-slate-950 sm:text-[46px] lg:text-[clamp(3rem,4.55vw,3.75rem)]">
+            <h1 className="mt-5 max-w-full break-words text-[34px] font-bold leading-[1.07] tracking-[-0.035em] text-slate-950 sm:text-[46px] lg:text-[clamp(3rem,4.55vw,3.75rem)]">
               <span className="block">Knowledge.</span>
               <span className="block">Guidance.</span>
               <span className="block bg-[linear-gradient(90deg,#6D49F4,#2563EB,#04A9C7)] bg-clip-text text-transparent">Security confidence.</span>
             </h1>
-            <p className="mt-5 w-full max-w-full text-[15px] font-normal leading-[1.7] text-slate-600 sm:max-w-[540px] sm:text-[16px]">
+            <p className="mt-5 w-full max-w-full text-[15px] leading-[1.7] text-slate-600 sm:max-w-[540px] sm:text-[16px]">
               Explore documentation, guides, webinars and expert resources to help your team get more value from EVADA&apos;s AI-supported security validation platform.
             </p>
 
